@@ -61,3 +61,12 @@ The mean blocked DTI is `7.098010543695007e-09` (effectively zero). No score imp
 - Core mirror integrity is checked, but authenticated organizer-original bytes are unavailable. Source-data rights and participant eligibility must be confirmed by the participant before final prize submission.
 - Hidden labels, clean historical-best OOF predictions, and organizer filename-score receipts are unavailable. Do not invent them or ask for credentials in chat.
 - Direct sandbox API permission to change Pages settings returned HTTP 403. The repository already has legacy Pages enabled; root index + docs are compatible with that. The deployment workflow attempts authorized Pages configuration with its own scoped token; verify its outcome, do not assume success.
+
+### Final independent verification receipts
+
+- Final code CI rebuild: https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37386650446 — **SUCCESS**. Fresh input restoration, all four folds, exact expected pixel SHA-256 comparison, and tests passed on an independent Ubuntu runner (1m36s).
+- Site / tests / public-source refresh: https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37386650577 — **SUCCESS**. PR test workflow also succeeded.
+- Actual local HTTP TIFF download: **879,919 bytes**, SHA-256 exactly `27601829f332b83cdbd7c3a8a2ea17afa5186e373a2f020152582665320c1d35`; homepage, all three subpages and feed returned HTTP 200.
+- Final diff review caught CSV CRLF line terminators being reported as trailing whitespace; fixed both generators to emit LF and added `.gitattributes`. Full baseline-to-final `git diff --check` now passes.
+- Non-failing CI warnings: upstream Actions using Node 20 are forced onto Node 24 by the runner; `ubuntu-latest` has a scheduled image migration. A future maintenance pass should pin the runner image and update supported action versions, then rerun the pixel-hash test.
+- Pull request: https://github.com/buffedlizard55-lab/GEMSDOE41/pull/1 — merge is gated on successful checks; no competition upload is part of this PR.
