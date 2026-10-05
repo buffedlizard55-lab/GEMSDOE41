@@ -1,0 +1,399 @@
+{
+  "schema_version": "GEMSDOE32-H33-v1.0",
+  "generated_at_utc": "20261004T220000Z",
+  "base": {
+    "candidate_id": "BASE-0.2708",
+    "source": "data/raw/scored/gems28-h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan.tif",
+    "sha256": "ab02300152248fdda04e988e2cd2a0c13f35eec42fcf670a15e8b76b19e24a73",
+    "owner_reported_live_dti": 0.2708,
+    "emitted_pixels": 40199
+  },
+  "tau_live_credit_per_added_dot": 0.05416,
+  "live_anchor_inversion": {
+    "pair": "D2.8 (0.2600, 44,090 dots) -> H27-4-R1-SOLO (0.2708, 40,199 dots)",
+    "tp_w": 5073.2875555555665,
+    "denominator": 18734.444444444485,
+    "mean_credit_per_dot": 0.12620432238502366,
+    "implied_weighted_recall_at_G_12226": 0.41495890361161186,
+    "max_credit_loss_absorbed_by_the_live_validated_B1_removal": 210.73656
+  },
+  "lm_validity_report": {
+    "instrument": "LM-calibrated (spatially blocked official DTI vs SGMC off-catalogue truth, |G| calibrated to 12,691 px)",
+    "validated_regime": "catalogue-flank and budget perturbations of the 40k-62k dot operating point; it reproduces H27-4-R1-SOLO > D2.8, D2.8 > D1.5 and LATTICE-S5 > PLACEHOLDER",
+    "rows": [
+      {
+        "candidate": "BASE-0.2708",
+        "lm_calibrated_mean": 0.2630509875503576,
+        "emitted_pixels": 40199,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "D2.8-0.2600",
+        "lm_calibrated_mean": 0.25159295241630136,
+        "emitted_pixels": 44090,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "H33-2-B2",
+        "lm_calibrated_mean": 0.2679205315698004,
+        "emitted_pixels": 37654,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "H33-2-B3",
+        "lm_calibrated_mean": 0.264368200232332,
+        "emitted_pixels": 35483,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "H33-1-P300A900",
+        "lm_calibrated_mean": 0.2635749488983795,
+        "emitted_pixels": 41099,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "H33-1-P600A1800",
+        "lm_calibrated_mean": 0.26569019881603845,
+        "emitted_pixels": 41999,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "H33-5-P300A900",
+        "lm_calibrated_mean": 0.2649214166485582,
+        "emitted_pixels": 41099,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      },
+      {
+        "candidate": "H33-2B2-PLUS-H33-1",
+        "lm_calibrated_mean": 0.2680288822207698,
+        "emitted_pixels": 38554,
+        "owner_reported_live_dti": null,
+        "live_minus_lm": null
+      }
+    ],
+    "worst_live_minus_lm": null,
+    "note": "A positive live_minus_lm means the live score is higher than the instrument says. The magnitude of that gap on mass-removal arms is the drift measurement."
+  },
+  "instruments": {
+    "lm_calibrated": "spatially blocked official DTI against SGMC off-catalogue truth, prevalence calibrated to |G_LB| = 12,691 px; validated on the known live orderings in evidence/live_mirror_validation.json",
+    "catalogue_hidden_mean": "leak-contaminated catalogue holdout (cannot rank live)"
+  },
+  "h33_1_thermal_stats": {
+    "n_geothermometer_sites": 184,
+    "n_sites_gt150": 53,
+    "n_sites_gt150_far": 15,
+    "n_sites_gt180": 22,
+    "n_sites_gt180_far": 9,
+    "n_sites_gt200_far": 6
+  },
+  "h33_5_stats": {
+    "n_tip_px": 17437,
+    "n_junction_px": 144821,
+    "n_ridge_px": 203396
+  },
+  "missing_external_inputs": {
+    "2m_temperature_probes": {
+      "resource": "2m Temperature Probes.zip",
+      "url": "https://gdr.openei.org/files/1391/2m_temperature_probe_INGENIOUS_regional_data.zip",
+      "published_bytes": 1030000,
+      "hypothesis": "H33-3",
+      "present": false,
+      "note": "Shallow 2 m temperature-probe surveys. A 2 m thermal anomaly is the most direct surface expression of a hydrothermal upflow; its elongated axis is a lineament. Listed on the official GDR 1391 resource page (CC BY 4.0)."
+    },
+    "paleo_geothermal_features": {
+      "resource": "Paleo Geothermal Features.zip",
+      "url": "https://gdr.openei.org/files/1391/paleo_geothermal_regional.zip",
+      "published_bytes": 82040,
+      "hypothesis": "H33-4",
+      "present": false,
+      "note": "Mapped sinter and tufa deposits -- the surface record of *past* upflow. A paleo system's active conduit is now typically blind, which is the target population. Listed on the official GDR 1391 resource page (CC BY 4.0)."
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": "BASE-0.2708",
+      "hypothesis": "reference",
+      "description": "group's live-scored best (owner-reported 0.2708)",
+      "is_base": true,
+      "emitted_pixels": 40199,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 2545,
+      "lm_mean": 0.2630509875503576,
+      "lm_per_fold": {
+        "foldNW": 0.17665016033478298,
+        "foldNE": 0.4143017742765064,
+        "foldSW": 0.2100528899583625,
+        "foldSE": 0.25119912563177865
+      },
+      "lm_min_fold": 0.17665016033478298,
+      "lm_folds_beat_base": null,
+      "catalogue_hidden_mean": 0.031042014839025488,
+      "drift_corrected_holdout_mean": 0.08177106848562186,
+      "sgmc_prevalence_calibrated_dti": 0.06300952965550721,
+      "credit_per_added_dot": null,
+      "slot_eligible": false
+    },
+    {
+      "candidate_id": "D2.8-0.2600",
+      "hypothesis": "reference",
+      "description": "the 0.2600 emission, for reference",
+      "is_base": false,
+      "emitted_pixels": 44090,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 3891,
+      "flank_px_le_2": 6436,
+      "lm_mean": 0.25159295241630136,
+      "lm_per_fold": {
+        "foldNW": 0.17054582054033207,
+        "foldNE": 0.3952971986077826,
+        "foldSW": 0.2032266716912924,
+        "foldSE": 0.2373021188257983
+      },
+      "lm_min_fold": 0.17054582054033207,
+      "lm_folds_beat_base": 0,
+      "catalogue_hidden_mean": 0.09832378835263812,
+      "drift_corrected_holdout_mean": 0.14800749967104304,
+      "sgmc_prevalence_calibrated_dti": 0.06059248997356903,
+      "credit_per_added_dot": -0.010868046696898335,
+      "slot_eligible": false,
+      "lm_margin_vs_base": -0.011458035134056244,
+      "removal": {
+        "n_removed": 0,
+        "d_tp_p": 0.0,
+        "d_tp_g": 0.0
+      },
+      "live_anchor_safety": null,
+      "live_anchor_projection": null
+    },
+    {
+      "candidate_id": "H33-2-B2",
+      "hypothesis": "H33-2",
+      "description": "0.2708 base with every dot at d(catalogue) <= 2 px deleted (37,654 dots)",
+      "is_base": false,
+      "emitted_pixels": 37654,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 0,
+      "lm_mean": 0.2679205315698004,
+      "lm_per_fold": {
+        "foldNW": 0.17845441391493597,
+        "foldNE": 0.4228785103505033,
+        "foldSW": 0.21382513739633008,
+        "foldSE": 0.25652406461743227
+      },
+      "lm_min_fold": 0.17845441391493597,
+      "lm_folds_beat_base": 4,
+      "catalogue_hidden_mean": 0.004600104084398947,
+      "drift_corrected_holdout_mean": 0.04504333270394367,
+      "sgmc_prevalence_calibrated_dti": 0.06412093764176459,
+      "credit_per_added_dot": null,
+      "slot_eligible": true,
+      "lm_margin_vs_base": 0.004869544019442784,
+      "removal": {
+        "n_removed": 2545,
+        "d_tp_p": 65.09227269807448,
+        "d_tp_g": 55.28575800481242
+      },
+      "live_anchor": {
+        "dn": 2545,
+        "d_credit": 65.09227269807448,
+        "d_tp_g": 55.28575800481242,
+        "max_allowed_credit_loss": 135.7127166568517,
+        "safety_factor": 2.0849282262173383,
+        "projected_dti_if_live_credit_matches": 0.27467315976932155,
+        "gain": true,
+        "denominator_after": 18233.289656199096
+      },
+      "live_anchor_safety": 2.0849282262173383,
+      "live_anchor_projection": 0.27467315976932155
+    },
+    {
+      "candidate_id": "H33-2-B3",
+      "hypothesis": "H33-2",
+      "description": "0.2708 base with every dot at d(catalogue) <= 3 px deleted (35,483 dots)",
+      "is_base": false,
+      "emitted_pixels": 35483,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 0,
+      "lm_mean": 0.264368200232332,
+      "lm_per_fold": {
+        "foldNW": 0.1724440529100198,
+        "foldNE": 0.42088297184878226,
+        "foldSW": 0.2113829500853536,
+        "foldSE": 0.25276282608517225
+      },
+      "lm_min_fold": 0.1724440529100198,
+      "lm_folds_beat_base": 3,
+      "catalogue_hidden_mean": 0.0,
+      "drift_corrected_holdout_mean": 0.02575194158767763,
+      "sgmc_prevalence_calibrated_dti": 0.06359311684054031,
+      "credit_per_added_dot": null,
+      "slot_eligible": false,
+      "lm_margin_vs_base": 0.001317212681974378,
+      "removal": {
+        "n_removed": 4716,
+        "d_tp_p": 198.03843863065467,
+        "d_tp_g": 177.94565517458233
+      },
+      "live_anchor": {
+        "dn": 4716,
+        "d_credit": 198.03843863065467,
+        "d_tp_g": 177.94565517458233,
+        "max_allowed_credit_loss": 251.06565939207653,
+        "safety_factor": 1.2677622643769606,
+        "projected_dti_if_live_credit_matches": 0.2737778329764579,
+        "gain": true,
+        "denominator_after": 17807.31867120934
+      },
+      "live_anchor_safety": 1.2677622643769606,
+      "live_anchor_projection": 0.2737778329764579
+    },
+    {
+      "candidate_id": "H33-1-P300A900",
+      "hypothesis": "H33-1",
+      "description": "0.2708 base: prune 300 thermally-uncorroborated weak dots, add 900 GDR-geothermometer-conduit dots (41,099 total)",
+      "is_base": false,
+      "emitted_pixels": 41099,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 2558,
+      "lm_mean": 0.2635749488983795,
+      "lm_per_fold": {
+        "foldNW": 0.17665016033478298,
+        "foldNE": 0.41811334730227356,
+        "foldSW": 0.21105751935451755,
+        "foldSE": 0.24847876860194407
+      },
+      "lm_min_fold": 0.17665016033478298,
+      "lm_folds_beat_base": 2,
+      "catalogue_hidden_mean": 0.03089518398061943,
+      "drift_corrected_holdout_mean": 0.08145289294284966,
+      "sgmc_prevalence_calibrated_dti": 0.06312572201685059,
+      "credit_per_added_dot": 0.0021486185375211094,
+      "slot_eligible": false,
+      "lm_margin_vs_base": 0.0005239613480219063,
+      "removal": {
+        "n_removed": 0,
+        "d_tp_p": 0.0,
+        "d_tp_g": 0.0
+      },
+      "live_anchor_safety": null,
+      "live_anchor_projection": null
+    },
+    {
+      "candidate_id": "H33-1-P600A1800",
+      "hypothesis": "H33-1",
+      "description": "0.2708 base: prune 600 thermally-uncorroborated weak dots, add 1,800 GDR-geothermometer-conduit dots (41,999 total)",
+      "is_base": false,
+      "emitted_pixels": 41999,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 2581,
+      "lm_mean": 0.26569019881603845,
+      "lm_per_fold": {
+        "foldNW": 0.17665016033478298,
+        "foldNE": 0.4294719546348073,
+        "foldSW": 0.21026649889497198,
+        "foldSE": 0.2463721813995915
+      },
+      "lm_min_fold": 0.17665016033478298,
+      "lm_folds_beat_base": 2,
+      "catalogue_hidden_mean": 0.030727003431028785,
+      "drift_corrected_holdout_mean": 0.081135701671154,
+      "sgmc_prevalence_calibrated_dti": 0.06373043686951803,
+      "credit_per_added_dot": 0.005411332602380548,
+      "slot_eligible": false,
+      "lm_margin_vs_base": 0.002639211265680841,
+      "removal": {
+        "n_removed": 0,
+        "d_tp_p": 0.0,
+        "d_tp_g": 0.0
+      },
+      "live_anchor_safety": null,
+      "live_anchor_projection": null
+    },
+    {
+      "candidate_id": "H33-5-P300A900",
+      "hypothesis": "H33-5",
+      "description": "0.2708 base: prune 300 weak dots, add 900 detector-field tip/step-over corridor dots (41,099 total)",
+      "is_base": false,
+      "emitted_pixels": 41099,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 2963,
+      "lm_mean": 0.2649214166485582,
+      "lm_per_fold": {
+        "foldNW": 0.17684991445371978,
+        "foldNE": 0.4163101530265177,
+        "foldSW": 0.20978700921090576,
+        "foldSE": 0.2567385899030893
+      },
+      "lm_min_fold": 0.17684991445371978,
+      "lm_folds_beat_base": 3,
+      "catalogue_hidden_mean": 0.035339642899271745,
+      "drift_corrected_holdout_mean": 0.08760172151757403,
+      "sgmc_prevalence_calibrated_dti": 0.06328982756411479,
+      "credit_per_added_dot": 0.007670105149329838,
+      "slot_eligible": false,
+      "lm_margin_vs_base": 0.0018704290982005656,
+      "removal": {
+        "n_removed": 0,
+        "d_tp_p": 0.0,
+        "d_tp_g": 0.0
+      },
+      "live_anchor_safety": null,
+      "live_anchor_projection": null
+    },
+    {
+      "candidate_id": "H33-2B2-PLUS-H33-1",
+      "hypothesis": "H33-1+H33-2",
+      "description": "flank B=2 base (37,654) then thermal-conduit prune-and-augment (38,554 total)",
+      "is_base": false,
+      "emitted_pixels": 38554,
+      "on_catalogue_pixels": 0,
+      "flank_px_le_1": 0,
+      "flank_px_le_2": 43,
+      "lm_mean": 0.2680288822207698,
+      "lm_per_fold": {
+        "foldNW": 0.17845441391493597,
+        "foldNE": 0.42508587379692764,
+        "foldSW": 0.21482725376609005,
+        "foldSE": 0.25374798740512555
+      },
+      "lm_min_fold": 0.17845441391493597,
+      "lm_folds_beat_base": 4,
+      "catalogue_hidden_mean": 0.005010860498881227,
+      "drift_corrected_holdout_mean": 0.045494665130607834,
+      "sgmc_prevalence_calibrated_dti": 0.06416106652488143,
+      "credit_per_added_dot": null,
+      "slot_eligible": true,
+      "lm_margin_vs_base": 0.0049778946704122085,
+      "removal": {
+        "n_removed": 2522,
+        "d_tp_p": 64.58298468307434,
+        "d_tp_g": 55.031113997312346
+      },
+      "live_anchor": {
+        "dn": 2522,
+        "d_credit": 64.58298468307434,
+        "d_tp_g": 55.031113997312346,
+        "max_allowed_credit_loss": 134.52220273463652,
+        "safety_factor": 2.0829356740753355,
+        "projected_dti_if_live_credit_matches": 0.2746348734745102,
+        "gain": true,
+        "denominator_after": 18237.685940993095
+      },
+      "live_anchor_safety": 2.0829356740753355,
+      "live_anchor_projection": 0.2746348734745102
+    }
+  ]
+}

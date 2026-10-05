@@ -1,0 +1,59 @@
+name: Tests, source refresh, and Pages
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Refresh official public sources
+        if: github.event_name != 'pull_request'
+        run: python scripts/refresh_sources.py
+      - name: Build measured research site
+        run: python scripts/build_site.py
+      - name: Stage public files only
+        run: |
+          mkdir -p .cache/pages
+          cp index.html .cache/pages/
+          cp -r docs .cache/pages/docs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-website
+          path: .cache/pages/
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: .cache/pages
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: verify
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure existing Pages site for Actions
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api "repos/${{ github.repository }}/pages" -X PUT -f build_type=workflow
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
