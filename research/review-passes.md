@@ -70,3 +70,9 @@ The mean blocked DTI is `7.098010543695007e-09` (effectively zero). No score imp
 - Final diff review caught CSV CRLF line terminators being reported as trailing whitespace; fixed both generators to emit LF and added `.gitattributes`. Full baseline-to-final `git diff --check` now passes.
 - Non-failing CI warnings: upstream Actions using Node 20 are forced onto Node 24 by the runner; `ubuntu-latest` has a scheduled image migration. A future maintenance pass should pin the runner image and update supported action versions, then rerun the pixel-hash test.
 - Pull request: https://github.com/buffedlizard55-lab/GEMSDOE41/pull/1 — merge is gated on successful checks; no competition upload is part of this PR.
+
+### Post-merge publication review
+
+PR #1 merged at 2026-10-05T23:09:38Z (merge commit `7114e11f73c754affde3d059f10da34b47da5a03`). Legacy GitHub Pages deployment succeeded and the public homepage was fetched and verified, including the correct final TIFF link and closed-gate warning.
+
+The additional scheduled publication workflow exposed a permission bug: changing Pages configuration requires administrative permission that neither available token has. That unnecessary configuration step prevented the subsequent deployment. Follow-up removes the configuration mutation and deploys to the already-enabled Pages site directly with scoped `pages:write`; it also adds a real public-HTTP TIFF SHA-256 check after publication. This affects publishing only, not the scientific model or artifact.

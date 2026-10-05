@@ -43,6 +43,7 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: verify
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
@@ -50,10 +51,15 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Configure existing Pages site for Actions
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh api "repos/${{ github.repository }}/pages" -X PUT -f build_type=workflow
+      # The site is already enabled. Deployment does not require the separate
+      # administrative permission needed to change its Pages settings.
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - name: Verify public TIFF download bytes
+        run: |
+          NAME=$(python3 -c "import json; print(json.load(open('docs/downloads/manifest.json'))['filename'])")
+          SHA=$(python3 -c "import json; print(json.load(open('docs/downloads/manifest.json'))['format']['sha256'])")
+          curl --fail --location --retry 3 "https://buffedlizard55-lab.github.io/GEMSDOE41/docs/downloads/$NAME" -o /tmp/published.tif
+          echo "$SHA  /tmp/published.tif" | sha256sum --check
