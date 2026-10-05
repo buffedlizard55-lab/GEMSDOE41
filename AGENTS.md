@@ -1,6 +1,6 @@
 # Start here on every session
 
-1. Read README.md, including the original user brief, then research/hypotheses.md, research/review-passes.md, docs/downloads/holdout.json and docs/research.html.
+1. Read README.md, including the original user brief, then research/hypotheses.md, research/h33-score-analysis.md, research/review-passes.md, docs/downloads/holdout.json, docs/source-feed.json and docs/research.html.
 2. Never rename or copy a prior submission and call it a novel prediction. Historical rasters may be read only for education and explicitly contaminated comparisons unless clean out-of-fold provenance is established.
 3. Keep model inputs separate from validation truth. Withhold complete source geometries and guard against clipping-generated tips, geometric transforms, exclusion masks, and label-derived feature leakage.
 4. The H41-A slot gate is CLOSED. No DrivenData submission should be automated or recommended until a candidate beats a valid clean historical-best blocked holdout. A valid GeoTIFF alone is not a pass.

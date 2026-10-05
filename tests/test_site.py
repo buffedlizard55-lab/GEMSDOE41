@@ -45,9 +45,43 @@ def test_junction_checks_both_populations():
     assert not a['comparison']['equal_arrays']
 
 
+def test_leaderboard_snapshot_does_not_claim_a_filename_score_receipt():
+    feed=json.loads((ROOT/'docs/source-feed.json').read_text())
+    board=next(source for source in feed['sources'] if source['id']=='leaderboard')
+    rows=board['leaderboard_rows']
+    assert rows and rows[0]['rank']==1
+    assert feed['leader_score']==max(row['score'] for row in rows)
+    assert all(0<=row['score']<=1 for row in rows)
+    assert 'filename-to-score receipts' in board['score_identity_warning']
+    memo=ROOT/'research/h33-score-analysis.md'
+    assert memo.exists() and 'user-reported' in memo.read_text()
+
+
 def test_rendered_rank_parser_requires_sequential_scores():
-    from refresh_sources import parse_rendered_ranks
+    from refresh_sources import parse_rendered_ranks,parse_rendered_rank_rows,valid_leaderboard_rows
     text='#1\nAlice\n4 submissions\n0.3262\n#2\nBob\n0.3222\n#3\nCarol\n0.3220'
     assert parse_rendered_ranks(text)==[.3262,.3222,.3220]
+    assert valid_leaderboard_rows(parse_rendered_rank_rows(text))
     assert parse_rendered_ranks('Other content 0.9999')==[]
     assert parse_rendered_ranks('#2\n0.3222\n#1\n0.3262')==[]
+    assert not valid_leaderboard_rows([{'rank':1,'participant':'A','score':.3},{'rank':4,'participant':'D','score':.2}])
+
+
+def test_leaderboard_snapshot_parser_keeps_rank_participant_and_score_distinct():
+    from refresh_sources import parse_ranked_scores,parse_rendered_rank_rows
+    markup='''<table><thead><tr><th>Rank</th><th>Team members</th><th>Participant</th><th>Best public DW-Tversky</th></tr></thead><tbody>
+      <tr><td>#1</td><td></td><td><a>nchuzhoy</a><br>2d ago<br>4 submissions</td><td>0.3262</td></tr>
+      <tr><td>#4</td><td></td><td><a>DARD</a><br>3d ago</td><td>0.3195</td></tr>
+      <tr><td>#13</td><td></td><td><a>extradr19</a><br>1d ago</td><td>0.2778</td></tr>
+    </tbody></table><p>unranked example 0.9999</p>'''
+    assert parse_ranked_scores(markup)==[
+        {'rank':1,'participant':'nchuzhoy','score':.3262},
+        {'rank':4,'participant':'DARD','score':.3195},
+        {'rank':13,'participant':'extradr19','score':.2778},
+    ]
+    rendered='#1\nnchuzhoy\n2d ago\n4 submissions\n0.3262\n#2\nkinghorton42\n0.3222\n#3\nalexoktaba\n0.3220'
+    assert parse_rendered_rank_rows(rendered)[:3]==[
+        {'rank':1,'participant':'nchuzhoy','score':.3262},
+        {'rank':2,'participant':'kinghorton42','score':.3222},
+        {'rank':3,'participant':'alexoktaba','score':.3220},
+    ]

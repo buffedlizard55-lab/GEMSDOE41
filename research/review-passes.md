@@ -108,3 +108,27 @@ The full pipeline was rebuilt after the fix. Current results:
 - **21 local tests pass**. Earlier downloaded TIFFs are retired; the website and README point only to this corrected candidate. No competition slot has been spent.
 
 Final corrected-model independent run: https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37388376088 — **SUCCESS**. Cross-run float32 variability is now measured, not conjectured: 27,605 pixels differ by at most **4.172325e-7**, summed absolute error **0.000271627**, within the prespecified 8-epsilon numerical tolerance. This is **not byte-identical reproduction**; see `research/final-reproduction.json`. The committed/downloaded artifact's exact SHA-256 remains `8cd554d6…`, independently re-read and checked. Model parameters and submission decisions are unchanged. Corrected local HTTP download: **820,833 bytes**, exact committed SHA-256.
+
+## Current-session follow-up — 2026-10-05 UTC
+
+### Pass 1 — inspect evidence, restore data, and improve the score feed
+
+- Re-read the complete README brief, this review history, preregistered hypotheses, H33 validation JSON, site, official data/metric pages, official GEMS rules, the official public leaderboard, GDR 1391, the Faulds-Henry-Hinz paper, and the distinct Astor Pass and Emerson Pass papers.
+- Restored the pinned owner-mirror inputs with `bash scripts/download_competition_data.sh`, then ran `scripts/prepare_data.py`. Training-feature, label, sample-template and official-vector SHA-256 values matched the checked-in receipts. These are integrity-pinned mirrors, not organizer-authenticated originals.
+- Added `research/h33-score-analysis.md` to distinguish the user-reported H33 filename/score pair, the sibling's owner-reported proxy analysis, and the official participant leaderboard. The official snapshot fetched on 2026-10-05 showed #1 0.3262, #4 0.3195, and #13 0.2778 for `extradr19`; the leaderboard has no TIFF-name/hash receipt. The H33 owner page itself labels its file unscored. The 0.2778 file attribution remains unverified.
+- Extended the scheduled public-source parser to retain rank, displayed participant, and score rows, and revised the site feed to state clearly that participant rows are not artifact receipts. This is publication/audit functionality only; it does not upload a competition file.
+
+### Pass 2 — review edge cases and fix test assumptions
+
+- Added HTML-table and rendered-DOM parser tests, including the dynamic leaderboard layout, participant names separated by line breaks, non-ranked page numbers, sequential-rank requirements, and explicit file-identity warnings.
+- First test run exposed an overly literal assertion (`filenames` versus the actual wording `filename-to-score receipts`). Corrected the test to match the intended contract rather than weakening the warning. No production behavior was changed to satisfy a failing test.
+- Removed exact current-score assumptions from the ongoing unit test so a future daily leaderboard update cannot fail the build merely because public ranks change. The dated 2026-10-05 facts remain in the human-readable snapshot and analysis memo.
+- Confirmed the cached H33 TIFF is used only for an explicit contaminated comparison, not as a model input. Direct array comparison reproduces 186,239 differing pixels and positive-support Jaccard 0.009858; this establishes difference from that examined file only, not global uniqueness.
+
+### Pass 3 — final requirements and artifact verification
+
+- Rebuilt the static pages from the source generator. The home page visibly shows the dated official ranks, links to the official live leaderboard, and explains that scores are not tied to filenames. The executive summary still makes the candidate download, unique name, short note, and closed submission gate prominent.
+- Re-ran the complete local suite: **23 passed**. Seven existing Affine pending-deprecation warnings remain; they are non-fatal and do not change pixels.
+- Independently re-opened the committed candidate TIFF against the restored sample template. It is single-band float32, shape 3730×3292, EPSG:32611, 100 m transform, all 12,279,160 stored values finite in [0,1] (min 0, max 0.9019997), internal mask exactly matching the 5,167,373-cell footprint, no nodata tag, and SHA-256 `8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c`.
+- The existing unique H41-A research TIFF was revalidated; this follow-up did not change the model parameters or TIFF bytes. Its holdout mean remains exactly 0, so **do not submit it**. Junction enrichment is a construction diagnostic, not truth validation. No score above 0.2778, 0.3195, or 0.3262 is predicted or claimed.
+- Manual-source limitations: the browser research fetch returned the current official leaderboard, but a direct `requests` call from this sandbox ended in a TLS EOF; the daily GitHub Actions refresh is the automated public-network path. No hidden labels, DrivenData submission receipt, or private-score access exists here. The source raster mirrors' origin cannot be authenticated against the login-walled download page from this environment.

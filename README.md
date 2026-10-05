@@ -4,8 +4,10 @@
 
 **Research candidate, NOT cleared for a weekly submission.** This is a genuinely new structural-position prediction, not a renamed previous submission. All numerical cells are finite float32 in [0,1]; an internal mask marks the template's outside region as null. The strict blocked holdout failed to establish useful generalization. No competition slot was spent, and no leaderboard improvement is claimed.
 
+**Leaderboard correction (official page observed 2026-10-05 UTC):** the leader was 0.3262; 0.3195 was rank 4. The page also showed 0.2778 at rank 13 for `extradr19`, but it exposes no TIFF filename/hash. The supplied H33-2-B2 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. See [H33 score audit](research/h33-score-analysis.md) and the dated [public-source feed](docs/source-feed.json).
+
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `docs/research.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/h33-score-analysis.md`, `docs/research.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
