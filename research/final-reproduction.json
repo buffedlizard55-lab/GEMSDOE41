@@ -1,0 +1,11 @@
+{
+  "expected_sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+  "actual_sha256": "3ac27957d8126502de76b288e0093c4641694aa7d19d80d7b412fe50137d2db9",
+  "exact_pixels": false,
+  "different_pixels": 27605,
+  "max_absolute_error": 4.172325134277344e-07,
+  "sum_absolute_error": 0.00027162652271241824,
+  "absolute_tolerance": 9.5367431640625e-07,
+  "numerically_reproducible": true,
+  "run_url": "https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37388376088"
+}

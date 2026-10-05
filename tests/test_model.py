@@ -84,3 +84,16 @@ def test_complete_source_removal():
     mask=np.zeros((5,5),bool);mask[4,4]=True
     kept,n=drop_heldout_traces(records,mask)
     assert n==1 and [r['source_id'] for r in kept]==['two']
+
+
+def test_short_connected_fragment_is_not_a_termination():
+    transform=Affine(100,0,0,0,-100,10000);foot=np.ones((100,100),bool)
+    nw=LineString([(7000,3000),(4500,5500)])
+    normal=LineString([(3000,5000),(3000,8500)])
+    short=LineString([(4500,5500),(4400,5600)])
+    assert not classify(short)['eligible']
+    records=[dict(geometry=g,**classify(g)) for g in [nw,normal,short]]
+    from model import burn
+    labels=burn([nw,normal,short],foot.shape,transform)
+    c,_,_,pairs=geometry_field(records,labels,foot,transform)
+    assert not pairs and not c.any()

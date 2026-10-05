@@ -80,7 +80,11 @@ def geometry_field(records, catalogue, footprint, transform, cfg=Config(), forbi
     corridor=np.zeros(shape,dtype='float32'); junction=np.zeros(shape,dtype=bool)
     pairs=[]
     if not groups[0] or not groups[1]: return corridor,junction,distances,pairs
-    normal_tree=STRtree(groups[1]); nw_tree=STRtree(groups[0])
+    normal_tree=STRtree(groups[1])
+    # Even short/ambiguous fragments can prove that an apparent endpoint is not
+    # a termination. Anchor eligibility must not erase that geometric evidence.
+    all_nw=[r['geometry'] for r in records if r['family']==0]
+    nw_tree=STRtree(all_nw)
     boundary_distance=distance_transform_edt(footprint)*abs(transform.a)
     for i,line in enumerate(groups[0]):
         for end in [0,1]:
@@ -89,7 +93,7 @@ def geometry_field(records, catalogue, footprint, transform, cfg=Config(), forbi
             if not (0<=row<shape[0] and 0<=col<shape[1]) or boundary_distance[row,col]<=300: continue
             # Same-family connected fragments must not be interpreted as terminations.
             neighbors=nw_tree.query(tip.buffer(200))
-            if any(j!=i and tip.distance(groups[0][j])<=200 for j in neighbors): continue
+            if any(all_nw[j] is not line and tip.distance(all_nw[j])<=200 for j in neighbors): continue
             if forbidden is not None and forbidden[row,col]: continue
             j=int(normal_tree.nearest(tip)); receiver=groups[1][j]
             q=receiver.interpolate(receiver.project(tip)); gap=tip.distance(q)

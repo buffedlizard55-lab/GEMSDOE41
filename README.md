@@ -1,6 +1,6 @@
 # GEMSDOE41 — Walker Lane structural transfer
 
-**[Download the new GeoTIFF](docs/downloads/gems41-walker-transfer-v1-20261005-0d8679caafa4.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
+**[Download the new GeoTIFF](docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
 
 **Research candidate, NOT cleared for a weekly submission.** This is a genuinely new structural-position prediction, not a renamed previous submission. All numerical cells are finite float32 in [0,1]; an internal mask marks the template's outside region as null. The strict blocked holdout failed to establish useful generalization. No competition slot was spent, and no leaderboard improvement is claimed.
 

@@ -23,16 +23,16 @@
   "catalogue_pixels_within_300m_of_vectors": 60988,
   "vector_pixels": 60982,
   "vector_pixels_within_300m_of_catalogue": 60981,
-  "corridors": 297,
+  "corridors": 268,
   "lineament_proxy_pixels": 4513601,
-  "positive_pixels": 163090,
-  "prediction_mass": 7377.374142411477,
+  "positive_pixels": 150421,
+  "prediction_mass": 6744.914895294071,
   "mass_within_200m_catalogue": 0.0,
-  "junction_mass_fraction": 0.5802759523492663,
-  "junction_available_area_fraction": 0.007172991008313069,
-  "density_control_junction_mass_fraction": 0.026408054463929135,
-  "top5percent_positive_at_junction_fraction": 0.9326793378295524,
-  "density_correlation": 0.16360187994712513,
+  "junction_mass_fraction": 0.5688673849668646,
+  "junction_available_area_fraction": 0.006395048145882281,
+  "density_control_junction_mass_fraction": 0.023273566095827855,
+  "top5percent_positive_at_junction_fraction": 0.925418771603297,
+  "density_correlation": 0.15619771065187577,
   "junction_definition": "within 750m of interior (10\u201390%) of accepted NW-tip to N/NNE corridor; >200m from catalogue",
   "qualification": "Concentration is a design diagnostic, not independent evidence of new faults. Full vector catalogue may not exactly match supplied raster; coverage is reported.",
   "source_slip_sense_counts": {
@@ -50,23 +50,23 @@
   },
   "population_density_checks": {
     "0": {
-      "junction_mass_fraction": 0.06549425581821383,
-      "candidate_enrichment": 8.859951840049654,
-      "sampled_correlation": 0.22806763999531765
+      "junction_mass_fraction": 0.05657136360208748,
+      "candidate_enrichment": 10.055748151452963,
+      "sampled_correlation": 0.21482193421516035
     },
     "1": {
-      "junction_mass_fraction": 0.013251081368953999,
-      "candidate_enrichment": 43.79083760732137,
-      "sampled_correlation": 0.06516274227522541
+      "junction_mass_fraction": 0.012028425910375734,
+      "candidate_enrichment": 47.293585146179346,
+      "sampled_correlation": 0.06367281812252304
     }
   },
-  "junction_enrichment_vs_density": 21.973445758447202,
+  "junction_enrichment_vs_density": 24.442639457338807,
   "junction_check_passed": true,
   "comparison": {
     "h33_sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
-    "different_pixel_count": 198805,
+    "different_pixel_count": 186239,
     "equal_arrays": false,
-    "positive_support_jaccard": 0.00975327582304268,
+    "positive_support_jaccard": 0.009858300355994179,
     "note": "H33 was never an input to prediction construction; comparison only. Global uniqueness across unavailable submissions cannot be proven."
   }
 }

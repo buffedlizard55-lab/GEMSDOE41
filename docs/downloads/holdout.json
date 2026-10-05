@@ -8,38 +8,38 @@
       "training_label_pixels": 44613,
       "source_ids_removed": 226,
       "anchor_parts": 1353,
-      "corridors": 61,
-      "prediction_mass": 0.006570396738046831,
+      "corridors": 57,
+      "prediction_mass": 0.004673554509132961,
       "metrics": {
         "candidate": {
-          "dti": 2.8392042174780028e-08,
-          "tp": 0.0003282801844761707,
-          "fp": 0.006017599016443158,
-          "fn": 14452.999671719816,
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.004673554509132961,
+          "fn": 14453.0,
           "truth_pixels": 14453
         },
         "geometry_only": {
-          "dti": 1.505465726013867e-06,
-          "tp": 0.017406988772563636,
-          "fp": 0.6198114399856668,
-          "fn": 14452.982593011227,
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.03335623047314584,
+          "fn": 14453.0,
           "truth_pixels": 14453
         },
         "catalogue_density": {
-          "dti": 2.011636997183587e-08,
-          "tp": 0.00023259354042532647,
-          "fp": 0.005798059952836982,
-          "fn": 14452.99976740646,
+          "dti": 1.4308869648918834e-08,
+          "tp": 0.00016544488670461728,
+          "fp": 0.004124187495386461,
+          "fn": 14452.999834555114,
           "truth_pixels": 14453,
-          "prediction_mass": 0.006570396742473557
+          "prediction_mass": 0.004673554310499583
         },
         "topography_only": {
-          "dti": 7.221601427853011e-09,
-          "tp": 8.349905356000442e-05,
-          "fp": 0.006293616064769291,
-          "fn": 14452.999916500947,
+          "dti": 5.136759780101959e-09,
+          "tp": 5.9393275941593826e-05,
+          "fp": 0.004476679198214164,
+          "fn": 14452.999940606724,
           "truth_pixels": 14453,
-          "prediction_mass": 0.006570396843100568
+          "prediction_mass": 0.004673554689198944
         },
         "historical_h33_CONTAMINATED": {
           "dti": 0.006974002339870779,
@@ -56,7 +56,7 @@
       "training_label_pixels": 46211,
       "source_ids_removed": 185,
       "anchor_parts": 1712,
-      "corridors": 88,
+      "corridors": 77,
       "prediction_mass": 0.0,
       "metrics": {
         "candidate": {
@@ -104,7 +104,7 @@
       "training_label_pixels": 44269,
       "source_ids_removed": 219,
       "anchor_parts": 1983,
-      "corridors": 100,
+      "corridors": 90,
       "prediction_mass": 0.0,
       "metrics": {
         "candidate": {
@@ -152,7 +152,7 @@
       "training_label_pixels": 44370,
       "source_ids_removed": 180,
       "anchor_parts": 2030,
-      "corridors": 100,
+      "corridors": 90,
       "prediction_mass": 0.0,
       "metrics": {
         "candidate": {
@@ -196,16 +196,16 @@
     }
   ],
   "means": {
-    "candidate": 7.098010543695007e-09,
-    "geometry_only": 3.7636643150346675e-07,
-    "catalogue_density": 5.029092492958967e-09,
-    "topography_only": 1.8054003569632528e-09,
+    "candidate": 0.0,
+    "geometry_only": 0.0,
+    "catalogue_density": 3.5772174122297084e-09,
+    "topography_only": 1.2841899450254897e-09,
     "historical_h33_CONTAMINATED": 0.006521182788331218
   },
   "wins_of_four": {
     "geometry_only": 0,
-    "catalogue_density": 1,
-    "topography_only": 1,
+    "catalogue_density": 0,
+    "topography_only": 0,
     "historical_h33_CONTAMINATED": 0
   },
   "slot_eligible": false,

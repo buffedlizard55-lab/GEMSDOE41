@@ -1,7 +1,7 @@
 {
-  "file": "/home/user/GEMSDOE41/docs/downloads/gems41-walker-transfer-v1-20261005-0d8679caafa4.tif",
-  "sha256": "27601829f332b83cdbd7c3a8a2ea17afa5186e373a2f020152582665320c1d35",
-  "array_sha256": "0d8679caafa4e52355c908f78ad7ffbc17df5ecafd22fa7f3e1d9dc013619bbe",
+  "file": "/home/user/GEMSDOE41/docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
+  "sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+  "array_sha256": "1616b7de764cb328906172ccdfef4c9685971bfd1cde32fb1b29816281d4ee5f",
   "shape": [
     3730,
     3292
@@ -22,8 +22,8 @@
   "dtype": "float32",
   "min": 0.0,
   "max": 0.9019997119903564,
-  "positive_pixels": 163090,
-  "prediction_mass": 7377.374142411477,
+  "positive_pixels": 150421,
+  "prediction_mass": 6744.914895294071,
   "finite_cells": 12279160,
   "footprint_cells": 5167373,
   "nodata": null,
