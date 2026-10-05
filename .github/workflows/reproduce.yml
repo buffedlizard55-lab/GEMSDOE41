@@ -24,8 +24,14 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Record expected pixel hash
-        run: python -c "import json; print(json.load(open('docs/downloads/manifest.json'))['format']['array_sha256'])" > expected-array-sha.txt
+      - name: Preserve expected raster
+        run: |
+          mkdir -p .cache
+          python - <<'PY'
+          import json, shutil
+          m=json.load(open('docs/downloads/manifest.json'))
+          shutil.copyfile('docs/downloads/'+m['filename'],'.cache/expected.tif')
+          PY
       - name: Restore and verify inputs
         run: |
           python scripts/download_data.py
@@ -34,13 +40,8 @@ jobs:
         run: python scripts/run_pipeline.py
       - name: Verify content reproducibility
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          actual=json.load(open('docs/downloads/manifest.json'))['format']['array_sha256']
-          expected=Path('expected-array-sha.txt').read_text().strip()
-          assert actual==expected, (actual,expected)
-          PY
+          NAME=$(python -c "import json; print(json.load(open('docs/downloads/manifest.json'))['filename'])")
+          python scripts/check_reproduction.py .cache/expected.tif "docs/downloads/$NAME" --output docs/downloads/reproduction-receipt.json
           python -m pytest -q
       - uses: actions/upload-artifact@v4
         with:
