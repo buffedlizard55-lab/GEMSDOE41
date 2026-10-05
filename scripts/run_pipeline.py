@@ -9,7 +9,7 @@ import fiona
 from fiona.transform import transform_geom
 import numpy as np
 import rasterio
-from scipy.ndimage import distance_transform_edt, binary_dilation, binary_erosion, gaussian_filter
+from scipy.ndimage import distance_transform_edt, gaussian_filter
 from shapely.geometry import shape, box, mapping, LineString
 from shapely import union_all
 from rasterio.features import shapes
@@ -37,7 +37,7 @@ def load_inputs():
 def load_vectors(profile, footprint):
     archive=ROOT/'data/official/qfaults.zip'
     bbox=box(*rasterio.transform.array_bounds(*footprint.shape,profile['transform']))
-    records=[]; source_count=0
+    records=[]
     with fiona.open('zip://'+str(archive)) as src:
         for f in src:
             g=shape(transform_geom(src.crs,'EPSG:32611',f['geometry']))
@@ -48,7 +48,7 @@ def load_vectors(profile, footprint):
                 # Do not clip source geometry and manufacture terminations.
                 t=np.linspace(0,line.length,max(2,int(np.ceil(line.length/50))+1))
                 xy=np.array([(line.interpolate(v).x,line.interpolate(v).y) for v in t])
-                inv=~profile['transform']; cols=(xy[:,0]-profile['transform'].c)/profile['transform'].a; rows=(xy[:,1]-profile['transform'].f)/profile['transform'].e
+                cols=(xy[:,0]-profile['transform'].c)/profile['transform'].a; rows=(xy[:,1]-profile['transform'].f)/profile['transform'].e
                 rr=np.floor(rows).astype(int); cc=np.floor(cols).astype(int)
                 inside=(rr>=0)&(rr<footprint.shape[0])&(cc>=0)&(cc<footprint.shape[1])
                 rr,cc=rr[inside],cc[inside]
@@ -57,10 +57,9 @@ def load_vectors(profile, footprint):
                 records.append(dict(source_id=str(f['id']),part_id=part_id,geometry=line,
                                     sample_r=rr,sample_c=cc,source_properties=props,
                                     length_m=line.length,**classify(line)))
-            source_count+=1
     with (OUT/'classified-traces.csv').open('w') as f:
         fields=['source_id','part_id','length_m','strike_deg','axial_concentration','family_name','angular_error_deg','eligible','source_properties']
-        w=csv.DictWriter(f,fieldnames=fields);w.writeheader()
+        w=csv.DictWriter(f,fieldnames=fields,lineterminator="\n");w.writeheader()
         for rec in records:
             row={k:rec[k] for k in fields};row['source_properties']=json.dumps(row['source_properties'],sort_keys=True);w.writerow(row)
     return records

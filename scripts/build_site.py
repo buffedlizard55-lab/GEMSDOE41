@@ -87,7 +87,7 @@ for line in brief.splitlines():
         if key not in seen:
             rows.append([current,match.group(1),match.group(2) or '', 'user-reported; not independently artifact-authenticated']);seen.add(key)
 with (DOCS/'score-ledger.csv').open('w') as f:
-    w=csv.writer(f);w.writerow(['project','submission_id','reported_score','evidence_class']);w.writerows(rows)
+    w=csv.writer(f,lineterminator="\n");w.writerow(['project','submission_id','reported_score','evidence_class']);w.writerows(rows)
 # Convenience root: GitHub Pages deploys this file and docs/, not data or the repo.
 (ROOT/'index.html').write_text('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=docs/index.html"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GEMSDOE41</title></head><body><a href="docs/index.html">Open GEMSDOE41 — download and research</a></body></html>\n')
 print('Built four pages, root redirect, and',len(rows),'score-ledger entries.')
