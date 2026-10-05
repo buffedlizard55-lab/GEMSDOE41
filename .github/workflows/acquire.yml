@@ -1,0 +1,22 @@
+name: Acquire official fault geometry
+on:
+  push:
+    paths: ['.github/workflows/acquire.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch public official archive
+        run: |
+          mkdir -p official
+          curl --fail --location --retry 3 --max-time 180 https://gdr.openei.org/files/1391/qfaults_ingenious_nad83conus117_2023-06-27.zip -o official/qfaults.zip
+          unzip -t official/qfaults.zip
+          sha256sum official/qfaults.zip > official/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-fault-geometry
+          path: official/
+          retention-days: 90
