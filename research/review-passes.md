@@ -76,3 +76,16 @@ The mean blocked DTI is `7.098010543695007e-09` (effectively zero). No score imp
 PR #1 merged at 2026-10-05T23:09:38Z (merge commit `7114e11f73c754affde3d059f10da34b47da5a03`). Legacy GitHub Pages deployment succeeded and the public homepage was fetched and verified, including the correct final TIFF link and closed-gate warning.
 
 The additional scheduled publication workflow exposed a permission bug: changing Pages configuration requires administrative permission that neither available token has. That unnecessary configuration step prevented the subsequent deployment. Follow-up removes the configuration mutation and deploys to the already-enabled Pages site directly with scoped `pages:write`; it also adds a real public-HTTP TIFF SHA-256 check after publication. This affects publishing only, not the scientific model or artifact.
+
+### Further post-merge checks (transparent failure reporting)
+
+- PR #2 merged. Publication run https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37387122753 **succeeded**, including the real public-HTTP TIFF byte-hash check. Scheduled source-refresh deployment now works without changing administrator-only settings.
+- A second independent main-branch rebuild completed model generation but failed its combined strict-hash/test step (run 37386872043), despite the earlier exact-hash run passing on identical scientific code. We do not suppress that failure or assume its cause. Added an explicit cross-run raster audit that records exact equality, changed-pixel count, maximum absolute error, and summed absolute error as a CI annotation and JSON artifact.
+- The scientific reproducibility criterion is now explicit: exact grid and mask plus at most **8 float32 machine epsilons** absolute pixel error (9.536743e-7). This admits only numerical drift, never a meaningful change to the prediction field. Specific delivered-file SHA-256 verification remains exact. Larger deviations fail CI. The local suite now has 19 passing tests, including a check that a 0.01 change fails this tolerance.
+
+### Final diagnostics after follow-up fixes
+
+- Explicit numerical audit run https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37387286219 **passed with exact bytes and pixels**: zero changed pixels, max error 0, sum error 0. The exported receipt is preserved in `research/independent-reproduction.json`. The earlier intermittent strict-step failure remains disclosed; no unobserved cause is asserted.
+- The official leaderboard uses dynamic content: the initial HTTP HTML contains zero table rows. The source feed now renders the public page in Chromium when needed, parses rank-validated score cells/text, and preserves errors rather than presenting a stale number as current.
+- Public leaderboard render/parse run https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37387883536 **succeeded**, observing 0.3262 and recording both HTTP and rendered-text hashes. No authentication or hidden data was used.
+- Final local suite: **20 tests pass**; full baseline-to-head diff has no whitespace errors. No change to scientific parameters or the delivered TIFF was made in these publication/reproducibility follow-ups.

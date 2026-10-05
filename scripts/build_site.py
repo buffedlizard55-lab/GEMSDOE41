@@ -40,7 +40,7 @@ executive=f'''<div class="prose"><span class="eyebrow">EXECUTIVE SUMMARY / SUBMI
 <section class="section"><h2>Rebuild rather than copy</h2><pre><code>bash scripts/download_competition_data.sh
 .venv/bin/python scripts/prepare_data.py
 .venv/bin/python scripts/run_pipeline.py
-.venv/bin/python scripts/build_site.py</code></pre><p><a href="{REPO}/actions/workflows/reproduce.yml">Run the reproducibility workflow</a> or use the setup commands in the README. The geometry-only model is CPU-based; it does not require a GPU. Reproducing identical inputs intentionally gives the same content-addressed artifact, not an artificial “new” file made by renaming it.</p></section></div>'''
+.venv/bin/python scripts/build_site.py</code></pre><p><a href="{REPO}/actions/workflows/reproduce.yml">Run the reproducibility workflow</a> or use the setup commands in the README. The geometry-only model is CPU-based; it does not require a GPU. Rebuilding identical inputs reproduces the same scientific hypothesis, not an artificial “new” submission made by renaming it. CPU-level floating-point variation is audited with a tolerance below 0.000001; exact file hashes still identify the specific delivered bytes.</p></section></div>'''
 (DOCS/'executive-summary.html').write_text(page('Executive summary & submission',executive))
 
 foldrows=[[f['fold'],f['anchor_parts'],f['corridors'],f"{f['prediction_mass']:.8f}",f"{f['metrics']['candidate']['dti']:.6e}",f"{f['metrics']['geometry_only']['dti']:.6e}"] for f in CV['folds']]

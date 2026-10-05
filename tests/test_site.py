@@ -43,3 +43,11 @@ def test_junction_checks_both_populations():
     assert a['junction_check_passed'] and a['mass_within_200m_catalogue']==0
     assert all(v['candidate_enrichment']>1 for v in a['population_density_checks'].values())
     assert not a['comparison']['equal_arrays']
+
+
+def test_rendered_rank_parser_requires_sequential_scores():
+    from refresh_sources import parse_rendered_ranks
+    text='#1\nAlice\n4 submissions\n0.3262\n#2\nBob\n0.3222\n#3\nCarol\n0.3220'
+    assert parse_rendered_ranks(text)==[.3262,.3222,.3220]
+    assert parse_rendered_ranks('Other content 0.9999')==[]
+    assert parse_rendered_ranks('#2\n0.3222\n#1\n0.3262')==[]
