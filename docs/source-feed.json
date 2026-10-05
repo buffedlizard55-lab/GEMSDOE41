@@ -1,13 +1,57 @@
 {
   "checked_utc": "2026-10-05",
-  "method": "Official pages retrieved with research fetch tools; subsequent refreshes use GitHub Actions HTTP checks",
+  "method": "Official public pages reviewed on 2026-10-05 UTC; the scheduled GitHub Actions refresh uses HTTP and a public-browser fallback. A failed refresh is reported as an error, not presented as current data.",
   "leader_score": 0.3262,
   "sources": [
-    {"id": "leaderboard", "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/", "status": "reviewed", "observation": "Leading participant nchuzhoy 0.3262; 0.3195 is rank 4 in this snapshot."},
-    {"id": "problem", "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/", "status": "reviewed"},
-    {"id": "rules", "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf", "status": "reviewed", "observation": "All seven extracted chunks reviewed."},
-    {"id": "ingenious", "url": "https://gdr.openei.org/submissions/1391", "status": "reviewed"},
-    {"id": "astor_pass", "url": "https://www.osti.gov/servlets/purl/1110516", "status": "reviewed"},
-    {"id": "emerson_pass", "url": "https://www.osti.gov/servlets/purl/1110518", "status": "reviewed"}
+    {
+      "id": "leaderboard",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+      "status": "reviewed",
+      "observation": "Public leaderboard snapshot: rank 1 = 0.3262, rank 2 = 0.3222, rank 3 = 0.3220, rank 4 = 0.3195. A 0.2778 row appears at rank 13 for participant extradr19. The page exposes no submission filename or file hash, so it cannot authenticate the user-reported H33 filename-to-score mapping.",
+      "leaderboard_rows": [
+        {"rank": 1, "participant": "nchuzhoy", "score": 0.3262},
+        {"rank": 2, "participant": "kinghorton42", "score": 0.3222},
+        {"rank": 3, "participant": "alexoktaba", "score": 0.3220},
+        {"rank": 4, "participant": "DARD", "score": 0.3195},
+        {"rank": 5, "participant": "joeyfezster", "score": 0.3163},
+        {"rank": 6, "participant": "xiaofanhu", "score": 0.3060},
+        {"rank": 7, "participant": "Batik Shirt Brothers", "score": 0.2998},
+        {"rank": 8, "participant": "ndavis7", "score": 0.2888},
+        {"rank": 9, "participant": "mzoorob", "score": 0.2884},
+        {"rank": 10, "participant": "GrigorSargsyan", "score": 0.2876},
+        {"rank": 11, "participant": "HardcoreTechGod", "score": 0.2854},
+        {"rank": 12, "participant": "op01", "score": 0.2792},
+        {"rank": 13, "participant": "extradr19", "score": 0.2778},
+        {"rank": 14, "participant": "smashi34", "score": 0.2708},
+        {"rank": 15, "participant": "smrtdoog5", "score": 0.2708}
+      ],
+      "score_identity_warning": "Official public leaderboard scores are participant-level rows, not filename-to-score receipts. Do not infer which TIFF produced a participant's score."
+    },
+    {
+      "id": "problem",
+      "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+      "status": "reviewed"
+    },
+    {
+      "id": "rules",
+      "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+      "status": "reviewed",
+      "observation": "All seven extracted chunks reviewed."
+    },
+    {
+      "id": "ingenious",
+      "url": "https://gdr.openei.org/submissions/1391",
+      "status": "reviewed"
+    },
+    {
+      "id": "astor_pass",
+      "url": "https://www.osti.gov/servlets/purl/1110516",
+      "status": "reviewed"
+    },
+    {
+      "id": "emerson_pass",
+      "url": "https://www.osti.gov/servlets/purl/1110518",
+      "status": "reviewed"
+    }
   ]
 }
