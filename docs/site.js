@@ -1,55 +1,66 @@
 'use strict';
+
 for (const button of document.querySelectorAll('[data-copy]')) {
   button.addEventListener('click', async () => {
-    const text = document.getElementById(button.dataset.copy)?.textContent || '';
+    const target = document.getElementById(button.dataset.copy);
+    const text = target?.textContent || '';
     try {
       await navigator.clipboard.writeText(text);
       button.textContent = 'Copied ✓';
     } catch {
       button.textContent = 'Select the note to copy';
+      if (!target) return;
       const range = document.createRange();
-      range.selectNodeContents(document.getElementById(button.dataset.copy));
+      range.selectNodeContents(target);
       const selection = window.getSelection();
-      selection.removeAllRanges(); selection.addRange(range);
+      selection.removeAllRanges();
+      selection.addRange(range);
     }
   });
 }
 
+// This is a same-origin, static JSON read. It never fetches DrivenData or its
+// leaderboard endpoint; users open the official link themselves if they choose.
 const feed = document.getElementById('source-feed');
 if (feed) {
-  fetch('source-feed.json', {cache: 'no-cache'})
-    .then(response => {if (!response.ok) throw new Error('Feed unavailable'); return response.json();})
-    .then(data => {
-      const sources = data.sources || [];
-      const failed = sources.filter(source => source.status === 'error').length;
-      const board = sources.find(source => source.id === 'leaderboard');
-      const rows = board?.leaderboard_rows || [];
-      const wantedRanks = [1, 2, 3, 4, 13];
-      const shown = wantedRanks
-        .map(rank => rows.find(row => row.rank === rank))
-        .filter(Boolean)
-        .map(row => `#${row.rank} ${row.participant || 'participant not shown'} ${Number(row.score).toFixed(4)}`);
-      feed.replaceChildren();
-      let summary;
-      if (board?.status === 'error' || !Number.isFinite(data.leader_score)) {
-        summary = `Public-source snapshot: ${data.checked_utc}. The current leaderboard could not be verified; do not treat an older score as current. `;
-      } else {
-        summary = `Official public leaderboard snapshot: ${data.checked_utc}. ${shown.join(' · ')}. These are participant-level scores, not TIFF receipts. `;
-      }
-      feed.append(document.createTextNode(summary));
-      if (failed) feed.append(document.createTextNode(`${failed} source check(s) failed; inspect the feed before relying on freshness. `));
-      const boardLink = document.createElement('a');
-      boardLink.href = board?.url || 'https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/';
-      boardLink.textContent = 'Open official leaderboard ↗';
-      feed.append(boardLink, document.createTextNode(' · '));
-      const auditLink = document.createElement('a');
-      auditLink.href = 'research.html#h33-score-audit';
-      auditLink.textContent = 'H33 score audit ↗';
-      feed.append(auditLink, document.createTextNode(' · '));
-      const feedLink = document.createElement('a');
-      feedLink.href = 'source-feed.json';
-      feedLink.textContent = 'Inspect feed ↗';
-      feed.append(feedLink);
+  fetch('source-feed.json', {cache: 'no-store'})
+    .then(response => {
+      if (!response.ok) throw new Error('Public source snapshot unavailable');
+      return response.json();
     })
-    .catch(() => {feed.append(' Latest feed unavailable; the dated observation above may be stale.');});
+    .then(data => {
+      const competition = data.competition_leaderboard || {};
+      const historic = competition.last_recorded_public_observation || {};
+      const total = (data.sources || []).length;
+      const ok = Number.isInteger(data.source_checks_ok) ? data.source_checks_ok : 0;
+      const failed = Number.isInteger(data.source_checks_failed) ? data.source_checks_failed : Math.max(0, total - ok);
+      const parts = [
+        `Non-competition official-source snapshot: ${data.checked_utc || 'timestamp unavailable'}.`,
+        `${ok}/${total} checks succeeded; ${failed} probe errors (not proof a source is offline).`,
+        'DrivenData leaderboard monitoring is disabled by its Terms of Use; no current score is claimed.'
+      ];
+      if (Number.isFinite(historic.score) && historic.observed_date_utc) {
+        parts.push(`Last recorded public observation: ${historic.score.toFixed(4)} on ${historic.observed_date_utc} (historical only; not current).`);
+      }
+      feed.replaceChildren(document.createTextNode(`${parts.join(' ')} `));
+      const leaderboard = document.createElement('a');
+      leaderboard.href = competition.leaderboard_url || 'https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/';
+      leaderboard.textContent = 'Open official leaderboard ↗';
+      feed.append(leaderboard, document.createTextNode(' · '));
+      const terms = document.createElement('a');
+      terms.href = competition.terms_url || 'https://www.drivendata.org/termsofuse/';
+      terms.textContent = 'Terms of Use ↗';
+      feed.append(terms, document.createTextNode(' · '));
+      const details = document.createElement('a');
+      details.href = 'source-feed.json';
+      details.textContent = 'Inspect source snapshot ↗';
+      feed.append(details);
+    })
+    .catch(() => {
+      feed.replaceChildren(document.createTextNode('Public-source snapshot is unavailable; no current competition score is asserted. '));
+      const link = document.createElement('a');
+      link.href = 'https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/';
+      link.textContent = 'Open official leaderboard ↗';
+      feed.append(link);
+    });
 }

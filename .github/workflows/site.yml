@@ -21,12 +21,7 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: python -m pytest -q
-      - name: Install public-page rendering fallback
-        if: github.event_name != 'pull_request'
-        run: |
-          pip install playwright==1.55.0
-          python -m playwright install --with-deps chromium
-      - name: Refresh official public sources
+      - name: Refresh permitted non-competition public sources
         if: github.event_name != 'pull_request'
         run: python scripts/refresh_sources.py
       - name: Build measured research site

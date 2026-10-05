@@ -4,14 +4,14 @@
 
 ## Bottom line
 
-The supplied experiment list reports `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` at **0.2778**. The official public leaderboard currently displays scores of **0.3262 at rank 1**, **0.3222 at rank 2**, **0.3220 at rank 3**, and **0.3195 at rank 4**. It also displays **0.2778 at rank 13** for participant `extradr19`. The leaderboard does not expose submission filenames or file hashes, so the rank-13 row cannot be attributed to the H33 TIFF from this page alone. GEMSDOE32's own page labels its H33 artifact `UNSCORED` and says that no organizer score exists for artifacts in that repository. Therefore:
+The supplied experiment list reports `h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros` at **0.2778**. In the dated public-page observation captured on **2026-10-05 UTC**, the leaderboard showed **0.3262 at rank 1**, **0.3222 at rank 2**, **0.3220 at rank 3**, and **0.3195 at rank 4**. It also showed **0.2778 at rank 13** for participant `extradr19`. The leaderboard does not expose submission filenames or file hashes, so the rank-13 row cannot be attributed to the H33 TIFF from this page alone. GEMSDOE32's own page labels its H33 artifact `UNSCORED` and says that no organizer score exists for artifacts in that repository. Therefore:
 
 - `0.2778` for the specific H33 filename remains **user-reported / not artifact-authenticated**.
-- `0.3262` is the highest score observed on the official public leaderboard in this dated snapshot; **0.3195 is not the current leader** in that snapshot.
+- `0.3262` was the highest score in this dated observation; `0.3195` was rank 4 then. Current standings are unknown; neither value is asserted as current.
 - A score attached to a leaderboard participant is not evidence that a particular TIFF earned it without an organizer receipt linking participant, submission ID, and file hash.
 - The current H41-A TIFF is a distinct, format-checked research candidate, but its strict spatial holdout mean is zero. Its submission gate is **closed**. Do not spend a competition slot on it.
 
-The public score table is dynamic. The date above is the observation date, not a promise that the page remains unchanged. See the [official leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) and the dated machine-readable snapshot in [`docs/source-feed.json`](../docs/source-feed.json).
+The public score table is dynamic. The date above is the observation date, not a promise that the page remains unchanged. This project does not monitor it: DrivenData's Terms prohibit robots, spiders, or other automatic access for any purpose, including monitoring, and manual monitoring requires prior written consent. The official page is linked for reference; the dated machine-readable record is [`research/leaderboard-observation.json`](leaderboard-observation.json).
 
 ## What H33-2-B2 changed
 
@@ -41,7 +41,7 @@ The contest target is fault presence, not a geothermal-vent probability. The ini
 | 4 | `DARD` | 0.3195 |
 | 13 | `extradr19` | 0.2778 |
 
-This small table is transcribed from the public leaderboard on 2026-10-05. It is included to correct the stale “0.3195 is the current highest” statement and to make the score-to-file ambiguity explicit. Participant labels are reproduced as shown; no identity beyond the page is inferred.
+This small table is transcribed from the public leaderboard on 2026-10-05 and is **historical only, not a current standings claim**. It corrects the stale assumption that 0.3195 was the leader in that observation and makes the score-to-file ambiguity explicit. Participant labels are reproduced as shown; no identity beyond the page is inferred.
 
 ## Why the scientific premise is useful—and where the prompt overstates it
 
@@ -63,7 +63,7 @@ The delivered candidate is [`gems41-walker-transfer-v1-20261005-1616b7de764c.tif
 
 The four-fold whole-source-geometry spatial holdout reports mean candidate DTI `0.0`; only fold 0 has any candidate prediction mass. The result fails the generalization gate. H41-A is distinct from the examined H33 raster (different arrays; support Jaccard about 0.00986), but neither that comparison nor a content hash proves global uniqueness against every private or unpublished submission. The file is available for inspection and download; the current evidence does not support uploading it.
 
-## Next decision
+## Next decision at the original H41-A audit
 
 Do not tune H41-A against the failed audit folds. Keep those folds untouched. Before a new competition slot is considered:
 
@@ -72,12 +72,20 @@ Do not tune H41-A against the failed audit folds. Keep those folds untouched. Be
 3. Test the remaining preregistered hypotheses (H41-B convergence, H41-C orientation handover, H41-D endpoint/topology stability) as distinct hypotheses on that new protocol. Do not search parameters on the failed folds.
 4. Require improvement over a clean historical-best comparator before using a submission slot. A public score, locally calibrated synthetic-truth score, or format-valid TIFF is not a substitute for that test.
 
-All four H41 candidates use already acquired geometry and the provided topographic layer. They do not require a new external data source. If later work adds independent high-resolution terrain lineaments, the exact USGS 3DEP/DEM tiles, coverage, license, and reproducible processing must first be recorded; that is a separate hypothesis, not a condition silently assumed satisfied here.
+All four H41-A–D candidates in that initial plan use already acquired geometry and the provided topographic layer. They do not require a new external data source. If later work adds independent high-resolution terrain lineaments, the exact USGS 3DEP/DEM tiles, coverage, license, and reproducible processing must first be recorded; that is a separate hypothesis, not a condition silently assumed satisfied here.
+
+## Later follow-on status (2026-10-05)
+
+A separate four-hypothesis slate and fixed H41-E test are documented in [`research/hypotheses-next.md`](hypotheses-next.md) and [`research/experiments/h41e-kinematic-holdout.json`](experiments/h41e-kinematic-holdout.json). H41-E applied exact source `SLIPSENSE=RL` on NW donors and `SLIPSENSE=N` on N/NNE receivers, keeping the existing four spatial folds and model geometry fixed. Both H41-A and H41-E mean DTI were 0.0; H41-E won 0/4 folds and emitted zero prediction mass in each scored interior. It failed the preregistered gate. No new TIFF was created and no slot was used. H41-F, H41-G, and H41-H remain proposals; they have not been tested. The submission gate stays closed.
+
+The ranked public-page rows above are preserved as a dated historical observation only. DrivenData monitoring has been removed from the daily refresh; the current score is unknown. The local permitted-source probes recorded TLS transport errors, which do not show that upstream sources are offline.
 
 ## Manual-review sources
 
 - [Official DrivenData problem, metric, target and format](https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/)
-- [Official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/)
+- [Official public leaderboard](https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/) — historical snapshot only; this repository does not monitor it
+- [DrivenData Terms of Use](https://www.drivendata.org/termsofuse/) — automated monitoring is prohibited; manual monitoring requires prior written consent
+- [DrivenData robots.txt](https://www.drivendata.org/robots.txt) — disallows the leaderboard-partial path
 - [GEMSDOE32 owner-authored page for H33-2-B2](https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html) — secondary source, not an organizer score receipt
 - [`research/upstream-h33-validation.json`](upstream-h33-validation.json) — owner-reported proxy validation values preserved for education
 - [Faulds, Henry & Hinz (2005), Geology, DOI 10.1130/G21274.1](https://nbmg.unr.edu/staff/Faulds/faulds_et_al_geology_paper.pdf)
