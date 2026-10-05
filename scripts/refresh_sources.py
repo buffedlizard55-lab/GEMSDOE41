@@ -49,7 +49,7 @@ def parse_rendered_ranks(text):
     rows=[]; rank=None
     for line in text.splitlines():
         line=line.strip()
-        m=re.fullmatch(r'#\s*(\d+)',line)
+        m=re.fullmatch(r'#?\s*(\d+)',line)
         if m: rank=int(m.group(1))
         elif rank is not None and re.fullmatch(r'0\.\d{4,}',line):
             rows.append((rank,float(line)));rank=None
@@ -65,10 +65,13 @@ def render_public_leaderboard(url):
         try:
             page=browser.new_page()
             page.goto(url,wait_until='domcontentloaded',timeout=45000)
-            page.wait_for_function(r"/#\\s*1[\\s\\S]*0\\.\\d{4}/.test(document.body.innerText)",timeout=30000)
+            try:
+                page.wait_for_function("/0[.][0-9]{4}/.test(document.body.innerText)",timeout=30000)
+            except Exception:
+                pass  # Inspect the visible page even on timeout; never invent scores.
             text=page.inner_text('body')
             scores=parse_scores(page.content()) or parse_rendered_ranks(text)
-            return scores, hashlib.sha256(text.encode()).hexdigest()
+            return scores, hashlib.sha256(text.encode()).hexdigest(), text[:5000]
         finally: browser.close()
 
 
@@ -86,10 +89,12 @@ def main():
                     parsed=TableParser();parsed.feed(r.text)
                     item['table_row_count']=len(parsed.rows)
                     item['first_table_rows']=parsed.rows[:5]
-                    values, rendered_hash=render_public_leaderboard(url)
+                    values, rendered_hash, excerpt=render_public_leaderboard(url)
                     item['rendered_text_sha256']=rendered_hash
                     item['score_parse_method']='rendered public browser DOM; rank-validated numeric scores'
-                    if not values:raise ValueError('no ranked numeric scores in rendered public page')
+                    if not values:
+                        item['rendered_excerpt']=excerpt
+                        raise ValueError('no ranked numeric scores in rendered public page')
                 output['leader_score']=max(values);output['parsed_scores_count']=len(values)
         except Exception as e:item.update(status='error',error=str(e)[:300])
         output['sources'].append(item)
