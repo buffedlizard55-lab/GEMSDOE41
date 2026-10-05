@@ -4,11 +4,13 @@ on:
     paths: ['.github/workflows/acquire.yml']
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   acquire:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/arena/5d5d8cc8-gemsdoe41'
     steps:
+      - uses: actions/checkout@v4
       - name: Fetch public official archive
         run: |
           mkdir -p official
@@ -20,3 +22,12 @@ jobs:
           name: official-fault-geometry
           path: official/
           retention-days: 90
+      - name: Preserve small official geometry for reproducibility
+        run: |
+          mkdir -p data/official
+          cp official/* data/official/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f data/official/qfaults.zip data/official/SHA256SUMS
+          git diff --cached --quiet || git commit -m 'Archive official GDR geometry and checksum (CC BY 4.0)'
+          git push origin HEAD:arena/5d5d8cc8-gemsdoe41
