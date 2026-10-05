@@ -36,8 +36,10 @@ def parse_scores(text):
     parser=TableParser();parser.feed(text)
     scores=[]
     for row in parser.rows:
-        if not row or not re.fullmatch(r'#?\s*\d+',row[0]):continue
-        for cell in row[1:]:
+        # Responsive layouts can include an empty/avatar cell before rank or
+        # decorate the rank with movement metadata. Never assume column zero.
+        if not any(re.fullmatch(r'#?\s*\d+',cell) or re.match(r'^#\s*\d+\b',cell) for cell in row):continue
+        for cell in row:
             if re.fullmatch(r'0\.\d{4,}',cell):scores.append(float(cell))
     return scores
 
@@ -51,7 +53,11 @@ def main():
             item.update(status='ok',http_status=r.status_code,sha256=hashlib.sha256(r.content).hexdigest(),bytes=len(r.content))
             if name=='leaderboard':
                 values=parse_scores(r.text)
-                if not values:raise ValueError('no ranked numeric score cells parsed')
+                if not values:
+                    parsed=TableParser();parsed.feed(r.text)
+                    item['table_row_count']=len(parsed.rows)
+                    item['first_table_rows']=parsed.rows[:5]
+                    raise ValueError('no ranked numeric score cells parsed; layout diagnostics recorded')
                 output['leader_score']=max(values);output['parsed_scores_count']=len(values)
         except Exception as e:item.update(status='error',error=str(e)[:300])
         output['sources'].append(item)
