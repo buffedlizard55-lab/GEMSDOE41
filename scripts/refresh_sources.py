@@ -61,6 +61,8 @@ def main():
                 output['leader_score']=max(values);output['parsed_scores_count']=len(values)
         except Exception as e:item.update(status='error',error=str(e)[:300])
         output['sources'].append(item)
+        if name=='leaderboard':
+            print('::notice title=Public leaderboard parse::'+json.dumps({'leader_score':output['leader_score'],**item}))
     p=Path(__file__).resolve().parents[1]/'docs/source-feed.json'
     p.write_text(json.dumps(output,indent=2)+'\n')
     print(json.dumps(output,indent=2))
