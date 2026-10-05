@@ -1,5 +1,7 @@
 # Three-pass implementation and evidence review
 
+**Current final artifact:** `gems41-walker-transfer-v1-20261005-1616b7de764c.tif`. The pass-specific hashes and statistics below are retained as experiment history; the final endpoint correction at the end supersedes the earlier files. All earlier TIFF downloads have been retired from the site.
+
 ## Pass 1 — acquisition, research, preregistration, complete first build
 
 - Audited the initial checkout: only `README.md` (11 bytes), no prior pipeline, holdout, or session notes. The claimed existing GPU pipeline was not present.
@@ -37,7 +39,7 @@ The mean blocked DTI is `7.098010543695007e-09` (effectively zero). No score imp
 
 | Requirement | Evidence / status |
 |---|---|
-| New, not copied, downloadable TIF | `docs/downloads/gems41-walker-transfer-v1-20261005-0d8679caafa4.tif`; raw geometry/topography reconstruction; no prior predictions in model |
+| New, not copied, downloadable TIF | `docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif`; raw geometry/topography reconstruction; no prior predictions in model |
 | Two geometric criteria, no new geophysical transform | `scripts/model.py`; only detrended elevation supplies an independent tangent proxy |
 | Every known trace classified | Official vector coverage: all 60,988 raster catalogue pixels within 300 m; 5,540 trace parts audited in CSV; geometric vs kinematic ambiguity explicit |
 | Junction rather than population-density concentration | `structural-audit.json`, combined and per-population controls |
@@ -89,3 +91,18 @@ The additional scheduled publication workflow exposed a permission bug: changing
 - The official leaderboard uses dynamic content: the initial HTTP HTML contains zero table rows. The source feed now renders the public page in Chromium when needed, parses rank-validated score cells/text, and preserves errors rather than presenting a stale number as current.
 - Public leaderboard render/parse run https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37387883536 **succeeded**, observing 0.3262 and recording both HTTP and rendered-text hashes. No authentication or hidden data was used.
 - Final local suite: **20 tests pass**; full baseline-to-head diff has no whitespace errors. No change to scientific parameters or the delivered TIFF was made in these publication/reproducibility follow-ups.
+
+### Final endpoint-fragment correction (supersedes earlier artifact values)
+
+The final geometry review found that connected-tip rejection still considered only anchor-eligible NW traces, even after population-distance fields had been corrected. A short connected NW fragment can disprove a termination even though it is too short to anchor a corridor. Fixed the endpoint-neighbor tree to include **every NW-assigned mapped part**, and added a regression fixture where a 141 m connecting fragment must suppress a false termination. This changes no preregistered numerical parameter and is not a holdout-driven selection.
+
+The full pipeline was rebuilt after the fix. Current results:
+- **268** accepted corridors (29 removed by the stricter endpoint check).
+- **150,421** nonzero pixels; prediction mass **6,744.914895**.
+- **92.54%** of highest-confidence pixels at defined junctions; **56.89%** of all confidence mass at junctions.
+- Junction enrichment vs NW-only density **10.06×**; vs N/NNE-only density **47.29×**.
+- Zero prediction mass within 200 m of the catalogue; **blocked DTI exactly 0**. Gate remains CLOSED.
+- Final TIFF: `gems41-walker-transfer-v1-20261005-1616b7de764c.tif`.
+- TIFF SHA-256: `8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c`.
+- Pixel SHA-256: `1616b7de764cb328906172ccdfef4c9685971bfd1cde32fb1b29816281d4ee5f`.
+- **21 local tests pass**. Earlier downloaded TIFFs are retired; the website and README point only to this corrected candidate. No competition slot has been spent.
