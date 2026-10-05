@@ -1,0 +1,215 @@
+{
+  "design": "20km four-color blocks; remove complete source traces touching heldout+300m; score 300m eroded interiors; fixed settings",
+  "fold_formula": "(row//200 + 2*(col//200)) % 4",
+  "folds": [
+    {
+      "fold": 0,
+      "validation_cells": 1261665,
+      "training_label_pixels": 44613,
+      "source_ids_removed": 226,
+      "anchor_parts": 1353,
+      "corridors": 61,
+      "prediction_mass": 0.006570396738046831,
+      "metrics": {
+        "candidate": {
+          "dti": 2.8392042174780028e-08,
+          "tp": 0.0003282801844761707,
+          "fp": 0.006017599016443158,
+          "fn": 14452.999671719816,
+          "truth_pixels": 14453
+        },
+        "geometry_only": {
+          "dti": 1.505465726013867e-06,
+          "tp": 0.017406988772563636,
+          "fp": 0.6198114399856668,
+          "fn": 14452.982593011227,
+          "truth_pixels": 14453
+        },
+        "catalogue_density": {
+          "dti": 2.011636997183587e-08,
+          "tp": 0.00023259354042532647,
+          "fp": 0.005798059952836982,
+          "fn": 14452.99976740646,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.006570396742473557
+        },
+        "topography_only": {
+          "dti": 7.221601427853011e-09,
+          "tp": 8.349905356000442e-05,
+          "fp": 0.006293616064769291,
+          "fn": 14452.999916500947,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.006570396843100568
+        },
+        "historical_h33_CONTAMINATED": {
+          "dti": 0.006974002339870779,
+          "tp": 94.51187453791499,
+          "fp": 9853.627807080105,
+          "fn": 14358.488125462085,
+          "truth_pixels": 14453
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "validation_cells": 1184320,
+      "training_label_pixels": 46211,
+      "source_ids_removed": 185,
+      "anchor_parts": 1712,
+      "corridors": 88,
+      "prediction_mass": 0.0,
+      "metrics": {
+        "candidate": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944
+        },
+        "catalogue_density": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0
+        },
+        "topography_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0
+        },
+        "historical_h33_CONTAMINATED": {
+          "dti": 0.005969456788303782,
+          "tp": 71.29582504555583,
+          "fp": 7869.884124433975,
+          "fn": 12872.704174954444,
+          "truth_pixels": 12944
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "validation_cells": 1248516,
+      "training_label_pixels": 44269,
+      "source_ids_removed": 219,
+      "anchor_parts": 1983,
+      "corridors": 100,
+      "prediction_mass": 0.0,
+      "metrics": {
+        "candidate": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799
+        },
+        "catalogue_density": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0
+        },
+        "topography_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0
+        },
+        "historical_h33_CONTAMINATED": {
+          "dti": 0.006808596521744779,
+          "tp": 92.74438543990254,
+          "fp": 8819.554544965613,
+          "fn": 14706.255614560097,
+          "truth_pixels": 14799
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "validation_cells": 1145742,
+      "training_label_pixels": 44370,
+      "source_ids_removed": 180,
+      "anchor_parts": 2030,
+      "corridors": 100,
+      "prediction_mass": 0.0,
+      "metrics": {
+        "candidate": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809
+        },
+        "catalogue_density": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0
+        },
+        "topography_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0
+        },
+        "historical_h33_CONTAMINATED": {
+          "dti": 0.006332675503405532,
+          "tp": 85.64023343101144,
+          "fp": 8296.093680896787,
+          "fn": 14723.359766568989,
+          "truth_pixels": 14809
+        }
+      }
+    }
+  ],
+  "means": {
+    "candidate": 7.098010543695007e-09,
+    "geometry_only": 3.7636643150346675e-07,
+    "catalogue_density": 5.029092492958967e-09,
+    "topography_only": 1.8054003569632528e-09,
+    "historical_h33_CONTAMINATED": 0.006521182788331218
+  },
+  "wins_of_four": {
+    "geometry_only": 0,
+    "catalogue_density": 1,
+    "topography_only": 1,
+    "historical_h33_CONTAMINATED": 0
+  },
+  "slot_eligible": false,
+  "clean_historical_best_available": false,
+  "gate_reason": "No clean historical-best out-of-fold predictions available. Historical H33 uses the full catalogue and is not a valid clean comparator. Gate stays closed regardless of proxy results.",
+  "limitations": "Visible-catalogue reconstruction is not expert hidden-fault ground truth. Whole-trace withholding may remove true transfer anchors and severely depress this geometry-only model."
+}

@@ -1,0 +1,48 @@
+name: Rebuild structural model (no competition upload)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/model.py'
+      - 'scripts/metric.py'
+      - 'scripts/run_pipeline.py'
+      - 'scripts/download_data.py'
+      - 'requirements.txt'
+      - '.github/workflows/reproduce.yml'
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Record expected pixel hash
+        run: python -c "import json; print(json.load(open('docs/downloads/manifest.json'))['format']['array_sha256'])" > expected-array-sha.txt
+      - name: Restore and verify inputs
+        run: |
+          python scripts/download_data.py
+          python scripts/prepare_data.py
+      - name: Rebuild all four folds and fresh prediction
+        run: python scripts/run_pipeline.py
+      - name: Verify content reproducibility
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual=json.load(open('docs/downloads/manifest.json'))['format']['array_sha256']
+          expected=Path('expected-array-sha.txt').read_text().strip()
+          assert actual==expected, (actual,expected)
+          PY
+          python -m pytest -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rebuilt-geotiff-and-audits
+          path: docs/downloads/

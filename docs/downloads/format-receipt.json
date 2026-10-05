@@ -1,0 +1,32 @@
+{
+  "file": "/home/user/GEMSDOE41/docs/downloads/gems41-walker-transfer-v1-20261005-0d8679caafa4.tif",
+  "sha256": "27601829f332b83cdbd7c3a8a2ea17afa5186e373a2f020152582665320c1d35",
+  "array_sha256": "0d8679caafa4e52355c908f78ad7ffbc17df5ecafd22fa7f3e1d9dc013619bbe",
+  "shape": [
+    3730,
+    3292
+  ],
+  "crs": "EPSG:32611",
+  "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0,
+    0.0,
+    0.0,
+    1.0
+  ],
+  "bands": 1,
+  "dtype": "float32",
+  "min": 0.0,
+  "max": 0.9019997119903564,
+  "positive_pixels": 163090,
+  "prediction_mass": 7377.374142411477,
+  "finite_cells": 12279160,
+  "footprint_cells": 5167373,
+  "nodata": null,
+  "internal_mask": true,
+  "all_checks_passed": true
+}
