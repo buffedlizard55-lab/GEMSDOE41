@@ -43,6 +43,35 @@ def parse_scores(text):
             if re.fullmatch(r'0\.\d{4,}',cell):scores.append(float(cell))
     return scores
 
+def parse_rendered_ranks(text):
+    """Read visible rank/score lines, never numbers from JavaScript source."""
+    import re
+    rows=[]; rank=None
+    for line in text.splitlines():
+        line=line.strip()
+        m=re.fullmatch(r'#\s*(\d+)',line)
+        if m: rank=int(m.group(1))
+        elif rank is not None and re.fullmatch(r'0\.\d{4,}',line):
+            rows.append((rank,float(line)));rank=None
+    # Require multiple sequential ranks, not an isolated number somewhere on page.
+    if len(rows)<3 or [r for r,s in rows[:3]]!=[1,2,3]: return []
+    return [s for r,s in rows]
+
+
+def render_public_leaderboard(url):
+    from playwright.sync_api import sync_playwright
+    with sync_playwright() as browser_api:
+        browser=browser_api.chromium.launch()
+        try:
+            page=browser.new_page()
+            page.goto(url,wait_until='domcontentloaded',timeout=45000)
+            page.wait_for_function(r"/#\\s*1[\\s\\S]*0\\.\\d{4}/.test(document.body.innerText)",timeout=30000)
+            text=page.inner_text('body')
+            scores=parse_scores(page.content()) or parse_rendered_ranks(text)
+            return scores, hashlib.sha256(text.encode()).hexdigest()
+        finally: browser.close()
+
+
 def main():
     output={'checked_utc':datetime.now(timezone.utc).isoformat(),'method':'public HTTP fetch; daily snapshot, not live scoring','leader_score':None,'sources':[]}
     for name,url in URLS.items():
@@ -57,7 +86,10 @@ def main():
                     parsed=TableParser();parsed.feed(r.text)
                     item['table_row_count']=len(parsed.rows)
                     item['first_table_rows']=parsed.rows[:5]
-                    raise ValueError('no ranked numeric score cells parsed; layout diagnostics recorded')
+                    values, rendered_hash=render_public_leaderboard(url)
+                    item['rendered_text_sha256']=rendered_hash
+                    item['score_parse_method']='rendered public browser DOM; rank-validated numeric scores'
+                    if not values:raise ValueError('no ranked numeric scores in rendered public page')
                 output['leader_score']=max(values);output['parsed_scores_count']=len(values)
         except Exception as e:item.update(status='error',error=str(e)[:300])
         output['sources'].append(item)
