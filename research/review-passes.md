@@ -109,6 +109,30 @@ The full pipeline was rebuilt after the fix. Current results:
 
 Final corrected-model independent run: https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37388376088 — **SUCCESS**. Cross-run float32 variability is now measured, not conjectured: 27,605 pixels differ by at most **4.172325e-7**, summed absolute error **0.000271627**, within the prespecified 8-epsilon numerical tolerance. This is **not byte-identical reproduction**; see `research/final-reproduction.json`. The committed/downloaded artifact's exact SHA-256 remains `8cd554d6…`, independently re-read and checked. Model parameters and submission decisions are unchanged. Corrected local HTTP download: **820,833 bytes**, exact committed SHA-256.
 
+## Current-session follow-up — 2026-10-05 UTC
+
+### Pass 1 — inspect evidence, restore data, and improve the score feed
+
+- Re-read the complete README brief, this review history, preregistered hypotheses, H33 validation JSON, site, official data/metric pages, official GEMS rules, the official public leaderboard, GDR 1391, the Faulds-Henry-Hinz paper, and the distinct Astor Pass and Emerson Pass papers.
+- Restored the pinned owner-mirror inputs with `bash scripts/download_competition_data.sh`, then ran `scripts/prepare_data.py`. Training-feature, label, sample-template and official-vector SHA-256 values matched the checked-in receipts. These are integrity-pinned mirrors, not organizer-authenticated originals.
+- Added `research/h33-score-analysis.md` to distinguish the user-reported H33 filename/score pair, the sibling's owner-reported proxy analysis, and the official participant leaderboard. The official snapshot fetched on 2026-10-05 showed #1 0.3262, #4 0.3195, and #13 0.2778 for `extradr19`; the leaderboard has no TIFF-name/hash receipt. The H33 owner page itself labels its file unscored. The 0.2778 file attribution remains unverified.
+- Extended the scheduled public-source parser to retain rank, displayed participant, and score rows, and revised the site feed to state clearly that participant rows are not artifact receipts. This is publication/audit functionality only; it does not upload a competition file.
+
+### Pass 2 — review edge cases and fix test assumptions
+
+- Added HTML-table and rendered-DOM parser tests, including the dynamic leaderboard layout, participant names separated by line breaks, non-ranked page numbers, sequential-rank requirements, and explicit file-identity warnings.
+- First test run exposed an overly literal assertion (`filenames` versus the actual wording `filename-to-score receipts`). Corrected the test to match the intended contract rather than weakening the warning. No production behavior was changed to satisfy a failing test.
+- Removed exact current-score assumptions from the ongoing unit test so a future daily leaderboard update cannot fail the build merely because public ranks change. The dated 2026-10-05 facts remain in the human-readable snapshot and analysis memo.
+- Confirmed the cached H33 TIFF is used only for an explicit contaminated comparison, not as a model input. Direct array comparison reproduces 186,239 differing pixels and positive-support Jaccard 0.009858; this establishes difference from that examined file only, not global uniqueness.
+
+### Pass 3 — final requirements and artifact verification
+
+- Rebuilt the static pages from the source generator. The home page visibly shows the dated official ranks, links to the official live leaderboard, and explains that scores are not tied to filenames. The executive summary still makes the candidate download, unique name, short note, and closed submission gate prominent.
+- Re-ran the complete local suite: **23 passed**. Seven existing Affine pending-deprecation warnings remain; they are non-fatal and do not change pixels.
+- Independently re-opened the committed candidate TIFF against the restored sample template. It is single-band float32, shape 3730×3292, EPSG:32611, 100 m transform, all 12,279,160 stored values finite in [0,1] (min 0, max 0.9019997), internal mask exactly matching the 5,167,373-cell footprint, no nodata tag, and SHA-256 `8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c`.
+- The existing unique H41-A research TIFF was revalidated; this follow-up did not change the model parameters or TIFF bytes. Its holdout mean remains exactly 0, so **do not submit it**. Junction enrichment is a construction diagnostic, not truth validation. No score above 0.2778, 0.3195, or 0.3262 is predicted or claimed.
+- Manual-source limitations: the browser research fetch returned the current official leaderboard, but a direct `requests` call from this sandbox ended in a TLS EOF; the daily GitHub Actions refresh is the automated public-network path. No hidden labels, DrivenData submission receipt, or private-score access exists here. The source raster mirrors' origin cannot be authenticated against the login-walled download page from this environment.
+
 ---
 
 # Follow-on session review — 2026-10-05 (three additional passes)
@@ -117,7 +141,7 @@ This continuation reads the preserved prompt and the H41-A audit above. It corre
 
 ## Pass 1 — rank new hypotheses before implementation
 
-- Read `README.md`, `AGENTS.md`, existing H41-A registration, holdout, artifact manifest, website, and prior review log.
+- Read `README.md`, `AGENTS.md`, existing H41-A registration, holdout, artifact manifest, website, and prior review log. After main advanced with the H33 audit PR, read and incorporated `research/h33-score-analysis.md` plus its dated leaderboard snapshot without re-accessing DrivenData.
 - Restored the ignored core inputs with `bash scripts/download_competition_data.sh`; all three raster SHA-256 values matched `research/upstream-data-manifest.json`. Ran `scripts/prepare_data.py`; it reported 3,730 × 3,292 EPSG:32611 rasters, 19 feature bands, 5,167,373 finite template cells, and 60,988 label pixels. Owner-mirror integrity is not organizer authentication.
 - Read the official competition description and confirmed the hidden target is expert-labelled faults missing from the public USGS fault set, not known geothermal vents. Rechecked primary structural sources: Faulds et al. (2005), DOE OSTI Astor Pass and DOE OSTI Emerson Pass. The prompt conflates Astor Pass and Emerson Pass; they are separate systems and studies.
 - Read the GDR Qfaults field-definition file and actual vector attributes. Registered four not-yet-run candidates in `research/hypotheses-next.md` before writing H41-E evaluation code. H41-E was the fixed top candidate: exact source `SLIPSENSE=RL` NW donors and `SLIPSENSE=N` N/NNE receivers; all H41-A geometry, folds, and tangent settings unchanged.
@@ -138,5 +162,5 @@ This continuation reads the preserved prompt and the H41-A audit above. It corre
 - Added four preregistered follow-on hypotheses with layers, physical signatures, off-catalogue rationale, differences, qualitative DTI ranking and cost; the H41-E negative outcome, schema irregularity (`SS` in bundled field definitions vs observed `RL`/`LL`), TNM source boundary, and no-slot decision are in the audit/site.
 - Preserved the original prompt in README, updated every-session instructions, and retained the closed slot gate and top-of-page single GeoTIFF download. No duplicate/renamed TIFF was created after H41-E failed.
 - Rebuilt the static pages and score ledger. Local site-link tests pass. Full local suite: **25 passed** (7 pre-existing Affine deprecation warnings); `compileall` and `git diff --check` pass.
-- **Current unresolved limits:** no hidden labels, clean historical-best OOF raster, filename-to-score receipt, full 1 m tile inventory, or user account. Latest feed snapshot `2026-10-05T23:49:43.725674+00:00`: 0/7 permitted-source probes succeeded locally due TLS transport errors; do not infer source outages. Current DrivenData score cannot be automated under the published terms. The competition slot gate remains closed.
+- **Current unresolved limits:** no hidden labels, clean historical-best OOF raster, filename-to-score receipt, full 1 m tile inventory, or user account. Latest feed snapshot `2026-10-05T23:55:00.737869+00:00`: 0/7 permitted-source probes succeeded locally due TLS transport errors; do not infer source outages. Current DrivenData score cannot be automated under the published terms. The competition slot gate remains closed.
 - Pull request/merge and post-merge Pages verification for this follow-on are recorded below after CI completes.

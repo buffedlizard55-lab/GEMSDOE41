@@ -4,8 +4,10 @@
 
 **Research candidate, NOT cleared for a weekly submission.** This is a genuinely new structural-position prediction, not a renamed previous submission. All numerical cells are finite float32 in [0,1]; an internal mask marks the template's outside region as null. The strict blocked holdout failed to establish useful generalization. No competition slot was spent, and no leaderboard improvement is claimed.
 
+**Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
+
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `docs/research.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
@@ -29,6 +31,7 @@ GitHub CLI (`gh`) is used to restore checksum-pinned public owner mirrors becaus
 - `docs/related-sites.json`: source audit of all 39 supplied related websites. Owner claims are not official score receipts.
 - `docs/source-feed.json`: timestamped health snapshot for permitted non-competition official sources. DrivenData leaderboard polling is disabled because its Terms of Use prohibit automated monitoring; its dated historical snapshot is not represented as current.
 - `research/experiments/h41e-kinematic-holdout.json`: preregistered H41-E kinematic-screen test on the unchanged spatial blocks; negative result, no new TIFF or slot.
+- `research/h33-score-analysis.md`: dated source audit of the reported H33 score, historical public leaderboard rows, and the unresolved participant-to-file attribution.
 
 **Limitations:** no authenticated DrivenData account, hidden labels, organizer filename-to-score receipt, or clean historical-best out-of-fold predictions. The repository initially contained only its title, so there was no prior local pipeline or holdout to resume. Geometric strike is not measured slip sense; the brief conflates Astor Pass and Emerson Pass. The last archived leaderboard observation (0.3262 on 2026-10-05) is historical, not current. Full evidence, corrections, and next-session priorities are in the website.
 

@@ -83,8 +83,15 @@ def test_historical_score_is_never_mislabeled_current():
     assert competition["automated_access"] == "disabled"
     assert historic["observed_date_utc"] == "2026-10-05"
     assert historic["score"] == 0.3262
-    assert historic["current_status"] == "historical only; do not describe as current"
+    rows = historic["observed_rows"]
+    assert next(row for row in rows if row["rank"] == 4)["score"] == 0.3195
+    assert next(row for row in rows if row["rank"] == 13)["participant"] == "extradr19"
+    assert "historical only" in historic["current_status"]
+    assert "unknown" in historic["current_status"]
     assert "not current" in competition["snapshot_warning"].lower()
+    score_audit = (ROOT / "research/h33-score-analysis.md").read_text().lower()
+    assert "filename-to-score" in score_audit
+    assert "manual monitoring requires prior written consent" in score_audit
     site_js = (ROOT / "docs/site.js").read_text().lower()
     assert "fetch('source-feed.json'" in site_js
     assert "fetch('https://www.drivendata.org" not in site_js
@@ -116,8 +123,13 @@ def test_h41e_negative_result_is_reported_and_gate_stays_closed():
 
 def test_rendered_pages_disclose_restriction_and_historical_snapshot():
     home = (ROOT / "docs/index.html").read_text()
+    research = (ROOT / "docs/research.html").read_text()
     sources = (ROOT / "docs/sources.html").read_text()
     assert "not current" in home.lower()
     assert "Terms of Use" in home
+    assert "leaderboard monitoring is disabled" in home.lower()
+    assert 'id="h33-score-audit"' in research
+    assert "Current standings are unknown" in research
+    assert "0.3195" in research and "0.3262" in research
     assert "no current score is claimed" in sources.lower()
     assert "0.3262" in sources
