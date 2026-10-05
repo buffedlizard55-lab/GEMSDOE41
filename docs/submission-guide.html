@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Executive summary and file-format guide for the GEMSDOE41 H41-A research GeoTIFF.">
+  <title>H41-A submission guide — GEMSDOE41</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111c;--panel:#0e1c2a;--panel2:#122437;--text:#edf5f3;--muted:#a2b6c2;--line:#263d50;--mint:#76e0bd;--gold:#f0bb66;--red:#ff9d8d;--max:980px}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 30% -10%,#15334a 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{width:min(var(--max),calc(100% - 38px));margin:0 auto}a{color:var(--mint);text-underline-offset:3px}.nav{display:flex;justify-content:space-between;gap:20px;padding:21px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}.nav a{text-decoration:none}.brand{font-weight:850;letter-spacing:.08em;color:var(--text)}.navlinks{display:flex;gap:18px;flex-wrap:wrap}.navlinks a{color:var(--muted);font-size:.9rem}.eyebrow{text-transform:uppercase;letter-spacing:.18em;color:var(--mint);font-size:.75rem;font-weight:800}.hero{padding:52px 0 27px}.hero h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.05;letter-spacing:-.05em;margin:12px 0 14px}.hero p{color:var(--muted);max-width:780px;font-size:1.05rem}.alert{padding:17px 19px;border:1px solid #a3524d;background:#281817;color:#ffccc3;border-radius:12px;margin:24px 0}.alert strong{color:#fff0ed}.download{display:flex;justify-content:space-between;align-items:center;gap:22px;padding:20px;background:var(--panel);border:1px solid var(--line);border-radius:15px;margin:24px 0}.download h2{margin:0 0 4px;font-size:1.12rem}.download p{margin:0;color:var(--muted);font-size:.88rem;overflow-wrap:anywhere}.button{display:inline-flex;justify-content:center;align-items:center;padding:13px 17px;background:var(--mint);color:#061510;text-decoration:none;border-radius:9px;font-weight:850;white-space:nowrap}.button:hover{background:#a3f1d4;color:#061510}.section{padding:30px 0;border-top:1px solid var(--line)}h2{font-size:1.55rem;letter-spacing:-.03em;margin:0 0 13px}h3{margin:18px 0 7px;font-size:1.05rem}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:17px}.card p{margin:0;color:var(--muted)}.table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}.table th,.table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}.table th{color:var(--muted);background:var(--panel2)}.table tr:last-child td{border-bottom:0}.callout{padding:14px 16px;background:#241d14;border-left:3px solid var(--gold);border-radius:0 9px 9px 0;color:#f5dfb8;margin:16px 0}.steps li{margin:8px 0;color:var(--muted)}.pill{display:inline-block;padding:4px 9px;border:1px solid #9a524d;border-radius:999px;color:#ffc2b8;text-transform:uppercase;letter-spacing:.08em;font-size:.72rem;font-weight:800}.small{font-size:.83rem;color:var(--muted)}footer{border-top:1px solid var(--line);padding:24px 0 40px;color:var(--muted);font-size:.86rem;margin-top:22px}@media(max-width:700px){.download{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.table{font-size:.9rem}.nav{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav"><a class="brand" href="./">GEMSDOE41 / H41-A</a><div class="navlinks"><a href="./">Research dashboard</a><a href="hypotheses.md">Hypotheses</a><a href="PROJECT_BRIEF.md">Evidence ledger</a></div></nav>
+    <main>
+      <header class="hero">
+        <div class="eyebrow">Executive summary · submission guide</div>
+        <h1>H41-A: a research raster, not a slot recommendation.</h1>
+        <p>This file tests paired NW-striking Walker Lane fault tips and nearby N-to-NNE Basin-and-Range traces, with detrended-elevation orientation support. It was generated from the full visible catalogue and is format-audited. The registered blocked holdout could not score the candidate because no paired-corridor support reached any held-out interior.</p>
+        <span class="pill">Unscored · slot gate failed</span>
+      </header>
+
+      <section class="download" aria-label="Download candidate GeoTIFF">
+        <div><h2>GEMSDOE41-H41A-BIMODAL-TRANSFER</h2><p>gemsdoe41-h41a-bimodal-transfer-20261005.tif · SHA-256 128ce3e92bcb0292…</p></div>
+        <a class="button" href="downloads/gemsdoe41-h41a-bimodal-transfer-20261005.tif" download>Download GeoTIFF</a>
+      </section>
+
+      <div class="alert"><strong>Do not spend a competition submission slot on this candidate.</strong> H41-A has no matched-mass spatial-holdout score and therefore did not pass the preregistered gate. The 0.04689 pooled DTI belongs to the terrain-only control, not H41-A. The H41-A score is not zero; it is unevaluable because the candidate supplied no support in the test blocks.</div>
+
+      <section class="section">
+        <h2>At a glance</h2>
+        <div class="grid">
+          <article class="card"><h3>What the raster predicts</h3><p>39,793 nonzero cells with 30,000 expected probability mass. Only 39,793 eligible cells were available against the 90,000-cell (3× mass) support target, so the preregistered support factor was not met. All emitted cells are more than 300 m from the known catalogue, within 500 m of a registered pair-corridor centerline, and within 2 km of both mapped strike families.</p></article>
+          <article class="card"><h3>What the holdout found</h3><p>Four deterministic quadrants; 3.3 km collar; 7,500 matched expected mass per fold. H41-A and corridor-only each had zero eligible pixels in all four evaluation interiors. Terrain-only pooled DTI was 0.046888, but candidate comparison was unavailable.</p></article>
+          <article class="card"><h3>Format checks</h3><p>Single-band float32; EPSG:32611; 3730×3292; 100 m; exact template transform and bounds; finite in-footprint predictions in [0,1]; NaN outside the template footprint with a NaN nodata tag.</p></article>
+          <article class="card"><h3>Novelty check</h3><p>Support Jaccard is 0.00507 vs the H27-4 base and 0.00549 vs H33-2-B2 (423 overlapping cells in each comparison). This is a measured low overlap with two retrievable prior masks—not a proof of global uniqueness.</p></article>
+        </div>
+        <p class="small">Evidence: <a href="evidence/h41a_holdout_20261005.json">holdout report</a> · <a href="evidence/h41a_build_receipt.json">build and uniqueness receipt</a> · <a href="evidence/h41a_format_audit.json">independent format audit</a> · <a href="evidence/input_audit_20261005.json">input/pixelwise audit</a> · <a href="evidence/prior_raster_uniqueness.md">prior-raster overlap audit</a>.</p>
+      </section>
+
+      <section class="section">
+        <h2>Scientific caveats that matter</h2>
+        <div class="callout"><strong>300 m novelty filter:</strong> cells within 300 m of any mapped trace are deliberately removed to avoid catalogue-density echoes. Competition staff have said valid truth can occur within that distance. The filter may therefore miss legitimate new-fault corrections; it is not a ground-truth boundary.</div>
+        <ul class="steps">
+          <li>Mapped-fault strike is estimated from a skeletonized 100 m raster, not original vector geometry; the raster carries no trace-level slip-sense attribute.</li>
+          <li>“NW dextral” and “N/NNE normal” are regional structural interpretations, not measured kinematics for each local segment.</li>
+          <li>`det_elev` orientation/coherence is an unsupervised terrain proxy, not a field-mapped fault-lineament layer.</li>
+          <li>The strict quadrant holdout removes the held-out region and a collar from training. That exposes H41-A's lack of long-range generalization, but does not prove it cannot find local off-catalogue structures near visible traces.</li>
+          <li>The input rasters were obtained through a public owner-maintained mirror and match its hashes; they were not independently authenticated against the login-gated DrivenData download.</li>
+          <li>DrivenData's published format says outside-area values should be null/NaN. This raster preserves the local example's NaN footprint convention, but portal validation was not performed because no authenticated upload was made.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2>H33-2-B2 and the 0.2778 claim</h2>
+        <p>The GEMSDOE32 project page labels its H33-2-B2 file <strong>UNSCORED</strong>, reports a 0.2747 model projection, and says no artifact in that repository has an organizer score. A later GEMSDOE39 pull request calls 0.2778 “owner-reported” and describes deleting 2,545 more pixels from a 0.2708 base, specifically cells 1.414–2 pixels from the mapped catalogue. Such pruning could raise score if the removed mass loses more hidden-label credit than it saves in false-positive penalty, but that mechanism is an interpretation—not a verified official explanation. The public leaderboard's 0.2778 row is #13 for `extradr19`; it does not link that score to H33-2-B2.</p>
+        <p>Current official #1 is 0.3262 (`nchuzhoy`, checked 2026-10-05 UTC). No evidence from H41-A shows it can beat either 0.2778 or 0.3262. See the <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">live leaderboard</a> and <a href="PROJECT_BRIEF.md">source ledger</a>.</p>
+      </section>
+
+      <section class="section">
+        <h2>If a future version becomes slot-eligible</h2>
+        <ol class="steps">
+          <li>Re-run the documented build and independent validator using the exact intended input hashes. Do not edit a TIFF after validation.</li>
+          <li>Confirm `slot_eligible: true` in the current receipt and verify that the locked holdout beats the best matched baseline on at least 3/4 folds and in pooled DTI, plus the registered sensitivity checks.</li>
+          <li>Re-read the official rules and current submission instructions; upload only through the authenticated DrivenData competition page.</li>
+          <li>Choose the unique name <code>GEMSDOE41-H41A-BIMODAL-TRANSFER</code> and paste the short note below only if the artifact is newly validated and authorized.</li>
+          <li>After upload, record the actual organizer result, leaderboard row, submission timestamp, and downloaded file hash separately. Do not infer a score from a local proxy.</li>
+        </ol>
+        <h3>Short note (identification only; does not authorize upload)</h3>
+        <p><code>GEMSDOE41 H41-A | paired NW–N/NNE transfer corridors with det_elev orientation support; 300 m catalogue exclusion; unscored research candidate</code></p>
+      </section>
+    </main>
+    <footer>Built from the preregistered research record. <a href="./">Return to the live research dashboard</a> · <a href="hypotheses.md">Hypothesis ranking and numerical thresholds</a></footer>
+  </div>
+</body>
+</html>

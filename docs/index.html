@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GEMSDOE41: auditable Walker Lane–Basin-and-Range structural-transfer research for the DOE GEMS Prize Challenge.">
+  <title>GEMSDOE41 — Structural transfer research</title>
+  <style>
+    :root{color-scheme:dark;--bg:#07111c;--panel:#0e1c2a;--panel2:#122437;--text:#edf5f3;--muted:#a2b6c2;--line:#263d50;--mint:#76e0bd;--gold:#f0bb66;--red:#ff9d8d;--blue:#8bb9ff;--max:1160px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 20% -10%,#15334a 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:var(--mint);text-underline-offset:3px}a:hover{color:#b3ffe7}.wrap{width:min(var(--max),calc(100% - 40px));margin:0 auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--line)}.brand{font-weight:800;letter-spacing:.08em;font-size:.92rem;color:var(--text);text-decoration:none}.navlinks{display:flex;gap:22px;flex-wrap:wrap}.navlinks a{font-size:.9rem;color:var(--muted);text-decoration:none}.navlinks a:hover{color:var(--mint)}
+    .hero{padding:70px 0 42px;display:grid;grid-template-columns:1.18fr .82fr;gap:36px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.19em;font-size:.74rem;color:var(--mint);font-weight:800}.hero h1{font-size:clamp(2.5rem,5.8vw,4.7rem);line-height:1.02;letter-spacing:-.055em;margin:14px 0 20px;max-width:760px}.hero p{color:var(--muted);font-size:1.12rem;max-width:720px;margin:0 0 24px}.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.button{display:inline-flex;align-items:center;gap:10px;padding:14px 19px;background:var(--mint);border:1px solid var(--mint);border-radius:10px;color:#061510;text-decoration:none;font-weight:850;box-shadow:0 12px 34px #42cca51c}.button:hover{background:#a3f1d4;color:#061510}.button.secondary{background:transparent;color:var(--text);border-color:var(--line);box-shadow:none}.button.secondary:hover{border-color:var(--mint)}.hero-card{border:1px solid #335168;border-radius:18px;padding:23px;background:linear-gradient(145deg,#122639eF,#0a1826f5);box-shadow:0 24px 70px #0005}.status{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid #9a524d;border-radius:999px;color:#ffc2b8;font-size:.75rem;text-transform:uppercase;letter-spacing:.09em;font-weight:850}.dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 12px var(--red)}.hero-card h2{font-size:1.25rem;margin:16px 0 5px}.hero-card p{font-size:.95rem;margin:0;color:var(--muted)}.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px}.metric{padding:14px;border-radius:12px;background:#081521;border:1px solid var(--line)}.metric strong{display:block;font-size:1.25rem;color:var(--text);line-height:1.25}.metric span{font-size:.78rem;color:var(--muted)}
+    .banner{padding:16px 18px;border:1px solid #866334;background:#261d12;border-radius:12px;color:#f9dcaa;margin:8px 0 34px}.banner strong{color:#ffe8bc}.section{padding:40px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:20px}.section h2{font-size:clamp(1.7rem,3vw,2.45rem);letter-spacing:-.035em;margin:0}.section-head p{color:var(--muted);max-width:560px;margin:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:20px}.card h3{margin:0 0 7px;font-size:1.1rem}.card p{margin:0;color:var(--muted);font-size:.94rem}.card .kicker{color:var(--mint);font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:9px}.warning{border-left:3px solid var(--gold);padding:12px 15px;background:#241d14;border-radius:0 9px 9px 0;color:#f4d9a6;margin:18px 0}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}.table{border-collapse:collapse;width:100%;min-width:640px;background:var(--panel)}.table th,.table td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}.table th{color:var(--muted);font-weight:700;background:#0a1723}.table tr:last-child td{border-bottom:0}.table td:last-child{font-weight:750}.feedbox{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden}.feedtop{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:15px 18px;background:var(--panel2);border-bottom:1px solid var(--line)}.feedtop p{margin:0;color:var(--muted);font-size:.86rem}.feed-status{color:var(--mint);font-size:.82rem}.feed-list{list-style:none;margin:0;padding:0}.feed-list li{display:grid;grid-template-columns:76px 1fr auto;gap:12px;align-items:center;padding:13px 18px;border-bottom:1px solid var(--line)}.feed-list li:last-child{border-bottom:0}.mag{font-weight:850;color:var(--gold)}.event-place{font-size:.91rem}.event-time{display:block;color:var(--muted);font-size:.76rem}.feed-list a{font-size:.85rem;white-space:nowrap}.sources{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.source{padding:14px 16px;border:1px solid var(--line);border-radius:11px;background:var(--panel);color:var(--text);text-decoration:none}.source span{display:block;color:var(--muted);font-size:.8rem;margin-top:3px}.source:hover{border-color:var(--mint)}footer{border-top:1px solid var(--line);padding:26px 0 42px;color:var(--muted);font-size:.84rem;margin-top:30px}.small{font-size:.82rem;color:var(--muted)}
+    @media(max-width:850px){.hero{grid-template-columns:1fr;padding-top:48px}.grid{grid-template-columns:1fr 1fr}.hero-card{max-width:600px}.section-head{align-items:start;flex-direction:column}}
+    @media(max-width:590px){.wrap{width:min(100% - 28px,var(--max))}.nav{align-items:flex-start;gap:14px;flex-direction:column}.navlinks{gap:15px}.hero{padding-top:40px}.grid,.sources{grid-template-columns:1fr}.feed-list li{grid-template-columns:58px 1fr;gap:8px}.feed-list li a{grid-column:2}.feedtop{align-items:flex-start;flex-direction:column}.metric-grid{gap:8px}.metric{padding:11px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="./">GEMSDOE41 <span style="color:var(--mint)">/</span> GEMS PRIZE</a>
+      <div class="navlinks"><a href="#candidate">Candidate</a><a href="#research">Research</a><a href="#feed">Live feed</a><a href="submission-guide.html">Submission guide</a><a href="hypotheses.md">Hypotheses</a></div>
+    </nav>
+
+    <main>
+      <section class="hero" id="candidate">
+        <div>
+          <div class="eyebrow">Structural position · not catalogue density</div>
+          <h1>Find the space where fault systems meet.</h1>
+          <p>H41-A tests a Walker Lane / Basin-and-Range transfer geometry: pair NW-striking fault tips with nearby N-to-NNE traces, then require independent orientation support from detrended elevation.</p>
+          <div class="actions">
+            <a class="button" href="downloads/gemsdoe41-h41a-bimodal-transfer-20261005.tif" download>↓ Download H41-A GeoTIFF</a>
+            <a class="button secondary" href="submission-guide.html">Read the submission guide</a>
+          </div>
+          <p class="small" style="margin-top:14px">EPSG:32611 · 100 m · 3730×3292 · float32 · 30,000 expected probability mass · SHA-256 <code>128ce3e92bcb…</code></p>
+        </div>
+        <aside class="hero-card" aria-label="Candidate status">
+          <span class="status"><i class="dot"></i> Unscored · do not spend a slot</span>
+          <h2>Registered spatial holdout did not pass</h2>
+          <p>H41-A had no eligible paired-corridor cells in any of the four leak-resistant test interiors. Its matched-mass DTI is therefore <strong>not estimable</strong>, not zero. No competition slot is recommended.</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>0 / 4</strong><span>folds with candidate support</span></div>
+            <div class="metric"><strong>—</strong><span>candidate pooled DTI (not scored)</span></div>
+            <div class="metric"><strong>0.0469</strong><span>terrain-only proxy pooled DTI</span></div>
+            <div class="metric"><strong>0.55%</strong><span>support Jaccard vs H33-2-B2</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <div class="banner"><strong>300 m tradeoff:</strong> H41-A deliberately excludes predictions within 300 m of any mapped trace to avoid catalogue-density echoes. Competition staff have said valid truth can occur inside that distance, so this novelty filter may remove genuine corrections.</div>
+
+      <section class="section" id="research">
+        <div class="section-head"><div><div class="eyebrow">Evidence, not projections</div><h2>What is—and is not—validated</h2></div><p>The public competition target is expert-mapped faults absent from the existing catalogue. A known-fault holdout is only a proxy for hidden-label discovery.</p></div>
+        <div class="grid">
+          <article class="card"><div class="kicker">H41-A · current candidate</div><h3>Inter-population corridors</h3><p>39,793 nonzero cells carry 30,000 expected mass, but the requested 90,000-cell soft support was unavailable. Every emitted cell is outside 300 m of the known catalogue, within 500 m of a paired-corridor centerline, and within 2 km of both mapped strike families. This is a geometrical distribution check, not validation of fault truth.</p></article>
+          <article class="card"><div class="kicker">Holdout · H41-A-PRE-1</div><h3>Unable to generalize across large blocks</h3><p>In all four quadrants, the NW-tip-to-normal corridor field had zero eligible cells after hiding the block and a 3.3 km collar. The terrain-only baseline scored 0.04689 pooled at matched mass; there was no candidate score to compare against it.</p></article>
+          <article class="card"><div class="kicker">Uniqueness · support masks</div><h3>Low overlap with retrievable priors</h3><p>Only 423 support cells overlap each of the H27-4 base and H33-2-B2 rasters. Jaccard is 0.00507 vs H27-4 and 0.00549 vs H33-2-B2. This verifies low support-mask overlap with two available artifacts—not uniqueness against every prior submission.</p></article>
+        </div>
+        <div class="warning"><strong>H33 score attribution is disputed.</strong> The GEMSDOE32 H33-2-B2 page reports a 0.2747 model projection and says its artifacts have no organizer score. A later owner-maintained GEMSDOE39 PR calls 0.2778 “owner-reported”; the live leaderboard's 0.2778 row is #13 for participant extradr19 and does not identify H33-2-B2. See the <a href="PROJECT_BRIEF.md">evidence ledger</a> and <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">official leaderboard</a>.</div>
+        <div style="margin-top:18px"><a href="evidence/h41a_holdout_20261005.json">Holdout report</a> · <a href="evidence/h41a_build_receipt.json">Build receipt</a> · <a href="evidence/h41a_format_audit.json">Independent format audit</a> · <a href="evidence/input_audit_20261005.json">Input provenance and pixelwise audit</a> · <a href="evidence/prior_raster_uniqueness.md">Prior-raster overlap audit</a> · <a href="evidence/review_log.md">Three-pass review log</a> · <a href="hypotheses.md">Preregistered hypotheses and thresholds</a></div>
+      </section>
+
+      <section class="section" id="feed">
+        <div class="section-head"><div><div class="eyebrow">Live and current</div><h2>Recent USGS earthquake feed</h2></div><p>USGS ComCat events, magnitude ≥1, in the competition grid's geographic envelope over the last 30 days. Seismicity is context—not proof of a mapped fault, geothermal system, or H41-A prediction.</p></div>
+        <div class="feedbox">
+          <div class="feedtop"><p>Source: official USGS FDSN Event API · geographic window ≈ 37.33–40.73°N, 120.04–116.14°W</p><span id="feed-status" class="feed-status">Connecting to ComCat…</span></div>
+          <ul id="quake-list" class="feed-list"><li><span class="mag">…</span><span class="event-place">Loading recent events from USGS.</span></li></ul>
+        </div>
+        <p class="small">The feed refreshes in your browser and is not cached as scientific evidence. <a id="feed-link" href="https://earthquake.usgs.gov/fdsnws/event/1/">Open the USGS event API</a>. If live access is blocked, check the API directly.</p>
+      </section>
+
+      <section class="section" id="ranked-hypotheses">
+        <div class="section-head"><div><div class="eyebrow">Next research · ranked by prior value / cost</div><h2>Three untried lines of evidence</h2></div><p>Qualitative expected-gain ranking only; no numeric score forecast. Free official source availability is checked, but none is automatically slot-eligible.</p></div>
+        <div class="table-wrap"><table class="table"><thead><tr><th>Rank</th><th>Hypothesis</th><th>Expected value / cost</th><th>Key external layer</th></tr></thead><tbody>
+          <tr><td>01</td><td><strong>H41-A</strong><br>NW tip–N/NNE transfer corridors + `det_elev` orientation</td><td>Highest relative prior · low–medium cost · holdout failed support gate</td><td>Competition label raster + `det_elev`</td></tr>
+          <tr><td>02</td><td><strong>H41-B</strong><br>Focal-mechanism change across structural corridors</td><td>Medium expected value · medium cost · sparse-data risk</td><td>USGS ComCat moment tensor / focal mechanism records</td></tr>
+          <tr><td>03</td><td><strong>H41-C</strong><br>Drainage deflection / knickpoints at transfer corridors</td><td>Low–medium expected value · medium–high cost · coverage audit required</td><td>USGS 3DEP 1 m DEM + official 3DHP flowlines</td></tr>
+        </tbody></table></div>
+        <p style="margin-top:12px"><a href="hypotheses.md">Open the complete sourced hypothesis register →</a></p>
+      </section>
+
+      <section class="section" id="sources">
+        <div class="section-head"><div><div class="eyebrow">Primary sources</div><h2>Research links</h2></div><p>Each finding is dated and evidence-classed in the project brief.</p></div>
+        <div class="sources">
+          <a class="source" href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">DrivenData problem, scoring, and file format<span>Official rules and metric source</span></a>
+          <a class="source" href="https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/">DrivenData public leaderboard<span>Live official board; snapshot dated 2026-10-05 UTC</span></a>
+          <a class="source" href="https://doi.org/10.1130/G21274.1">Faulds, Henry &amp; Hinz (2005)<span>Northern Walker Lane structural framework</span></a>
+          <a class="source" href="https://www.osti.gov/biblio/1110518">Anderson &amp; Faulds (2012)<span>Emerson Pass; not the Astor Pass paper</span></a>
+          <a class="source" href="https://www.osti.gov/biblio/1110516">Siler, Mayhew &amp; Faulds (2012)<span>Astor Pass; distinct field locality</span></a>
+          <a class="source" href="https://www.usgs.gov/data/geodawn-airborne-magnetic-and-radiometric-surveys-northwestern-great-basin-nevada-and">USGS GeoDAWN data release<span>Official survey context</span></a>
+          <a class="source" href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS ComCat FDSN API<span>Official live earthquake data</span></a>
+          <a class="source" href="https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/MapServer/50">USGS 3DHP flowline service<span>Open official hydrography layer</span></a>
+        </div>
+      </section>
+    </main>
+    <footer>GEMSDOE41 · research artifact only · no organizer score observed · last project audit: 2026-10-05 UTC. <a href="PROJECT_BRIEF.md">Evidence ledger</a> · <a href="submission-guide.html">Submission guide</a></footer>
+  </div>
+  <script>
+    (() => {
+      const params = new URLSearchParams({
+        format: "geojson",
+        starttime: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10),
+        endtime: new Date().toISOString().slice(0, 10),
+        minlatitude: "37.33119",
+        maxlatitude: "40.72788",
+        minlongitude: "-120.03717",
+        maxlongitude: "-116.14092",
+        minmagnitude: "1.0",
+        orderby: "time",
+        limit: "20"
+      });
+      const api = `https://earthquake.usgs.gov/fdsnws/event/1/query?${params.toString()}`;
+      const status = document.getElementById("feed-status");
+      const list = document.getElementById("quake-list");
+      const link = document.getElementById("feed-link");
+      link.href = api;
+      fetch(api, {headers: {Accept: "application/geo+json"}})
+        .then(response => {
+          if (!response.ok) throw new Error(`USGS returned HTTP ${response.status}`);
+          return response.json();
+        })
+        .then(data => {
+          const events = data.features || [];
+          list.replaceChildren();
+          if (!events.length) {
+            list.innerHTML = '<li><span class="mag">0</span><span class="event-place">No magnitude ≥1 events returned for this window.</span></li>';
+          } else {
+            for (const event of events) {
+              const p = event.properties || {};
+              const li = document.createElement("li");
+              const mag = document.createElement("span");
+              mag.className = "mag";
+              mag.textContent = Number.isFinite(p.mag) ? `M ${p.mag.toFixed(1)}` : "M —";
+              const place = document.createElement("span");
+              place.className = "event-place";
+              const title = document.createElement("span");
+              title.textContent = p.place || "Unlocated event";
+              const time = document.createElement("span");
+              time.className = "event-time";
+              time.textContent = p.time ? new Date(p.time).toLocaleString() : "Time unavailable";
+              place.append(title, time);
+              const anchor = document.createElement("a");
+              anchor.href = p.url || "https://earthquake.usgs.gov/";
+              anchor.target = "_blank";
+              anchor.rel = "noopener noreferrer";
+              anchor.textContent = "USGS ↗";
+              li.append(mag, place, anchor);
+              list.append(li);
+            }
+          }
+          status.textContent = `Updated ${new Date().toLocaleString()} · ${events.length} events`;
+        })
+        .catch(error => {
+          list.innerHTML = '<li><span class="mag">—</span><span class="event-place">Live feed unavailable in this browser. Open the official ComCat query directly.</span></li>';
+          status.textContent = "Feed unavailable";
+          console.warn("USGS ComCat feed error:", error);
+        });
+    })();
+  </script>
+</body>
+</html>

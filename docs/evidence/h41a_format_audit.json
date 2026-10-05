@@ -1,0 +1,64 @@
+{
+  "audit_utc": "2026-10-05T23:33:46.135927+00:00",
+  "submission_path": "docs/downloads/gemsdoe41-h41a-bimodal-transfer-20261005.tif",
+  "template_path": "data/raw/example_submission.tif",
+  "sha256": "128ce3e92bcb0292a6a9f5a96d91877eee4f2ee7225d347311892dc8797aa902",
+  "crs": "EPSG:32611",
+  "shape": [
+    3730,
+    3292
+  ],
+  "dtype": "float32",
+  "band_count": 1,
+  "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+  ],
+  "bounds": [
+    243350.0,
+    4135550.0,
+    572550.0,
+    4508550.0
+  ],
+  "nodata": "NaN",
+  "matches_template_grid": true,
+  "inside_footprint_pixels": 5167373,
+  "outside_footprint_pixels": 7111787,
+  "inside_footprint_all_finite": true,
+  "outside_footprint_all_nan": true,
+  "in_footprint_values_within_0_1": true,
+  "in_footprint_min": 0.0,
+  "in_footprint_max": 1.0,
+  "positive_pixels": 39793,
+  "probability_mass": 29999.999999409254,
+  "expected_probability_mass": 30000.0,
+  "mass_absolute_error": 5.907459126319736e-07,
+  "mass_matches_target_within_0_01": true,
+  "prior_support_comparisons": [
+    {
+      "path": "data/prior_reference/h27-4-solo-d2-8-base.tif",
+      "sha256": "4dc4cc54b061cb4567a5500c8fa2bfe750a39340b02c8cdbb4308916f36cbcc3",
+      "comparable": true,
+      "candidate_nonzero": 39793,
+      "prior_nonzero": 44090,
+      "intersection": 423,
+      "jaccard": 0.005068296189791517,
+      "candidate_contained_in_prior": 0.010630010303319679
+    },
+    {
+      "path": "data/prior_reference/h33-h33-2-b2.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "comparable": true,
+      "candidate_nonzero": 39793,
+      "prior_nonzero": 37654,
+      "intersection": 423,
+      "jaccard": 0.005491794765267968,
+      "candidate_contained_in_prior": 0.010630010303319679
+    }
+  ],
+  "format_audit_passed": true
+}

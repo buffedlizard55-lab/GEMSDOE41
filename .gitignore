@@ -1,0 +1,12 @@
+.venv/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+# Large competition inputs are mirrored locally for reproducibility but are not tracked.
+data/raw/
+data/prior_reference/
+
+# Local temporary outputs and diagnostics
+*.tmp
+.DS_Store
