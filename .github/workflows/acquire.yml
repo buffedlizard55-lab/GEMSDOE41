@@ -1,33 +1,24 @@
-name: Acquire official fault geometry
+name: Verify official fault geometry archive
 on:
-  push:
-    paths: ['.github/workflows/acquire.yml']
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  acquire:
+  verify:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/arena/5d5d8cc8-gemsdoe41'
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch public official archive
+      - name: Fetch public official archive and verify pinned bytes
         run: |
           mkdir -p official
-          curl --fail --location --retry 3 --max-time 180 https://gdr.openei.org/files/1391/qfaults_ingenious_nad83conus117_2023-06-27.zip -o official/qfaults.zip
+          curl --fail --location --retry 3 --max-time 180 \
+            https://gdr.openei.org/files/1391/qfaults_ingenious_nad83conus117_2023-06-27.zip \
+            -o official/qfaults.zip
           unzip -t official/qfaults.zip
+          echo 'c7b091c9ac8bca140ad89ee6bb2bd63dd3ac12e3013acbfd8373d11c9faee59d  official/qfaults.zip' | sha256sum --check -
           sha256sum official/qfaults.zip > official/SHA256SUMS
       - uses: actions/upload-artifact@v4
         with:
-          name: official-fault-geometry
+          name: verified-official-fault-geometry
           path: official/
           retention-days: 90
-      - name: Preserve small official geometry for reproducibility
-        run: |
-          mkdir -p data/official
-          cp official/* data/official/
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -f data/official/qfaults.zip data/official/SHA256SUMS
-          git diff --cached --quiet || git commit -m 'Archive official GDR geometry and checksum (CC BY 4.0)'
-          git push origin HEAD:arena/5d5d8cc8-gemsdoe41

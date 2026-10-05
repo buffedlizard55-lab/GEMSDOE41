@@ -1,106 +1,166 @@
-"""Daily public-source health snapshot; no credentials or competition submissions.
+"""Refresh a dated snapshot of permitted non-competition public sources.
 
-Run in GitHub Actions where direct internet transport is available. Failures are
-published explicitly; a failed fetch must never be presented as a current score.
+Important: DrivenData's Terms of Use prohibit automated access/monitoring. This
+script MUST NOT request any drivendata.org URL, including the public leaderboard.
+The competition page is linked for an explicit user-initiated visit only. Failed
+checks remain visible and never turn into a current factual claim.
 """
-from datetime import datetime,timezone
-from html.parser import HTMLParser
-import hashlib
+from datetime import datetime, timezone
 import json
 from pathlib import Path
+
 import requests
 
-URLS={
-'leaderboard':'https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/',
-'problem':'https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/',
-'rules':'https://docs.nlr.gov/docs/fy26osti/96647.pdf',
-'ingenious':'https://gdr.openei.org/submissions/1391',
-'faulds2005':'https://nbmg.unr.edu/staff/Faulds/faulds_et_al_geology_paper.pdf',
-'astor_pass':'https://www.osti.gov/servlets/purl/1110516',
-'emerson_pass':'https://www.osti.gov/servlets/purl/1110518'}
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "docs/source-feed.json"
+HISTORICAL_LEADERBOARD = ROOT / "research/leaderboard-observation.json"
 
-class TableParser(HTMLParser):
-    def __init__(self):super().__init__();self.rows=[];self.row=None;self.cell=None
-    def handle_starttag(self,tag,attrs):
-        if tag=='tr':self.row=[]
-        if tag in ('td','th') and self.row is not None:self.cell=''
-    def handle_data(self,text):
-        if self.cell is not None:self.cell+=text
-    def handle_endtag(self,tag):
-        if tag in ('td','th') and self.cell is not None:
-            self.row.append(' '.join(self.cell.split()));self.cell=None
-        if tag=='tr' and self.row is not None:self.rows.append(self.row);self.row=None
+# These probes are limited to official data/literature sources outside the
+# competition website. HEAD probes inspect availability metadata only. The TNM
+# query reads one small JSON inventory response and does not download DEM tiles.
+SOURCE_CHECKS = [
+    {
+        "id": "competition_rules_pdf",
+        "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+        "method": "HEAD",
+        "scope": "Availability metadata only; no PDF content is downloaded.",
+    },
+    {
+        "id": "ingenious_gdr_record",
+        "url": "https://gdr.openei.org/submissions/1391",
+        "method": "HEAD",
+        "scope": "Public DOE GDR record availability metadata only.",
+    },
+    {
+        "id": "ingenious_qfaults_v2_archive",
+        "url": "https://gdr.openei.org/files/1391/qfaults_ingenious_nad83conus117_2023-06-27.zip",
+        "method": "HEAD",
+        "scope": "Availability metadata only; archive is not downloaded by this feed.",
+    },
+    {
+        "id": "faulds_henry_hinz_2005",
+        "url": "https://nbmg.unr.edu/staff/Faulds/faulds_et_al_geology_paper.pdf",
+        "method": "HEAD",
+        "scope": "University-hosted paper availability metadata only.",
+    },
+    {
+        "id": "astor_pass_osti",
+        "url": "https://www.osti.gov/servlets/purl/1110516",
+        "method": "HEAD",
+        "scope": "DOE OSTI paper availability metadata only.",
+    },
+    {
+        "id": "emerson_pass_osti",
+        "url": "https://www.osti.gov/servlets/purl/1110518",
+        "method": "HEAD",
+        "scope": "DOE OSTI paper availability metadata only.",
+    },
+    {
+        "id": "usgs_3dep_1m_inventory_sample_window",
+        "url": (
+            "https://tnmaccess.nationalmap.gov/api/v1/products?"
+            "datasets=Digital%20Elevation%20Model%20(DEM)%201%20meter&"
+            "bbox=-119.8,39.5,-119.0,40.0&prodFormats=GeoTIFF&max=1"
+        ),
+        "method": "GET_JSON",
+        "scope": "One inventory response for a sample bbox; not evidence of full-study-area coverage.",
+    },
+]
 
-def parse_scores(text):
-    import re
-    parser=TableParser();parser.feed(text)
-    scores=[]
-    for row in parser.rows:
-        # Responsive layouts can include an empty/avatar cell before rank or
-        # decorate the rank with movement metadata. Never assume column zero.
-        if not any(re.fullmatch(r'#?\s*\d+',cell) or re.match(r'^#\s*\d+\b',cell) for cell in row):continue
-        for cell in row:
-            if re.fullmatch(r'0\.\d{4,}',cell):scores.append(float(cell))
-    return scores
-
-def parse_rendered_ranks(text):
-    """Read visible rank/score lines, never numbers from JavaScript source."""
-    import re
-    rows=[]; rank=None
-    for line in text.splitlines():
-        line=line.strip()
-        m=re.fullmatch(r'#?\s*(\d+)',line)
-        if m: rank=int(m.group(1))
-        elif rank is not None and re.fullmatch(r'0\.\d{4,}',line):
-            rows.append((rank,float(line)));rank=None
-    # Require multiple sequential ranks, not an isolated number somewhere on page.
-    if len(rows)<3 or [r for r,s in rows[:3]]!=[1,2,3]: return []
-    return [s for r,s in rows]
+COMPETITION = {
+    "leaderboard_url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+    "terms_url": "https://www.drivendata.org/termsofuse/",
+    "robots_url": "https://www.drivendata.org/robots.txt",
+    "automated_access": "disabled",
+    "current_score": None,
+    "reason": (
+        "DrivenData Terms of Use prohibit robots, spiders, and automatic access for any purpose, "
+        "including monitoring; no leaderboard request or browser scrape is made."
+    ),
+}
 
 
-def render_public_leaderboard(url):
-    from playwright.sync_api import sync_playwright
-    with sync_playwright() as browser_api:
-        browser=browser_api.chromium.launch()
-        try:
-            page=browser.new_page()
-            page.goto(url,wait_until='domcontentloaded',timeout=45000)
-            try:
-                page.wait_for_function("/0[.][0-9]{4}/.test(document.body.innerText)",timeout=30000)
-            except Exception:
-                pass  # Inspect the visible page even on timeout; never invent scores.
-            text=page.inner_text('body')
-            scores=parse_scores(page.content()) or parse_rendered_ranks(text)
-            return scores, hashlib.sha256(text.encode()).hexdigest(), text[:5000]
-        finally: browser.close()
+def _safe_headers(response):
+    """Keep only small non-sensitive response metadata; never store page bodies."""
+    headers = response.headers
+    return {
+        "http_status": response.status_code,
+        "final_url": response.url,
+        "content_type": headers.get("Content-Type"),
+        "content_length": headers.get("Content-Length"),
+        "last_modified": headers.get("Last-Modified"),
+        "etag": headers.get("ETag"),
+    }
+
+
+def check_source(source, session=requests):
+    row = {"id": source["id"], "url": source["url"], "method": source["method"], "scope": source["scope"]}
+    response = None
+    try:
+        if source["method"] == "HEAD":
+            response = session.head(source["url"], timeout=30, allow_redirects=True)
+            if response.status_code in (405, 501):
+                response.close()
+                response = session.get(source["url"], timeout=30, allow_redirects=True, stream=True)
+        elif source["method"] == "GET_JSON":
+            response = session.get(source["url"], timeout=30, allow_redirects=True)
+        else:
+            raise ValueError(f"unsupported check method: {source['method']}")
+
+        response.raise_for_status()
+        row.update(status="ok", **_safe_headers(response))
+        if source["method"] == "GET_JSON":
+            payload = response.json()
+            items = payload.get("items") or []
+            row["inventory_total"] = payload.get("total")
+            row["sample_products"] = [
+                {
+                    "title": item.get("title"),
+                    "metadata_url": item.get("metaUrl"),
+                    "download_url": item.get("downloadURL"),
+                }
+                for item in items[:1]
+            ]
+            if not isinstance(payload.get("total"), int) or payload["total"] < 0:
+                raise ValueError("inventory response has no valid total count")
+    except Exception as exc:
+        row.update(status="error", error=f"{type(exc).__name__}: {str(exc)[:240]}")
+    finally:
+        if response is not None:
+            response.close()
+    return row
+
+
+def build_snapshot(session=requests, checked_utc=None):
+    historical = json.loads(HISTORICAL_LEADERBOARD.read_text())
+    sources = [check_source(source, session=session) for source in SOURCE_CHECKS]
+    return {
+        "schema_version": 2,
+        "checked_utc": checked_utc or datetime.now(timezone.utc).isoformat(),
+        "method": "Daily low-volume availability checks of permitted official sources; no DrivenData access.",
+        "competition_leaderboard": {
+            **COMPETITION,
+            "last_recorded_public_observation": historical,
+            "snapshot_warning": "Historical context only; not current. Current rankings are unknown; this project does not monitor the leaderboard.",
+        },
+        "sources": sources,
+        "source_checks_ok": sum(source["status"] == "ok" for source in sources),
+        "source_checks_failed": sum(source["status"] != "ok" for source in sources),
+        "failure_interpretation": "A probe error means this runner could not verify the endpoint; it does not prove the remote source is offline.",
+    }
 
 
 def main():
-    output={'checked_utc':datetime.now(timezone.utc).isoformat(),'method':'public HTTP fetch; daily snapshot, not live scoring','leader_score':None,'sources':[]}
-    for name,url in URLS.items():
-        item={'id':name,'url':url}
-        try:
-            r=requests.get(url,timeout=45);r.raise_for_status()
-            if '/login/' in r.url:raise ValueError('redirected to login')
-            item.update(status='ok',http_status=r.status_code,sha256=hashlib.sha256(r.content).hexdigest(),bytes=len(r.content))
-            if name=='leaderboard':
-                values=parse_scores(r.text)
-                if not values:
-                    parsed=TableParser();parsed.feed(r.text)
-                    item['table_row_count']=len(parsed.rows)
-                    item['first_table_rows']=parsed.rows[:5]
-                    values, rendered_hash, excerpt=render_public_leaderboard(url)
-                    item['rendered_text_sha256']=rendered_hash
-                    item['score_parse_method']='rendered public browser DOM; rank-validated numeric scores'
-                    if not values:
-                        item['rendered_excerpt']=excerpt
-                        raise ValueError('no ranked numeric scores in rendered public page')
-                output['leader_score']=max(values);output['parsed_scores_count']=len(values)
-        except Exception as e:item.update(status='error',error=str(e)[:300])
-        output['sources'].append(item)
-        if name=='leaderboard':
-            print('::notice title=Public leaderboard parse::'+json.dumps({'leader_score':output['leader_score'],**item}))
-    p=Path(__file__).resolve().parents[1]/'docs/source-feed.json'
-    p.write_text(json.dumps(output,indent=2)+'\n')
-    print(json.dumps(output,indent=2))
-if __name__=='__main__':main()
+    snapshot = build_snapshot()
+    OUT.write_text(json.dumps(snapshot, indent=2) + "\n")
+    print(json.dumps({
+        "checked_utc": snapshot["checked_utc"],
+        "competition_automated_access": snapshot["competition_leaderboard"]["automated_access"],
+        "source_checks_ok": snapshot["source_checks_ok"],
+        "source_checks_failed": snapshot["source_checks_failed"],
+        "leaderboard_current_score": snapshot["competition_leaderboard"]["current_score"],
+    }, indent=2))
+
+
+if __name__ == "__main__":
+    main()

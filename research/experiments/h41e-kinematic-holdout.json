@@ -1,0 +1,316 @@
+{
+  "hypothesis_id": "H41-E",
+  "design": "Fixed H41-A four-color 20 km spatial folds; complete source-feature withholding where geometry intersects held-out blocks plus 300 m; 300 m-eroded held-out interiors; unchanged DTI and unchanged H41-A geometry/topographic parameters.",
+  "slip_sense_screen": {
+    "NW_family_0": "SLIPSENSE exactly RL",
+    "N_NNE_family_1": "SLIPSENSE exactly N",
+    "ambiguous_missing_and_conflicting_values": "not eligible as corridor anchors/receivers; retained in all mapped-population distance and connected-fragment geometry",
+    "source_values_not_recoded": true
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "validation_cells": 1261665,
+      "validation_truth_pixels": 14453,
+      "source_ids_removed": 226,
+      "h41e_slip_sense_counts_after_source_withholding": {
+        "eligible_after_family_0": 52,
+        "eligible_after_family_1": 475,
+        "eligible_before_family_0": 141,
+        "eligible_before_family_1": 530,
+        "family_0_slipsense_LL": 4,
+        "family_0_slipsense_N": 236,
+        "family_0_slipsense_RL": 111,
+        "family_1_slipsense_LL": 20,
+        "family_1_slipsense_N": 852,
+        "family_1_slipsense_RL": 130
+      },
+      "models": {
+        "H41-A": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.004673554509132961,
+            "fn": 14453.0,
+            "truth_pixels": 14453
+          },
+          "prediction_mass": 0.004673554509132961,
+          "accepted_corridors": 57,
+          "eligible_anchors_by_family": {
+            "0": 141,
+            "1": 530
+          }
+        },
+        "H41-E": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 14453.0,
+            "truth_pixels": 14453
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 4,
+          "eligible_anchors_by_family": {
+            "0": 52,
+            "1": 475
+          },
+          "matched_mass_controls": {
+            "catalogue_density": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 14453.0,
+              "truth_pixels": 14453,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            },
+            "topography_only": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 14453.0,
+              "truth_pixels": 14453,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "validation_cells": 1184320,
+      "validation_truth_pixels": 12944,
+      "source_ids_removed": 185,
+      "h41e_slip_sense_counts_after_source_withholding": {
+        "eligible_after_family_0": 71,
+        "eligible_after_family_1": 522,
+        "eligible_before_family_0": 197,
+        "eligible_before_family_1": 603,
+        "family_0_slipsense_LL": 3,
+        "family_0_slipsense_MISSING": 1,
+        "family_0_slipsense_N": 306,
+        "family_0_slipsense_RL": 139,
+        "family_1_slipsense_LL": 42,
+        "family_1_slipsense_N": 1088,
+        "family_1_slipsense_RL": 133
+      },
+      "models": {
+        "H41-A": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 12944.0,
+            "truth_pixels": 12944
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 77,
+          "eligible_anchors_by_family": {
+            "0": 197,
+            "1": 603
+          }
+        },
+        "H41-E": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 12944.0,
+            "truth_pixels": 12944
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 7,
+          "eligible_anchors_by_family": {
+            "0": 71,
+            "1": 522
+          },
+          "matched_mass_controls": {
+            "catalogue_density": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 12944.0,
+              "truth_pixels": 12944,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            },
+            "topography_only": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 12944.0,
+              "truth_pixels": 12944,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "validation_cells": 1248516,
+      "validation_truth_pixels": 14799,
+      "source_ids_removed": 219,
+      "h41e_slip_sense_counts_after_source_withholding": {
+        "eligible_after_family_0": 92,
+        "eligible_after_family_1": 627,
+        "eligible_before_family_0": 212,
+        "eligible_before_family_1": 707,
+        "family_0_slipsense_LL": 4,
+        "family_0_slipsense_MISSING": 1,
+        "family_0_slipsense_N": 283,
+        "family_0_slipsense_RL": 156,
+        "family_1_slipsense_LL": 45,
+        "family_1_slipsense_N": 1341,
+        "family_1_slipsense_RL": 153
+      },
+      "models": {
+        "H41-A": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 14799.0,
+            "truth_pixels": 14799
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 90,
+          "eligible_anchors_by_family": {
+            "0": 212,
+            "1": 707
+          }
+        },
+        "H41-E": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 14799.0,
+            "truth_pixels": 14799
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 12,
+          "eligible_anchors_by_family": {
+            "0": 92,
+            "1": 627
+          },
+          "matched_mass_controls": {
+            "catalogue_density": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 14799.0,
+              "truth_pixels": 14799,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            },
+            "topography_only": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 14799.0,
+              "truth_pixels": 14799,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            }
+          }
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "validation_cells": 1145742,
+      "validation_truth_pixels": 14809,
+      "source_ids_removed": 180,
+      "h41e_slip_sense_counts_after_source_withholding": {
+        "eligible_after_family_0": 132,
+        "eligible_after_family_1": 517,
+        "eligible_before_family_0": 279,
+        "eligible_before_family_1": 601,
+        "family_0_slipsense_LL": 6,
+        "family_0_slipsense_MISSING": 1,
+        "family_0_slipsense_N": 313,
+        "family_0_slipsense_RL": 479,
+        "family_1_slipsense_LL": 35,
+        "family_1_slipsense_N": 984,
+        "family_1_slipsense_RL": 212
+      },
+      "models": {
+        "H41-A": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 14809.0,
+            "truth_pixels": 14809
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 90,
+          "eligible_anchors_by_family": {
+            "0": 279,
+            "1": 601
+          }
+        },
+        "H41-E": {
+          "metrics": {
+            "dti": 0.0,
+            "tp": 0.0,
+            "fp": 0.0,
+            "fn": 14809.0,
+            "truth_pixels": 14809
+          },
+          "prediction_mass": 0.0,
+          "accepted_corridors": 5,
+          "eligible_anchors_by_family": {
+            "0": 132,
+            "1": 517
+          },
+          "matched_mass_controls": {
+            "catalogue_density": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 14809.0,
+              "truth_pixels": 14809,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            },
+            "topography_only": {
+              "dti": 0.0,
+              "tp": 0.0,
+              "fp": 0.0,
+              "fn": 14809.0,
+              "truth_pixels": 14809,
+              "prediction_mass": 0.0,
+              "non_vacuous": false
+            }
+          }
+        }
+      }
+    }
+  ],
+  "means": {
+    "H41-A": 0.0,
+    "H41-E": 0.0,
+    "catalogue_density": 0.0,
+    "topography_only": 0.0
+  },
+  "wins_of_four_vs_h41a": 0,
+  "wins_of_four_vs_non_vacuous_controls": {
+    "catalogue_density": 0,
+    "topography_only": 0
+  },
+  "strict_mean_improvement_over_h41a": false,
+  "not_worse_in_every_fold": true,
+  "clean_historical_best_oof_available": false,
+  "weekly_slot_eligible": false,
+  "decision": "No weekly submission slot is used. A strict proxy-fold improvement cannot establish superiority to the hidden expert-labeled test set or unavailable clean historical-best OOF predictions.",
+  "limitations": [
+    "The four-fold target is withheld known-fault catalogue geometry, not the hidden expert-mapped fault set.",
+    "Source slip-sense values are imperfect/heterogeneous and the archive's bundled field definitions disagree with some observed RL/LL codes.",
+    "Strike family remains geometric; the source attribute screen improves kinematic specificity but cannot prove reservoir connectivity or geothermal activity."
+  ]
+}
