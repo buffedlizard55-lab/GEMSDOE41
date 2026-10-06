@@ -8,7 +8,7 @@ from rasterio.transform import from_origin
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from build_submission import compare_prior_rasters  # noqa: E402
+from build_h41a_raster_submission import compare_prior_rasters  # noqa: E402
 
 
 def _write_raster(path, transform):

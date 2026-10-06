@@ -141,6 +141,14 @@ def test_supplemental_h41a_raster_variant_is_visible_and_gated():
     assert (ROOT / receipt["output"]["path"]).is_file()
 
 
+def test_kinematic_ranking_page_is_linked_from_the_main_site():
+    home = (ROOT / "docs/index.html").read_text()
+    ranking = ROOT / "docs/h41/index.html"
+    assert ranking.is_file()
+    assert 'href="h41/index.html"' in home
+    assert "Kinematic ranking" in home
+
+
 def test_rendered_pages_disclose_restriction_and_historical_snapshot():
     home = (ROOT / "docs/index.html").read_text()
     research = (ROOT / "docs/research.html").read_text()
@@ -151,5 +159,5 @@ def test_rendered_pages_disclose_restriction_and_historical_snapshot():
     assert 'id="h33-score-audit"' in research
     assert "Current standings are unknown" in research
     assert "0.3195" in research and "0.3262" in research
-    assert "no current score is claimed" in sources.lower()
+    assert "current standings are unknown" in sources.lower()
     assert "0.3262" in sources

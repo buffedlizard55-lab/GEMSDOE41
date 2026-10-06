@@ -1,0 +1,51 @@
+project,submission_id,reported_score,evidence_class,source_url
+GEMSDOE,gems-submission-20260925T001403Z-7f00890a,0.1563,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE/docs/index.html
+6GEMSDOE,gems6_hgb88-topk03_33cec71ff0,0.0286,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/6GEMSDOE/
+GEMSDOE3,pindrop-v4-nodes-20260925T152420Z-f347b70daa,0.1193,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE3/docs/index.html
+GEMSDOE3,pindrop-v4-discovery-20260925T152423Z-37f9d5b855,0.0830,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE3/docs/index.html
+GEMSDOE3,pindrop-v4-ridge-20260925T152422Z-4e03fc9705,0.1152,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE3/docs/index.html
+GEMSDOE2,gemsdoe2-dual-family-union-20260925T160406Z-f68e590f,0.1560,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE2/docs/index.html
+GEMSDOE4,gems-submission-20260926T163915Z-237f0063,0.0343,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE4/
+5GEMSDOE,gems-submission-20260926T175114Z-7f00890a,0.1563,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/5GEMSDOE/docs/index.html
+7GEMSDOE,lidarscarp-ridge-top2pct-36c3a3f341c8,0.1461,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/7GEMSDOE/
+8GEMSDOE,Hedge-v2_submission,0.1563,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/8GEMSDOE/
+GEMSDOE9,2314b599,0.0107,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE9/docs/index.html
+11GEMSDOE,gems-structural-area06-v1,0.0202,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/11GEMSDOE/docs/index.html
+12GEMSDOE,r7-nms3-dem10-scarp_0c9199f14e62,0.1294,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/12GEMSDOE/docs/index.html
+15GEMSDOE,gems-tso1-20260929T005627Z-conj_alteration_mag,0.0782,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/15GEMSDOE/docs/index.html
+14GEMSDOE,GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f,0.0020,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/14GEMSDOE/docs/index.html
+17GEMSDOE,17GEMSDOE_F-ensemble-2pct_20260930T050626Z,0.0187,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/17GEMSDOE/
+18GEMSDOE,H19-C_20260930T212401Z_c11e495e,0.0297,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/18GEMSDOE/
+19GEMSDOE,h19-4-multiline-corroborated-openness-thermal-pop-20260930-691e4dfa-nan,0.1894,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html
+19GEMSDOE,h19-5-powerlaw-budget-multiline-corroborated-20260930-e27054cf-nan,0.1922,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html
+GEMSDOE10,h16-continuation-20260927T065521077735Z-3431b83c7c,0.0461,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE10/
+GEMSDOE10,h20-dem10-scarp-thin-20260927T155223039488Z-ffc91a1686,0.0921,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE10/
+GEMSDOE10,H25-ctx-ridge-20260927T232947704150Z-6452ae1d00,0.1280,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE10/
+GEMSDOE10,h28-dotted-ridge-20260928T020256236880Z-6452ae1d00,0.1839,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE10/
+13GEMSDOE,20261001_r13-lattice-s5_v2_nan-outside,0.0904,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/13GEMSDOE/
+16GEMSDOE,h16-1-topo-geophys-baseline-ridges-20260930-df20f65e-nan,0.1855,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/16GEMSDOE/docs/index.html
+16GEMSDOE,h18-3a-topo-geophys-x-complexity-prior-20260930-c502dfab-nan,0.0976,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/16GEMSDOE/docs/index.html
+16GEMSDOE,h18-4-usgs-geologic-map-faults-gap-20260930-aef8f42c-nan,0.0360,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/16GEMSDOE/docs/index.html
+GEMSDOE21,h19-4-reference-20260930-691e4dfa,0.1894,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE21/
+20GEMSDOE,h20-1-sarnnpu-powerlaw-pi0363-tilt-wingcrack-20260930-be0e8f6b-nan,0.1890,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html
+20GEMSDOE,h20-5-continuous-pu-proxy-unverified-20260930-824ce73a-nan,0.1859,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html
+GEMSDOE22,h23-a-dti-optimal-emission-6pct-20261002-e2ec4b49-nan,0.1002,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html
+GEMSDOE22,h23-b-dti-optimal-emission-10pct-20261002-86176698-nan,0.0748,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html
+GEMSDOE23,h30-arrangement-matched-habitat-20261002-0d4e02e8-nan,0.1352,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE23/
+GEMSDOE24,h25-1-dotted-h19-5-d1-5-20261002-989f59505db1-nan,0.2477,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE24/
+GEMSDOE25,dotted-h19-5-d2-8-20261002-e56ea318af89-nan,0.2600,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE25/
+GEMSDOE26,dilcond-oof-v1-20261003-47629f496133-nan,0.1223,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE26/
+GEMSDOE27,topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan,0.2449,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE27/
+GEMSDOE28,h27-4-r1-solo-d2-8-20261003-8acb75e1f2cc-nan,0.2708,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE28/
+GEMSDOE28,h32-1-prethin-tip-euler-d2-8-20261003-31e35eee884e-nan,0.2649,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE28/
+GEMSDOE29,efd28-repro-20261003-1cc7dc534d51-nan,0.2600,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE29/docs/index.html
+GEMSDOE29,repo-c0-habitat-emission-20261003-a4d439b07426-nan,0.0041,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE29/docs/index.html
+GEMSDOE30,d28-poisson300m-offcat-44090-20261003T233156Z-91eae1ca,0.2600,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE30/
+GEMSDOE31,h27-4-solo-d28-20261004-8acb75e1-nan,0.2708,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE31/docs/
+GEMSDOE32,h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros,0.2778,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html
+GEMSDOE33,h33d-analog-tip-stepover-r30-20261004-cb490425926e,0.2632,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE33/
+GEMSDOE34,h34-scatter-q50-arr-matched-20261004T223317Z,0.0778,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE34/docs/index.html
+GEMSDOE35,h35-06-aaa86efb25-20261004T225420098147Z-candidate,0.0418,owner-report; not authenticated by an organizer receipt,https://buffedlizard55-lab.github.io/GEMSDOE35/docs/index.html
+DrivenData leaderboard,rank-1 nchuzhoy (2026-10-04 snapshot),0.3262,"official-snapshot (sibling session, 2026-10-04)",https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
+DrivenData leaderboard,rank-2 kinghorton42 (2026-10-04 snapshot),0.3222,"official-snapshot (sibling session, 2026-10-04)",https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/
+DrivenData leaderboard,rank-3 DARD (2026-10-04 snapshot),0.3195,"official-snapshot (sibling session, 2026-10-04)",https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/

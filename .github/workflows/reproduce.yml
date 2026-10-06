@@ -7,6 +7,7 @@ on:
       - 'scripts/metric.py'
       - 'scripts/run_pipeline.py'
       - 'scripts/build_submission.py'
+      - 'scripts/build_h41a_raster_submission.py'
       - 'scripts/check_reproduction.py'
       - 'scripts/validate_h41a_raster_submission.py'
       - 'scripts/download_data.py'
@@ -47,7 +48,7 @@ jobs:
         run: python scripts/run_pipeline.py
       - name: Rebuild raster-derived H41-A-R variant
         run: |
-          python scripts/build_submission.py --data-dir data --template data/sample_submission.tif --faults data/existing_faults.tif --features data/training_features.tif --compare-raster data/comparison-h33.tif
+          python scripts/build_h41a_raster_submission.py --data-dir data --template data/sample_submission.tif --faults data/existing_faults.tif --features data/training_features.tif --compare-raster data/comparison-h33.tif
           python scripts/validate_h41a_raster_submission.py --template data/sample_submission.tif --compare-raster data/comparison-h33.tif
       - name: Verify both prediction fields
         run: |
