@@ -65,6 +65,12 @@ SOURCE_CHECKS = [
         "method": "GET_JSON",
         "scope": "One inventory response for a sample bbox; not evidence of full-study-area coverage.",
     },
+    {
+        "id": "usgs_3dep_1m_collection_record",
+        "url": "https://data.usgs.gov/datacatalog/data/USGS:77ae0551-c61e-4979-aedd-d797abdcde0e",
+        "method": "HEAD",
+        "scope": "Official collection-record availability metadata only; no DEM tiles are downloaded.",
+    },
 ]
 
 COMPETITION = {

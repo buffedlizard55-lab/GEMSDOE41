@@ -13,3 +13,4 @@
 11. Maximize P(Win): preserve scarce submission slots. Own the Outcome: publish limitations and fix reproducibility defects end to end.
 
 12. Latest session: read `research/hypotheses-20261006.md`, `research/review-20261006.md`, and `docs/evidence/h41i/manifest.json`. H41-I also FAILED its matched-mass gate. Preserve raw and matched-mass comparisons, conditional-sampling limitations and historical negatives. The repo is currently standalone, not a fork; do not restore the corrected IRR-01/IRR-04 claims.
+13. H41 letter IDs are workstream-scoped, not globally unique. Read `research/hypothesis-id-registry.md`; qualify IDs in new code, tests, reports, and PR notes by workstream and source path. Preserve legacy keys unless a migration is explicitly audited.

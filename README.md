@@ -28,6 +28,8 @@ Rebuild after installing dependencies and restoring data: `.venv/bin/python scri
 
 ## Second line of work — kinematic ranking of the support (branch `arena/1ac0a279-gemsdoe41`)
 
+**Identifier scope:** the parallel hypothesis registry reuses H41-E/F/G/H labels for different ideas than the source-vector transfer follow-on plan below; it also uses H41-I for a thermal conjunction, distinct from the local-strike/H41-I GeoTIFF above. See [`research/hypothesis-id-registry.md`](research/hypothesis-id-registry.md); always qualify a reused ID by workstream and source path.
+
 A separate, independently validated result lives beside the structural-transfer model above. It
 leaves the transfer-corridor hypothesis alone — **that hypothesis failed and is published as a
 failure** — and instead re-ranks the *incumbent* fault support by local structural kinematics
@@ -69,7 +71,7 @@ compliance question — are listed with what would unblock each one in
 [`docs/h41/index.html#remaining`](docs/h41/index.html).
 
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/hypothesis-id-registry.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
@@ -92,7 +94,7 @@ GitHub CLI (`gh`) is used to restore checksum-pinned public owner mirrors becaus
 - `docs/downloads/`: submission TIFF, per-trace classification, corridor geometry, machine-readable audits and manifest.
 - `docs/related-sites.json`: source audit of all 39 supplied related websites. Owner claims are not official score receipts.
 - `docs/source-feed.json`: timestamped health snapshot for permitted non-competition official sources. DrivenData leaderboard polling is disabled because its Terms of Use prohibit automated monitoring; its dated historical snapshot is not represented as current.
-- `research/experiments/h41e-kinematic-holdout.json`: preregistered H41-E kinematic-screen test on the unchanged spatial blocks; negative result, no new TIFF or slot.
+- `research/experiments/h41e-kinematic-holdout.json`: source-vector transfer/H41-E kinematic-screen test on the unchanged spatial blocks; negative result, no new TIFF or slot. Its local ID is distinct from the parallel-registry/H41-E temperature-probe proposal. The newly generated local-strike/H41-I TIFF is also distinct from parallel-registry/H41-I thermal conjunction; see the ID registry.
 - `research/h33-score-analysis.md`: dated source audit of the reported H33 score, historical public leaderboard rows, and the unresolved participant-to-file attribution.
 
 **Limitations:** no authenticated DrivenData account, hidden labels, organizer filename-to-score receipt, or clean historical-best out-of-fold predictions. The repository initially contained only its title, so there was no prior local pipeline or holdout to resume. Geometric strike is not measured slip sense; the brief conflates Astor Pass and Emerson Pass. The last archived leaderboard observation (0.3262 on 2026-10-05) is historical, not current. Full evidence, corrections, and next-session priorities are in the website.

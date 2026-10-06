@@ -560,6 +560,7 @@ def main():
     A('<h1>Hypotheses</h1>')
     A('<p class="sub">Ranked, each with the test it would have to pass and the result if it has '
       'been run.</p>')
+    A('<div class="card"><strong>Workstream-scoped IDs:</strong> this parallel registry uses local H41-E/F/G/H labels that overlap with different source-vector transfer hypotheses, and parallel-registry/H41-I differs from the implemented local-strike/H41-I. Do not compare by letter alone. <a href="../research.html#id-namespaces">Open the shared ID map and definitions</a>.</div>')
     if hyp:
         A(f'<p class="mut">Session {E(hyp.get("session", ""))} &middot; verified '
           f'{E(hyp.get("verified_utc", ""))}</p>')
