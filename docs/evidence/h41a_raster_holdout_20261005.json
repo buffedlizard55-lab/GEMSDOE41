@@ -1,4 +1,5 @@
 {
+  "candidate_id": "H41-A-R",
   "protocol": "H41-A-PRE-1",
   "proxy_only": true,
   "proxy_truth": "known public catalogue faults hidden in four spatial quadrants",
@@ -295,13 +296,13 @@
     "note": "No sensitivity result is inferred. Freeze numeric sensitivity variants in a new dated preregistration before any future scoring."
   },
   "promotion_gate_passed": false,
-  "failure_reason": "H41-A had insufficient/nonexistent support in leak-resistant spatial fold(s): NW, NE, SW, SE. No registered H41-A pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there.",
+  "failure_reason": "H41-A-R had insufficient/nonexistent support in leak-resistant spatial fold(s): NW, NE, SW, SE. No registered H41-A-R pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there.",
   "promotion_gate": "primary: full candidate beats both matched controls on >=3/4 folds and pooled DTI; slot eligibility additionally requires the preregistered collar/orientation sensitivity gate",
   "limitations": [
     "The hidden competition labels are not available; this proxy rewards recovery of withheld known faults, not discovery of genuinely new faults.",
     "A missing candidate field in a block is an inability to generalize, not a DTI of zero; that fold is marked unevaluable rather than assigned a fabricated score.",
-    "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
-    "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A deliberately excludes that zone and may miss such corrections.",
+    "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A-R support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
+    "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A-R deliberately excludes that zone and may miss such corrections.",
     "The supplied raster is not the original vector catalogue, so strike estimates are 100 m raster approximations and slip sense is not observed."
   ]
 }

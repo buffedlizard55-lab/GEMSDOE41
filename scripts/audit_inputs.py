@@ -182,7 +182,7 @@ def main() -> int:
         "--manifest", type=Path, default=ROOT / "data/raw/source_manifest.json"
     )
     parser.add_argument(
-        "--output", type=Path, default=ROOT / "docs/evidence/input_audit_20261005.json"
+        "--output", type=Path, default=ROOT / "docs/evidence/h41a_raster_input_audit_20261005.json"
     )
     args = parser.parse_args()
     result = audit(args.data_dir, args.manifest)

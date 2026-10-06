@@ -1,6 +1,10 @@
-# Preregistered candidate hypotheses (2026-10-05)
+# H41-A-R raster implementation: preregistration and results
 
-The candidate shortlist and operational thresholds below were written **before the first registered H41-A holdout run**. They record the project charter's test plan; the observed holdout result is appended after the preregistration. Expected improvement is a relative scientific prior, not a score forecast. No submission slot is authorized by this document.
+> **Identifier clarification after integration:** this branch originally called its raster-derived implementation H41-A and registered its test as `H41-A-PRE-1`. `origin/main` already contains a separately preregistered source-vector implementation also called H41-A. To avoid conflating two implementations, this document calls the PR #8 raster-derived implementation **H41-A-R**. The historical protocol ID and locked thresholds are retained; this is a labeling clarification, not a changed test or a rerun.
+
+## Underlying candidate shortlist (2026-10-05)
+
+The candidate shortlist and operational thresholds below were written **before the first registered raster-variant H41-A-PRE-1 holdout run**. They record the project charter's test plan; the observed holdout result is appended after the preregistration. Expected improvement is a relative scientific prior, not a score forecast. No submission slot is authorized by this document.
 
 ## Source-grounded problem framing
 
@@ -32,7 +36,7 @@ Inspected evidence is limited to the supplied history and retrievable linked pag
 - GEMSDOE39's H40-E page reports a multi-band out-of-fold discriminant with an SGMC prior. It is a different information source and objective.
 - The current GEMSDOE41 checkout was initially empty apart from the title README.
 
-**Scope of uniqueness:** H41-A is a newly implemented method in this checkout and is not copied from a downloaded submission. We do not claim a proof of uniqueness against every historical repo or every unavailable GEMSDOE40–44 artifact. We will compare output rasters against accessible public prior artifacts and report overlap; a human review of any inaccessible artifact remains outside this sandbox's evidence.
+**Scope of uniqueness:** H41-A-R is a newly implemented method in this checkout and is not copied from a downloaded submission. We do not claim a proof of uniqueness against every historical repo or every unavailable GEMSDOE40–44 artifact. We will compare output rasters against accessible public prior artifacts and report overlap; a human review of any inaccessible artifact remains outside this sandbox's evidence.
 
 ## Numerical parameterization (locked before the first holdout run)
 
@@ -48,7 +52,7 @@ These operational thresholds are modeling choices, not values asserted by the pa
 
 ### Evaluation question
 
-Does the full H41-A score field improve the official DTI proxy over the best of (a) a terrain-lineament-only field and (b) a structural-corridor-without-terrain-confirmation field when each arm is emitted at the same per-fold probability mass and scored in spatially held-out regions?
+Does the full H41-A-R score field improve the official DTI proxy over the best of (a) a terrain-lineament-only field and (b) a structural-corridor-without-terrain-confirmation field when each arm is emitted at the same per-fold probability mass and scored in spatially held-out regions?
 
 ### Split and controls
 
@@ -64,13 +68,13 @@ A file may be called **slot-eligible** only if (i) the candidate improves the be
 
 **Protocol limitation:** H41-A-PRE-1 locks the primary field thresholds and four-quadrant test, but did not numerically define sensitivity variants before the first holdout. No sensitivity result is claimed. Because the primary candidate had no support in any held-out interior, the experiment stopped at that failure; any future sensitivity analysis requires a new dated protocol with its variants frozen before scoring.
 
-## Observed registered result (2026-10-05 UTC)
+## Observed registered result for H41-A-R (2026-10-05 UTC)
 
-The primary H41-A-PRE-1 run completed with the preregistered four-quadrant split, 33 px collar, 7,500 expected mass per fold, and support factor 3. The full candidate and corridor-only ablation each had **zero eligible cells in every evaluation interior** (NW, NE, SW, SE). The candidate DTI is **null / unevaluable**, not 0. The terrain-only matched-mass control had fold DTI 0.03032, 0.05950, 0.06695, and 0.05834; pooled DTI = **0.046888**. These control values are not a candidate comparison because H41-A had no matched-mass support. The primary gate failed, no fold comparison was valid, sensitivity was not run, and `slot_eligible=false`.
+The primary H41-A-R run under the historical H41-A-PRE-1 protocol completed with the preregistered four-quadrant split, 33 px collar, 7,500 expected mass per fold, and support factor 3. The full candidate and corridor-only ablation each had **zero eligible cells in every evaluation interior** (NW, NE, SW, SE). The candidate DTI is **null / unevaluable**, not 0. The terrain-only matched-mass control had fold DTI 0.03032, 0.05950, 0.06695, and 0.05834; pooled DTI = **0.046888**. These control values are not a candidate comparison because H41-A-R had no matched-mass support. The primary gate failed, no fold comparison was valid, sensitivity was not run, and `slot_eligible=false`.
 
 The full-catalogue offline raster was still emitted, strictly as an unscored research artifact. It has 39,793 nonzero cells carrying 30,000.000 expected probability mass; the requested 90,000-cell support was unavailable, so the support-factor-3 target was not met. All emitted cells are >300 m from the known catalogue; 39,793/39,793 are within 500 m of a registered pair centerline and within 2 km of both families. Median distances are 500 m to any mapped trace, 721 m to the NW family, and 1,000 m to the N/NNE family. This is geometrical concentration by construction, not a validation of fault truth.
 
-The candidate support mask shares 423 pixels with each inspected prior: 44,090 H27-4-base positives (Jaccard 0.00507; 1.063% of candidate support contained) and 37,654 H33-2-B2 positives (Jaccard 0.00549; 1.063% contained). The evidence and file hashes are in `docs/evidence/h41a_build_receipt.json`; the independent format check is `docs/evidence/h41a_format_audit.json`. These two comparisons do not prove uniqueness against inaccessible artifacts.
+The candidate support mask shares 423 pixels with each inspected prior: 44,090 H27-4-base positives (Jaccard 0.00507; 1.063% of candidate support contained) and 37,654 H33-2-B2 positives (Jaccard 0.00549; 1.063% contained). The evidence and file hashes are in `docs/evidence/h41a_raster_build_receipt.json`; the independent format check is `docs/evidence/h41a_raster_format_audit.json`. These two comparisons do not prove uniqueness against inaccessible artifacts.
 
 **Decision:** the preregistered gate did not pass. No slot is recommended. A new CV geometry, collar, or orientation window must be defined in a separate dated preregistration before any additional scoring; it cannot retroactively replace H41-A-PRE-1.
 

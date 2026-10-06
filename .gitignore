@@ -1,12 +1,14 @@
 .venv/
-.pytest_cache/
 __pycache__/
+.pytest_cache/
 *.py[cod]
 
-# Large competition inputs are mirrored locally for reproducibility but are not tracked.
+# Main project input policy: keep large/local competition data out of Git.
+data/*
+!data/README.md
 data/raw/
 data/prior_reference/
 
-# Local temporary outputs and diagnostics
+.cache/
 *.tmp
 .DS_Store

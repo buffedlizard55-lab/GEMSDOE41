@@ -1,0 +1,65 @@
+name: Tests, source refresh, and Pages
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 7 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - run: python -m pytest -q
+      - name: Refresh permitted non-competition public sources
+        if: github.event_name != 'pull_request'
+        run: python scripts/refresh_sources.py
+      - name: Build measured research site
+        run: python scripts/build_site.py
+      - name: Stage public files only
+        run: |
+          mkdir -p .cache/pages
+          cp index.html .cache/pages/
+          cp -r docs .cache/pages/docs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reviewed-website
+          path: .cache/pages/
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        with:
+          path: .cache/pages
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: verify
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      # The site is already enabled. Deployment does not require the separate
+      # administrative permission needed to change its Pages settings.
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - name: Verify public TIFF download bytes
+        run: |
+          NAME=$(python3 -c "import json; print(json.load(open('docs/downloads/manifest.json'))['filename'])")
+          SHA=$(python3 -c "import json; print(json.load(open('docs/downloads/manifest.json'))['format']['sha256'])")
+          curl --fail --location --retry 3 "https://buffedlizard55-lab.github.io/GEMSDOE41/docs/downloads/$NAME" -o /tmp/published.tif
+          echo "$SHA  /tmp/published.tif" | sha256sum --check

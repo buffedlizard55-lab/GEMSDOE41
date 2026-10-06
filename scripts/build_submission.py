@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Validate H41-A on spatial blocks, then build an auditable candidate GeoTIFF.
+"""Evaluate the H41-A-R raster variant, then build an auditable candidate GeoTIFF.
 
 Example:
-  python scripts/build_submission.py --data-dir data/raw
-  python scripts/build_submission.py --data-dir data --output docs/downloads/candidate.tif
+  python scripts/build_submission.py --data-dir data --template data/sample_submission.tif
+  python scripts/build_submission.py --data-dir data/raw --template data/raw/example_submission.tif
 
 A local holdout is only a proxy against known catalogued faults. The script never uploads
 anything to DrivenData and always labels its output as unscored unless an organizer score
@@ -232,15 +232,16 @@ def run_spatial_holdout(
         ]
         if unavailable:
             failure_reason = (
-                "H41-A had insufficient/nonexistent support in leak-resistant spatial fold(s): "
+                "H41-A-R had insufficient/nonexistent support in leak-resistant spatial fold(s): "
                 + ", ".join(unavailable)
-                + ". No registered H41-A pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there."
+                + ". No registered H41-A-R pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there."
             )
         else:
-            failure_reason = "H41-A did not beat the best matched control on the registered >=3/4-fold rule."
+            failure_reason = "H41-A-R did not beat the best matched control on the registered >=3/4-fold rule."
     elif not sensitivity_gate["passed"]:
         failure_reason = "The primary matched-holdout gate passed, but the required collar/orientation sensitivity gate was not performed; no slot may be recommended."
     return {
+        "candidate_id": "H41-A-R",
         "protocol": "H41-A-PRE-1",
         "proxy_only": True,
         "proxy_truth": "known public catalogue faults hidden in four spatial quadrants",
@@ -267,8 +268,8 @@ def run_spatial_holdout(
         "limitations": [
             "The hidden competition labels are not available; this proxy rewards recovery of withheld known faults, not discovery of genuinely new faults.",
             "A missing candidate field in a block is an inability to generalize, not a DTI of zero; that fold is marked unevaluable rather than assigned a fabricated score.",
-            "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
-            "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A deliberately excludes that zone and may miss such corrections.",
+            "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A-R support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
+            "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A-R deliberately excludes that zone and may miss such corrections.",
             "The supplied raster is not the original vector catalogue, so strike estimates are 100 m raster approximations and slip sense is not observed.",
         ],
     }
@@ -392,12 +393,12 @@ def _candidate_record(
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--data-dir", type=Path, default=ROOT / "data/raw", help="directory containing example_submission.tif, existing_faults.tif, and training_features.tif")
+    parser.add_argument("--data-dir", type=Path, default=ROOT / "data", help="directory containing existing_faults.tif and training_features.tif")
     parser.add_argument("--template", type=Path, help="override example_submission.tif template path")
     parser.add_argument("--faults", type=Path, help="override existing_faults.tif path")
     parser.add_argument("--features", type=Path, help="override training_features.tif path")
-    parser.add_argument("--output", type=Path, default=ROOT / "docs/downloads/gemsdoe41-h41a-bimodal-transfer-20261005.tif")
-    parser.add_argument("--receipt", type=Path, default=ROOT / "docs/evidence/h41a_build_receipt.json")
+    parser.add_argument("--output", type=Path, default=ROOT / "docs/downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif")
+    parser.add_argument("--receipt", type=Path, default=ROOT / "docs/evidence/h41a_raster_build_receipt.json")
     parser.add_argument("--total-mass", type=float, default=30000.0, help="total expected probability mass for the final full-region raster")
     parser.add_argument("--holdout-mass", type=float, default=30000.0, help="total expected probability mass across four holdout folds")
     parser.add_argument("--support-factor", type=int, default=3, help="nonzero support cells per unit expected mass")
@@ -406,7 +407,14 @@ def main() -> int:
     parser.add_argument("--skip-holdout", action="store_true", help="not recommended; only use for format-development fixtures")
     args = parser.parse_args()
 
-    template = args.template or args.data_dir / "example_submission.tif"
+    if args.template is not None:
+        template = args.template
+    else:
+        template_candidates = (
+            args.data_dir / "sample_submission.tif",
+            args.data_dir / "example_submission.tif",
+        )
+        template = next((path for path in template_candidates if path.is_file()), template_candidates[0])
     faults = args.faults or args.data_dir / "existing_faults.tif"
     features = args.features or args.data_dir / "training_features.tif"
     for path in (template, faults, features):
@@ -428,7 +436,7 @@ def main() -> int:
             collar_px=args.collar_px,
             support_factor=args.support_factor,
         )
-        evidence_path = ROOT / "docs/evidence/h41a_holdout_20261005.json"
+        evidence_path = ROOT / "docs/evidence/h41a_raster_holdout_20261005.json"
         evidence_path.parent.mkdir(parents=True, exist_ok=True)
         evidence_path.write_text(json.dumps(holdout, indent=2) + "\n", encoding="utf-8")
         print(f"Holdout evidence: {evidence_path}")
@@ -448,7 +456,7 @@ def main() -> int:
         support_factor=args.support_factor,
     )
     output_tags = {
-        "candidate_id": "H41-A",
+        "candidate_id": "H41-A-R",
         "method": "NW tip to nearest N-NNE trace corridor plus det_elev orientation concordance",
         "score_status": "unscored research candidate; no organizer score observed",
         "catalogue_exclusion_m": str(int(config.known_fault_exclusion_px * 100)),
@@ -465,10 +473,12 @@ def main() -> int:
     )
     receipt: dict[str, Any] = {
         "schema_version": 1,
-        "candidate_id": "H41-A",
+        "candidate_id": "H41-A-R",
+        "hypothesis_id": "H41-A",
+        "implementation_variant": "100 m raster-derived geometry; distinct from the source-vector H41-A implementation",
         "run_utc": datetime.now(timezone.utc).isoformat(),
-        "submission_name": "GEMSDOE41-H41A-BIMODAL-TRANSFER",
-        "submission_note": "NW fault-tip to N/NNE normal-family corridors; det_elev orientation concordance; 300 m mapped-trace exclusion; 30k expected probability mass; local proxy only, unscored",
+        "submission_name": "GEMSDOE41-H41A-RASTER-BIMODAL-TRANSFER",
+        "submission_note": "H41-A-R raster geometry; NW-tip to N/NNE corridor + det_elev orientation; 300 m catalogue exclusion; 30k mass; local proxy only, unscored",
         "score_status": "UNSCORED_RESEARCH_CANDIDATE",
         "slot_eligible": bool(holdout and holdout["promotion_gate_passed"]),
         "holdout": holdout,

@@ -1,12 +1,15 @@
 {
   "schema_version": 1,
-  "candidate_id": "H41-A",
-  "run_utc": "2026-10-05T23:33:40.681052+00:00",
-  "submission_name": "GEMSDOE41-H41A-BIMODAL-TRANSFER",
-  "submission_note": "NW fault-tip to N/NNE normal-family corridors; det_elev orientation concordance; 300 m mapped-trace exclusion; 30k expected probability mass; local proxy only, unscored",
+  "candidate_id": "H41-A-R",
+  "hypothesis_id": "H41-A",
+  "implementation_variant": "100 m raster-derived geometry; distinct from the source-vector H41-A implementation",
+  "run_utc": "2026-10-06T00:14:36.825019+00:00",
+  "submission_name": "GEMSDOE41-H41A-RASTER-BIMODAL-TRANSFER",
+  "submission_note": "H41-A-R raster geometry; NW-tip to N/NNE corridor + det_elev orientation; 300 m catalogue exclusion; 30k mass; local proxy only, unscored",
   "score_status": "UNSCORED_RESEARCH_CANDIDATE",
   "slot_eligible": false,
   "holdout": {
+    "candidate_id": "H41-A-R",
     "protocol": "H41-A-PRE-1",
     "proxy_only": true,
     "proxy_truth": "known public catalogue faults hidden in four spatial quadrants",
@@ -303,13 +306,13 @@
       "note": "No sensitivity result is inferred. Freeze numeric sensitivity variants in a new dated preregistration before any future scoring."
     },
     "promotion_gate_passed": false,
-    "failure_reason": "H41-A had insufficient/nonexistent support in leak-resistant spatial fold(s): NW, NE, SW, SE. No registered H41-A pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there.",
+    "failure_reason": "H41-A-R had insufficient/nonexistent support in leak-resistant spatial fold(s): NW, NE, SW, SE. No registered H41-A-R pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there.",
     "promotion_gate": "primary: full candidate beats both matched controls on >=3/4 folds and pooled DTI; slot eligibility additionally requires the preregistered collar/orientation sensitivity gate",
     "limitations": [
       "The hidden competition labels are not available; this proxy rewards recovery of withheld known faults, not discovery of genuinely new faults.",
       "A missing candidate field in a block is an inability to generalize, not a DTI of zero; that fold is marked unevaluable rather than assigned a fabricated score.",
-      "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
-      "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A deliberately excludes that zone and may miss such corrections.",
+      "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A-R support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
+      "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A-R deliberately excludes that zone and may miss such corrections.",
       "The supplied raster is not the original vector catalogue, so strike estimates are 100 m raster approximations and slip sense is not observed."
     ]
   },
@@ -364,7 +367,7 @@
     "training_features": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5"
   },
   "output": {
-    "path": "docs/downloads/gemsdoe41-h41a-bimodal-transfer-20261005.tif",
+    "path": "docs/downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif",
     "crs": "EPSG:32611",
     "shape": [
       3730,
@@ -397,7 +400,7 @@
     "positive_pixels": 39793,
     "probability_mass": 29999.999999409254,
     "outside_footprint_encoding": "NaN_with_NaN_nodata_tag",
-    "sha256": "128ce3e92bcb0292a6a9f5a96d91877eee4f2ee7225d347311892dc8797aa902"
+    "sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f"
   },
   "candidate_distribution": {
     "within_100m_NW_family": 0,
@@ -463,7 +466,7 @@
       "candidate_contained_in_prior": 0.010630010303319679
     },
     {
-      "path": "data/prior_reference/h33-h33-2-b2.tif",
+      "path": "data/comparison-h33.tif",
       "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
       "comparable": true,
       "candidate_nonzero": 39793,

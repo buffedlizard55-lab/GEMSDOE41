@@ -1,5 +1,5 @@
 {
-  "audit_utc": "2026-10-05T23:22:47.987771+00:00",
+  "audit_utc": "2026-10-06T00:07:51.283992+00:00",
   "source": {
     "manifest_path": "data/raw/source_manifest.json",
     "manifest_generator": "scripts/make_data_bridge.py",

@@ -1,8 +1,8 @@
 {
-  "audit_utc": "2026-10-05T23:33:46.135927+00:00",
-  "submission_path": "docs/downloads/gemsdoe41-h41a-bimodal-transfer-20261005.tif",
+  "audit_utc": "2026-10-06T00:15:33.894329+00:00",
+  "submission_path": "docs/downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif",
   "template_path": "data/raw/example_submission.tif",
-  "sha256": "128ce3e92bcb0292a6a9f5a96d91877eee4f2ee7225d347311892dc8797aa902",
+  "sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f",
   "crs": "EPSG:32611",
   "shape": [
     3730,

@@ -1,4 +1,4 @@
-"""H41-A: strike-family transfer corridors with independent terrain orientation support.
+"""H41-A-R: raster-derived transfer corridors with terrain orientation support.
 
 The model is intentionally geometric. It derives local strike from the supplied binary
 fault raster, pairs NW-family terminal pixels with a nearby N-to-NNE-family trace, and
@@ -22,7 +22,7 @@ from skimage.morphology import skeletonize
 
 @dataclass(frozen=True)
 class StructuralConfig:
-    """Registered H41-A thresholds (all pixel distances use the 100 m grid)."""
+    """H41-A-PRE-1 thresholds (all distances use the 100 m grid)."""
 
     fault_smooth_sigma_px: float = 1.0
     fault_tensor_sigma_px: float = 2.5

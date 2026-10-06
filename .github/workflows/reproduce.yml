@@ -1,0 +1,64 @@
+name: Rebuild structural models (no competition upload)
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/model.py'
+      - 'scripts/metric.py'
+      - 'scripts/run_pipeline.py'
+      - 'scripts/build_submission.py'
+      - 'scripts/check_reproduction.py'
+      - 'scripts/validate_h41a_raster_submission.py'
+      - 'scripts/download_data.py'
+      - 'src/gemsdoe41/**'
+      - 'tests/**'
+      - 'requirements.txt'
+      - '.github/workflows/reproduce.yml'
+permissions:
+  contents: read
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Preserve both expected rasters
+        run: |
+          mkdir -p .cache
+          python - <<'PY'
+          import json, shutil
+          main=json.load(open('docs/downloads/manifest.json'))
+          raster=json.load(open('docs/evidence/h41a_raster_build_receipt.json'))
+          shutil.copyfile('docs/downloads/'+main['filename'],'.cache/expected-main.tif')
+          shutil.copyfile(raster['output']['path'],'.cache/expected-h41a-raster.tif')
+          PY
+      - name: Restore and verify inputs
+        run: |
+          python scripts/download_data.py
+          python scripts/prepare_data.py
+      - name: Rebuild source-vector H41-A model
+        run: python scripts/run_pipeline.py
+      - name: Rebuild raster-derived H41-A-R variant
+        run: |
+          python scripts/build_submission.py --data-dir data --template data/sample_submission.tif --faults data/existing_faults.tif --features data/training_features.tif --compare-raster data/comparison-h33.tif
+          python scripts/validate_h41a_raster_submission.py --template data/sample_submission.tif --compare-raster data/comparison-h33.tif
+      - name: Verify both prediction fields
+        run: |
+          NAME=$(python -c "import json; print(json.load(open('docs/downloads/manifest.json'))['filename'])")
+          python scripts/check_reproduction.py .cache/expected-main.tif "docs/downloads/$NAME" --output docs/downloads/reproduction-receipt.json
+          ALT=$(python -c "import json; print(json.load(open('docs/evidence/h41a_raster_build_receipt.json'))['output']['path'])")
+          python scripts/check_reproduction.py .cache/expected-h41a-raster.tif "$ALT" --output docs/evidence/h41a_raster_rebuild_comparison.json
+          python -m pytest -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rebuilt-geotiffs-and-audits
+          path: |
+            docs/downloads/
+            docs/evidence/h41a_raster_*
