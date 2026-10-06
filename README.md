@@ -44,7 +44,11 @@ public fork of an organizers' repository and needs a human decision before merge
 
 **Honest limit:** credit-per-mass is measured against the *published* catalogue's strands, not the
 hidden set, and projected scores are tagged `[MODEL]` because they depend on a constant inferred
-from one reported hidden-set size. Nothing here claims a leaderboard score.
+from one reported hidden-set size. Nothing here claims a leaderboard score. Six open items — the
+authenticated score this sandbox cannot obtain, the `K_HIDDEN_PX` calibration, two candidates whose
+official archives the sandbox cannot download, the resolution floor of the mass ladder, and the
+compliance question — are listed with what would unblock each one in
+[`docs/h41/index.html#remaining`](docs/h41/index.html).
 
 ## Start every session here
 Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
