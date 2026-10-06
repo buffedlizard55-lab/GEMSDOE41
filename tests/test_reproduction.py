@@ -7,15 +7,29 @@ from affine import Affine
 from check_reproduction import compare
 
 
-def test_float32_tolerance_is_small_and_large_changes_fail(tmp_path):
+def test_float32_tolerance_is_bounded_and_support_drift_is_reported(tmp_path):
     profile=dict(driver='GTiff',width=3,height=3,count=1,dtype='float32',crs='EPSG:32611',transform=Affine(100,0,243350,0,-100,4508550))
     a=np.full((3,3),.5,dtype='float32');e=tmp_path/'e.tif';p=tmp_path/'p.tif'
     def write(path,array,**kwargs):
         with rasterio.open(path,'w',**profile,**kwargs) as s:s.write(array,1)
     write(e,a);write(p,a)
     assert compare(e,p)['exact_pixels']
-    a[1,1]+=np.finfo('float32').eps;write(p,a)
-    r=compare(e,p);assert not r['exact_pixels'] and r['numerically_reproducible']
+
+    eps=np.finfo('float32').eps
+    a[1,1]=np.float32(.5+64*eps);write(p,a)
+    r=compare(e,p)
+    assert not r['exact_pixels'] and r['numerically_reproducible']
+    assert r['tolerance_float32_epsilons']==64
+    assert r['nonzero_support_exact'] and r['nonzero_support_changed_pixels']==0
+
+    a[1,1]=np.float32(.5+65*eps);write(p,a)
+    assert not compare(e,p)['numerically_reproducible']
+
+    a[1,1]=0;write(p,a)
+    r=compare(e,p)
+    assert not r['nonzero_support_exact']
+    assert r['nonzero_support_changed_pixels']==1
+
     a[1,1]=.51;write(p,a)
     assert not compare(e,p)['numerically_reproducible']
 

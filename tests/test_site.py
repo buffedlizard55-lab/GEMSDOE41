@@ -102,6 +102,15 @@ def test_historical_score_is_never_mislabeled_current():
     assert "not proof of a fault" in home.lower()
 
 
+def test_reproduction_tolerance_is_disclosed_consistently():
+    guide = (ROOT / "docs/executive-summary.html").read_text()
+    checker = (ROOT / "scripts/check_reproduction.py").read_text()
+    assert "64 float32 epsilons" in guide
+    assert "outside-footprint encoding must also match" in guide
+    assert "TOLERANCE_FLOAT32_EPSILONS = 64" in checker
+    assert "below 0.000001" not in guide
+
+
 def test_gate_and_note_are_honest():
     manifest = json.loads((ROOT / "docs/downloads/manifest.json").read_text())
     assert manifest["slot_eligible"] is False

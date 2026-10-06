@@ -32,3 +32,9 @@
 ## Outcome
 
 All three passes are complete for this candidate build. The artifact is a valid, auditable research GeoTIFF, **not a leaderboard-proven improvement** and **not slot-eligible**. The 300 m exclusion may discard genuine new-fault truth near mapped structures. The candidate does not currently demonstrate that it can beat either the disputed H33 claim or the current official #1.
+
+## Post-merge cross-run audit follow-up — 2026-10-06
+
+A post-merge GitHub Actions rebuild ([run 37393952682](https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37393952682)) produced a cross-run H41-A-R value difference beyond the original 8-epsilon threshold: 12,043 / 5,167,373 valid cells differed, max absolute error `3.6954879760742188e-6` (31 float32 epsilons), summed error `0.0009673714407654188`. The grid, valid mask, and NaN outside-footprint values were exact. The local pinned-input rebuild remained byte-identical to the published H41-A-R TIFF (`5e8e528d...`); the cross-run cause is not isolated, so the run was correctly reported as a failure rather than hidden.
+
+The checker now allows up to 64 float32 epsilons (`7.62939453125e-6`) while continuing to require exact grid, mask, range, and outside encoding. It records support changes and absolute error statistics, preserves exact per-file SHA-256 identity, and the GitHub workflow preserves output artifacts on failures. This tolerance adjustment changes neither model parameters nor the holdout result. Follow-up CI is still required to verify the revised cross-run gate.

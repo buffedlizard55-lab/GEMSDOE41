@@ -2,8 +2,8 @@
 """Evaluate the H41-A-R raster variant, then build an auditable candidate GeoTIFF.
 
 Example:
-  python scripts/build_submission.py --data-dir data --template data/sample_submission.tif
-  python scripts/build_submission.py --data-dir data/raw --template data/raw/example_submission.tif
+  python scripts/build_h41a_raster_submission.py --data-dir data --template data/sample_submission.tif
+  python scripts/build_h41a_raster_submission.py --data-dir data/raw --template data/raw/example_submission.tif
 
 A local holdout is only a proxy against known catalogued faults. The script never uploads
 anything to DrivenData and always labels its output as unscored unless an organizer score
