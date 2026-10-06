@@ -126,7 +126,7 @@ def h43_exec():
 <h2>A second, independent research candidate</h2>
 <p>Built from the organizer's 19-band feature raster and the USGS 3DEP 1&nbsp;m scarp products only. It opens
 <strong>no</strong> sibling submission raster — a test asserts that on its syntax tree — and it is not a rename of any
-prior file. Three independent builds produced byte-identical pixels.</p>
+prior file. Four independent builds — including one after the H42→H43 rename and one after merging main — produced byte-identical pixels.</p>
 <p><a class="button" href="{H43_DOWNLOAD}" download>↓ Download the H43 research GeoTIFF</a></p>
 <div class="copybox"><code id="h43-note">{E(H43MAN.get('note',''))}</code><button class="copy" data-copy="h43-note" type="button">Copy note</button></div>
 <p class="fine"><strong>Filename</strong> <code>{E(H43FMT.get('filename',''))}</code><br>

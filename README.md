@@ -41,7 +41,7 @@ from a third lineage. It is **not** slot-eligible and it does **not** replace th
 | **SHA-256 / pixel SHA-256** | `e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa` / `8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e` |
 | **Size** | 123,881 bytes (zip 78,584) |
 | **Content** | 20,000 positive pixels at value 1.0; all 12,279,160 stored cells finite float32 in [0, 1]; zeros **and** a GDAL internal mask outside the template footprint; nearest mapped fault ≥ 2.236 px |
-| **Rebuilds** | three independent builds, byte-identical SHA-256 each time |
+| **Rebuilds** | four independent builds (initial, after the H42→H43 rename, after the manifest rewrite, after merging main), byte-identical SHA-256 every time |
 
 **Why the label is H43.** Two parallel sessions already published "H42" (basin-margin and
 bimodal-lattice). Per `research/hypothesis-id-registry.md` — qualify new work, never rename published
