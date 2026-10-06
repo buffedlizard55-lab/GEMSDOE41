@@ -697,7 +697,7 @@ def main() -> int:
     prim_checks = built[primary]["checks"]
     manifest_path = os.path.join(OUT_DL, "manifest.json")
     manifest = json.load(open(manifest_path))
-    manifest["h42"] = dict(
+    manifest["h42_bimodal_lattice"] = dict(
         created_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         preregistration="research/hypotheses-h42.md",
         primary=primary, artifacts=built, projection=proj, decisions=decisions,
@@ -710,7 +710,7 @@ def main() -> int:
     )
     json.dump(manifest, open(manifest_path, "w"), indent=1, default=float)
     build = dict(
-        created_utc=manifest["h42"]["created_utc"], primary=primary,
+        created_utc=manifest["h42_bimodal_lattice"]["created_utc"], primary=primary,
         submission_name=built[primary]["tracking_name"],
         note=(f"H42 {primary}: bimodal strike-classified lattice; >=200m off catalogue; 2.83px sep; "
               f"37,654 px; holdout {'PASS' if ho['holdout_passed'] else 'FAIL'} / enrichment "

@@ -2,6 +2,7 @@
 
 These are owner reports, not official validation. Direct HTTP is sandbox-blocked.
 """
+from datetime import datetime, timezone
 import base64
 import concurrent.futures
 import hashlib
@@ -37,6 +38,6 @@ def audit(item):
 
 def main():
     with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool: rows=list(pool.map(audit,SITES))
-    p=ROOT/'docs/related-sites.json';p.write_text(json.dumps(dict(checked_utc='2026-10-05',method='GitHub contents API source audit',sites=rows),indent=2)+'\n')
+    p=ROOT/'docs/related-sites.json';p.write_text(json.dumps(dict(checked_utc=datetime.now(timezone.utc).isoformat(),method='GitHub contents API source audit',sites=rows),indent=2)+'\n')
     print({s:sum(r['status']==s for r in rows) for s in set(r['status'] for r in rows)})
 if __name__=='__main__':main()

@@ -14,7 +14,7 @@ import rasterio
 ROOT = Path(__file__).resolve().parents[1]
 DL = ROOT / "docs" / "downloads"
 MAN = json.loads((DL / "manifest.json").read_text())
-H42 = MAN["h42"]
+H42 = MAN["h42_bimodal_lattice"]
 
 
 def _tif(name):
@@ -133,7 +133,7 @@ def test_prereg_document_contains_registration_and_outcome():
 
 def test_registries_mirror_the_outcome():
     hyp = json.loads((ROOT / "registry/hypotheses.json").read_text())
-    reg = hyp["h42_registration"]["registered_candidates"]
+    reg = hyp["h42_bimodal_lattice_registration"]["registered_candidates"]
     assert {"H42-A", "H42-B", "H42-C", "H42-D", "H42-E"} <= set(reg)
     assert "FALSIFIED" in reg["H42-A"]["outcome"]
     assert "FAIL" in reg["H42-B"]["outcome"] and "FAIL" in reg["H42-D"]["outcome"]
@@ -151,7 +151,7 @@ def test_site_presents_the_h42_candidate_prominently():
     assert "FIELD EXPERIMENT 42" in home
     assert H42["submission_name"] in home and H42["submission_name"] in execsum
     assert fn in execsum
-    assert "id=\"h42\"" in research
+    assert "id=\"h42-bimodal-lattice\"" in research
     dl_index = (DL / "index.html").read_text()
     assert "gemsdoe41-h42b" in dl_index and "research only" in dl_index.lower()
 

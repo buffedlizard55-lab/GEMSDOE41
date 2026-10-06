@@ -7,13 +7,13 @@
   {
    "id": "IRR-01",
    "severity": "high",
-   "title": "This repository is a public FORK of an organizers' repository",
-   "fact": "GitHub reports `buffedlizard55-lab/GEMSDOE41` as `fork: true` with `parent: drivendataorg/gems-prize-reference-solution`. That upstream is a competition-organizer repository: it is the reference solution published by the Data Science competition organizers themselves.",
-   "why_it_matters": "Participant code is being committed into the lineage of an organizers' repository. Whether that is merely untidy or an actual competition-rules violation is a decisions-for-humans question, not one an autonomous agent should settle. Competition rules typically bind participants to keep entries out of organizer-controlled spaces.",
-   "action_requested": "A human must decide, before this branch is merged, whether to (a) merge into the fork's `main` only, (b) detach from the fork and push to a standalone repository, or (c) keep it local. This session's merge commits to the fork's `main` and touches nothing upstream.",
-   "evidence": "GitHub repository API for buffedlizard55-lab/GEMSDOE41, read 2026-10-05",
+   "title": "Prior fork assertion contradicted by current GitHub metadata",
+   "fact": "On 2026-10-06 GitHub API reports fork=false, parent=null for buffedlizard55-lab/GEMSDOE41. The inherited statement that this is currently a public organizer fork is not supported.",
+   "why_it_matters": "Repository ancestry alone does not determine competition eligibility. No organizer repository is modified by this project.",
+   "action_requested": "Retain the dated correction; independently review participant eligibility, licenses, and public-solution rules. This is not a legal clearance.",
+   "evidence": "docs/evidence/h41i/repository-status-20261006.json; https://api.github.com/repos/buffedlizard55-lab/GEMSDOE41",
    "raised_by": "user, twice",
-   "status": "OPEN \u2014 awaiting human decision"
+   "status": "CORRECTED \u2014 current repository is standalone; broader eligibility not adjudicated"
   },
   {
    "id": "IRR-02",
@@ -37,11 +37,11 @@
   {
    "id": "IRR-04",
    "severity": "high",
-   "title": "The public leaderboard has been won by REMOVAL, not by prediction",
-   "fact": "The competition metric is 1/DTI. Writing DTI = 0.2 + 0.2*(FP_w/TP_w) + 0.8*(|G|/TP_w), every emitted pixel contributes exactly 0.2 to the denominator. Pixels within 200 m of the published fault catalogue are masked out of scoring in both rounds (forum post 11516), so they can be deleted at zero cost to true positives: deleting them lowers the denominator and cannot create a false positive.",
-   "why_it_matters": "`h33-h33-2-b2`, the 0.2778 artifact, is the 0.2600 emission minus every dot within 200 m of the published catalogue. Its gain is arithmetic removal, not a better model of where hidden faults are. A leaderboard can therefore be climbed, to a point, without any structural insight \u2014 which is exactly why the leaderboard's top is a weak proxy for the hypothesis the prize is asking about, and why this session's headline evidence is a holdout measurement rather than a score.",
-   "evidence": "evidence/submission_build.json arithmetic; forum thread 11516",
-   "status": "FLAGGED \u2014 this is a solvable-competition artifact, and the reason this repository reports an independent test"
+   "title": "Prior H33 causal and metric claims exceeded evidence",
+   "fact": "The metric is DTI, not its reciprocal. For G truth pixels, 1/DTI = 0.2 + 0.2 FP/TP + 0.8 G/TP. FP is distance-weighted prediction mass; not every emitted pixel adds exactly 0.2. GEMSDOE32 describes H33 as a 200 m prune of a reported 0.2708 base, not simply the 0.2600 file. Its page still labels the artifact unscored.",
+   "why_it_matters": "Removing redundant mass may help, but pruning can lose coverage of genuine hidden faults. The prior claim of free deletion and organizer masking in both rounds is not established by locally retained primary evidence and is withdrawn. 0.2778 remains user-reported, not tied to an organizer TIFF receipt.",
+   "evidence": "scripts/metric.py; research/h33-score-analysis.md; https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html",
+   "status": "CORRECTED \u2014 no causal or organizer-masking claim"
   },
   {
    "id": "IRR-05",

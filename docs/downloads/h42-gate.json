@@ -1,0 +1,73 @@
+{
+ "gate": "H42 weekly-slot gate (spatially blocked holdout)",
+ "decision_date_utc": "2026-10-06T01:52:33.012636+00:00",
+ "candidate": {
+  "name": "GEMS41-H42-BasinMargin-DensityPack",
+  "file": "gems41-h42-submission-primary.tif",
+  "sha256": "2943432c6e3d13f1cfae69a473499cdb9c611a873f6841f9268f151f2a025555"
+ },
+ "candidate_arm": "SH_basin_strong|sep4.0|N40000",
+ "instrument": {
+  "design": "20km four-colour blocks, strand-safe interior scoring, equal mass per arm",
+  "fold_formula": "(row//200 + 2*(col//200)) % 4",
+  "guard": "no emission within 2 px of training traces",
+  "equal_mass": "every arm emits the same mass inside the same evaluation domain",
+  "truth": "published catalogue pixels held out by 20 km block, eroded interiors only",
+  "ceiling": "its truth is the published catalogue: it ranks geometry and cannot reward a genuinely new fault"
+ },
+ "result": {
+  "candidate_mean_dti": 0.250744,
+  "candidate_min_fold": 0.242272,
+  "uniform_random_control": 0.121243,
+  "training_density_control": 0.17713,
+  "arms_compared": 21,
+  "rank_of_candidate": 1,
+  "contaminated_comparator": 0.006521
+ },
+ "cross_checks": {
+  "sgmc_instrument_projection": {
+   "A->B": {
+    "tp": 3788.5,
+    "cpm": 0.09471,
+    "projected_hidden_dti": 0.34601
+   },
+   "B->A": {
+    "tp": 3522.2,
+    "cpm": 0.08806,
+    "projected_hidden_dti": 0.32169
+   }
+  },
+  "sgmc_instrument_verdict": "contradicts the blocked holdout; recorded, not used for selection",
+  "ledger_profile_reference": {
+   "slope": 1.198,
+   "scarp": 1.358,
+   "tmi_hg": 1.239,
+   "det_elev": 0.89,
+   "dist_cat": 0.867
+  },
+  "ledger_profile_candidate": {
+   "slope": 2.065,
+   "scarp": 3.009,
+   "tmi_hg": 1.903,
+   "det_elev": 0.938,
+   "dist_cat": 0.829
+  },
+  "transfer_view_mass_unmatched": {
+   "mean_dti": 0.013757,
+   "frac_mass_in_holdouts": 0.2338
+  }
+ },
+ "gate_status": "OPEN for a single weekly slot",
+ "gate_reason": "A catalogue-free candidate emits equal mass inside every held-out block, beats both controls in all four folds, and is the top arm of the 18-arm table. By the standing rule ('do not spend a slot on an idea that has not beaten the current holdout best') the gate that was closed for H41-A/H41-E now passes.",
+ "not_claimed": [
+  "This is not a predicted leaderboard score. The holdout's truth is the published catalogue, not the hidden expert fault set.",
+  "The 0.2778 H33 figure remains user-reported without an organizer receipt.",
+  "K_HIDDEN_PX and lambda remain MODEL constants; the SGMC/H42 projections bracket, they do not measure."
+ ],
+ "limitations": [
+  "The blocked holdout's truth is the published catalogue, so it ranks geometry; it is not a live score.",
+  "The profile guard is a 16-file association with a wide confidence interval, not a measurement of the hidden set.",
+  "Projections use K_HIDDEN_PX = 14,088 (metric-calibrated) and lambda = 1.76; both are MODEL constants.",
+  "Equal-mass arms inside held-out blocks understate the FP penalty a full-map submission pays for pixels far from any hidden truth."
+ ]
+}

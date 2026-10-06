@@ -1,0 +1,39 @@
+{
+ "instrument": "the submitted raster scored on held-out 20 km interiors, mass NOT matched (transfer view)",
+ "folds": [
+  {
+   "fold": 0,
+   "dti": 0.014949,
+   "mass_inside": 11231.0,
+   "tp": 206.6,
+   "cpm": 0.01839,
+   "frac_of_emission": 0.2808
+  },
+  {
+   "fold": 1,
+   "dti": 0.0129,
+   "mass_inside": 7727.0,
+   "tp": 153.6,
+   "cpm": 0.01988,
+   "frac_of_emission": 0.1932
+  },
+  {
+   "fold": 2,
+   "dti": 0.013497,
+   "mass_inside": 9066.0,
+   "tp": 184.4,
+   "cpm": 0.02034,
+   "frac_of_emission": 0.2266
+  },
+  {
+   "fold": 3,
+   "dti": 0.013682,
+   "mass_inside": 9377.0,
+   "tp": 187.9,
+   "cpm": 0.02004,
+   "frac_of_emission": 0.2344
+  }
+ ],
+ "mean_dti": 0.013757,
+ "frac_mass_in_holdouts": 0.2338
+}

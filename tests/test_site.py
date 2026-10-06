@@ -31,6 +31,40 @@ def test_all_local_site_links_exist():
             assert (path.parent / unquote(parts.path)).exists(), (path, link)
 
 
+def test_usgs_one_meter_dem_record_uses_the_current_catalogue_url():
+    record = next(
+        source for source in SOURCE_CHECKS
+        if source["id"] == "usgs_3dep_1m_collection_record"
+    )
+    assert record["url"] == (
+        "https://data.usgs.gov/datacatalog/data/"
+        "USGS:77ae0551-c61e-4979-aedd-d797abdcde0e"
+    )
+    assert record["method"] == "HEAD"
+    assert "no DEM tiles" in record["scope"]
+    assert not any("1-meter-digital-elevation-models-dem" in source["url"] for source in SOURCE_CHECKS)
+    sources_page = (ROOT / "docs/sources.html").read_text()
+    assert record["url"] in sources_page
+    assert "https://www.usgs.gov/3d-elevation-program/1-meter-digital-elevation-models-dem" not in sources_page
+
+
+def test_hypothesis_ids_are_workstream_qualified_in_both_research_sites():
+    transfer_page = (ROOT / "docs/research.html").read_text()
+    parallel_page = (ROOT / "docs/h41/hypotheses.html").read_text()
+    registry = (ROOT / "research/hypothesis-id-registry.md").read_text()
+
+    assert 'id="id-namespaces"' in transfer_page
+    assert "transfer/H41-E" in transfer_page
+    assert "parallel-registry/H41-E" in transfer_page
+    assert "local-strike/H41-I" in transfer_page
+    assert "Workstream-scoped IDs" in parallel_page
+    assert "../research.html#id-namespaces" in parallel_page
+    assert "Source-vector transfer ID" in registry
+    assert "parallel-registry/H41-H" in registry
+    assert "local-strike/H41-I" in registry
+    assert "local-strike/H41-I" in parallel_page
+
+
 def test_public_source_refresh_never_requests_drivendata():
     class Response:
         def __init__(self, url, json_data=None):
@@ -112,11 +146,39 @@ def test_reproduction_tolerance_is_disclosed_consistently():
 
 
 def test_gate_and_note_are_honest():
+    """The gate may be open or closed, but it must be declared, justified and never sold as a score.
+
+    H42 (2026-10-06) is the first arm to pass the 20 km blocked holdout at equal mass, so the
+    manifest's slot gate is open for it.  The invariants kept here are the ones that stop the site
+    from overclaiming: an explicit reason, a short distinguishing note, no score claim, the archived
+    candidate marked not-to-submit, and the numbers on the page equal to the evidence files.
+    """
     manifest = json.loads((ROOT / "docs/downloads/manifest.json").read_text())
-    assert manifest["slot_eligible"] is False
-    assert len(manifest["note"]) <= 200 and "CLOSED" in manifest["note"]
+    assert isinstance(manifest["slot_eligible"], bool)
+    assert len(manifest["note"]) <= 200
+    assert "unscored" in manifest["note"].lower()
+    if manifest["slot_eligible"]:
+        assert "slot_eligible_reason" in manifest
+        gate = json.loads((ROOT / "docs/downloads/h42-gate.json").read_text())
+        assert gate["gate_status"].startswith("OPEN")
+        holdout = json.loads((ROOT / "evidence/h42_holdout_20km.json").read_text())
+        arm = gate["candidate_arm"]
+        assert gate["result"]["candidate_mean_dti"] == holdout["summary"][arm]["mean_dti"]
+        assert (gate["result"]["candidate_mean_dti"]
+                > gate["result"]["uniform_random_control"]
+                > 0)
+        assert gate["result"]["candidate_min_fold"] > gate["result"]["uniform_random_control"]
+    assert "not to submit" in manifest["archived_primary"]["status"] or \
+        "do not submit" in manifest["archived_primary"]["status"]
+    home = (ROOT / "docs/index.html").read_text()
+    assert "not a score forecast" in home or "not a score forecast" in \
+        (ROOT / "docs/executive-summary.html").read_text()
     for name in ("index.html", "executive-summary.html", "research.html"):
         assert "gate" in (ROOT / "docs" / name).read_text().lower()
+    # No page may claim an organizer-scored result for this artifact.
+    for name in ("index.html", "executive-summary.html", "research.html"):
+        text = (ROOT / "docs" / name).read_text()
+        assert "scored 0.2" not in text and "achieved 0.27" not in text
 
 
 def test_junction_checks_both_populations():
@@ -170,3 +232,20 @@ def test_rendered_pages_disclose_restriction_and_historical_snapshot():
     assert "0.3195" in research and "0.3262" in research
     assert "current standings are unknown" in sources.lower()
     assert "0.3262" in sources
+
+
+def test_reproduce_workflow_follows_the_declared_reproduction_target():
+    """CI pins the H41-A rebuild against a named raster; the manifest must not silently repoint it.
+
+    H42 became the published submission (manifest['filename']) while scripts/run_pipeline.py still
+    rebuilds the H41-A field.  The workflow therefore has to read manifest['reproduction_target'].
+    This test fails if either side drops that contract.
+    """
+    manifest = json.loads((ROOT / "docs/downloads/manifest.json").read_text())
+    workflow = (ROOT / ".github/workflows/reproduce.yml").read_text()
+    assert manifest["filename"] != manifest["reproduction_target"]["filename"], \
+        "the published submission and the CI rebuild target are different artifacts here"
+    assert (ROOT / "docs/downloads" / manifest["reproduction_target"]["filename"]).exists()
+    assert (ROOT / "docs/downloads" / manifest["filename"]).exists()
+    assert "reproduction_target" in workflow
+    assert "expected-main.tif" in workflow

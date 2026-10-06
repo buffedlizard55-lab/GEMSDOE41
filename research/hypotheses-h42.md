@@ -183,7 +183,7 @@ min distance 2.236 px; values exactly {0.0, 1.0}):
 shortfall 4,510 vs 37,654 cap) and `gemsdoe41-h42d-statemap-lattice-37k-20261006T075812Z.tif`
 (22,061 px; 18,618 on residual, 84.3%).
 
-**Decision (verbatim, from `manifest.json -> h42.decisions.slot_recommendation`):** no promotion:
+**Decision (verbatim, from `manifest.json -> h42_bimodal_lattice.decisions.slot_recommendation`):** no promotion:
 the preregistered holdout rule failed on 0/4 folds and the label-free enrichment gate failed; the
 LiDAR scarp-evidence control tops the instrument (ladder-mean cpm 0.0791) — artifacts ship as
 labeled research only. No submission slot was spent. The next registered idea is H42-F (open-ground
