@@ -1,4 +1,4 @@
-"""H42: coverage-maximising emission -- the metric's own optimum, solved as a facility-location
+"""H43: coverage-maximising emission -- the metric's own optimum, solved as a facility-location
 problem instead of a threshold on a belief field.
 
 WHY THIS MODULE EXISTS

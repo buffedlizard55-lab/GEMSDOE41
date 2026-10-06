@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""H42 preregistered experiment: catalogue-completion learning + coverage-maximising emission.
+"""H43 preregistered experiment: catalogue-completion learning + coverage-maximising emission.
 
-HYPOTHESIS (preregistered before any holdout was opened -- see research/hypotheses-h42.md)
+HYPOTHESIS (preregistered before any holdout was opened -- see research/hypotheses-h43.md)
     A pixel classifier trained to reproduce *withheld* catalogue strands from the organizer's
     own 19-band feature raster, the USGS 3DEP 1 m scarp products and the geometry of the
     retained catalogue, emits a belief field whose off-catalogue maxima locate faults that the
@@ -20,8 +20,8 @@ INSTRUMENT (identical to the repository's existing one, so numbers are comparabl
       null), distance-to-retained-catalogue ordering, and score-ordered fixed-separation
       packing (`emission.greedy_pack`, the operator every previous session in this family used).
 
-Run:  .venv/bin/python scripts/experiment_h42.py [--guard 2.0] [--folds 4]
-Writes evidence/h42_holdout.json
+Run:  .venv/bin/python scripts/experiment_h43.py [--guard 2.0] [--folds 4]
+Writes evidence/h43_holdout.json
 """
 from __future__ import annotations
 
@@ -52,7 +52,7 @@ NEG_PER_POS = 18
 MAX_POS = 12_000
 SEED = 42
 
-FEAT = ROOT / "data" / "derived" / "h42_features.f32"
+FEAT = ROOT / "data" / "derived" / "h43_features.f32"
 N_FEATURES = 31
 
 
@@ -206,7 +206,7 @@ def evaluate_field(b: dict, fo: dict, pi: np.ndarray, tag: str) -> dict:
     res["coverage_greedy"] = curve
     res["coverage_greedy_model"] = CV.model_dti(pi.astype(np.float64), g["mask"] if g["mask"].any()
                                                 else np.zeros(b["shape"], bool))
-    # --- sharpened coverage greedy: H42-A's actual test.  The calibrated field is a
+    # --- sharpened coverage greedy: H43-A's actual test.  The calibrated field is a
     #     PROBABILITY, the truth is a nearly deterministic set concentrated at its top, so
     #     coverage of pi is coverage of a much flatter object than the truth.  gamma is a
     #     single preregistered scalar (8), not a tuned per-fold parameter. ---
@@ -260,7 +260,7 @@ def main() -> int:
     ap.add_argument("--guard", type=float, default=2.0)
     ap.add_argument("--min-dcat", type=float, default=2.0)
     ap.add_argument("--folds", type=int, default=4)
-    ap.add_argument("--out", default=str(ROOT / "evidence" / "h42_holdout.json"))
+    ap.add_argument("--out", default=str(ROOT / "evidence" / "h43_holdout.json"))
     args = ap.parse_args()
     t0 = time.time()
     b = load_base()

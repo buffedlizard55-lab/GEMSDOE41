@@ -1,4 +1,4 @@
-"""H42 coverage emitter and belief calibration: identities, not vibes.
+"""H43 coverage emitter and belief calibration: identities, not vibes.
 
 Every test here is a property that must hold exactly if the emission operator is really
 optimising the official index, checked against `gems41.metric.dti` (which is itself checked
@@ -109,7 +109,7 @@ def test_greedy_never_emits_outside_allowed_and_stops_at_zero_gain():
 
 
 def test_coverage_greedy_beats_fixed_separation_packing_on_a_redundant_peak():
-    """The property H42-A exists for.
+    """The property H43-A exists for.
 
     A solid belief block next to a long thin ridge: score-ordered packing fills the block with
     dots 2.83 px apart, but the block is only ~3 px across, so every dot after the first two

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""H42 feature stack: the official 19 competition bands + independent terrain products,
+"""H43 feature stack: the official 19 competition bands + independent terrain products,
 materialised once as a pixel-interleaved float32 memmap so a 3 GB / 2-core host can train
 and predict over all 5.1 million scored pixels without ever holding the 419 MB source
 raster and its derivatives in RAM at the same time.
@@ -19,8 +19,8 @@ a `sentinel` indicator feature records where it happened, so no -3.4e38 value ca
 a submission and the portal's "Predicted values must be in range [0, 1]" rejection cannot
 be triggered by an input artefact.
 
-Run:  .venv/bin/python scripts/build_h42_features.py
-Writes data/derived/h42_features.f32  and  evidence/h42_feature_receipt.json
+Run:  .venv/bin/python scripts/build_h43_features.py
+Writes data/derived/h43_features.f32  and  evidence/h43_feature_receipt.json
 """
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ from gems41 import lidar as L  # noqa: E402
 F32 = np.float32
 DATA = ROOT / "data"
 DERIVED = DATA / "derived"
-OUT = DERIVED / "h42_features.f32"
+OUT = DERIVED / "h43_features.f32"
 
 BAND_NAMES = {
     1: "mag_anom", 2: "rtp", 3: "tmi_hg", 4: "geod_2ndinv", 5: "iso_grav_anom_slope",
@@ -217,7 +217,7 @@ def main() -> int:
     assert bad == 0, "non-finite values written to the feature memmap"
     receipt["per_feature_minmax"] = {names[j]: [float(lo[j]), float(hi[j])] for j in range(F)}
     del chk
-    (ROOT / "evidence" / "h42_feature_receipt.json").write_text(json.dumps(receipt, indent=1) + "\n")
+    (ROOT / "evidence" / "h43_feature_receipt.json").write_text(json.dumps(receipt, indent=1) + "\n")
     print(json.dumps({k: v for k, v in receipt.items() if k != "per_feature_minmax"}, indent=1))
     print(f"done in {time.time()-t0:.0f}s")
     return 0

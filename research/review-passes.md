@@ -194,7 +194,7 @@ This continuation reads the preserved prompt and the H41-A audit above. It corre
 
 ---
 
-# H42 session — 2026-10-06
+# H43 session — 2026-10-06
 
 Environment restored from scratch first: `.venv` rebuilt, `scripts/download_competition_data.sh`
 re-fetched the four official rasters and the INGENIOUS trace CSV from the pinned owner mirrors, and
@@ -215,20 +215,20 @@ band-wise and row-blocked. Baseline before any change: **47 passed, 2 skipped**.
 * **Resolved a stale "unexplained oddity".** `src.dataset_mask().sum()` returns 1,317,680,115 for a
   12,279,160-px raster because rasterio's mask is uint8 with 255 inside: 255 × 5,167,373 exactly.
   Not an upstream defect (IRR-14). Footprint counts must come from `(mask > 0).sum()`.
-* Built `scripts/build_h42_features.py` (31 features → 1.52 GB memmap, 0 non-finite cells,
+* Built `scripts/build_h43_features.py` (31 features → 1.52 GB memmap, 0 non-finite cells,
   218 s), `src/gems41/coverage.py` (CELF lazy-greedy maximum-coverage emitter + the exact
   Bernoulli-field model of the index), `src/gems41/belief.py` (analytic prior-shift correction and
   the preregistered sharpening operator), `scripts/fetch_probe_corpus.py` (29 scored sibling
   rasters), `scripts/invert_label_field.py`, `scripts/score_record_calculus.py`,
-  `scripts/experiment_h42.py` and `scripts/build_h42_submission.py`.
-* Preregistered `research/hypotheses-h42.md` (five hypotheses, instrument, controls, promotion
+  `scripts/experiment_h43.py` and `scripts/build_h43_submission.py`.
+* Preregistered `research/hypotheses-h43.md` (five hypotheses, instrument, controls, promotion
   gate, mass rule) **before** the first holdout run.
 * Results: mean holdout DTI **0.56063** at 20,000 px vs **0.03234** for the position-blind null and
   **0.46191** for the family's packing operator; gate passed 4/4 folds against the null at every
   mass. Score-record calculus: `1/score = 2.98842 + 1.78715e-05 × mass`, coverage `a = 0.287`,
   `ρ ≈ 36,467`, incumbent ceiling **0.3346**, and the null model reproduces a live score to
   **+0.21 %**.
-* Shipped `docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif`,
+* Shipped `docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif`,
   SHA-256 `e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa`, 123,881 bytes,
   20,000 positive pixels, independently re-opened and asserted before the build would exit 0.
 
@@ -267,7 +267,7 @@ Four real defects found and fixed, all of them in code written earlier in this s
 
 ## Pass 3 — recheck against the original brief
 
-* **Unique TIF, one click, obvious at the top.** `docs/downloads/gems41-h42-completion-v1-…tif` is
+* **Unique TIF, one click, obvious at the top.** `docs/downloads/gems41-h43-completion-v1-…tif` is
   the featured artifact on `docs/index.html`, `docs/executive-summary.html` and the README's first
   table, with a unique filename, a unique submission name and a copy-box note for the form. It is
   built from official inputs only; no sibling raster is read by the builder. It is **not** a
@@ -284,9 +284,9 @@ Four real defects found and fixed, all of them in code written earlier in this s
   0.3195 and 0.3262 are reachable **without a better geological idea** — by stopping paying for
   redundant dots. That is a claim about the family's field, not about ours, and it is labelled as a
   [MODEL] on owner-reported scores.
-* **3–5 new hypotheses, ranked, with the required four fields each** — `research/hypotheses-h42.md`
+* **3–5 new hypotheses, ranked, with the required four fields each** — `research/hypotheses-h43.md`
   §1–2. Two were implemented and measured; the other three are absorbed as named layers of the
-  H42-B feature stack (geodetic strain partitioning, basement-step × conductive-cap blind-fault
+  H43-B feature stack (geodetic strain partitioning, basement-step × conductive-cap blind-fault
   detection, and evidence-minus-catalogue residual), which is recorded rather than left implicit.
 * **Validate before spending a slot.** Done, and the slot gate stays **CLOSED**. The preregistered
   gate passed; the honest blocker is not the gate but that the holdout truth (withheld *mapped*
@@ -317,5 +317,5 @@ Four real defects found and fixed, all of them in code written earlier in this s
    [MODEL]; the constant was deliberately **not** overwritten this session because every prior
    projection in the repository is conditioned on it. Next session: publish both and re-derive the
    mass ladder under each.
-5. Layer ablation for H42-C/D/E is not done. The 31-feature stack is shipped as a whole; the
+5. Layer ablation for H43-C/D/E is not done. The 31-feature stack is shipped as a whole; the
    marginal contribution of the geodetic, basement/conductivity and seismicity layers is unmeasured.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the H42 research candidate: a UNIQUE single-band float32 GeoTIFF for DrivenData 306.
+"""Build the H43 research candidate: a UNIQUE single-band float32 GeoTIFF for DrivenData 306.
 
 WHAT IT IS
   A belief field learned by catalogue completion -- a histogram gradient-boosted classifier
@@ -26,8 +26,8 @@ FORMAT HARDENING (the owner hit "Predicted values must be in range [0, 1]" on a 
   `..._allfinite` twin = 0.1294.  The file is re-opened from disk and every property asserted
   before the script will exit 0.
 
-Run:  .venv/bin/python scripts/build_h42_submission.py [--mass auto]
-Writes docs/downloads/<unique>.tif + .checks.json + .zip and evidence/h42_submission_build.json
+Run:  .venv/bin/python scripts/build_h43_submission.py [--mass auto]
+Writes docs/downloads/<unique>.tif + .checks.json + .zip and evidence/h43_submission_build.json
 """
 from __future__ import annotations
 
@@ -55,7 +55,7 @@ from gems41 import grid as G  # noqa: E402
 
 F32 = np.float32
 N_FEATURES = 31
-FEAT = ROOT / "data" / "derived" / "h42_features.f32"
+FEAT = ROOT / "data" / "derived" / "h43_features.f32"
 NEG_PER_POS = 18            # identical to the validated experiment
 MIN_DCAT_PX = 2.0           # emission domain: >200 m from any mapped fault
 RHO_LIVE = 36_000.0         # [MODEL] hidden label count, evidence/score_record_calculus.json
@@ -145,7 +145,7 @@ def validate_delivered(path: Path, footprint: np.ndarray, catalogue: np.ndarray,
 
 
 STRATEGY_EMITTERS = {
-    # strategy name in evidence/h42_holdout.json -> (operator, kwargs)
+    # strategy name in evidence/h43_holdout.json -> (operator, kwargs)
     "coverage_greedy": ("coverage", dict(gamma=1.0)),
     "cov_greedy_gamma8": ("coverage", dict(gamma=B.GAMMA_PREREGISTERED)),
     "belief_greedy_pack": ("pack", dict(min_sep_px=2.83)),
@@ -155,7 +155,7 @@ NULL_STRATEGIES = ("uniform_scatter",)  # never shipped: it is the position-blin
 
 
 def choose_mass(holdout: dict, rho: float, cap: int) -> dict:
-    """Preregistered mass + operator rule (research/hypotheses-h42.md section 3).
+    """Preregistered mass + operator rule (research/hypotheses-h43.md section 3).
 
     RULE 1 (measured): take the (strategy, mass) pair with the highest MEAN holdout DTI across
     the four strand-blocked folds, subject to mass <= cap.  The cap is the largest emitted mass
@@ -254,7 +254,7 @@ def update_manifest(receipt: dict, checks: dict, holdout: dict, sel: dict) -> No
     agg = holdout.get("aggregate", {})
     man = dict(
         filename=f["name"],
-        submission_name="GEMS41-H42-Completion-" + f["pixel_sha12"],
+        submission_name="GEMS41-H43-Completion-" + f["pixel_sha12"],
         note=receipt["submission_note"],
         slot_eligible=False,
         superseded_previous_primary=superseded,
@@ -275,8 +275,8 @@ def update_manifest(receipt: dict, checks: dict, holdout: dict, sel: dict) -> No
                                           "plus a GDAL internal mask outside the template footprint")),
         holdout_means=dict(candidate=old.get("holdout_means", {}).get("candidate"),
                            note=("H41-A corridor field, retained for audit; superseded by "
-                                 "h42_holdout below")),
-        h42_holdout=dict(instrument=holdout.get("design"),
+                                 "h43_holdout below")),
+        h43_holdout=dict(instrument=holdout.get("design"),
                          mean_dti_by_strategy_and_mass=agg,
                          chosen=sel,
                          promotion_gate=dict(
@@ -355,7 +355,7 @@ def main() -> int:
     print(f"  belief field: max={float(pi.max()):.4f} rho_model=sum(pi)={rho_model:.0f} "
           f"({time.time()-t0:.0f}s)", flush=True)
 
-    holdout = json.loads((ROOT / "evidence" / "h42_holdout.json").read_text())
+    holdout = json.loads((ROOT / "evidence" / "h43_holdout.json").read_text())
     if args.mass == "auto":
         sel = choose_mass(holdout, RHO_LIVE, MASS_CAP)
         mass = sel["mass"]
@@ -370,7 +370,7 @@ def main() -> int:
 
     data = np.where(mask & domain, np.float32(1.0), np.float32(0.0))
     ph = hashlib.sha256(np.ascontiguousarray(data.astype(F32)).tobytes()).hexdigest()[:12]
-    name = f"gems41-h42-completion-v1-{args.stamp}-{ph}"
+    name = f"gems41-h43-completion-v1-{args.stamp}-{ph}"
     path = Path(args.outdir) / f"{name}.tif"
     write_hardened(path, data, footprint)
     checks = validate_delivered(path, footprint, catalogue, dcat, 1.0)
@@ -387,13 +387,13 @@ def main() -> int:
     # The note goes into the DrivenData "Note (optional)" box, and `tests/test_site.py` requires
     # it to state on its face that the slot gate is closed, so a reader can never mistake this
     # artifact for a cleared submission.  Kept under 200 characters.
-    note = (f"GEMSDOE41 H42-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; "
+    note = (f"GEMSDOE41 H43-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; "
             f"{n} coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED")
     assert len(note) <= 200 and "CLOSED" in note, note
 
     receipt = dict(
         created_utc=time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
-        hypothesis="H42-B catalogue-completion learning, emitted by H42-A packing",
+        hypothesis="H43-B catalogue-completion learning, emitted by H43-A packing",
         submission_note=note,
         file=dict(name=path.name, path=str(path.relative_to(ROOT)), pixel_sha12=ph,
                   sha256=checks["sha256"], bytes=checks["bytes"], n_positive_px=n,
@@ -407,13 +407,13 @@ def main() -> int:
                       min_dcat_px=MIN_DCAT_PX, selection=sel),
         calibration_inputs=dict(rho_live_model=RHO_LIVE, mass_cap=MASS_CAP,
                                 score_record="evidence/score_record_calculus.json",
-                                holdout="evidence/h42_holdout.json"),
+                                holdout="evidence/h43_holdout.json"),
         checks=checks, runtime_s=round(time.time() - t0, 1),
         uniqueness=("built from the organizer feature raster, the organizer label raster, the "
                     "SHA-256-pinned USGS 3DEP product and this repository's derived features "
                     "only; no sibling submission raster is read by this script"),
     )
-    (ROOT / "evidence" / "h42_submission_build.json").write_text(json.dumps(receipt, indent=1) + "\n")
+    (ROOT / "evidence" / "h43_submission_build.json").write_text(json.dumps(receipt, indent=1) + "\n")
     update_manifest(receipt, checks, holdout, sel)
     print(json.dumps({k: receipt[k] for k in ("file", "emission")}, indent=1))
     print(f"\nDELIVERABLE  {path}")

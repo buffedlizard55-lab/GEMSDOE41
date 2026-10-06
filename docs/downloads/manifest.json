@@ -1,7 +1,7 @@
 {
- "filename": "gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
- "submission_name": "GEMS41-H42-Completion-8f1f3ba6d176",
- "note": "GEMSDOE41 H42-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
+ "filename": "gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+ "submission_name": "GEMS41-H43-Completion-8f1f3ba6d176",
+ "note": "GEMSDOE41 H43-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
  "slot_eligible": false,
  "superseded_previous_primary": {
   "filename": "gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
@@ -9,7 +9,7 @@
   "status": "retained in docs/downloads for audit; no longer the featured artifact"
  },
  "format": {
-  "file": "/home/user/GEMSDOE41/docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "file": "/home/user/GEMSDOE41/docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
   "sha256": "e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa",
   "array_sha256": "8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e",
   "shape": [
@@ -43,7 +43,7 @@
   "compression": "deflate",
   "tiled": "512x512",
   "zip_bytes": 78584,
-  "zip_sha256": "6ba05a5df4ea7e6ee6330169239d807103b0bf8298ebe788ff9ddc47f91e2894",
+  "zip_sha256": "bf511153202a5ae2fb35e22ad364335a03699b0be7ca48b564d5b6f068d982cc",
   "min_distance_to_catalogue_px": 2.2360680103302,
   "nearest_neighbour_px": {
    "min": 1.0,
@@ -54,9 +54,9 @@
  },
  "holdout_means": {
   "candidate": 0.0,
-  "note": "H41-A corridor field, retained for audit; superseded by h42_holdout below"
+  "note": "H41-A corridor field, retained for audit; superseded by h43_holdout below"
  },
- "h42_holdout": {
+ "h43_holdout": {
   "instrument": {
    "guard_px": 2.0,
    "min_dcat_px": 2.0,

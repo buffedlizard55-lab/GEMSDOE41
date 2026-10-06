@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""H42-A: invert the family's own live score record for the hidden label field.
+"""H43-A: invert the family's own live score record for the hidden label field.
 
 WHY THIS EXISTS
 ---------------

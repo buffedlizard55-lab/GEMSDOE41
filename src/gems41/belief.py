@@ -1,4 +1,4 @@
-"""H42 belief-field calibration: turning a classifier's output into an intensity the metric
+"""H43 belief-field calibration: turning a classifier's output into an intensity the metric
 can be optimised against.
 
 Two corrections, both derivations rather than tunings:
@@ -15,7 +15,7 @@ Two corrections, both derivations rather than tunings:
    the same emitter scores 0.01386.  THOSE THREE NUMBERS ARE LOWER BOUNDS: they were measured
    before the emission-domain defect described in `research/review-passes.md` (pass 2, item 1)
    was found.  On the corrected instrument, calibrated coverage-greedy reaches 0.48062 on the
-   same fold at the same mass (`evidence/h42_holdout.json`).  The qualitative conclusion --
+   same fold at the same mass (`evidence/h43_holdout.json`).  The qualitative conclusion --
    weights destroy the coverage emitter, the analytic correction restores it -- is unchanged and
    is corroborated independently by sum(pi) landing at 0.75-0.88x the withheld truth count in
    all four folds.

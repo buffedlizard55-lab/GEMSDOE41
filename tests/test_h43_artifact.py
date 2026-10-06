@@ -1,10 +1,10 @@
-"""Contract tests for the H42 deliverable and the instruments behind it.
+"""Contract tests for the H43 deliverable and the instruments behind it.
 
 These guard the things that get a submission rejected or a claim retracted:
 the delivered bytes, the geometry, the range-error hardening, the uniqueness of the artifact,
 the honesty of the manifest, and the internal consistency of the score-record calculus.
 
-Run:  python -m pytest tests/test_h42_artifact.py -q
+Run:  python -m pytest tests/test_h43_artifact.py -q
 """
 from __future__ import annotations
 
@@ -17,16 +17,16 @@ import rasterio
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST = os.path.join(ROOT, "docs", "downloads", "manifest.json")
-BUILD = os.path.join(ROOT, "evidence", "h42_submission_build.json")
+BUILD = os.path.join(ROOT, "evidence", "h43_submission_build.json")
 CALC = os.path.join(ROOT, "evidence", "score_record_calculus.json")
-HOLDOUT = os.path.join(ROOT, "evidence", "h42_holdout.json")
+HOLDOUT = os.path.join(ROOT, "evidence", "h43_holdout.json")
 TEMPLATE = os.path.join(ROOT, "data", "sample_submission.tif")
 CATALOGUE = os.path.join(ROOT, "data", "existing_faults.tif")
 
 
 def load(path):
     if not os.path.exists(path):
-        pytest.skip(f"missing {os.path.relpath(path, ROOT)} (run the H42 pipeline first)")
+        pytest.skip(f"missing {os.path.relpath(path, ROOT)} (run the H43 pipeline first)")
     with open(path) as fh:
         return json.load(fh)
 
@@ -123,7 +123,7 @@ def test_no_sibling_raster_is_an_input(build):
     """
     import ast
 
-    path = os.path.join(ROOT, "scripts", "build_h42_submission.py")
+    path = os.path.join(ROOT, "scripts", "build_h43_submission.py")
     tree = ast.parse(open(path).read())
     # the raw module docstring node, NOT ast.get_docstring(), which cleans/dedents it and would
     # then fail to compare equal to the literal it came from
@@ -147,17 +147,17 @@ def test_no_sibling_raster_is_an_input(build):
 def test_manifest_note_is_short_and_states_the_gate(manifest):
     assert len(manifest["note"]) <= 200
     assert "CLOSED" in manifest["note"]
-    assert manifest["submission_name"].startswith("GEMS41-H42-Completion-")
+    assert manifest["submission_name"].startswith("GEMS41-H43-Completion-")
     assert manifest["format"]["all_checks_passed"] is True
     assert manifest["format"]["min_distance_to_catalogue_px"] > 2.0
 
 
 def test_holdout_gate_is_recorded_and_passed(manifest):
-    g = manifest["h42_holdout"]["promotion_gate"]
+    g = manifest["h43_holdout"]["promotion_gate"]
     assert g["beats_position_blind_null"].startswith("4/4")
     assert g["credit_per_mass_at_2000px"] > g["incumbent_best_credit_per_mass"]
-    agg = manifest["h42_holdout"]["mean_dti_by_strategy_and_mass"]
-    m = str(manifest["h42_holdout"]["chosen"]["mass"])
+    agg = manifest["h43_holdout"]["mean_dti_by_strategy_and_mass"]
+    m = str(manifest["h43_holdout"]["chosen"]["mass"])
     assert agg["coverage_greedy"][m]["mean_dti"] > agg["uniform_scatter"][m]["mean_dti"]
     assert agg["coverage_greedy"][m]["mean_dti"] > agg["belief_greedy_pack"][m]["mean_dti"]
 

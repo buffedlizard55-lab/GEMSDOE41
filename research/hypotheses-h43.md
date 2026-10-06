@@ -1,6 +1,6 @@
-# H42 — preregistered hypothesis slate for the DOE GEMS prize round
+# H43 — preregistered hypothesis slate for the DOE GEMS prize round
 
-Registered **2026-10-06T02:05Z**, before `scripts/experiment_h42.py` was run against any
+Registered **2026-10-06T02:05Z**, before `scripts/experiment_h43.py` was run against any
 holdout and before any emission mass was chosen. Per `AGENTS.md` #5 the hypotheses, the
 instrument, the controls and the promotion gate are fixed here first; results are appended
 below the line and negative results are reported.
@@ -37,7 +37,7 @@ this slate produces a research candidate and an honest recommendation, not a spe
 
 ## 1. The slate
 
-### H42-A — Coverage-maximising emission (operator, not geology)
+### H43-A — Coverage-maximising emission (operator, not geology)
 * **Layers:** none; applies to any belief field.
 * **Physical signature / transform:** none. The transform is of the *index*: `TP_w` takes a
   `max` over predictions for each truth pixel, so a second dot inside the 300 m kernel of an
@@ -59,7 +59,7 @@ this slate produces a research candidate and an honest recommendation, not a spe
   `s_max = a/(0.2a+0.8) = 0.3347` at `a = 0.287`, above the 2026-10-05 leaderboard snapshot's
   `0.3262`. **Cost:** low (one module + one experiment).
 
-### H42-B — Catalogue-completion learning
+### H43-B — Catalogue-completion learning
 * **Layers:** all 19 official bands of `training_features.tif` (only band 12 `det_elev` has
   ever been used in this repository — 18 unused official inputs), the USGS 3DEP 1 m scarp
   products, and the geometry of the *retained* catalogue.
@@ -81,7 +81,7 @@ this slate produces a research candidate and an honest recommendation, not a spe
   CPU-feasible). **Cost:** moderate — 3 GB / 2-core host, so features are materialised once to
   a pixel-interleaved float32 memmap and training/prediction are blocked.
 
-### H42-C — Geodetic strain partitioning
+### H43-C — Geodetic strain partitioning
 * **Layers:** `geod_2ndinv` (band 4), `geod_shearrate` (7), `geod_dilaterate` (8).
 * **Signature:** interseismic strain-rate concentration and the second invariant of the
   horizontal strain-rate tensor. In the Walker Lane the second invariant peaks where
@@ -95,7 +95,7 @@ this slate produces a research candidate and an honest recommendation, not a spe
   top files are topography/magnetics lineament products.
 * **Expected improvement:** moderate. **Cost:** low.
 
-### H42-D — Blind-fault detector: basement step × conductive cap
+### H43-D — Blind-fault detector: basement step × conductive cap
 * **Layers:** `depth_to_base_surf` (15) gradient magnitude, `cond_surf` (17).
 * **Signature:** a lateral discontinuity in depth-to-basement co-located with a near-surface
   conductive anomaly (hydrothermal alteration / clay cap / saline fluid).
@@ -108,7 +108,7 @@ this slate produces a research candidate and an honest recommendation, not a spe
   scarps, lineaments). This one is deliberately blind to surface expression.
 * **Expected improvement:** moderate, with the highest novelty. **Cost:** low–moderate.
 
-### H42-E — Mapping-coverage residual ("evidence minus catalogue")
+### H43-E — Mapping-coverage residual ("evidence minus catalogue")
 * **Layers:** any multi-evidence composite, minus the published catalogue's own density.
 * **Signature:** `r(x) = smooth(evidence) − smooth(catalogue density)`, standardised. High
   where the physical case for faulting is strong and the published trace density is thin.
@@ -125,13 +125,13 @@ this slate produces a research candidate and an honest recommendation, not a spe
 
 | rank | id | expected gain | cost | decision |
 |---|---|---|---|---|
-| 1 | H42-A | large — bounded above only by `a`; ceiling `0.3347` at the incumbent `a` | low | **implement now** |
-| 2 | H42-B | high — raises `a` itself | moderate | **implement now** |
-| 3 | H42-E | moderate | low | implement as an H42-B feature + standalone ranker |
-| 4 | H42-C | moderate | low | implement as H42-B features (already in the 19 bands) |
-| 5 | H42-D | moderate, highest novelty | low–moderate | implement as H42-B features (bands 15/17) |
+| 1 | H43-A | large — bounded above only by `a`; ceiling `0.3347` at the incumbent `a` | low | **implement now** |
+| 2 | H43-B | high — raises `a` itself | moderate | **implement now** |
+| 3 | H43-E | moderate | low | implement as an H43-B feature + standalone ranker |
+| 4 | H43-C | moderate | low | implement as H43-B features (already in the 19 bands) |
+| 5 | H43-D | moderate, highest novelty | low–moderate | implement as H43-B features (bands 15/17) |
 
-H42-C/D/E are absorbed into H42-B's feature stack as individual layers, so the slate is
+H43-C/D/E are absorbed into H43-B's feature stack as individual layers, so the slate is
 tested as (i) the emission operator, (ii) the learned field, and (iii) each layer's marginal
 contribution by ablation, rather than as five separate builds.
 
@@ -154,9 +154,9 @@ of under-emitting is bounded by `0.8·FN_w` on pixels that were never going to b
 
 # RESULTS (appended after the runs)
 
-*(to be filled in by `scripts/experiment_h42.py` → `evidence/h42_holdout.json`)*
+*(to be filled in by `scripts/experiment_h43.py` → `evidence/h43_holdout.json`)*
 
-## 4. Measured results — `scripts/experiment_h42.py` → `evidence/h42_holdout.json`
+## 4. Measured results — `scripts/experiment_h43.py` → `evidence/h43_holdout.json`
 
 Run 2026-10-06T02:2xZ, 511 s, 2 cores / 3 GB, no GPU. Four strand-blocked folds
 (214 / 102 / 45 / 45 withheld strands; truth 30,872 / 11,484 / 10,679 / 7,953 px;
@@ -192,7 +192,7 @@ it falls out of the analytic prior-shift correction in `src/gems41/belief.py`.
 
 ## 5. Decisions taken, and what was rejected
 
-* **H42-A confirmed.** Coverage-maximising greedy beats score-ordered fixed-separation packing at
+* **H43-A confirmed.** Coverage-maximising greedy beats score-ordered fixed-separation packing at
   every mass tested, and the gap widens with mass (0.545 vs 0.393 at 37,654 px; 0.488 vs 0.316 at
   65,000 px) exactly as the redundancy argument predicts. Wider fixed separation (4.5 px) is
   strictly worse than 2.83 px at every mass — geometric thinning is not a substitute for

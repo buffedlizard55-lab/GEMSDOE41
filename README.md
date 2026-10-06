@@ -1,12 +1,12 @@
 # GEMSDOE41 — finding faults that are not in the catalogue
 
-**[⬇ Download the current research candidate GeoTIFF](docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
+**[⬇ Download the current research candidate GeoTIFF](docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
 
 | | |
 |---|---|
-| **File** | `docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif` |
-| **Unique submission name** | `GEMS41-H42-Completion-8f1f3ba6d176` |
-| **Note for the submission form** | `GEMSDOE41 H42-B catalogue-completion GBM on all 19 official bands + USGS 3DEP 1 m scarps; 20000 coverage-greedy dots, all >200 m off catalogue; all-finite [0,1]` |
+| **File** | `docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif` |
+| **Unique submission name** | `GEMS41-H43-Completion-8f1f3ba6d176` |
+| **Note for the submission form** | `GEMSDOE41 H43-B catalogue-completion GBM on all 19 official bands + USGS 3DEP 1 m scarps; 20000 coverage-greedy dots, all >200 m off catalogue; all-finite [0,1]` |
 | **SHA-256** | `e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa` |
 | **Pixel SHA-256** | `8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e` |
 | **Size** | 123,881 bytes (zip 78,584) |
@@ -14,7 +14,7 @@
 | **Grid** | 3292 × 3730, EPSG:32611, 100 m, transform 243350 / 4508550 — verified against `sample_submission.tif` |
 | **Slot eligible** | **NO** — `AGENTS.md` #4 keeps the gate closed. This is a research candidate, never scored by the organizer. |
 
-## What is new this session (2026-10-06, H42)
+## What is new this session (2026-10-06, H43)
 
 **1. The validation protocol was broken, and that — not geology — is why H41-A and H41-E read as
 zero.** The prize round scores faults *absent* from the published catalogue and masks catalogue
@@ -22,17 +22,17 @@ pixels out of every term. A holdout whose truth *is* the published catalogue, wi
 catalogue masked, returns ≈0 for any candidate designed to avoid the catalogue. H41-A's
 `7.098e-09` and H41-E's `0.000000` are instrument failures. The replacement (**H-SIM**) withholds
 whole mapped strands, treats them as the hidden set, and scores beyond a guard. See
-`registry/irregularities.json` IRR-11 and `research/hypotheses-h42.md` §0.
+`registry/irregularities.json` IRR-11 and `research/hypotheses-h43.md` §0.
 
-**2. A belief field that actually finds withheld faults (H42-B).** A gradient-boosted classifier
+**2. A belief field that actually finds withheld faults (H43-B).** A gradient-boosted classifier
 over **all 19 official competition bands** (18 of which this repository had never used — the band
 names are read from the file's own per-band tags and transcribed in
-`scripts/build_h42_features.py`), plus local morphology of detrended elevation and of the
+`scripts/build_h43_features.py`), plus local morphology of detrended elevation and of the
 magnetic/gravity/geodetic gradient bands, plus USGS 3DEP 1 m scarp products. It contains **no
 catalogue-geometry feature**, so it cannot echo catalogue density by construction. Mean DTI over
 four strand-blocked folds at matched mass:
 
-| emitted mass | H42 coverage greedy | family's score-ordered packing | position-blind null |
+| emitted mass | H43 coverage greedy | family's score-ordered packing | position-blind null |
 |---|---|---|---|
 | 2,000 | 0.31284 | 0.30313 | 0.00450 |
 | 20,000 | **0.56063** | 0.46191 | 0.03234 |
@@ -44,7 +44,7 @@ four strand-blocked folds at matched mass:
 the probability calibration: the field's own total mass lands at 0.75–0.88 × the withheld truth
 count in all four folds, which nothing in training targets.
 
-**3. The emission operator the index actually asks for (H42-A).** `TP_w` is a *maximum* over
+**3. The emission operator the index actually asks for (H43-A).** `TP_w` is a *maximum* over
 predictions per truth pixel, so a second dot inside an already-covered 300 m kernel earns nothing
 and still pays 0.2 of its mass. Emission is therefore maximum-coverage selection over the kernel
 (monotone submodular → CELF lazy greedy, `src/gems41/coverage.py`), not a threshold and not a
@@ -83,23 +83,23 @@ round's truth is faults that were *never* mapped. The two populations are relate
 so 0.5606 is an upper-leaning estimate and **no live score is claimed or projected for the shipped
 artifact**. Every score quoted from the family record is owner-reported, not an organizer receipt.
 
-### Reproduce H42
+### Reproduce H43
 
 ```bash
 python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 PYTHON=.venv/bin/python bash scripts/download_competition_data.sh   # official rasters + owner mirrors
 .venv/bin/python scripts/prepare_data.py                            # grid/footprint/label checks
-.venv/bin/python scripts/build_h42_features.py                      # 31-feature float32 memmap (~220 s)
+.venv/bin/python scripts/build_h43_features.py                      # 31-feature float32 memmap (~220 s)
 .venv/bin/python scripts/fetch_probe_corpus.py                      # 29 scored sibling rasters (calibration only)
 .venv/bin/python scripts/invert_label_field.py                      # design matrix + the failed mixture inversion
 .venv/bin/python scripts/score_record_calculus.py                   # nested-lineage fit, ceiling, null check
-.venv/bin/python scripts/experiment_h42.py --folds 4                # H-SIM holdout, 4 folds (~510 s)
-.venv/bin/python scripts/build_h42_submission.py --mass auto        # trains, emits, writes, re-verifies
+.venv/bin/python scripts/experiment_h43.py --folds 4                # H-SIM holdout, 4 folds (~510 s)
+.venv/bin/python scripts/build_h43_submission.py --mass auto        # trains, emits, writes, re-verifies
 .venv/bin/python -m pytest -q
 ```
 
 `data/probes/` and `data/derived/` are gitignored (large, restorable). `scripts/fetch_probe_corpus.py`
-reads sibling rasters **for calibration arithmetic only**; `scripts/build_h42_submission.py` never
+reads sibling rasters **for calibration arithmetic only**; `scripts/build_h43_submission.py` never
 opens one, and the shipped artifact is built solely from the organizer's feature and label rasters,
 the checksum-pinned USGS 3DEP product, and this repository's derived features.
 
@@ -148,7 +148,7 @@ compliance question — are listed with what would unblock each one in
 [`docs/h41/index.html#remaining`](docs/h41/index.html).
 
 ## Start every session here
-Read the original brief below, `research/hypotheses-h42.md`, `research/score-record-calculus.md`, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses-h43.md`, `research/score-record-calculus.md`, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 

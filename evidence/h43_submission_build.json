@@ -1,10 +1,10 @@
 {
- "created_utc": "2026-10-06T02:47:12Z",
- "hypothesis": "H42-B catalogue-completion learning, emitted by H42-A packing",
- "submission_note": "GEMSDOE41 H42-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
+ "created_utc": "2026-10-06T02:55:22Z",
+ "hypothesis": "H43-B catalogue-completion learning, emitted by H43-A packing",
+ "submission_note": "GEMSDOE41 H43-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
  "file": {
-  "name": "gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
-  "path": "docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "name": "gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "path": "docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
   "pixel_sha12": "8f1f3ba6d176",
   "sha256": "e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa",
   "bytes": 123881,
@@ -177,10 +177,10 @@
   "rho_live_model": 36000.0,
   "mass_cap": 37654,
   "score_record": "evidence/score_record_calculus.json",
-  "holdout": "evidence/h42_holdout.json"
+  "holdout": "evidence/h43_holdout.json"
  },
  "checks": {
-  "path": "/home/user/GEMSDOE41/docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "path": "/home/user/GEMSDOE41/docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
   "bytes": 123881,
   "sha256": "e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa",
   "pixel_sha256": "8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e",
@@ -238,10 +238,10 @@
   "nn_p95": 8.54400374531753,
   "no_duplicate_dots": true,
   "all_pass": true,
-  "zip_path": "/home/user/GEMSDOE41/docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.zip",
+  "zip_path": "/home/user/GEMSDOE41/docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.zip",
   "zip_bytes": 78584,
-  "zip_sha256": "6ba05a5df4ea7e6ee6330169239d807103b0bf8298ebe788ff9ddc47f91e2894"
+  "zip_sha256": "bf511153202a5ae2fb35e22ad364335a03699b0be7ca48b564d5b6f068d982cc"
  },
- "runtime_s": 77.3,
+ "runtime_s": 89.2,
  "uniqueness": "built from the organizer feature raster, the organizer label raster, the SHA-256-pinned USGS 3DEP product and this repository's derived features only; no sibling submission raster is read by this script"
 }
