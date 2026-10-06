@@ -18,7 +18,7 @@ import rasterio
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BUILD = os.path.join(ROOT, "evidence", "submission_build.json")
-TEMPLATE = os.path.join(ROOT, "data", "example_submission.tif")
+TEMPLATE = os.path.join(ROOT, "data", "sample_submission.tif")
 
 
 def load(path):

@@ -1,0 +1,30 @@
+{
+  "transport": "local HTTP, actual served bytes; not public Pages verification",
+  "responses": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 8716,
+      "sha256": "8cb2792265812e6b050211c9eaa0193582493902162205ce5c59885301e573c5"
+    },
+    {
+      "path": "/executive-summary.html",
+      "status": 200,
+      "bytes": 7510,
+      "sha256": "b984a1f2dadda82c262482440e1687e6ff95665342448293e8c3ded8cfe9f793"
+    },
+    {
+      "path": "/h41i-executive-summary.html",
+      "status": 200,
+      "bytes": 11768,
+      "sha256": "841ced8d78d9fa4678640af833250cd50e0bc3e141b0db67a3ac03df7180e566"
+    },
+    {
+      "path": "/downloads/gems41-h41i-local-strike-20261006-f265e3bf9494.tif",
+      "status": 200,
+      "bytes": 820491,
+      "sha256": "a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb"
+    }
+  ],
+  "downloaded_file_format_passed": true
+}
