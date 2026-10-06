@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-06T00:44:03Z",
+  "source": {
+    "github_actions_run": "https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37395340537",
+    "check_run_id": 112049864492,
+    "head_sha": "31a7a3d789fe733baf3ca780b9b1a80053efa586",
+    "evidence_type": "GitHub Actions check-run annotations and job status",
+    "artifact": {
+      "id": 11382517788,
+      "name": "rebuilt-geotiffs-and-audits",
+      "size_bytes": 3112785,
+      "sha256": "ca16a05a164d09314b71c30b366426c6a23125b2d470e7c0f367065e2457f3f0",
+      "upload_status": "success",
+      "sandbox_download_status": "failed with EOF; values below were preserved from GitHub check-run annotations"
+    }
+  },
+  "comparison_policy": {
+    "tolerance_float32_epsilons": 64,
+    "absolute_tolerance": 0.00000762939453125,
+    "outside_footprint_values_must_match_exactly": true,
+    "grid_and_valid_mask_must_match_exactly": true,
+    "nonzero_support_is_reported_but_not_a_separate_gate": true
+  },
+  "raster_derived_h41_a_r": {
+    "expected_sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f",
+    "actual_sha256": "819779d09a5e3bb2f64c0ac0e8848b36c7d9a4ab2c59ae86ee4b7604d1395441",
+    "valid_cells_compared": 5167373,
+    "exact_pixels": false,
+    "different_pixels": 12043,
+    "max_absolute_error": 0.0000036954879760742188,
+    "mean_absolute_error": 0.00000000018720758899452754,
+    "sum_absolute_error": 0.0009673714407654188,
+    "nonzero_support_changed_pixels": 0,
+    "nonzero_support_exact": true,
+    "outside_values_exact": true,
+    "outside_expected_all_nan": true,
+    "outside_actual_all_nan": true,
+    "numerically_reproducible": true
+  },
+  "source_vector_h41_a": {
+    "expected_sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+    "actual_sha256": "3ac27957d8126502de76b288e0093c4641694aa7d19d80d7b412fe50137d2db9",
+    "valid_cells_compared": 5167373,
+    "exact_pixels": false,
+    "different_pixels": 27605,
+    "max_absolute_error": 0.0000004172325134277344,
+    "mean_absolute_error": 0.000000000052565689125290215,
+    "sum_absolute_error": 0.0002716265227124183,
+    "nonzero_support_changed_pixels": 0,
+    "nonzero_support_exact": true,
+    "outside_values_exact": true,
+    "outside_expected_all_nan": false,
+    "outside_actual_all_nan": false,
+    "numerically_reproducible": true
+  },
+  "workflow_result": {
+    "rebuild_steps": "passed",
+    "pre-rebuild_tests": "passed",
+    "field_comparisons": "passed under the 64-epsilon bound",
+    "artifact_upload": "passed",
+    "overall_run_conclusion": "success",
+    "note": "The H41-A-R 31-epsilon deviation recurred, with the same expected and actual hashes as an earlier CI run; another intervening CI run was pixel-identical. The source-vector field also differed by less than 4 float32 epsilons. No nonzero-support, mask, grid, or outside-encoding changes occurred. The runner-sensitive numerical cause remains unidentified; this pass establishes the configured bounded numerical gate, not universal byte identity."
+  }
+}
