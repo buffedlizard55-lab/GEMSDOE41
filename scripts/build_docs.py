@@ -311,7 +311,7 @@ def main():
       'control of the <em>same support</em> at every one of six guard/separation settings. That is '
       'the one number here that is an instrument-internal comparison.</li>'
       '<li><strong>A measured, negative result.</strong> The hypothesis that transfer corridors are '
-      'where the hidden faults are failed three independent tests, including one that does not use '
+      'where the hidden faults are was not supported by three recorded diagnostics, including one that does not use '
       'the catalogue at all. It is reported on the '
       '<a href="irregularities.html">Irregularities</a> page rather than buried.</li>'
       '<li><strong>A model.</strong> Projected scores depend on a constant inferred from a hidden '
@@ -349,7 +349,7 @@ def main():
     # ---------------------------------------------------------------- exec summary
     ex = []
     A = ex.append
-    A('<h1>Executive summary</h1>')
+    A('<h1>Executive summary</h1><p><strong>Gate closed. Instructions below describe the form, not approval to spend a submission slot.</strong></p>')
     A('<p class="sub">What was tested, what it returned, what to do with it.</p>')
     A('<div class="card"><h3 style="margin-top:0">Download and submit (short version)</h3>'
       '<ol><li>Download <a href="../downloads/">the primary GeoTIFF</a> (one click, ~0.17 MB).</li>'
@@ -359,16 +359,15 @@ def main():
       '<li>Give it the name <code>GEMSDOE41 h41-bimodal-thrift-20k</code> and the note in the '
       '<a href="submit.html">submit page</a>.</li></ol></div>')
     A('<h2>The question asked of this session</h2>')
-    A('<p>&ldquo;How did 0.2778 score what it scored, and can it be beaten?&rdquo; The arithmetic '
-      'answer is exact and it is not flattering to the leaderboard. With the competition metric</p>')
+    A('<p>Why might H33 improve? The official distance-weighted Tversky formula gives</p>')
     A('<pre>1/DTI = 0.2 + 0.2&middot;(FP_w / TP_w) + 0.8&middot;(|G| / TP_w)</pre>')
-    A('<p>every emitted pixel contributes <strong>exactly 0.2</strong> to the denominator. Mass '
-      'therefore only pays for itself when the credit its kernel earns exceeds <code>0.2 &times; DTI</code>. '
-      'At a DTI near 0.32 that bar is about <strong>0.064 per pixel</strong>. The 0.2778 artifact is '
-      'the 0.2600 emission <em>minus</em> every dot within 200 m of the published catalogue &mdash; a '
-      'region that is masked out of scoring in both rounds. It did not predict better; it deleted '
-      'mass that was free to delete. That is the honest answer to the user\'s question, and it is '
-      'also the reason a leaderboard score is a weak test of a structural hypothesis.</p>')
+    A('<p>Removing redundant prediction mass can reduce false-positive cost without losing '
+      'truth coverage. However, FP is distance-weighted: not every pixel costs exactly 0.2. '
+      'Deleting a unique covering prediction can hurt. The prior claim that every catalogue-flank '
+      'dot is free to delete in both rounds is withdrawn. GEMSDOE32 describes H33 as a 200 m '
+      'prune of a reported 0.2708 base. Its page still calls the TIFF unscored, so 0.2778 remains '
+      'user-reported, not artifact-authenticated. See the <a href="../research.html#h33-score-audit">'
+      'evidence audit</a>. No leaderboard improvement is established here.</p>')
     A('<h2>What this session found instead</h2>')
     A('<p>A criterion that <em>is</em> testable: on the incumbent fault support, rank candidate dots '
       'by the local structural kinematics (strike of the mapped strands, fault-population membership, '
@@ -397,11 +396,11 @@ def main():
     A('<h2>What failed</h2>')
     A('<p>The transfer-corridor hypothesis &mdash; the intellectually attractive one, that hidden '
       'faults live in the step-over zones between en-echelon strands &mdash; failed three '
-      'independent tests: corridor-only emission scored 0.0000 on the holdout (reproduced by an '
+      'recorded diagnostics (not hidden-set tests): corridor-only emission scored 0.0000 on the holdout (reproduced by an '
       'independent parallel session); the 2020 USGS catalogue puts every one of 16 M&ge;4 events '
       '7.07&ndash;83.19 px from any mapped fault; and against 27,092 INGENIOUS well records the '
       'corridors are <em>depleted</em> for hot sites (0.34&times;, p=1.0) while the published '
-      'catalogue is enriched 2.15&times; at p=0.016. The test has power, and the corridor fails it. '
+      'catalogue is enriched 2.15&times; at p=0.016. This is a negative association diagnostic, not a formal power analysis. '
       'It is not shipped.</p>')
     A('<h2>Limits</h2>')
     A('<ul>'
@@ -409,16 +408,15 @@ def main():
       'proxy for hidden-fault recovery, not the hidden set.</li>'
       '<li>Projected scores depend on a constant inferred from one reported hidden-set size '
       '(13,000 px, spanning 12,691&ndash;15,200). Tagged <span class="pill">MODEL</span>.</li>'
-      '<li>The artifact emits 0 px within 300 m of the published catalogue, so it cannot gain from '
-      'the flank-masking effect described above &mdash; the gain, if any, must come from the '
-      'ranking.</li>'
-      '<li>Compliance: this repository is a public fork of an organizers\' repository. See '
-      '<a href="irregularities.html">IRR-01</a>.</li></ul>')
+      '<li>Excluding catalogue-adjacent pixels can discard real connecting faults; it is not free credit.</li>'
+      '<li>Current GitHub metadata says this repository is standalone, not a fork. '
+      'Eligibility and data rights still require review; see <a href="irregularities.html">IRR-01</a>.</li></ul>')
+
 
     # ---------------------------------------------------------------- submit
     su = []
     A = su.append
-    A('<h1>How to submit</h1>')
+    A('<h1>How to submit</h1><p><strong>Research only: no candidate here has beaten a clean historical-best holdout. Do not upload yet.</strong></p>')
     A('<p class="sub">One click to download, then the form asks for a name and a note.</p>')
     A('<div class="card cta"><h2 style="margin-top:0">1. Download</h2>')
     A(dl_table(build))
@@ -544,7 +542,7 @@ def main():
 
     if thin:
         A('<h2>The emission lever</h2>')
-        A('<p>Every pixel costs 0.2 of the metric denominator, so the amount emitted is a first-class '
+        A('<p>Prediction mass incurs distance-weighted false-positive cost, so the amount emitted is a first-class '
           'decision. Minimum-nearest-neighbour spacing of the 44,090 px incumbent support after '
           'thinning:</p>')
         A('<table><thead><tr><th class="num">min separation (px)</th><th class="num">pixels</th>'
@@ -633,11 +631,10 @@ def main():
     A = ir.append
     A('<h1>Irregularities and things that need a human</h1>')
     A('<p class="sub">Raised honestly, including the ones that make this submission look worse.</p>')
-    A('<div class="card cta"><h2 style="margin-top:0">Flagged for review</h2>'
-      '<p class="big">This repository is a public fork of an organizers\' repository '
-      '(<code>drivendataorg/gems-prize-reference-solution</code>).</p>'
-      '<p>A human must decide whether participant code may be merged into that fork\'s <code>main</code>. '
-      'This session does not touch upstream. Entry <code>IRR-01</code> below.</p></div>')
+    A('<div class="card cta"><h2 style="margin-top:0">Corrections and open questions</h2>'
+      '<p>GitHub currently reports this repository as standalone (fork=false, parent=null). '
+      'The earlier organizer-fork claim has been corrected. This does not establish prize eligibility. '
+      'See IRR-01 and IRR-04 for the repository and metric corrections.</p></div>')
     if irr:
         A(f'<p class="mut">Verified {E(irr.get("verified_utc", ""))} &middot; review required: '
           f'<span class="bad">{E(irr.get("review_required"))}</span></p>')
@@ -677,7 +674,7 @@ def main():
     os.makedirs(os.path.join(ROOT, "docs", "downloads"), exist_ok=True)
     dbody = ['<h1>All artifacts</h1>',
              '<p class="sub">Every file here was built by <code>scripts/build_final.py</code> and '
-             'validated by the same checks the submission form runs. Each <code>.tif</code> link '
+             'validated locally for grid and range; organizer portal acceptance is untested. Each <code>.tif</code> link '
              'downloads directly; each <code>.zip</code> holds the same GeoTIFF.</p>',
              dl_table(build),
              '<h2>Evidence published alongside</h2><ul>']

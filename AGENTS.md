@@ -11,3 +11,5 @@
 9. Maintain the executive-summary download, audit receipts, permitted daily public-source feed, original brief, and three-pass review log. Failed fetches must not be presented as fresh facts.
 10. Do not automate requests, browser rendering, or monitoring of any `drivendata.org` page. Its published Terms of Use prohibit robots, spiders, or other automatic access for any purpose, including monitoring; manual monitoring also requires prior written consent. This project does not monitor the leaderboard. Historical observations must be dated and labeled non-current; a participant score is not a TIFF receipt.
 11. Maximize P(Win): preserve scarce submission slots. Own the Outcome: publish limitations and fix reproducibility defects end to end.
+
+12. Latest session: read `research/hypotheses-20261006.md`, `research/review-20261006.md`, and `docs/evidence/h41i/manifest.json`. H41-I also FAILED its matched-mass gate. Preserve raw and matched-mass comparisons, conditional-sampling limitations and historical negatives. The repo is currently standalone, not a fork; do not restore the corrected IRR-01/IRR-04 claims.
