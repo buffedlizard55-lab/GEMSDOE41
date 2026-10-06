@@ -300,3 +300,131 @@ The earlier IRR-01 organizer-fork concern has been corrected by the main-line re
 - Still not done, and stated as such: no organizer-scored receipt exists for the H42 file; the
   holdout cannot reward a genuinely new fault; the SGMC instrument disagrees with the shipped
   choice; and `K_HIDDEN_PX`/`lambda` remain MODEL constants.
+
+---
+
+# H43 session — 2026-10-06
+
+Environment restored from scratch first: `.venv` rebuilt, `scripts/download_competition_data.sh`
+re-fetched the four official rasters and the INGENIOUS trace CSV from the pinned owner mirrors, and
+`external/lidar_scarp_features_u8.tif` was restored separately (it is not in `download_data.py`'s
+`wanted` set, which is why H41-G was never testable here). Measured ceiling for this session:
+**2 CPU cores, ~3 GB RAM, no GPU, 19 GB free disk.** All 19 bands held in memory at once would be
+~933 MB float32, and `training_features.tif` is striped `blockysize=1`, so every pipeline here is
+band-wise and row-blocked. Baseline before any change: **47 passed, 2 skipped**.
+
+## Pass 1 — implement and verify
+
+* **Verified the inputs directly rather than trusting prior notes.** All four rasters are
+  3292 × 3730, EPSG:32611, transform `(100, 0, 243350, 0, -100, 4508550)`. `existing_faults.tif`
+  is int8 with values {−1, 0, 1} and 60,988 ones; `sample_submission.tif` is float32 with
+  7,111,787 NaN, 5,167,373 finite cells and finite values only {0, 1} — i.e. the template *is* a
+  perfect-on-the-public-catalogue submission. All 19 band names were read from the file's own
+  per-band tags and are now asserted at build time.
+* **Resolved a stale "unexplained oddity".** `src.dataset_mask().sum()` returns 1,317,680,115 for a
+  12,279,160-px raster because rasterio's mask is uint8 with 255 inside: 255 × 5,167,373 exactly.
+  Not an upstream defect (IRR-18). Footprint counts must come from `(mask > 0).sum()`.
+* Built `scripts/build_h43_features.py` (31 features → 1.52 GB memmap, 0 non-finite cells,
+  218 s), `src/gems41/coverage.py` (CELF lazy-greedy maximum-coverage emitter + the exact
+  Bernoulli-field model of the index), `src/gems41/belief.py` (analytic prior-shift correction and
+  the preregistered sharpening operator), `scripts/fetch_probe_corpus.py` (29 scored sibling
+  rasters), `scripts/invert_label_field.py`, `scripts/score_record_calculus.py`,
+  `scripts/experiment_h43.py` and `scripts/build_h43_submission.py`.
+* Preregistered `research/hypotheses-h43.md` (five hypotheses, instrument, controls, promotion
+  gate, mass rule) **before** the first holdout run.
+* Results: mean holdout DTI **0.56063** at 20,000 px vs **0.03234** for the position-blind null and
+  **0.46191** for the family's packing operator; gate passed 4/4 folds against the null at every
+  mass. Score-record calculus: `1/score = 2.98842 + 1.78715e-05 × mass`, coverage `a = 0.287`,
+  `ρ ≈ 36,467`, incumbent ceiling **0.3346**, and the null model reproduces a live score to
+  **+0.21 %**.
+* Shipped `docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif`,
+  SHA-256 `e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa`, 123,881 bytes,
+  20,000 positive pixels, independently re-opened and asserted before the build would exit 0.
+
+## Pass 2 — review for bugs and edge cases
+
+Four real defects found and fixed, all of them in code written earlier in this same session:
+
+1. **Holdout emission domain excluded a halo around its own truth.** `allowed` intersected
+   `dcat > 2` where `dcat` is distance to the *full* catalogue — but every withheld truth pixel
+   *is* a catalogue pixel with `dcat = 0`, so the attainable kernel weight was capped below 1/3 and
+   every number was a lower bound. Removed; the off-catalogue restriction belongs to the *shipped*
+   domain, where the published catalogue is known and the hidden truth is not. Effect measured:
+   on fold 0 at 37,654 px the same field and operator went from DTI **0.01386 to 0.48062**, and the
+   fold-0 position-blind control from **0.00312 to 0.03838**. The invalid run was discarded rather
+   than reported, and the earlier numbers quoted in `src/gems41/belief.py` are flagged there as
+   lower bounds measured under that restriction.
+2. **`np.roll` wrapped the kernel convolution across the grid edges**, moving kernel mass from one
+   edge of the study area to the other. The official index bounds-checks every offset. Replaced
+   with an explicitly zero-padded `shifted()` in `src/gems41/coverage.py`; `invert_label_field.py`
+   now calls the same function so the two cannot drift, and the inversion was re-run. Pinned by a
+   corner-dot test.
+3. **The coverage greedy truncated the belief field to the emission domain**, discarding exactly
+   the belief mass it is supposed to cover. Harmless in the experiment (π was predicted only inside
+   the domain) but wrong as a library function; fixed and tested.
+4. **Class weights destroyed the coverage emitter.** With balanced weights the low-probability body
+   of π is inflated ~18×, so maximising coverage of π degenerated into a uniform scatter: measured
+   DTI 0.00286 against the null's 0.00312 (both lower bounds, measured before defect 1 was found).
+   Replaced with an analytic prior-shift correction, which
+   is independently corroborated by Σπ landing at 0.75–0.88 × the withheld truth in all four folds.
+   Also caught: `det_elev_coherence5` reached 35.4 because of a `max(l1, 1e-12)` denominator — now
+   clipped to [0, 1] and the memmap rebuilt so the receipt matches the bytes.
+* Edge cases checked: empty and saturated belief fields in `sharpen`; a belief field with a single
+  pixel (the greedy must stop when the gain reaches 0); a deterministic 0/1 belief field, where
+  `expected_coverage` must equal the official `TP_w` and `model_dti` must equal `dti`; prior shift
+  with matching priors must be the identity. `tests/test_coverage.py`: 13 tests.
+
+## Pass 3 — recheck against the original brief
+
+* **Unique TIF, one click, obvious at the top.** `docs/downloads/gems41-h43-completion-v1-…tif` is
+  the featured artifact on `docs/index.html`, `docs/executive-summary.html` and the README's first
+  table, with a unique filename, a unique submission name and a copy-box note for the form. It is
+  built from official inputs only; no sibling raster is read by the builder. It is **not** a
+  renamed or re-encoded prior submission.
+* **"Predicted values must be in range [0, 1]".** Root cause confirmed on this machine (3,061
+  in-footprint sentinel pixels; a feature-band valid mask 1,521 px smaller than the template) and
+  engineered out: all 12,279,160 stored cells are finite and in [0, 1], zeros plus a GDAL internal
+  mask outside the footprint, re-read from disk and asserted before the build exits 0.
+* **Why 0.2778 won, and whether it can be beaten.** Answered quantitatively rather than
+  narratively: the H33 file is 37,654 binary dots, minimum catalogue distance 2.24 px, median
+  19.65 px, minimum neighbour distance exactly 2√2. Its score decomposes into a position-blind
+  ceiling of 0.0776 (verified against the family's own scatter control at 0.0778) times a
+  positional skill factor of 3.57. The incumbent belief field's ceiling is 0.3346 at any mass, so
+  0.3195 and 0.3262 are reachable **without a better geological idea** — by stopping paying for
+  redundant dots. That is a claim about the family's field, not about ours, and it is labelled as a
+  [MODEL] on owner-reported scores.
+* **3–5 new hypotheses, ranked, with the required four fields each** — `research/hypotheses-h43.md`
+  §1–2. Two were implemented and measured; the other three are absorbed as named layers of the
+  H43-B feature stack (geodetic strain partitioning, basement-step × conductive-cap blind-fault
+  detection, and evidence-minus-catalogue residual), which is recorded rather than left implicit.
+* **Validate before spending a slot.** Done, and the slot gate stays **CLOSED**. The preregistered
+  gate passed; the honest blocker is not the gate but that the holdout truth (withheld *mapped*
+  strands) is not the prize truth (faults *never* mapped), so no live score is projected.
+* **Free official external data, obtainability proven first.** USGS 3DEP 1 m products via the
+  checksum-pinned mirror already recorded in `research/upstream-data-manifest.json`; no new external
+  source was needed, and nothing behind a login was fetched.
+* **No DrivenData automation.** No script in this repository requests `drivendata.org` or
+  `community.drivendata.org`. The forum clarification about catalogue masking is cited from this
+  repository's own existing transcription in `src/gems41/metric.py`, and every leaderboard number
+  remains a dated, non-current observation.
+
+### Remaining work for the next session
+
+1. **The mass question is open and it is the largest lever.** The preregistered tie-break shipped
+   20,000 px, but the marginal-coverage bar evaluated post-hoc on the shipped field is still
+   exceeded by the last emitted dot (tail gain 0.254 vs a bar of order 0.1). Preregister a mass
+   ladder on the shipped field with the bar evaluated self-consistently, and a coverage-vs-mass
+   curve on H-SIM, before moving the mass.
+2. **The skill-transfer gap is unmeasured.** Nothing here estimates how much of the 0.56 holdout
+   DTI survives when the truth is faults that were never mapped. Two candidate instruments: (a)
+   withhold strands *and* their 300 m neighbourhood from training so the model must extrapolate
+   into unmapped terrain; (b) score against the 27,092 INGENIOUS well/spring records in
+   `src/gems41/sites.py` as a catalogue-independent instrument.
+3. **IRR-01 is still open**: this repository is a public fork of an organizers' repository and
+   needs a human decision.
+4. `K_HIDDEN_PX = 13,000` in `src/gems41/validate.py` now contradicts `ρ ≈ 36,467`. Both are
+   [MODEL]; the constant was deliberately **not** overwritten this session because every prior
+   projection in the repository is conditioned on it. Next session: publish both and re-derive the
+   mass ladder under each.
+5. Layer ablation for H43-C/D/E is not done. The 31-feature stack is shipped as a whole; the
+   marginal contribution of the geodetic, basement/conductivity and seismicity layers is unmeasured.

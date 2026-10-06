@@ -42,3 +42,41 @@ projection (cpm ≈ 0.088–0.095), measured on the same class of guarded instru
 line-anchored arms score ≈ 0 by construction. When citing either "H42" number, carry the workstream qualifier.
 Historical files keep their local keys (`h42_bimodal_lattice` was chosen to avoid renaming anything already
 published); old receipts are unaltered.
+
+## H43 registration (added 2026-10-06 by the catalogue-completion session)
+
+A third parallel session on 2026-10-06 first adopted "H42" as well, then took the unused **H43**
+prefix on discovering this registry, and renamed its own files before merging. Nothing published by
+ basin-margin/H42 or bimodal-lattice/H42 was renamed, and the shared
+`docs/downloads/manifest.json` top-level featured artifact was left untouched: the H43 builder adds
+exactly one key, `h43_catalogue_completion`, and a test
+(`tests/test_h43_artifact.py::test_h43_does_not_displace_the_slot_eligible_artifact`) fails if it
+ever displaces the slot-eligible file or drops the cross-instrument warning.
+
+| Workstream ID | Meaning | Records |
+|---|---|---|
+| **catalogue-completion/H43** | A supervised catalogue-completion belief field (histogram gradient boosting over all 19 official `training_features.tif` bands — 18 previously unused here — plus local morphology of detrended elevation and of the magnetic/gravity/geodetic gradient bands, plus USGS 3DEP 1 m scarp products; **no** catalogue-geometry feature, **no** class weights, analytic prior-shift calibration), emitted by CELF lazy-greedy maximum-coverage selection over the 300 m kernel. Hypotheses H43-A (coverage emitter), H43-B (learned field), H43-C (geodetic strain partitioning), H43-D (basement-step × conductive-cap blind-fault detector), H43-E (evidence-minus-catalogue residual); C/D/E are absorbed as named layers of the H43-B feature stack, so only A and B were measured as separate arms. Instrument is **H-SIM**: strand-level quadrant blocking, withheld *mapped* strands as truth, retained catalogue masked from every term, guard 2 px. Mean DTI 0.56063 at 20,000 px vs 0.03234 position-blind null and 0.46191 score-ordered packing, 4/4 folds. **Not slot-eligible; never scored.** | `research/hypotheses-h43.md`, `research/score-record-calculus.md`, `evidence/h43_holdout.json`, `evidence/h43_feature_receipt.json`, `evidence/h43_submission_build.json`, `evidence/score_record_calculus.json`, `evidence/label_field_inversion.json` (a published **negative** result), `src/gems41/coverage.py`, `src/gems41/belief.py`, `scripts/build_h43_features.py`, `scripts/experiment_h43.py`, `scripts/build_h43_submission.py`, `scripts/fetch_probe_corpus.py`, `scripts/invert_label_field.py`, `scripts/score_record_calculus.py`, `manifest.json → h43_catalogue_completion` |
+
+### Cross-instrument warning (applies to every "H4x" DTI in this repository)
+
+Three different blocked-holdout instruments are now in use and **their DTI values are not
+comparable**:
+
+| instrument | truth | blocking | guard | emission domain | example number |
+|---|---|---|---|---|---|
+| 20 km four-colour blocked holdout | published catalogue, eroded interiors | 20 km colour blocks | 300 m | fresh inside each held-out block | basin-margin/H42 mean DTI **0.2507** |
+| H43-HO / H-SIM | withheld *whole mapped strands* | quadrant blocks, strand-level | 2 px | footprint, off retained catalogue | catalogue-completion/H43 mean DTI **0.56063** |
+| H42-HO (bimodal lattice) | guarded catalogue interiors | quadrant blocks | guarded | line-anchored arms score ≈0 by construction | bimodal-lattice/H42 arms **≈0** |
+
+Different truth, different guards, different domains. Quoting 0.56063 as "better than 0.2507" is
+exactly the error this registry exists to prevent. Cross-calibrating the three instruments on one
+common withheld-strand truth is the first item on the next session's list.
+
+### A third disagreement about the hidden label count
+
+`ρ` (the hidden label count) now has three published values in this repository: 13,000
+(`src/gems41/validate.py::K_HIDDEN_PX`), 14,088 (basin-margin/H42's `evidence/h42_final.json`), and
+36,467 (the nested-lineage fit in `evidence/score_record_calculus.json`). All three are [MODEL]
+constants inferred from owner-reported scores; the first two assume `FP_w ≈ mass`, the third keeps
+the double-counting term `q`. None has been overwritten (IRR-14). Any projected score is conditional
+on which one is used, and the three imply optimal emitted masses that differ by roughly a factor 3.

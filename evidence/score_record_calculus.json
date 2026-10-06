@@ -1,0 +1,733 @@
+{
+ "created_utc": "2026-10-06T02:41:16Z",
+ "kernel_sum": 9.380297810508184,
+ "active_px": 5106385,
+ "qhat_uniform": 1.836974260755541e-06,
+ "evidence_class": "owner-reported scores transcribed in registry/score_ledger.csv; NOT organizer receipts.  Every derived quantity below is a [MODEL] conditioned on them and on the nested-lineage no-credit-removed assumption, which is stated wherever used.",
+ "probes": [],
+ "lineage_containment": {
+  "tgc_d15_in_h19_5": 0.9795,
+  "dot_d15_in_h19_5": 1.0,
+  "dot_d28_in_h19_5": 1.0,
+  "h321_prethin_in_h19_5": 1.0,
+  "h33d_stepover_in_h19_5": 0.9968,
+  "h274_solo_in_h19_5": 1.0,
+  "h33_2b2_in_h19_5": 1.0,
+  "dot_d15_in_tgc_d15": 1.0,
+  "dot_d28_in_tgc_d15": 0.677,
+  "h321_prethin_in_tgc_d15": 0.6718,
+  "h33d_stepover_in_tgc_d15": 0.6822,
+  "h274_solo_in_tgc_d15": 0.6731,
+  "h33_2b2_in_tgc_d15": 0.6777,
+  "dot_d28_in_dot_d15": 0.677,
+  "h321_prethin_in_dot_d15": 0.6718,
+  "h33d_stepover_in_dot_d15": 0.6822,
+  "h274_solo_in_dot_d15": 0.6731,
+  "h33_2b2_in_dot_d15": 0.6777,
+  "h321_prethin_in_dot_d28": 0.9511,
+  "h33d_stepover_in_dot_d28": 0.8325,
+  "h274_solo_in_dot_d28": 1.0,
+  "h33_2b2_in_dot_d28": 1.0,
+  "h33d_stepover_in_h321_prethin": 0.8218,
+  "h274_solo_in_h321_prethin": 0.969,
+  "h33_2b2_in_h321_prethin": 0.9793,
+  "h274_solo_in_h33d_stepover": 0.8376,
+  "h33_2b2_in_h33d_stepover": 0.8396,
+  "h33_2b2_in_h274_solo": 1.0
+ },
+ "lineage_support_px": {
+  "h19_5": 121131,
+  "tgc_d15": 61328,
+  "dot_d15": 60069,
+  "dot_d28": 44090,
+  "h321_prethin": 42294,
+  "h33d_stepover": 41865,
+  "h274_solo": 40199,
+  "h33_2b2": 37654
+ },
+ "regression_full_chain": {
+  "members": [
+   {
+    "id": "h19_5",
+    "M": 121131.0,
+    "reported": 0.1922,
+    "fit_1_over_s": 5.1952425290076505,
+    "residual": -0.007671102626064297
+   },
+   {
+    "id": "tgc_d15",
+    "M": 61328.0,
+    "reported": 0.2449,
+    "fit_1_over_s": 4.100628535031656,
+    "residual": 0.017329229192537987
+   },
+   {
+    "id": "dot_d15",
+    "M": 60069.0,
+    "reported": 0.2477,
+    "fit_1_over_s": 4.077584222565463,
+    "residual": 0.040442518891663504
+   },
+   {
+    "id": "dot_d28",
+    "M": 44090.0,
+    "reported": 0.26,
+    "fit_1_over_s": 3.785109981979833,
+    "residual": -0.061043864174012974
+   },
+   {
+    "id": "h321_prethin",
+    "M": 42294.0,
+    "reported": 0.2649,
+    "fit_1_over_s": 3.7522366021630864,
+    "residual": -0.022772835360507226
+   },
+   {
+    "id": "h33d_stepover",
+    "M": 41865.0,
+    "reported": 0.2632,
+    "fit_1_over_s": 3.744384330480801,
+    "residual": -0.055007766783636836
+   },
+   {
+    "id": "h274_solo",
+    "M": 40199.0,
+    "reported": 0.2708,
+    "fit_1_over_s": 3.713890426931414,
+    "residual": 0.02112824081619946
+   },
+   {
+    "id": "h33_2b2",
+    "M": 37654.0,
+    "reported": 0.2778,
+    "fit_1_over_s": 3.66730760308196,
+    "residual": 0.06759558004380306
+   }
+  ],
+  "intercept_c0": 2.9781014540731796,
+  "slope_m": 1.8303663595070384e-05,
+  "r2": 0.9921717795858563,
+  "coverage_a": 0.28796644515162,
+  "tp_w_rho_a": 10232.460832922383,
+  "rho": 35533.51789836066,
+  "qhat_anchor": 1.7882382488564868e-06,
+  "ceiling_s_max": 0.33578439667738313,
+  "extrapolated_score_by_mass": {
+   "37654": 0.2727,
+   "30000": 0.2835,
+   "25000": 0.2911,
+   "20000": 0.299,
+   "15000": 0.3074,
+   "12000": 0.3127,
+   "10000": 0.3163,
+   "8000": 0.32,
+   "6000": 0.3238,
+   "5000": 0.3258,
+   "4000": 0.3277,
+   "3000": 0.3297,
+   "2000": 0.3317
+  },
+  "assumption": "TP_w constant across the lineage (removed dots carried no credit) and FP_w falling one-for-one with mass; the reported scores are owner-reported, not organizer receipts."
+ },
+ "regression_dotted_core": {
+  "members": [
+   {
+    "id": "dot_d15",
+    "M": 60069.0,
+    "reported": 0.2477,
+    "fit_1_over_s": 4.061941758896796,
+    "residual": 0.024800055222996775
+   },
+   {
+    "id": "dot_d28",
+    "M": 44090.0,
+    "reported": 0.26,
+    "fit_1_over_s": 3.7763733526038075,
+    "residual": -0.06978049355003835
+   },
+   {
+    "id": "h321_prethin",
+    "M": 42294.0,
+    "reported": 0.2649,
+    "fit_1_over_s": 3.7442761714471513,
+    "residual": -0.030733266076442334
+   },
+   {
+    "id": "h274_solo",
+    "M": 40199.0,
+    "reported": 0.2708,
+    "fit_1_over_s": 3.70683541725829,
+    "residual": 0.01407323114307557
+   },
+   {
+    "id": "h33_2b2",
+    "M": 37654.0,
+    "reported": 0.2778,
+    "fit_1_over_s": 3.661352496298552,
+    "residual": 0.06164047326039501
+   }
+  ],
+  "intercept_c0": 2.9884197238749843,
+  "slope_m": 1.7871481713060173e-05,
+  "r2": 0.9053183072457405,
+  "coverage_a": 0.28690085396766013,
+  "tp_w_rho_a": 10462.495900076967,
+  "rho": 36467.287410919715,
+  "qhat_anchor": 1.7851198667588385e-06,
+  "ceiling_s_max": 0.33462501669723066,
+  "extrapolated_score_by_mass": {
+   "37654": 0.2731,
+   "30000": 0.2837,
+   "25000": 0.2911,
+   "20000": 0.2989,
+   "15000": 0.3071,
+   "12000": 0.3122,
+   "10000": 0.3157,
+   "8000": 0.3193,
+   "6000": 0.323,
+   "5000": 0.3249,
+   "4000": 0.3268,
+   "3000": 0.3287,
+   "2000": 0.3307
+  },
+  "assumption": "TP_w constant across the lineage (removed dots carried no credit) and FP_w falling one-for-one with mass; the reported scores are owner-reported, not organizer receipts."
+ },
+ "null_model": {
+  "definition": "the highest score any hidden-label count can give a dot set whose POSITIONS carry no information: uniform label density, so a = sum_x K_E(x)/N_active. s_ceiling = a/(0.2a - 0.2q + 0.8) is the rho->inf limit.",
+  "rows": [
+   {
+    "id": "h33_2b2",
+    "M": 37654.0,
+    "reported": 0.2778,
+    "a_uniform": 0.05924154818058014,
+    "q_uniform": 0.0690344050526619,
+    "null_ceiling_rho_inf": 0.07423,
+    "reported_over_ceiling": 3.742
+   },
+   {
+    "id": "h274_solo",
+    "M": 40199.0,
+    "reported": 0.2708,
+    "a_uniform": 0.06261973083019257,
+    "q_uniform": 0.0731859803199768,
+    "null_ceiling_rho_inf": 0.07848,
+    "reported_over_ceiling": 3.45
+   },
+   {
+    "id": "h321_prethin",
+    "M": 42294.0,
+    "reported": 0.2649,
+    "a_uniform": 0.06504663079977036,
+    "q_uniform": 0.07629109919071198,
+    "null_ceiling_rho_inf": 0.08154,
+    "reported_over_ceiling": 3.249
+   },
+   {
+    "id": "h33d_stepover",
+    "M": 41865.0,
+    "reported": 0.2632,
+    "a_uniform": 0.06487413495779037,
+    "q_uniform": 0.07572472095489502,
+    "null_ceiling_rho_inf": 0.08131,
+    "reported_over_ceiling": 3.237
+   },
+   {
+    "id": "dot_d28",
+    "M": 44090.0,
+    "reported": 0.26,
+    "a_uniform": 0.06683025509119034,
+    "q_uniform": 0.07869886606931686,
+    "null_ceiling_rho_inf": 0.08379,
+    "reported_over_ceiling": 3.103
+   },
+   {
+    "id": "poisson300_44090",
+    "M": 44090.0,
+    "reported": 0.26,
+    "a_uniform": 0.06683025509119034,
+    "q_uniform": 0.07869886606931686,
+    "null_ceiling_rho_inf": 0.08379,
+    "reported_over_ceiling": 3.103
+   },
+   {
+    "id": "efd28_repro",
+    "M": 44090.0,
+    "reported": 0.26,
+    "a_uniform": 0.06683025509119034,
+    "q_uniform": 0.07869886606931686,
+    "null_ceiling_rho_inf": 0.08379,
+    "reported_over_ceiling": 3.103
+   },
+   {
+    "id": "h35_06",
+    "M": 39530.0,
+    "reported": 0.0418,
+    "a_uniform": 0.011653758585453033,
+    "q_uniform": 0.07073985785245895,
+    "null_ceiling_rho_inf": 0.01479,
+    "reported_over_ceiling": 2.827
+   },
+   {
+    "id": "dot_d15",
+    "M": 60069.0,
+    "reported": 0.2477,
+    "a_uniform": 0.07513049989938736,
+    "q_uniform": 0.10723036527633667,
+    "null_ceiling_rho_inf": 0.09467,
+    "reported_over_ceiling": 2.616
+   },
+   {
+    "id": "tgc_d15",
+    "M": 61328.0,
+    "reported": 0.2449,
+    "a_uniform": 0.07697073370218277,
+    "q_uniform": 0.10952183604240417,
+    "null_ceiling_rho_inf": 0.097,
+    "reported_over_ceiling": 2.525
+   },
+   {
+    "id": "h20_5",
+    "M": 107710.75,
+    "reported": 0.1859,
+    "a_uniform": 0.077215775847435,
+    "q_uniform": 0.19242772459983826,
+    "null_ceiling_rho_inf": 0.09938,
+    "reported_over_ceiling": 1.871
+   },
+   {
+    "id": "h19_5",
+    "M": 121131.0,
+    "reported": 0.1922,
+    "a_uniform": 0.08806478977203369,
+    "q_uniform": 0.2166110873222351,
+    "null_ceiling_rho_inf": 0.11374,
+    "reported_over_ceiling": 1.69
+   },
+   {
+    "id": "h19_4",
+    "M": 123779.0,
+    "reported": 0.1894,
+    "a_uniform": 0.09121890366077423,
+    "q_uniform": 0.22140927612781525,
+    "null_ceiling_rho_inf": 0.11786,
+    "reported_over_ceiling": 1.607
+   },
+   {
+    "id": "h20_1",
+    "M": 123829.0,
+    "reported": 0.189,
+    "a_uniform": 0.09104833006858826,
+    "q_uniform": 0.2214154303073883,
+    "null_ceiling_rho_inf": 0.11764,
+    "reported_over_ceiling": 1.607
+   },
+   {
+    "id": "h16_1",
+    "M": 123939.0,
+    "reported": 0.1855,
+    "a_uniform": 0.09314756095409393,
+    "q_uniform": 0.2217513471841812,
+    "null_ceiling_rho_inf": 0.1203,
+    "reported_over_ceiling": 1.542
+   },
+   {
+    "id": "h28_dotted_ridge",
+    "M": 65236.0,
+    "reported": 0.1839,
+    "a_uniform": 0.10190849006175995,
+    "q_uniform": 0.11588159203529358,
+    "null_ceiling_rho_inf": 0.12783,
+    "reported_over_ceiling": 1.439
+   },
+   {
+    "id": "dilcond_oof",
+    "M": 58670.0,
+    "reported": 0.1223,
+    "a_uniform": 0.07433298975229263,
+    "q_uniform": 0.10613863915205002,
+    "null_ceiling_rho_inf": 0.09366,
+    "reported_over_ceiling": 1.306
+   },
+   {
+    "id": "hedge_v2",
+    "M": 166519.0,
+    "reported": 0.1563,
+    "a_uniform": 0.11173327267169952,
+    "q_uniform": 0.298554390668869,
+    "null_ceiling_rho_inf": 0.14651,
+    "reported_over_ceiling": 1.067
+   },
+   {
+    "id": "ens12_adopted",
+    "M": 166519.0,
+    "reported": 0.1563,
+    "a_uniform": 0.11173327267169952,
+    "q_uniform": 0.298554390668869,
+    "null_ceiling_rho_inf": 0.14651,
+    "reported_over_ceiling": 1.067
+   },
+   {
+    "id": "h34_scatter",
+    "M": 37654.0,
+    "reported": 0.0778,
+    "a_uniform": 0.062000855803489685,
+    "q_uniform": 0.06881685554981232,
+    "null_ceiling_rho_inf": 0.07763,
+    "reported_over_ceiling": 1.002
+   },
+   {
+    "id": "h20_scarp_thin",
+    "M": 143657.0,
+    "reported": 0.0921,
+    "a_uniform": 0.087964728474617,
+    "q_uniform": 0.2517890930175781,
+    "null_ceiling_rho_inf": 0.11465,
+    "reported_over_ceiling": 0.803
+   },
+   {
+    "id": "h25_ctx_ridge",
+    "M": 161366.0,
+    "reported": 0.128,
+    "a_uniform": 0.12348602712154388,
+    "q_uniform": 0.28445014357566833,
+    "null_ceiling_rho_inf": 0.16083,
+    "reported_over_ceiling": 0.796
+   },
+   {
+    "id": "r7_scarp",
+    "M": 103347.0,
+    "reported": 0.1294,
+    "a_uniform": 0.14532218873500824,
+    "q_uniform": 0.182856023311615,
+    "null_ceiling_rho_inf": 0.18337,
+    "reported_over_ceiling": 0.706
+   },
+   {
+    "id": "h30_arrmatch",
+    "M": 91533.0,
+    "reported": 0.1352,
+    "a_uniform": 0.15661266446113586,
+    "q_uniform": 0.16480503976345062,
+    "null_ceiling_rho_inf": 0.19617,
+    "reported_over_ceiling": 0.689
+   },
+   {
+    "id": "h23a_6pct",
+    "M": 335879.0,
+    "reported": 0.1002,
+    "a_uniform": 0.21427009999752045,
+    "q_uniform": 0.6061364412307739,
+    "null_ceiling_rho_inf": 0.29693,
+    "reported_over_ceiling": 0.337
+   },
+   {
+    "id": "h16_continuation",
+    "M": 283532.0,
+    "reported": 0.0461,
+    "a_uniform": 0.09979906678199768,
+    "q_uniform": 0.4898068904876709,
+    "null_ceiling_rho_inf": 0.13823,
+    "reported_over_ceiling": 0.334
+   },
+   {
+    "id": "lat_s5",
+    "M": 204504.0,
+    "reported": 0.0904,
+    "a_uniform": 0.3717535436153412,
+    "q_uniform": 0.3717535436153412,
+    "null_ceiling_rho_inf": 0.46469,
+    "reported_over_ceiling": 0.195
+   },
+   {
+    "id": "placeholder",
+    "M": 145610.0,
+    "reported": 0.0107,
+    "a_uniform": 0.04738473892211914,
+    "q_uniform": 0.2644232213497162,
+    "null_ceiling_rho_inf": 0.06263,
+    "reported_over_ceiling": 0.171
+   },
+   {
+    "id": "h23b_10pct",
+    "M": 516738.0,
+    "reported": 0.0748,
+    "a_uniform": 0.2972516417503357,
+    "q_uniform": 0.9352721571922302,
+    "null_ceiling_rho_inf": 0.44208,
+    "reported_over_ceiling": 0.169
+   }
+  ],
+  "empirical_check": {
+   "probe": "h34_scatter",
+   "what": "the family's own arrangement-matched scatter control: same 37,654 px mass, same minimum separation and same distance-to-catalogue distribution as the 0.2778 file, positions randomised",
+   "reported": 0.0778,
+   "ceiling": 0.07763,
+   "relative_error": 0.0022,
+   "verdict": "the null model reproduces a live score to within reporting precision, so the metric transcription and the probe measurements are sound"
+  }
+ },
+ "probe_table": [
+  {
+   "id": "h19_5",
+   "M": 121131.0,
+   "off_active_mass": 0.0,
+   "reported": 0.1922,
+   "a_uniform": 0.08806478977203369,
+   "q_uniform": 0.2166110873222351,
+   "source": "https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h19_4",
+   "M": 123779.0,
+   "off_active_mass": 0.0,
+   "reported": 0.1894,
+   "a_uniform": 0.09121890366077423,
+   "q_uniform": 0.22140927612781525,
+   "source": "https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h16_1",
+   "M": 123939.0,
+   "off_active_mass": 0.0,
+   "reported": 0.1855,
+   "a_uniform": 0.09314756095409393,
+   "q_uniform": 0.2217513471841812,
+   "source": "https://buffedlizard55-lab.github.io/16GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "dot_d15",
+   "M": 60069.0,
+   "off_active_mass": 0.0,
+   "reported": 0.2477,
+   "a_uniform": 0.07513049989938736,
+   "q_uniform": 0.10723036527633667,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE24/"
+  },
+  {
+   "id": "dot_d28",
+   "M": 44090.0,
+   "off_active_mass": 0.0,
+   "reported": 0.26,
+   "a_uniform": 0.06683025509119034,
+   "q_uniform": 0.07869886606931686,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE25/"
+  },
+  {
+   "id": "tgc_d15",
+   "M": 61328.0,
+   "off_active_mass": 0.0,
+   "reported": 0.2449,
+   "a_uniform": 0.07697073370218277,
+   "q_uniform": 0.10952183604240417,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE27/"
+  },
+  {
+   "id": "h274_solo",
+   "M": 40199.0,
+   "off_active_mass": 0.0,
+   "reported": 0.2708,
+   "a_uniform": 0.06261973083019257,
+   "q_uniform": 0.0731859803199768,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE28/"
+  },
+  {
+   "id": "h321_prethin",
+   "M": 42294.0,
+   "off_active_mass": 0.0,
+   "reported": 0.2649,
+   "a_uniform": 0.06504663079977036,
+   "q_uniform": 0.07629109919071198,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE28/"
+  },
+  {
+   "id": "h33d_stepover",
+   "M": 41865.0,
+   "off_active_mass": 0.0,
+   "reported": 0.2632,
+   "a_uniform": 0.06487413495779037,
+   "q_uniform": 0.07572472095489502,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE33/"
+  },
+  {
+   "id": "h33_2b2",
+   "M": 37654.0,
+   "off_active_mass": 0.0,
+   "reported": 0.2778,
+   "a_uniform": 0.05924154818058014,
+   "q_uniform": 0.0690344050526619,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html"
+  },
+  {
+   "id": "h25_ctx_ridge",
+   "M": 161366.0,
+   "off_active_mass": 12866.0,
+   "reported": 0.128,
+   "a_uniform": 0.12348602712154388,
+   "q_uniform": 0.28445014357566833,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  },
+  {
+   "id": "h28_dotted_ridge",
+   "M": 65236.0,
+   "off_active_mass": 4045.0,
+   "reported": 0.1839,
+   "a_uniform": 0.10190849006175995,
+   "q_uniform": 0.11588159203529358,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  },
+  {
+   "id": "lat_s5",
+   "M": 204504.0,
+   "off_active_mass": 2391.0,
+   "reported": 0.0904,
+   "a_uniform": 0.3717535436153412,
+   "q_uniform": 0.3717535436153412,
+   "source": "https://buffedlizard55-lab.github.io/13GEMSDOE/"
+  },
+  {
+   "id": "hedge_v2",
+   "M": 166519.0,
+   "off_active_mass": 60988.0,
+   "reported": 0.1563,
+   "a_uniform": 0.11173327267169952,
+   "q_uniform": 0.298554390668869,
+   "source": "https://buffedlizard55-lab.github.io/8GEMSDOE/"
+  },
+  {
+   "id": "ens12_adopted",
+   "M": 166519.0,
+   "off_active_mass": 6455.0,
+   "reported": 0.1563,
+   "a_uniform": 0.11173327267169952,
+   "q_uniform": 0.298554390668869,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "placeholder",
+   "M": 145610.0,
+   "off_active_mass": 198206.0,
+   "reported": 0.0107,
+   "a_uniform": 0.04738473892211914,
+   "q_uniform": 0.2644232213497162,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE9/docs/index.html"
+  },
+  {
+   "id": "h23a_6pct",
+   "M": 335879.0,
+   "off_active_mass": 0.0,
+   "reported": 0.1002,
+   "a_uniform": 0.21427009999752045,
+   "q_uniform": 0.6061364412307739,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html"
+  },
+  {
+   "id": "h23b_10pct",
+   "M": 516738.0,
+   "off_active_mass": 0.0,
+   "reported": 0.0748,
+   "a_uniform": 0.2972516417503357,
+   "q_uniform": 0.9352721571922302,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html"
+  },
+  {
+   "id": "h30_arrmatch",
+   "M": 91533.0,
+   "off_active_mass": 0.0,
+   "reported": 0.1352,
+   "a_uniform": 0.15661266446113586,
+   "q_uniform": 0.16480503976345062,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE23/"
+  },
+  {
+   "id": "dilcond_oof",
+   "M": 58670.0,
+   "off_active_mass": 1398.0,
+   "reported": 0.1223,
+   "a_uniform": 0.07433298975229263,
+   "q_uniform": 0.10613863915205002,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE26/"
+  },
+  {
+   "id": "h20_1",
+   "M": 123829.0,
+   "off_active_mass": 0.0,
+   "reported": 0.189,
+   "a_uniform": 0.09104833006858826,
+   "q_uniform": 0.2214154303073883,
+   "source": "https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h20_5",
+   "M": 107710.75,
+   "off_active_mass": 0.0,
+   "reported": 0.1859,
+   "a_uniform": 0.077215775847435,
+   "q_uniform": 0.19242772459983826,
+   "source": "https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "poisson300_44090",
+   "M": 44090.0,
+   "off_active_mass": 0.0,
+   "reported": 0.26,
+   "a_uniform": 0.06683025509119034,
+   "q_uniform": 0.07869886606931686,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE30/"
+  },
+  {
+   "id": "efd28_repro",
+   "M": 44090.0,
+   "off_active_mass": 0.0,
+   "reported": 0.26,
+   "a_uniform": 0.06683025509119034,
+   "q_uniform": 0.07869886606931686,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE29/docs/index.html"
+  },
+  {
+   "id": "h34_scatter",
+   "M": 37654.0,
+   "off_active_mass": 0.0,
+   "reported": 0.0778,
+   "a_uniform": 0.062000855803489685,
+   "q_uniform": 0.06881685554981232,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE34/docs/index.html"
+  },
+  {
+   "id": "h35_06",
+   "M": 39530.0,
+   "off_active_mass": 0.0,
+   "reported": 0.0418,
+   "a_uniform": 0.011653758585453033,
+   "q_uniform": 0.07073985785245895,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE35/docs/index.html"
+  },
+  {
+   "id": "r7_scarp",
+   "M": 103347.0,
+   "off_active_mass": 0.0,
+   "reported": 0.1294,
+   "a_uniform": 0.14532218873500824,
+   "q_uniform": 0.182856023311615,
+   "source": "https://buffedlizard55-lab.github.io/12GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h20_scarp_thin",
+   "M": 143657.0,
+   "off_active_mass": 10300.0,
+   "reported": 0.0921,
+   "a_uniform": 0.087964728474617,
+   "q_uniform": 0.2517890930175781,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  },
+  {
+   "id": "h16_continuation",
+   "M": 283532.0,
+   "off_active_mass": 26510.0,
+   "reported": 0.0461,
+   "a_uniform": 0.09979906678199768,
+   "q_uniform": 0.4898068904876709,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  }
+ ],
+ "runtime_s": 1.5
+}

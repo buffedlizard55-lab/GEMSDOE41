@@ -403,5 +403,331 @@
   "submission_name": "GEMSDOE41-H42B-BIMODAL-JUNCTION-LATTICE-37K",
   "note": "H42 h42b-junction-lattice-37k: bimodal strike-classified lattice; >=200m off catalogue; 2.83px sep; 37,654 px; holdout FAIL / enrichment FAIL; gate CLOSED pending user slot decision",
   "slot_eligible": false
+ },
+ "h43_catalogue_completion": {
+  "created_utc": "2026-10-06T03:04:59Z",
+  "workstream_id": "catalogue-completion/H43 (this lineage takes H43 because basin-margin/H42 and bimodal-lattice/H42 are already published; see research/hypothesis-id-registry.md)",
+  "preregistration": "research/hypotheses-h43.md",
+  "slot_eligible": false,
+  "slot_eligible_reason": "Never scored by the organizer, and its instrument (H-SIM: withheld MAPPED strands) is not the prize population (faults NEVER mapped). AGENTS.md #4 keeps the gate closed.",
+  "submission_name": "GEMS41-H43-Completion-8f1f3ba6d176",
+  "note": "GEMSDOE41 H43-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
+  "primary": {
+   "filename": "gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+   "path": "docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+   "sha256": "e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa",
+   "array_sha256": "8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e",
+   "bytes": 123881,
+   "zip_bytes": 78584,
+   "zip_sha256": "e559f4d06ddffa0b9bc32888a4a01613348cba493ad50e86c7684708744a680c",
+   "shape": [
+    3730,
+    3292
+   ],
+   "crs": "EPSG:32611",
+   "bands": 1,
+   "dtype": "float32",
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0,
+    0.0,
+    0.0,
+    1.0
+   ],
+   "min": 0.0,
+   "max": 1.0,
+   "positive_pixels": 20000,
+   "prediction_mass": 20000.0,
+   "finite_cells": 12279160,
+   "footprint_cells": 5167373,
+   "nodata": null,
+   "internal_mask": true,
+   "all_checks_passed": true,
+   "compression": "deflate",
+   "tiled": "512x512",
+   "min_distance_to_catalogue_px": 2.2360680103302,
+   "nearest_neighbour_px": {
+    "min": 1.0,
+    "median": 4.123105625617661,
+    "p95": 8.54400374531753
+   },
+   "range_error_hardened": "all 12,279,160 stored cells finite and in [0,1]; zeros plus a GDAL internal mask outside the template footprint"
+  },
+  "instrument": {
+   "guard_px": 2.0,
+   "min_dcat_px": 2.0,
+   "folds": 4,
+   "mass_checkpoints": [
+    2000,
+    8000,
+    20000,
+    37654,
+    65000
+   ],
+   "neg_per_pos": 18,
+   "max_pos": 12000,
+   "seed": 42,
+   "n_features": 31,
+   "geometry_features": "excluded (guard leak + train/ship domain shift)",
+   "instrument": "strand-level quadrant blocking; truth = withheld strand pixels beyond the guard; scored with the transcribed official DTI; controls at identical masses"
+  },
+  "mean_dti_by_strategy_and_mass": {
+   "coverage_greedy": {
+    "2000": {
+     "mean_dti": 0.31283780156972313,
+     "folds": 4
+    },
+    "8000": {
+     "mean_dti": 0.5193673209038423,
+     "folds": 4
+    },
+    "20000": {
+     "mean_dti": 0.5606257194566802,
+     "folds": 4
+    },
+    "37654": {
+     "mean_dti": 0.5452809228728586,
+     "folds": 4
+    },
+    "65000": {
+     "mean_dti": 0.48825857871953054,
+     "folds": 4
+    }
+   },
+   "cov_greedy_gamma8": {
+    "2000": {
+     "mean_dti": 0.17922706685884204,
+     "folds": 4
+    },
+    "8000": {
+     "mean_dti": 0.3917521015247084,
+     "folds": 4
+    },
+    "20000": {
+     "mean_dti": 0.5277445749203235,
+     "folds": 4
+    },
+    "37654": {
+     "mean_dti": 0.5563741167590831,
+     "folds": 4
+    },
+    "65000": {
+     "mean_dti": 0.5012693389769691,
+     "folds": 4
+    }
+   },
+   "uniform_scatter": {
+    "2000": {
+     "mean_dti": 0.004503323332966315,
+     "folds": 4
+    },
+    "8000": {
+     "mean_dti": 0.016743652200322572,
+     "folds": 4
+    },
+    "20000": {
+     "mean_dti": 0.032340006893182505,
+     "folds": 4
+    },
+    "37654": {
+     "mean_dti": 0.04680001198657655,
+     "folds": 4
+    },
+    "65000": {
+     "mean_dti": 0.06260203670285927,
+     "folds": 4
+    }
+   },
+   "belief_greedy_pack": {
+    "2000": {
+     "mean_dti": 0.30313116874649276,
+     "folds": 4
+    },
+    "8000": {
+     "mean_dti": 0.4919786861293599,
+     "folds": 4
+    },
+    "20000": {
+     "mean_dti": 0.46190967058589216,
+     "folds": 4
+    },
+    "37654": {
+     "mean_dti": 0.3934361204191553,
+     "folds": 4
+    },
+    "65000": {
+     "mean_dti": 0.31634263651864497,
+     "folds": 4
+    }
+   },
+   "belief_pack_sep45": {
+    "2000": {
+     "mean_dti": 0.2910267559333393,
+     "folds": 4
+    },
+    "8000": {
+     "mean_dti": 0.3462429701723019,
+     "folds": 4
+    },
+    "20000": {
+     "mean_dti": 0.30610390598677933,
+     "folds": 4
+    },
+    "37654": {
+     "mean_dti": 0.25291320812538914,
+     "folds": 4
+    },
+    "65000": {
+     "mean_dti": 0.1981783806261589,
+     "folds": 4
+    }
+   }
+  },
+  "mass_and_operator_selection": {
+   "mass": 20000,
+   "strategy": "coverage_greedy",
+   "rule1_holdout_argmax": 20000,
+   "rule2_model_argmax": 37654,
+   "cap": 37654,
+   "holdout_dti_at_chosen_mass": 0.5606257194566802,
+   "table": [
+    {
+     "mass": 2000,
+     "a_mean": 0.2750769112181893,
+     "A_model": 9902.768803854815,
+     "dti_model": 0.32172159347164325,
+     "folds": 4
+    },
+    {
+     "mass": 8000,
+     "a_mean": 0.5191355780834856,
+     "A_model": 18688.880811005485,
+     "dti_model": 0.5743748656282239,
+     "folds": 4
+    },
+    {
+     "mass": 20000,
+     "a_mean": 0.6547956010130683,
+     "A_model": 23572.64163647046,
+     "dti_model": 0.7033559119873692,
+     "folds": 4
+    },
+    {
+     "mass": 37654,
+     "a_mean": 0.7572711981601896,
+     "A_model": 27261.763133766824,
+     "dti_model": 0.7503760757750124,
+     "folds": 4
+    },
+    {
+     "mass": 65000,
+     "a_mean": 0.8439590682286426,
+     "A_model": 30382.526456231135,
+     "dti_model": 0.7268546999098358,
+     "folds": 4
+    }
+   ],
+   "candidates": [
+    {
+     "strategy": "coverage_greedy",
+     "mass": 20000,
+     "holdout_dti": 0.5606257194566802,
+     "folds": 4
+    },
+    {
+     "strategy": "cov_greedy_gamma8",
+     "mass": 37654,
+     "holdout_dti": 0.5563741167590831,
+     "folds": 4
+    },
+    {
+     "strategy": "coverage_greedy",
+     "mass": 37654,
+     "holdout_dti": 0.5452809228728586,
+     "folds": 4
+    },
+    {
+     "strategy": "cov_greedy_gamma8",
+     "mass": 20000,
+     "holdout_dti": 0.5277445749203235,
+     "folds": 4
+    },
+    {
+     "strategy": "coverage_greedy",
+     "mass": 8000,
+     "holdout_dti": 0.5193673209038423,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_greedy_pack",
+     "mass": 8000,
+     "holdout_dti": 0.4919786861293599,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_greedy_pack",
+     "mass": 20000,
+     "holdout_dti": 0.46190967058589216,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_greedy_pack",
+     "mass": 37654,
+     "holdout_dti": 0.3934361204191553,
+     "folds": 4
+    },
+    {
+     "strategy": "cov_greedy_gamma8",
+     "mass": 8000,
+     "holdout_dti": 0.3917521015247084,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_pack_sep45",
+     "mass": 8000,
+     "holdout_dti": 0.3462429701723019,
+     "folds": 4
+    },
+    {
+     "strategy": "coverage_greedy",
+     "mass": 2000,
+     "holdout_dti": 0.31283780156972313,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_pack_sep45",
+     "mass": 20000,
+     "holdout_dti": 0.30610390598677933,
+     "folds": 4
+    }
+   ],
+   "rho_live": 36000.0,
+   "rule": "min(rule-1 measured holdout argmax, rule-2 live-anchored model argmax), capped at 37654 px; position-blind controls excluded"
+  },
+  "promotion_gate": {
+   "beats_position_blind_null": "4/4 folds at every mass",
+   "beats_family_operator_greedy_pack": "4/4 at 2,000 px; 3/4 at 8,000 and 20,000 px; 4/4 at 37,654 and 65,000 px",
+   "credit_per_mass_at_2000px": 1.61616,
+   "incumbent_best_credit_per_mass": 0.0833,
+   "ratio_vs_incumbent": 19.4
+  },
+  "score_record_calculus": {
+   "file": "evidence/score_record_calculus.json",
+   "coverage_a_of_incumbent_field": 0.2869,
+   "hidden_label_count_rho": 36467,
+   "incumbent_ceiling_s_max": 0.3346,
+   "null_check": {
+    "probe": "h34_scatter",
+    "reported": 0.0778,
+    "position_blind_ceiling": 0.0776,
+    "relative_error": 0.0022
+   }
+  },
+  "label_field_inversion_NEGATIVE": "evidence/label_field_inversion.json",
+  "CROSS_INSTRUMENT_WARNING": "These DTI values are measured on H-SIM (strand-level quadrant blocking, withheld MAPPED strands as truth, guard 2 px) and are NOT comparable with basin-margin/H42's 0.2507, which is measured on a 20 km four-colour blocked holdout with a different truth, guard and emission domain. Neither number is a score and the two instruments have not been cross-calibrated. Read research/hypothesis-id-registry.md before comparing them."
  }
 }

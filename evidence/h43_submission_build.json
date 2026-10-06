@@ -1,0 +1,247 @@
+{
+ "created_utc": "2026-10-06T03:04:59Z",
+ "hypothesis": "H43-B catalogue-completion learning, emitted by H43-A packing",
+ "submission_note": "GEMSDOE41 H43-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
+ "file": {
+  "name": "gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "path": "docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "pixel_sha12": "8f1f3ba6d176",
+  "sha256": "e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa",
+  "bytes": 123881,
+  "n_positive_px": 20000,
+  "probability_mass": 20000.0
+ },
+ "model": {
+  "estimator": "sklearn HistGradientBoostingClassifier",
+  "max_iter": 240,
+  "learning_rate": 0.08,
+  "max_leaf_nodes": 31,
+  "min_samples_leaf": 40,
+  "l2_regularization": 1.0,
+  "random_state": 42,
+  "n_features": 31,
+  "prior": {
+   "p_sampled": 0.05263157894736842,
+   "n_pos": 60988,
+   "n_sample": 1158772,
+   "p_true": 0.011943478605706385
+  },
+  "prior_shift_factor": 0.21758129241365945,
+  "rho_model": 50094.515625,
+  "geometry_features_excluded": true
+ },
+ "emission": {
+  "operator": "gems41.coverage.max_cover_greedy (CELF lazy greedy on sum_x pi(x) max_y k(d(x,y)))",
+  "gamma": 1.0,
+  "pool_size": 400000,
+  "gains_head": [
+   3.47398411,
+   3.41956687,
+   3.28812742,
+   3.14496374,
+   3.01498508
+  ],
+  "gains_tail": [
+   0.25410327,
+   0.25410187,
+   0.25410017,
+   0.25409138,
+   0.25407982
+  ],
+  "budget": 20000,
+  "emitted": 20000,
+  "min_dcat_px": 2.0,
+  "selection": {
+   "mass": 20000,
+   "strategy": "coverage_greedy",
+   "rule1_holdout_argmax": 20000,
+   "rule2_model_argmax": 37654,
+   "cap": 37654,
+   "holdout_dti_at_chosen_mass": 0.5606257194566802,
+   "table": [
+    {
+     "mass": 2000,
+     "a_mean": 0.2750769112181893,
+     "A_model": 9902.768803854815,
+     "dti_model": 0.32172159347164325,
+     "folds": 4
+    },
+    {
+     "mass": 8000,
+     "a_mean": 0.5191355780834856,
+     "A_model": 18688.880811005485,
+     "dti_model": 0.5743748656282239,
+     "folds": 4
+    },
+    {
+     "mass": 20000,
+     "a_mean": 0.6547956010130683,
+     "A_model": 23572.64163647046,
+     "dti_model": 0.7033559119873692,
+     "folds": 4
+    },
+    {
+     "mass": 37654,
+     "a_mean": 0.7572711981601896,
+     "A_model": 27261.763133766824,
+     "dti_model": 0.7503760757750124,
+     "folds": 4
+    },
+    {
+     "mass": 65000,
+     "a_mean": 0.8439590682286426,
+     "A_model": 30382.526456231135,
+     "dti_model": 0.7268546999098358,
+     "folds": 4
+    }
+   ],
+   "candidates": [
+    {
+     "strategy": "coverage_greedy",
+     "mass": 20000,
+     "holdout_dti": 0.5606257194566802,
+     "folds": 4
+    },
+    {
+     "strategy": "cov_greedy_gamma8",
+     "mass": 37654,
+     "holdout_dti": 0.5563741167590831,
+     "folds": 4
+    },
+    {
+     "strategy": "coverage_greedy",
+     "mass": 37654,
+     "holdout_dti": 0.5452809228728586,
+     "folds": 4
+    },
+    {
+     "strategy": "cov_greedy_gamma8",
+     "mass": 20000,
+     "holdout_dti": 0.5277445749203235,
+     "folds": 4
+    },
+    {
+     "strategy": "coverage_greedy",
+     "mass": 8000,
+     "holdout_dti": 0.5193673209038423,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_greedy_pack",
+     "mass": 8000,
+     "holdout_dti": 0.4919786861293599,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_greedy_pack",
+     "mass": 20000,
+     "holdout_dti": 0.46190967058589216,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_greedy_pack",
+     "mass": 37654,
+     "holdout_dti": 0.3934361204191553,
+     "folds": 4
+    },
+    {
+     "strategy": "cov_greedy_gamma8",
+     "mass": 8000,
+     "holdout_dti": 0.3917521015247084,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_pack_sep45",
+     "mass": 8000,
+     "holdout_dti": 0.3462429701723019,
+     "folds": 4
+    },
+    {
+     "strategy": "coverage_greedy",
+     "mass": 2000,
+     "holdout_dti": 0.31283780156972313,
+     "folds": 4
+    },
+    {
+     "strategy": "belief_pack_sep45",
+     "mass": 20000,
+     "holdout_dti": 0.30610390598677933,
+     "folds": 4
+    }
+   ],
+   "rho_live": 36000.0,
+   "rule": "min(rule-1 measured holdout argmax, rule-2 live-anchored model argmax), capped at 37654 px; position-blind controls excluded"
+  }
+ },
+ "calibration_inputs": {
+  "rho_live_model": 36000.0,
+  "mass_cap": 37654,
+  "score_record": "evidence/score_record_calculus.json",
+  "holdout": "evidence/h43_holdout.json"
+ },
+ "checks": {
+  "path": "/home/user/GEMSDOE41/docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.tif",
+  "bytes": 123881,
+  "sha256": "e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa",
+  "pixel_sha256": "8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e",
+  "meta": {
+   "driver": "GTiff",
+   "count": 1,
+   "dtype": "float32",
+   "crs": "EPSG:32611",
+   "width": 3292,
+   "height": 3730,
+   "res": [
+    100.0,
+    100.0
+   ],
+   "transform": [
+    100.0,
+    0.0,
+    243350.0,
+    0.0,
+    -100.0,
+    4508550.0
+   ],
+   "nodata": null,
+   "compress": "deflate",
+   "predictor": null,
+   "tiled": true,
+   "blockxsize": 512,
+   "blockysize": 512
+  },
+  "driver_gtiff": true,
+  "single_band": true,
+  "dtype_float32": true,
+  "crs_epsg32611": true,
+  "width_3292": true,
+  "height_3730": true,
+  "res_100m": true,
+  "transform_matches": true,
+  "all_cells_finite": true,
+  "values_in_0_1": true,
+  "min_value": 0.0,
+  "max_value": 1.0,
+  "n_stored_cells": 12279160,
+  "mask_equals_footprint": true,
+  "mask_cells": 5167373,
+  "masked_read_nulls_outside": true,
+  "zeros_outside_footprint": true,
+  "n_positive_px": 20000,
+  "probability_mass": 20000.0,
+  "positive_inside_footprint": true,
+  "positive_off_catalogue": true,
+  "min_dcat_of_positive": 2.2360680103302,
+  "all_positive_beyond_min_dcat": true,
+  "nn_min": 1.0,
+  "nn_median": 4.123105625617661,
+  "nn_p95": 8.54400374531753,
+  "no_duplicate_dots": true,
+  "all_pass": true,
+  "zip_path": "/home/user/GEMSDOE41/docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.zip",
+  "zip_bytes": 78584,
+  "zip_sha256": "e559f4d06ddffa0b9bc32888a4a01613348cba493ad50e86c7684708744a680c"
+ },
+ "runtime_s": 93.8,
+ "uniqueness": "built from the organizer feature raster, the organizer label raster, the SHA-256-pinned USGS 3DEP product and this repository's derived features only; no sibling submission raster is read by this script"
+}

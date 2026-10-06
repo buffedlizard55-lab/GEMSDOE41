@@ -1,5 +1,5 @@
 {
- "session": "GEMSDOE41 / arena/1ac0a279-gemsdoe41",
+ "session": "GEMSDOE41 / arena/1ac0a279-gemsdoe41 + catalogue-completion/H43 (2026-10-06)",
  "verified_utc": "2026-10-06T08:30:00Z",
  "method": "Every entry below was produced by a command run in this session and is reproducible from the scripts named. Nothing here is an inference presented as a fact; where a statement is a model it is tagged [MODEL].",
  "review_required": true,
@@ -127,6 +127,61 @@
    "action_requested": "Do not attempt to 'fix' build_final by substitution. If the anchor is needed, refetch it from the sibling repo path or declare the H41 artifacts immutable history.",
    "evidence": "docs/downloads/manifest.json (top-level H41 keys), research/hypotheses-h42.md Part 2 footnote",
    "status": "recorded; do not rerun build_final.py"
+  },
+  {
+   "id": "IRR-14",
+   "severity": "high",
+   "title": "The hidden label count carried in this repository was 2.8x too small",
+   "fact": "validate.K_HIDDEN_PX = 13,000 was inferred from adjacent pairs of owner-reported scores under the assumption FP_w ~= mass.  Keeping the double-counting term q in the same algebra and fitting 1/score = c0 + m*mass over an exactly nested five-file lineage (containment 1.0000, verified from the bytes) gives rho = 36,467 px, and the eight-point chain gives 35,533 px.",
+   "why_it_matters": "Every projected score in the repository is conditioned on this constant.  At rho = 36,000 the optimal emitted mass is roughly 3x larger than at rho = 13,000, so the old constant biased every mass recommendation low.",
+   "action_requested": "Keep both numbers visible.  Do not silently overwrite K_HIDDEN_PX; the new estimate is itself a [MODEL] resting on owner-reported scores.",
+   "evidence": "evidence/score_record_calculus.json regression_dotted_core / regression_full_chain; research/score-record-calculus.md section 4",
+   "raised_by": "session 2026-10-06 (catalogue-completion/H43)",
+   "status": "ACKNOWLEDGED -- published as IR-42-RHO-01 in research/score-record-calculus.md"
+  },
+  {
+   "id": "IRR-15",
+   "severity": "high",
+   "title": "The blocked holdout used in every previous session cannot score an off-catalogue candidate",
+   "fact": "The prize round scores faults absent from the published catalogue and masks catalogue pixels out of every term.  A holdout whose truth IS the published catalogue, with the retained catalogue masked, returns ~0 for any candidate engineered to avoid the catalogue.  H41-A measured 7.098e-09 and H41-E 0.000000 on that instrument.",
+   "why_it_matters": "Those zeros were read as geological failures.  They are instrument failures.  Decisions taken on them -- including closing the slot gate on H41-A -- rested on a measurement that could not have been nonzero.",
+   "action_requested": "Use the H-SIM protocol (whole withheld strands as truth, retained catalogue masked, scoring beyond a guard) for every future candidate.  Re-read the H41 zeros as 'not measurable', not as 'zero skill'.",
+   "evidence": "docs/downloads/holdout.json; research/experiments/h41e-kinematic-holdout.json; research/hypotheses-h42.md section 0",
+   "raised_by": "session 2026-10-06 (catalogue-completion/H43)",
+   "status": "FIXED -- scripts/experiment_h42.py implements H-SIM"
+  },
+  {
+   "id": "IRR-16",
+   "severity": "medium",
+   "title": "3,061 pixels inside the scoring footprint carry the -3.4e38 nodata sentinel in all 19 bands",
+   "fact": "training_features.tif encodes nodata as the float32 sentinel -3.4028234663852886e+38.  Measured here: 58,171 band-pixels across the 19 bands, on 3,061 distinct pixels, all of them INSIDE the 5,167,373-pixel scoring footprint (band 6 `tc` carries 3,073).  Band 1's own valid mask is 5,165,852 px, i.e. 1,521 px smaller than the template footprint.",
+   "why_it_matters": "Any pipeline that reads a feature band without sanitising the sentinel, or that derives the footprint from a feature band instead of from sample_submission.tif, ships illegal values and triggers the portal's 'Predicted values must be in range [0, 1]' rejection.  This is the mechanism behind the error the owner hit on a downloaded file.",
+   "action_requested": "Take the footprint only from np.isfinite(sample_submission.tif); sanitise the sentinel per band; re-read the delivered bytes and assert finiteness before offering a file.",
+   "evidence": "evidence/h42_feature_receipt.json sentinel_cells_inside_footprint; scripts/build_h42_submission.py validate_delivered()",
+   "raised_by": "session 2026-10-06 (catalogue-completion/H43)",
+   "status": "FIXED -- shipped artifact is all-finite and independently re-verified"
+  },
+  {
+   "id": "IRR-17",
+   "severity": "medium",
+   "title": "A 21-template inversion for the hidden label field is not identified by 29 scalar scores",
+   "fact": "Fitting u = sum_j w_j u_j over 21 geological templates plus rho to all 29 probe scores gives RMSE 0.106 and leave-one-probe-out RMSE 0.111 with systematic residuals: every high scorer is under-predicted and every dense low scorer over-predicted.  A dense probe (516,738 px) has a ~= 0.9 for almost any u while its reported 0.0748 demands a ~= 0.20, and the 0.2778 file demands >= 3.2x concentration inside 6.9% of the domain; no smooth mixture of catalogue distance and single-band anomalies satisfies both.",
+   "why_it_matters": "It would have been easy to publish a fitted label field from this.  The fit is not identified, so any such field would be an artefact of the basis chosen.",
+   "action_requested": "Report the failure.  Use only the nested-lineage ratio fit, which never needs u.",
+   "evidence": "evidence/label_field_inversion.json; research/score-record-calculus.md section 5",
+   "raised_by": "session 2026-10-06 (catalogue-completion/H43)",
+   "status": "ACKNOWLEDGED -- published as a negative result"
+  },
+  {
+   "id": "IRR-18",
+   "severity": "low",
+   "title": "dataset_mask().sum() is 255 x footprint, not footprint",
+   "fact": "For existing_faults.tif and sample_submission.tif, src.dataset_mask().sum() returns 1,317,680,115, which is exactly 255 x 5,167,373.  rasterio returns a uint8 mask with 255 inside, not a boolean.",
+   "why_it_matters": "A footprint check written as `mask.sum() == FOOTPRINT_PX` fails on a perfectly correct file, and a check written as `(mask>0).sum()` passes.  Earlier session notes recorded this as an unexplained read oddity; it is now explained.",
+   "action_requested": "Always compare (mask > 0).sum() against the footprint count.",
+   "evidence": "scripts/build_h42_submission.py validate_delivered() mask_equals_footprint",
+   "raised_by": "session 2026-10-06 (catalogue-completion/H43)",
+   "status": "RESOLVED -- explained, not an upstream defect"
   }
  ]
 }

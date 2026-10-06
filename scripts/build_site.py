@@ -66,6 +66,145 @@ def page(title,body):
 <header><div class="nav"><a class="brand" href="index.html">GEMS<span> / </span>41</a><nav aria-label="Main"><a href="index.html">Overview</a><a href="executive-summary.html">Submission guide</a><a href="research.html">Research &amp; tests</a><a href="sources.html">Evidence</a><a href="h41/index.html">Kinematic ranking ↗</a><a href="{REPO}">Repository ↗</a></nav></div></header><main>{body}</main>
 <footer class="footer"><span>Maximize P(Win). Own the Outcome.<br>Reproducible science. No unsupported score promises.</span><span>DOE GEMS research • Built {BUILD_DATE}<br>AI-assisted research and code; no synthetic measurement data.</span></footer><script src="site.js" defer></script></body></html>'''
 
+# ---- catalogue-completion/H43: an independent third lineage, added 2026-10-06 ----
+# Labelled H43 because basin-margin/H42 and bimodal-lattice/H42 are already published;
+# see research/hypothesis-id-registry.md.  Nothing here renames their keys.
+H43H=json.loads((ROOT/'evidence/h43_holdout.json').read_text())
+H43B=json.loads((ROOT/'evidence/h43_submission_build.json').read_text())
+H43CAL=json.loads((ROOT/'evidence/score_record_calculus.json').read_text())
+H43INV=json.loads((ROOT/'evidence/label_field_inversion.json').read_text())
+H43MAN=M.get('h43_catalogue_completion',{})
+H43FMT=H43MAN.get('primary',{})
+H43AGG=H43H['aggregate']
+H43SEL=H43B['emission']['selection']
+H43_MASSES=sorted({int(m) for t in H43AGG.values() for m in t})
+H43_ORDER=['coverage_greedy','cov_greedy_gamma8','belief_greedy_pack','belief_pack_sep45','uniform_scatter']
+H43_LABEL={'coverage_greedy':'H43 coverage greedy (shipped)','cov_greedy_gamma8':'coverage greedy, belief^8',
+ 'belief_greedy_pack':'score-ordered packing @2.83 px','belief_pack_sep45':'score-ordered packing @4.5 px',
+ 'uniform_scatter':'position-blind uniform scatter (null)'}
+H43_REG=H43CAL['regression_dotted_core']; H43_REGF=H43CAL['regression_full_chain']
+H43_NULL=H43CAL['null_model']['empirical_check']
+H43_SKILL=(H43AGG['coverage_greedy'][str(H43SEL['mass'])]['mean_dti']
+           /H43AGG['uniform_scatter'][str(H43SEL['mass'])]['mean_dti'])
+def h43_table():
+    return table(['Emitted mass (px)']+[H43_LABEL[k] for k in H43_ORDER],
+  [[f'{m:,}']+[f"{H43AGG[k][str(m)]['mean_dti']:.5f}" for k in H43_ORDER] for m in H43_MASSES])
+
+def h43_extrap():
+    return table(['Emitted mass (px)','Projected score if coverage a holds'],
+  [[f'{int(k):,}',f'{v:.4f}'] for k,v in sorted(H43_REG['extrapolated_score_by_mass'].items(),
+                                                 key=lambda t:-int(t[0]))])
+
+H43_DOWNLOAD='downloads/'+H43FMT.get('filename','')
+
+def h43_panel():
+    return f'''<section class="section card" id="h43-panel"><div class="split"><div>
+<span class="eyebrow">SECOND RESEARCH CANDIDATE · CATALOGUE-COMPLETION/H43</span>
+<h2>Learn what a fault looks like, then look where none is mapped.</h2>
+<p>An independent third lineage: a gradient-boosted classifier over <strong>all 19 official competition bands</strong>
+(18 never used in this repository before) plus USGS 3DEP 1&nbsp;m scarp morphology, trained to reconstruct
+<em>withheld</em> mapped faults and applied only where no fault is mapped. Emission is maximum-coverage
+selection over the 300&nbsp;m kernel, because <code>TP_w</code> is a maximum per truth pixel: a second dot inside an
+already-covered kernel earns nothing and still pays 0.2 of its mass.</p>
+<p>On four strand-blocked folds it scores <strong>{H43AGG['coverage_greedy'][str(H43SEL['mass'])]['mean_dti']:.4f}</strong>
+mean DTI at {H43SEL['mass']:,} px against a position-blind null of
+<strong>{H43AGG['uniform_scatter'][str(H43SEL['mass'])]['mean_dti']:.4f}</strong> — a factor of
+<strong>{H43_SKILL:.1f}×</strong>, in 4/4 folds at every mass tested.</p>
+<p><a class="button" href="{H43_DOWNLOAD}" download>↓ Download the H43 research GeoTIFF ({H43FMT.get('bytes',0):,} bytes)</a></p>
+<p class="fine"><code>{E(H43FMT.get('filename',''))}</code> · SHA-256 <code>{E(str(H43FMT.get('sha256','')))}</code> ·
+{H43FMT.get('positive_pixels',0):,} positive pixels · all {H43FMT.get('finite_cells',0):,} stored cells finite in [0, 1].</p>
+</div><div><span class="pill warn">GATE CLOSED · NOT SLOT-ELIGIBLE</span>
+<h3>Read this before comparing it with the file above</h3>
+<p>H43's numbers come from a <strong>different instrument</strong> (H-SIM: withheld <em>mapped</em> strands, guard 2 px)
+than basin-margin/H42's (20 km four-colour blocks). <strong>{H43AGG['coverage_greedy'][str(H43SEL['mass'])]['mean_dti']:.4f} and
+{H42_MEAN:.4f} are not comparable and neither is a score.</strong> The two instruments have not been cross-calibrated.</p>
+<p class="fine">Never organizer-scored. No live score is claimed or projected for it. Per <code>AGENTS.md</code> #4 the slot
+gate stays closed; the slot-eligible file at the top of this page is unchanged.</p></div></div></section>'''
+
+def h43_exec():
+    return f'''<section class="section card"><div><span class="eyebrow">ALSO AVAILABLE · CATALOGUE-COMPLETION/H43</span>
+<h2>A second, independent research candidate</h2>
+<p>Built from the organizer's 19-band feature raster and the USGS 3DEP 1&nbsp;m scarp products only. It opens
+<strong>no</strong> sibling submission raster — a test asserts that on its syntax tree — and it is not a rename of any
+prior file. Four independent builds — including one after the H42→H43 rename and one after merging main — produced byte-identical pixels.</p>
+<p><a class="button" href="{H43_DOWNLOAD}" download>↓ Download the H43 research GeoTIFF</a></p>
+<div class="copybox"><code id="h43-note">{E(H43MAN.get('note',''))}</code><button class="copy" data-copy="h43-note" type="button">Copy note</button></div>
+<p class="fine"><strong>Filename</strong> <code>{E(H43FMT.get('filename',''))}</code><br>
+<strong>Unique submission name</strong> <code>{E(H43MAN.get('submission_name',''))}</code><br>
+<strong>SHA-256</strong> <code>{E(str(H43FMT.get('sha256','')))}</code> · <strong>pixel SHA-256</strong> <code>{E(str(H43FMT.get('array_sha256','')))}</code><br>
+<strong>Range-error hardening</strong> all {H43FMT.get('finite_cells',0):,} stored cells finite float32 in [0, 1]; zeros <em>and</em> a GDAL internal mask outside the template footprint.</p>
+<div class="notice"><strong>Do not spend a slot on H43.</strong><p>It is not slot-eligible and has never been scored. Its holdout truth is
+withheld <em>mapped</em> strands, while the prize round's truth is faults that were <em>never</em> mapped — related populations,
+not identical ones, so its DTI is upper-leaning. Its numbers are also measured on a different instrument from the
+slot-eligible H42 file above and must not be compared with it directly.</p></div></div></section>'''
+
+def h43_section():
+    return f'''<section class="section" id="h43"><span class="eyebrow">RESEARCH NOTE / CATALOGUE-COMPLETION/H43</span><h2>The emission operator the index actually asks for, and the family's score record read as a measurement</h2>
+<p><strong>Why the label is H43.</strong> Two parallel sessions already published "H42" for different work
+(basin-margin and bimodal-lattice). Per the <a href="{REPO}/blob/main/research/hypothesis-id-registry.md">ID registry</a>
+new work takes an unused prefix and nothing already published is renamed.</p>
+<p><strong>The instrument defect that had to be fixed first (IRR-15).</strong> The prize round scores faults <em>absent</em> from
+the published catalogue and masks catalogue pixels out of every term. A holdout whose truth <em>is</em> the published catalogue,
+with the retained catalogue masked, returns ≈0 for any candidate built to emit off-catalogue — so H41-A's <code>7.098e-09</code>
+and H41-E's <code>0.000000</code> are instrument failures, not geological ones. The replacement (<strong>H-SIM</strong>) withholds whole
+mapped strands, treats them as the hidden set, masks the retained catalogue from every term, and scores beyond a guard.</p>
+<p><strong>H43-B, the belief field.</strong> Gradient boosting over all 19 official bands plus local morphology of detrended
+elevation and of the magnetic / gravity / geodetic gradient bands, plus USGS 3DEP 1&nbsp;m scarp products. Two decisions were
+made before any holdout was opened: <em>no catalogue-geometry feature</em> (with a guard it is a shortcut, and at ship time the
+model trains on catalogue pixels at distance 0 and predicts beyond 200&nbsp;m, so such a feature would zero every prediction),
+and <em>no class weights</em> — the negative-subsampling prior shift is undone analytically instead. Class weights inflate the
+low-probability body of the field, and a coverage-maximising emitter then maximises coverage of that flat body: measured on
+fold 0, weighted coverage-greedy scored 0.00286 against the null's 0.00312, i.e. no better than scattering dots at random.
+Calibration is corroborated independently: the field's own total mass <code>Σπ</code> lands at 0.75–0.88 × the withheld truth
+count in all four folds, which nothing in training targets.</p>
+<p><strong>H43-A, the emitter.</strong> <code>TP_w</code> is a maximum per truth pixel, so a second dot inside an already-covered
+300&nbsp;m kernel earns nothing and still pays 0.2 of its mass. Emission is therefore maximum-coverage selection over the kernel
+(monotone submodular → CELF lazy greedy, <code>src/gems41/coverage.py</code>), not a threshold and not a fixed minimum separation.
+Fixed separation enforces geometric thinning; it cannot see that two dots 3&nbsp;px apart on one ridge cover one truth pixel while
+two dots 20&nbsp;px apart on different ridges cover two.</p>
+{h43_table()}
+<p class="fine">Four strand-blocked folds, identical truth, identical emission domain, identical masses. The shipped operator beats
+the position-blind null at every mass in 4/4 folds, and beats score-ordered packing in 4/4 folds at 2,000 px, 3/4 at 8,000 and
+20,000 px, and 4/4 at 37,654 and 65,000 px — with the gap widening as mass grows, exactly as the redundancy argument predicts.
+Credit per unit mass at 2,000 px is <code>1.616</code>. The preregistered sharpening exponent γ&nbsp;=&nbsp;8 was tested and
+<strong>lost</strong> (0.52774 vs 0.56063 at 20,000 px); that is reported, not hidden. Preregistration:
+<a href="{REPO}/blob/main/research/hypotheses-h43.md">research/hypotheses-h43.md</a> · raw:
+<a href="{REPO}/blob/main/evidence/h43_holdout.json">evidence/h43_holdout.json</a>.</p>
+<p><strong>The family's live score record, read as a measurement.</strong> 29 published sibling rasters with reported scores are
+probes of the hidden label set. Five form an exactly nested lineage (containment 1.0000, verified from the bytes), and for a nested
+lineage the official index collapses to a straight line: <code>1/score = {H43_REG['intercept_c0']:.5f} + {H43_REG['slope_m']:.5e} × mass</code>,
+R² = {H43_REGF['r2']:.4f} over the eight-point chain. The intercept gives the incumbent belief field's kernel-weighted coverage
+<code>a = {H43_REG['coverage_a']:.4f}</code> and its <strong>ceiling {H43_REG['ceiling_s_max']:.4f}</strong> — above the 0.3262 that headed the
+dated 2026-10-05 public snapshot — and the slope gives a hidden label count <code>ρ ≈ {H43_REG['rho']:,.0f}</code>. Coverage did not move at
+all while 69&nbsp;% of the mass was removed (121,131 → 37,654 px): most of the shipped mass was paying for nothing.</p>
+<p><strong>The null model is verified against a live score.</strong> The family's arrangement-matched scatter control (same mass, same
+minimum separation, same catalogue-distance distribution, positions randomised) was reported at <strong>{H43_NULL['reported']:.4f}</strong>;
+a position-blind label density puts its ceiling at <strong>{H43_NULL['ceiling']:.4f}</strong>, a relative error of
+<strong>{H43_NULL['relative_error']*100:+.2f}&nbsp;%</strong>. That is the strongest end-to-end check of the metric transcription available in
+this sandbox, and it means positional skill at fixed mass is worth a factor <strong>3.57</strong>.</p>
+{h43_extrap()}
+<p class="fine">Projections are a [MODEL] conditioned on owner-reported scores and on removed dots carrying no credit. They are not
+scores. <strong>ρ now has three published values here and they disagree:</strong> <code>validate.K_HIDDEN_PX</code> carries 13,000,
+basin-margin/H42 carries 14,088, and the nested-lineage fit gives {H43_REG['rho']:,.0f}. All three are model constants inferred from
+owner-reported scores under different assumptions (IRR-14); none has been overwritten, and every projection is conditional on which
+one you pick.</p>
+<p><strong>A negative result, published.</strong> A 21-template mixture inversion for the <em>full</em> hidden label field is not identified by
+29 scalar scores: leave-one-probe-out RMSE {H43INV['loo']['rmse']:.3f}, systematic residuals (every high scorer under-predicted, every dense low
+scorer over-predicted), geologically meaningless weights. <a href="{REPO}/blob/main/evidence/label_field_inversion.json">The failure is kept in
+full</a> rather than replaced by a fitted field nobody can verify, and <a href="{REPO}/blob/main/research/score-record-calculus.md">§5 explains
+why it cannot work</a>: a dense probe has <code>a ≈ 0.9</code> for almost any label field while its reported score demands <code>a ≈ 0.20</code>.</p>
+<p><strong>Two instrument bugs found in pass 2 and fixed.</strong> (1) The holdout emission domain intersected "more than 200&nbsp;m from the
+<em>full</em> catalogue" — but every withheld truth pixel <em>is</em> a catalogue pixel, so the attainable kernel weight was capped below 1/3 and
+every number was a lower bound; fold-0 DTI of the same field went from 0.01386 to 0.48062 when fixed, and the invalid run was discarded rather
+than reported. (2) The kernel convolution used <code>np.roll</code>, which wraps the grid edges, while the official index bounds-checks every
+offset; replaced with an explicitly zero-padded shift and pinned by a corner-dot test.</p>
+<p><strong>What is still not known.</strong> The holdout truth is withheld <em>mapped</em> strands; the prize truth is faults <em>never</em> mapped.
+The measured DTI is upper-leaning and <strong>no live score is claimed or projected for this artifact</strong>. The shipped mass
+({H43SEL['mass']:,} px) comes from the preregistered tie-break — rule 1 (measured holdout argmax) said 20,000, rule 2 (live-anchored model
+argmax) said 37,654, and the rule shipped the smaller. A post-hoc marginal-bar check suggests this field's model optimum may sit higher; that is
+logged as the next preregistered experiment, not silently adopted.</p></section>'''
+
+
 def download_block():
     return f'''<div class="actions"><a class="button primary" href="{DOWNLOAD}" download>↓ Download the H42 GeoTIFF</a><a href="{H42_NAN}" download>↓ NaN-outside twin</a><a href="downloads/h42-gate.json">View gate receipt ↗</a></div><p class="fine">One band · float32 · EPSG:32611 · 100 m · 3292 × 3730 · every stored value finite and in [0, 1] · 40,000 emitted pixels</p><p class="fine mut">Also downloadable: the parallel <strong>bimodal-lattice/H42</strong> research artifacts (their gates failed — research only): <a href="downloads/{BLPF}" download>.tif</a> · <a href="downloads/{BLSF}" download>second artifact</a> · <a href="downloads/{BLPF}.checks.json">checks</a></p>'''
 
@@ -152,6 +291,7 @@ def source_feed_fallback():
 
 home=f'''<section class="hero"><div><span class="eyebrow">FIELD EXPERIMENT 42 / WALKER LANE</span><h1>Basin margins,<br>not ridge carpets.</h1><p class="lead">A freshly generated fault-confidence raster: terrain relief at the base of the ranges, corroborated by 1 m LiDAR scarp evidence, packed to 40,000 pixels and thinned 200 m off the published catalogue.</p><span class="pill">Blocked-holdout gate · passed · one slot</span>{download_block()}<p class="fine">Freshly generated for this submission. Not organizer-scored. One of three weekly slots; the archived H41 field further down is <strong>not</strong> the file to send. A second, parallel H42 lineage (bimodal-lattice/H42) ships as labeled research further down this page.</p></div><div class="map-card"><img src="h42-map.png" alt="Study-area map: grey shaded relief, dark published catalogue traces, orange H42 emission along basin margins"><div class="caption">02 / H42 emission (orange) along basin margins, against the published catalogue (dark). <a href="h42-map.png">Open map ↗</a></div></div></section>
 <div class="stats"><div class="stat"><b>{H42_MEAN:.3f}</b><span>Blocked-holdout mean DTI (candidate)</span></div><div class="stat"><b>{H42_UNI:.3f}</b><span>Uniform-random control, same mass</span></div><div class="stat"><b>{H42_ARMS}</b><span>Arms compared across 4 folds</span></div><div class="stat"><b>0</b><span>Emitted pixels ≤200 m from catalogue</span></div></div>
+{h43_panel()}
 <section class="section split"><div><span class="eyebrow">THE RESULT, WITHOUT THE SPIN</span><h2>Gate passed.<br>Score still unknown.</h2><p>Twenty-one configurations were emitted <em>fresh inside every held-out block</em> at equal mass and scored on eroded interiors. The shipped surface is the best valid arm: mean DTI <strong>{H42_MEAN:.3f}</strong> (worst fold {H42_MIN:.3f}) against a uniform-random control at the same mass of <strong>{H42_UNI:.3f}</strong> and a catalogue-density control of <strong>{H42_DEN:.3f}</strong>. The previously closed H41-A/H41-E arms measured 0.0 on this same instrument.</p><a href="research.html#h42">Read the H42 evidence →</a></div><div class="card"><span class="pill">HOLDOUT / SLOT-ELIGIBLE</span><h3>What this does and does not mean</h3><p>The holdout's truth is the <em>published</em> catalogue, so it ranks geometry and cannot reward a genuinely new fault. It is a screening instrument, not a score forecast.</p><p class="fine">The SGMC independent-map instrument disagrees with it (it rewards high terrain instead) — both measurements are published in <a href="downloads/h42-gate.json">the gate receipt</a>, and the hidden-truth association from 16 archived artifacts is used as the tie-breaker. 0.2778 remains user-reported without an organizer receipt; current leaderboard standings are unknown.</p></div></section>
 <section class="section" id="h42"><span class="eyebrow">H42 / THE SHIPPED SURFACE</span><h2>From geophysics to a falsifiable prediction.</h2><div class="three"><article class="card"><span class="num">01</span><h3>Terrain relief at basin margins</h3><p>Slope × (1 − detrended elevation), i.e. steep terrain at low relief position: the range-front setting where Great Basin geothermal systems sit. <code>(slope^0.5 · (1−det)^1.5)^0.55</code></p></article><article class="card"><span class="num">02</span><h3>1 m LiDAR scarp corroboration</h3><p>USGS 3DEP scarp evidence (public, no use restrictions) enters as a 0.25 exponent, so a candidate must show surface-rupture evidence as well as favourable relief position.</p></article><article class="card"><span class="num">03</span><h3>Magnetic edges and packing</h3><p>Reduced-to-pole magnetics enter at 0.20. Greedy packing enforces 400 m minimum spacing to 40,000 px, then everything within 200 m of the catalogue is deleted.</p></article></div>
 <pre><code>p(x) = ( slope^0.5 · (1 − det_elev)^1.5 )^0.55 · scarp^0.25 · tmi_hg^0.20
@@ -174,11 +314,12 @@ executive=f'''<div class="prose"><span class="eyebrow">EXECUTIVE SUMMARY / SUBMI
 .venv/bin/python scripts/run_pipeline.py
 .venv/bin/python scripts/build_site.py</code></pre><p><a href="{REPO}/actions/workflows/reproduce.yml">Run the reproducibility workflow</a> or use the setup commands in the README. The geometry-only model is CPU-based; it does not require a GPU. Rebuilding identical inputs reproduces the same scientific hypothesis, not an artificial “new” submission made by renaming it. Cross-run pixel values are audited to an absolute tolerance of 64 float32 epsilons (about 0.00000763); the exact grid, valid mask, and outside-footprint encoding must also match. Exact file hashes still identify the specific delivered bytes.</p></section>
 <section class="section"><h2>Supplemental raster-derived variant (not this guide’s primary file)</h2><p>The repository also preserves <strong>H41-A-R</strong>, a distinct raster-input implementation from PR #8. It is separate from the main source-vector H41-A above. H41-A-R has no eligible support in {ALT_UNSUPPORTED_FOLDS}/4 held-out interiors; its candidate DTI is null/unevaluable and its slot gate is closed. <a href="h41a-raster-variant.html">Review its evidence</a> or <a href="{ALT_DOWNLOAD}" download>download that research GeoTIFF</a>. Those two H41 candidates remain not-to-submit: their arms measured 0.0 on the same holdout that the H42 file above passes. Only the H42 file at the top of this page is slot-eligible.</p></section></div>'''
-(DOCS/'executive-summary.html').write_text(page('Executive summary & submission',executive+h41i_panel()))
+(DOCS/'executive-summary.html').write_text(page('Executive summary & submission',executive+h43_exec()+h41i_panel()))
 
 foldrows=[[f['fold'],f['anchor_parts'],f['corridors'],f"{f['prediction_mass']:.8f}",f"{f['metrics']['candidate']['dti']:.6e}",f"{f['metrics']['geometry_only']['dti']:.6e}"] for f in CV['folds']]
 research=f'''<div class="prose"><span class="eyebrow">RESEARCH NOTE / H42</span><h1>A structural hypothesis.<br>Not a score promise.</h1><p class="lead">The target is missing geological faults indicative of geothermal resources—not verified geothermal vents, reservoirs, or drill-ready prospects.</p>
 <section class="section notice" id="id-namespaces"><h2>H41 labels are scoped by workstream</h2><p>The source-vector transfer, parallel registry, and local-strike transport records reuse H41 labels for different physical ideas. For example, transfer/H41-E is the failed slip-sense screen, parallel-registry/H41-E is a temperature-axis proposal, and local-strike/H41-I is distinct from parallel-registry/H41-I thermal conjunction. Never compare by letter alone; <a href="{REPO}/blob/main/research/hypothesis-id-registry.md">read the ID map</a>.</p></section>
+{h43_section()}
 {H42_SECTION}
 {BL_SECTION}
 <section class="section" id="h33-score-audit"><h2>H33 score attribution and dated public leaderboard snapshot</h2><p><strong>Historical observation only (2026-10-05 UTC):</strong> the public page showed 0.3262 at rank 1, 0.3195 at rank 4, and 0.2778 at rank 13 for participant <code>extradr19</code>. Those are participant rows, not file receipts. Current standings are unknown; this project does not monitor the leaderboard.</p>{HISTORICAL_TABLE}<p>The supplied experiment list reports the H33-2-B2 filename at 0.2778, but no organizer receipt links that filename or its hash to the rank-13 participant. GEMSDOE32’s own page labels its H33 artifact <code>UNSCORED</code>. The filename-to-score mapping remains user-reported, not authenticated. <a href="{REPO}/blob/main/research/h33-score-analysis.md">Read the full source and attribution audit ↗</a> · <a href="{LEADER}">Official page, for reference ↗</a> · <a href="https://www.drivendata.org/termsofuse/">Terms of Use ↗</a></p><p><strong>Why a 0.2778 result is plausible:</strong> GEMSDOE32 H33-2-B2 contains 37,654 binary dots; its owner-authored method removes 2,545 pixels (6.33%) within 200 m of the catalogue from a 40,199-dot base reported at 0.2708. This is post-hoc sparsification of an existing detector, not a new geological detector. The official metric rewards maximum kernel-weighted prediction at truth pixels; nearby redundant dots may add false-positive mass without adding coverage, so pruning can improve a proxy ratio, while also deleting predictions for real adjacent faults.</p><p><strong>Can we score higher?</strong> Possibly, but neither the owner-reported H33 score mapping nor this experiment establishes that we can. The 17.4% numerical gap between the 0.2778 filename claim and the 0.3262 rank-1 public row in the dated snapshot is not an authenticated model improvement, and neither value is current. Hidden labels, a filename receipt, and clean historical-best OOF predictions are unavailable.</p></section>
