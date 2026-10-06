@@ -261,9 +261,14 @@ def test_the_slot_eligible_download_is_above_every_archived_build():
     import json
     manifest = json.loads((ROOT / "docs/downloads/manifest.json").read_text())
     assert manifest["slot_eligible"] is True
-    for name in ("index.html", "executive-summary.html", "research.html"):
+    # research.html summarises the surface rather than linking the TIF, so it is anchored on its
+    # own H42 heading; the two download pages are anchored on the published filename.
+    anchors = {"index.html": manifest["filename"],
+               "executive-summary.html": manifest["filename"],
+               "research.html": "Basin-margin packing"}
+    for name, anchor in anchors.items():
         text = (ROOT / "docs" / name).read_text()
-        live = text.index(manifest["filename"])
+        live = text.index(anchor)
         archived = text.index("h41i-local-strike")
         assert live < archived, f"{name}: the archived H41-I panel precedes the live download"
         banner = text.index("Earlier build (H41-I) — not the file to submit.")
