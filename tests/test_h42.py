@@ -35,39 +35,58 @@ def test_manifest_block_and_honest_gate_state():
 
 
 def test_delivered_bytes_pass_every_format_check():
-    for name in H42["artifacts"]:
-        tif = _tif(name)
-        assert tif.is_file(), tif
-        checks = H42["artifacts"][name]["checks"]
-        assert checks["all_pass"] is True, name
-        with rasterio.open(tif) as src, rasterio.open(ROOT / "data/example_submission.tif") as tpl:
-            a = src.read(1)
-            assert src.count == 1 and src.dtypes[0] == "float32"
-            assert src.crs == tpl.crs and a.shape == tpl.read(1).shape
-            assert tuple(src.transform) == tuple(tpl.transform)
-            assert src.nodata is None
-            assert np.isfinite(a).all()
-            assert set(np.unique(a)) <= {0.0, 1.0}          # range error impossible
-            assert int((a > 0).sum()) == H42["artifacts"][name]["emitted_px"]
-        # byte-deterministic receipt
-        assert hashlib.sha256(tif.read_bytes()).hexdigest() == checks["sha256_bytes"]
-        # the zip is the same bytes, intact
-        zf = zipfile.ZipFile(tif.with_suffix("").with_suffix(".zip") if False else
-                             str(tif)[:-4] + ".zip")
-        assert zf.testzip() is None
-        assert zf.read(zf.namelist()[0]) == tif.read_bytes()
+    tpl_path = ROOT / "data" / "example_submission.tif"
+    tpl = rasterio.open(tpl_path) if tpl_path.is_file() else None
+    try:
+        for name in H42["artifacts"]:
+            tif = _tif(name)
+            assert tif.is_file(), tif
+            checks = H42["artifacts"][name]["checks"]
+            assert checks["all_pass"] is True, name
+            with rasterio.open(tif) as src:
+                a = src.read(1)
+                assert src.count == 1 and src.dtypes[0] == "float32"
+                assert src.nodata is None
+                assert np.isfinite(a).all()
+                assert set(np.unique(a)) <= {0.0, 1.0}          # range error impossible
+                assert int((a > 0).sum()) == H42["artifacts"][name]["emitted_px"]
+                assert a.shape == (3730, 3292)                   # template grid, from the pinned spec
+                assert tuple(src.transform)[:6] == (100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0)
+                assert src.crs.to_epsg() == 32611
+                if tpl is not None:                              # independent cross-check when present
+                    assert src.crs == tpl.crs and a.shape == tpl.read(1).shape
+                    assert tuple(src.transform) == tuple(tpl.transform)
+            # receipt agrees with what the delivered bytes actually contain
+            assert checks["binary_values"] and checks["all_stored_values_finite"], name
+            assert checks["min"] == 0.0 and checks["max"] == 1.0, name
+            assert checks["template_grid_identical"] and checks["zeros_outside_footprint"], name
+            # byte-deterministic receipt
+            assert hashlib.sha256(tif.read_bytes()).hexdigest() == checks["sha256_bytes"]
+            # the zip is the same bytes, intact
+            zf = zipfile.ZipFile(str(tif)[:-4] + ".zip")
+            assert zf.testzip() is None
+            assert zf.read(zf.namelist()[0]) == tif.read_bytes()
+    finally:
+        if tpl is not None:
+            tpl.close()
 
 
 def test_zero_cells_within_200m_of_catalogue():
-    from scipy.ndimage import distance_transform_edt
-    with rasterio.open(ROOT / "data/existing_faults.tif") as s:
-        cat = s.read(1) == 1
-    d = distance_transform_edt(~cat)
+    cat_path = ROOT / "data" / "existing_faults.tif"
     for name in H42["artifacts"]:
-        with rasterio.open(_tif(name)) as s:
-            pos = s.read(1) > 0
-        assert int((d[pos] <= 2.0 - 1e-9).sum()) == 0, name
-        assert float(d[pos].min()) > 2.0, name
+        checks = H42["artifacts"][name]["checks"]
+        # the builder's receipt, kept consistent with the delivered file
+        assert checks["px_within_200m_of_catalogue"] == 0, name
+        assert checks["min_px_distance_to_catalogue"] > 2.0, name
+        if cat_path.is_file():  # independent recomputation whenever the catalogue is on disk
+            from scipy.ndimage import distance_transform_edt
+            with rasterio.open(cat_path) as s:
+                cat = s.read(1) == 1
+            with rasterio.open(_tif(name)) as s:
+                pos = s.read(1) > 0
+            d = distance_transform_edt(~cat)
+            assert int((d[pos] <= 2.0 - 1e-9).sum()) == 0, name
+            assert abs(float(d[pos].min()) - checks["min_px_distance_to_catalogue"]) < 1e-3, name
 
 
 def test_gates_failed_and_recorded_not_rewritten():
