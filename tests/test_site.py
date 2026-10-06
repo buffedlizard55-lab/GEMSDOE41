@@ -131,5 +131,5 @@ def test_rendered_pages_disclose_restriction_and_historical_snapshot():
     assert 'id="h33-score-audit"' in research
     assert "Current standings are unknown" in research
     assert "0.3195" in research and "0.3262" in research
-    assert "no current score is claimed" in sources.lower()
+    assert "current standings are unknown" in sources.lower()
     assert "0.3262" in sources
