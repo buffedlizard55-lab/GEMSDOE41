@@ -1,0 +1,56 @@
+{
+ "design": "fraction of off-catalogue marker pixels within 300 m of the candidate support vs 500 deterministic stratified random matched-mass supports on the same allowed domain; pass = enrichment >= 1.2 and p < 0.05 on at least one marker",
+ "markers": {
+  "thermal_2m_probes": "GDR 1391 2 m temperature probes (CC BY 4.0), sibling-derived 100 m layer, sha-verified",
+  "rupture_2020_envelope": "USGS ComCat 2020 M>=4.6 sequence envelope (evidence/seismicity_corridor.npz, this repo)"
+ },
+ "results": {
+  "h42b-junction-lattice-37k": {
+   "mass": 33144,
+   "markers": {
+    "thermal_2m_probes": {
+     "n_marker_px": 2467,
+     "observed_fraction_within_3px": 0.10418,
+     "null_mean": 0.17639,
+     "null_p95": 0.19297,
+     "enrichment": 0.591,
+     "p_value": 1.0,
+     "passes": false
+    },
+    "rupture_2020_envelope": {
+     "n_marker_px": 9310,
+     "observed_fraction_within_3px": 0.16155,
+     "null_mean": 0.18046,
+     "null_p95": 0.20657,
+     "enrichment": 0.895,
+     "p_value": 0.8942115768463074,
+     "passes": false
+    }
+   }
+  },
+  "h42d-statemap-lattice-37k": {
+   "mass": 22061,
+   "markers": {
+    "thermal_2m_probes": {
+     "n_marker_px": 2467,
+     "observed_fraction_within_3px": 0.03567,
+     "null_mean": 0.12145,
+     "null_p95": 0.13701,
+     "enrichment": 0.294,
+     "p_value": 1.0,
+     "passes": false
+    },
+    "rupture_2020_envelope": {
+     "n_marker_px": 9310,
+     "observed_fraction_within_3px": 0.05564,
+     "null_mean": 0.12281,
+     "null_p95": 0.14437,
+     "enrichment": 0.453,
+     "p_value": 1.0,
+     "passes": false
+    }
+   }
+  }
+ },
+ "gate_passed_any": false
+}

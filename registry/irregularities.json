@@ -1,6 +1,6 @@
 {
  "session": "GEMSDOE41 / arena/1ac0a279-gemsdoe41",
- "verified_utc": "2026-10-05T23:50:00Z",
+ "verified_utc": "2026-10-06T08:30:00Z",
  "method": "Every entry below was produced by a command run in this session and is reproducible from the scripts named. Nothing here is an inference presented as a fact; where a statement is a model it is tagged [MODEL].",
  "review_required": true,
  "entries": [
@@ -13,7 +13,7 @@
    "action_requested": "A human must decide, before this branch is merged, whether to (a) merge into the fork's `main` only, (b) detach from the fork and push to a standalone repository, or (c) keep it local. This session's merge commits to the fork's `main` and touches nothing upstream.",
    "evidence": "GitHub repository API for buffedlizard55-lab/GEMSDOE41, read 2026-10-05",
    "raised_by": "user, twice",
-   "status": "OPEN — awaiting human decision"
+   "status": "OPEN \u2014 awaiting human decision"
   },
   {
    "id": "IRR-02",
@@ -23,7 +23,7 @@
    "why_it_matters": "Any claim about 'beating the best' must be measured against 0.3262, not 0.3195. Treating 0.3195 as the bar understates the target by 0.0067. All arithmetic in this repository uses 0.3262.",
    "evidence": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
    "raised_by": "independent read; note the brief's number is not wrong, only older",
-   "status": "ACKNOWLEDGED — corrected in all artifacts"
+   "status": "ACKNOWLEDGED \u2014 corrected in all artifacts"
   },
   {
    "id": "IRR-03",
@@ -32,25 +32,25 @@
    "fact": "The sibling project GEMSDOE32 declares its shipped `h19-5-smoothmaxcov-44090.tif` defective, and the reference-solution family nonetheless treats a 44,090 px artifact as the incumbent support. The published 0.2600 / 0.2778 scores are attached to artifacts in that lineage.",
    "why_it_matters": "If the base artifact is defective then the mass-to-score relationship was measured on a defective base, and conclusions drawn from that lineage (including 'thinning always helps') inherit the defect. This session therefore measures mass behaviour directly on the strand-level holdout instead of extrapolating from the leaderboard lineage.",
    "evidence": "evidence/data_manifest.json and the sibling GEMSDOE32 notes; the defect is asserted by that project, not independently re-verified here",
-   "status": "FLAGGED — mitigated by measuring the mass response in-house"
+   "status": "FLAGGED \u2014 mitigated by measuring the mass response in-house"
   },
   {
    "id": "IRR-04",
    "severity": "high",
    "title": "The public leaderboard has been won by REMOVAL, not by prediction",
    "fact": "The competition metric is 1/DTI. Writing DTI = 0.2 + 0.2*(FP_w/TP_w) + 0.8*(|G|/TP_w), every emitted pixel contributes exactly 0.2 to the denominator. Pixels within 200 m of the published fault catalogue are masked out of scoring in both rounds (forum post 11516), so they can be deleted at zero cost to true positives: deleting them lowers the denominator and cannot create a false positive.",
-   "why_it_matters": "`h33-h33-2-b2`, the 0.2778 artifact, is the 0.2600 emission minus every dot within 200 m of the published catalogue. Its gain is arithmetic removal, not a better model of where hidden faults are. A leaderboard can therefore be climbed, to a point, without any structural insight — which is exactly why the leaderboard's top is a weak proxy for the hypothesis the prize is asking about, and why this session's headline evidence is a holdout measurement rather than a score.",
+   "why_it_matters": "`h33-h33-2-b2`, the 0.2778 artifact, is the 0.2600 emission minus every dot within 200 m of the published catalogue. Its gain is arithmetic removal, not a better model of where hidden faults are. A leaderboard can therefore be climbed, to a point, without any structural insight \u2014 which is exactly why the leaderboard's top is a weak proxy for the hypothesis the prize is asking about, and why this session's headline evidence is a holdout measurement rather than a score.",
    "evidence": "evidence/submission_build.json arithmetic; forum thread 11516",
-   "status": "FLAGGED — this is a solvable-competition artifact, and the reason this repository reports an independent test"
+   "status": "FLAGGED \u2014 this is a solvable-competition artifact, and the reason this repository reports an independent test"
   },
   {
    "id": "IRR-05",
    "severity": "high",
    "title": "The transfer-corridor hypothesis FAILED three independent tests (honest negative)",
-   "fact": "(1) Corridor-only emission scores 0.0000 on the strand-level holdout, in 4 of 4 folds and at all 6 settings — reproduced independently by a parallel session. (2) On the 2020 USGS catalogue, 16 events M>=4.0 lie 7.07 to 83.19 px from every mapped fault (0 within 300 m, 11 beyond 3 km). (3) Against 27,092 INGENIOUS well records, the transfer elements are DEPLETED for hot sites (enrichment 0.34x, p=1.0) while the published catalogue is enriched 2.15x at p=0.016 — so the test has power and the corridor fails it.",
+   "fact": "(1) Corridor-only emission scores 0.0000 on the strand-level holdout, in 4 of 4 folds and at all 6 settings \u2014 reproduced independently by a parallel session. (2) On the 2020 USGS catalogue, 16 events M>=4.0 lie 7.07 to 83.19 px from every mapped fault (0 within 300 m, 11 beyond 3 km). (3) Against 27,092 INGENIOUS well records, the transfer elements are DEPLETED for hot sites (enrichment 0.34x, p=1.0) while the published catalogue is enriched 2.15x at p=0.016 \u2014 so the test has power and the corridor fails it.",
    "why_it_matters": "This is published as a negative result, not buried. The corridor is where the catalogue is NOT; a hypothesis that is true of the region's geology is not thereby true of the hidden set. Reporting it is the point of the irregularities page.",
    "evidence": "evidence/holdout.json, evidence/seismicity.json, evidence/site_control.json; scripts/run_site_control.py, scripts/run_seismicity.py",
-   "status": "NEGATIVE RESULT — recorded, and the hypothesis is not shipped"
+   "status": "NEGATIVE RESULT \u2014 recorded, and the hypothesis is not shipped"
   },
   {
    "id": "IRR-06",
@@ -59,7 +59,7 @@
    "fact": "The first publication of `run_seismicity.py` reported a corridor of 0 pixels, then 12,279,160 pixels (a metres-in-pixels unit confusion), then 190,382 px (scatter matrix not normalised by n). The released version measures the minor-axis sigma as a covariance in metres (1,919.5 m) and gives 11,992 px with 11,965 px off-catalogue.",
    "why_it_matters": "Two wrong intermediate artifacts existed on disk. Anyone reading a cached copy could have carried the error forward. The check that caught it is the footprint-relative area: a corridor covering 94 % of the footprint cannot be a corridor.",
    "evidence": "evidence/seismicity.json, `corridor.half_width_px` and `minor_axis_sigma_m`",
-   "status": "FIXED — published artifact is the corrected one"
+   "status": "FIXED \u2014 published artifact is the corrected one"
   },
   {
    "id": "IRR-07",
@@ -68,7 +68,7 @@
    "fact": "Rebuilt at the same 2.83 px spacing with the same B=2 catalogue prune, the kinematic ranking shares 94.1 % of its pixels with an uninformative uniform control at 32,151 px. The measured advantage is 1.52x at 2,500 px, 1.30x at 5,000, 1.25x at 20,000 and 1.006x at 30,000 px.",
    "why_it_matters": "An artifact built at the family's 37,654 px mass would have looked like a test of this hypothesis while testing almost nothing. The primary artifact was therefore moved to a 20,000 px mass, where the measured ratio is 1.25x, and the dense twin is shipped alongside as its own control.",
    "evidence": "evidence/mass_ladder.json, evidence/submission_build.json `matched_mass_control`",
-   "status": "ADDRESSED — primary artifact chosen at a mass where the criterion is measurably active"
+   "status": "ADDRESSED \u2014 primary artifact chosen at a mass where the criterion is measurably active"
   },
   {
    "id": "IRR-08",
@@ -77,7 +77,7 @@
    "fact": "The sandbox's own network egress cannot reach drivendata.org, usgs.gov or gdr.openei.org by command line; those reads required an external page-fetch tool. Every leaderboard number in this repository is therefore a dated snapshot, not a live reading.",
    "why_it_matters": "A score cited as current may have moved. All such numbers are labelled with their read date.",
    "evidence": "network probes recorded in the session; registry/score_ledger.csv carries the snapshot date",
-   "status": "ACKNOWLEDGED — all such figures are date-stamped"
+   "status": "ACKNOWLEDGED \u2014 all such figures are date-stamped"
   },
   {
    "id": "IRR-09",
@@ -86,7 +86,47 @@
    "fact": "K_HIDDEN_PX = 13,000 is inferred from an owner-reported score on a hidden set, spanning 12,691 to 15,200 px depending on which member of a three-artifact trio is used.",
    "why_it_matters": "Projected scores in this repository are conditional on that constant and are never presented as measurements. Only ratios between two rankers measured on the identical holdout are instrument-internal and therefore comparable across artifacts.",
    "evidence": "evidence/mass_ladder.json `K_hidden_px_model`, evidence/submission_build.json `projection.caveat`",
-   "status": "ACKNOWLEDGED — every projection is tagged [MODEL]"
+   "status": "ACKNOWLEDGED \u2014 every projection is tagged [MODEL]"
+  },
+  {
+   "id": "IRR-10",
+   "severity": "high",
+   "title": "`existing_faults.tif` is byte-identical to the label raster in the pinned mirrors (label-provenance trap)",
+   "fact": "SHA-256 equality (7ba308cc...) between data/existing_faults.tif and the training labels mirror was verified 2026-10-06; sample_submission.tif contains 60,988 ones coincident with label pixels despite 'total fault absence' wording. Either round-1 training labels equal the public catalogue or the mirrors carry an alias.",
+   "why_it_matters": "Any 'expert-holdout' scored against pixels that are themselves catalogue members, with predictions derived from the same catalogue, is self-referential. This forced the H42-HO design (truth = SGMC residual only, 3 px isolation guard, retained-geometry excluded) and is also why docs/downloads/holdout.json (older H33-lineage instrument) and evidence/h42_holdout.json numbers must NEVER be compared to each other.",
+   "action_requested": "Organizer-level confirmation of what existing_faults.tif is. No pipeline change: format/grid usage is unaffected.",
+   "evidence": "research/hypotheses-h42.md Part 6 (its items were renumbered IRR-10..12 here because the registry already had an IRR-09); verified by sha256sum in-session",
+   "status": "recorded; awaiting external confirmation"
+  },
+  {
+   "id": "IRR-11",
+   "severity": "medium",
+   "title": "External USGS/GDR endpoints unreachable from the sandbox; all external data came via the GitHub mirror path",
+   "fact": "mrdata.usgs.gov, gdr.openei.org and other USGS endpoints returned HTTP 000 from this environment (measured 2026-10-06). SGMC and thermal-probe rasters were fetched from the sibling project's CI-derived repo mirrors via `gh api` and digest-checked against the sibling's own receipts.",
+   "why_it_matters": "Digest equality proves mirror integrity, not organizer authentication of the upstream USGS bytes. The repo's independent 300 m burn matched the sibling receipt exactly (82,151 px footprint; 61,664 off-catalogue >300 m), which cross-validates the mirror but not the USGS publication chain.",
+   "action_requested": "When network access exists, re-download NV.zip/CA.zip from mrdata.usgs.gov and compare shas (3b333ac0.../78765ba4...) before trusting the SGMC prior further.",
+   "evidence": "evidence/h42_source_audit.json; registry/sources.json sgmc-official entry",
+   "status": "open (environment limitation)"
+  },
+  {
+   "id": "IRR-12",
+   "severity": "medium",
+   "title": "Sibling `sgmc-off-catalogue-44k` (GEMSDOE29) has no recorded score - idea possibly uploaded, never scored",
+   "fact": "The owner-reported score ledger lists sgmc-off-catalogue-44k with a blank score. No claim is made that the SGMC idea is leaderboard-untried; the claim is limited to: this construction (bimodal orientation-ranked lattice + corroboration gate + H42-HO validation) does not exist on any audited site.",
+   "why_it_matters": "Uniqueness and 'new idea' framing must stay narrow: our H42-D artifact's support overlaps the idea-class (44k vs 22,061 px, different ranking and pruning) though not any shipped raster (max Jaccard 0.0118).",
+   "action_requested": "Owner to check the GEMSDOE29 submissions page manually; repo does not and will not poll DrivenData.",
+   "evidence": "score_ledger.csv row GEMSDOE29/sgmc-off-catalogue-44k; evidence/h42_uniqueness.json",
+   "status": "unresolved"
+  },
+  {
+   "id": "IRR-13",
+   "severity": "medium",
+   "title": "Mirror set missing anchor_02600_zeros.tif; scripts/build_final.py cannot be rerun end-to-end",
+   "fact": "The sibling mirror integrity receipt on this repo's main reports INTEGRITY_OK: false because anchor_02600_zeros.tif is absent. build_final.py consumes that anchor.",
+   "why_it_matters": "The H41-era artifacts remain valid dated receipts, but they cannot be regenerated by their own builder from this checkout. H42 was built by scripts/run_h42.py, which is fully rerunnable from pinned inputs (verified twice: identical pixel hashes across runs).",
+   "action_requested": "Do not attempt to 'fix' build_final by substitution. If the anchor is needed, refetch it from the sibling repo path or declare the H41 artifacts immutable history.",
+   "evidence": "docs/downloads/manifest.json (top-level H41 keys), research/hypotheses-h42.md Part 2 footnote",
+   "status": "recorded; do not rerun build_final.py"
   }
  ]
 }

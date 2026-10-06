@@ -1,45 +1,367 @@
 {
-  "filename": "gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
-  "submission_name": "GEMS41-WalkerTransfer-1616b7de764c",
-  "note": "H41-A NW-tip to N/NNE transfer + topographic strike agreement; >200m off catalogue; fresh geometry-only field; holdout gate CLOSED; unscored.",
-  "slot_eligible": false,
-  "format": {
-    "file": "/home/user/GEMSDOE41/docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
-    "sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
-    "array_sha256": "1616b7de764cb328906172ccdfef4c9685971bfd1cde32fb1b29816281d4ee5f",
-    "shape": [
-      3730,
-      3292
-    ],
-    "crs": "EPSG:32611",
-    "transform": [
-      100.0,
-      0.0,
-      243350.0,
-      0.0,
-      -100.0,
-      4508550.0,
-      0.0,
-      0.0,
-      1.0
-    ],
-    "bands": 1,
-    "dtype": "float32",
-    "min": 0.0,
-    "max": 0.9019997119903564,
-    "positive_pixels": 150421,
-    "prediction_mass": 6744.914895294071,
-    "finite_cells": 12279160,
-    "footprint_cells": 5167373,
-    "nodata": null,
-    "internal_mask": true,
-    "all_checks_passed": true
+ "filename": "gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
+ "submission_name": "GEMS41-WalkerTransfer-1616b7de764c",
+ "note": "H41-A NW-tip to N/NNE transfer + topographic strike agreement; >200m off catalogue; fresh geometry-only field; holdout gate CLOSED; unscored.",
+ "slot_eligible": false,
+ "format": {
+  "file": "/home/user/GEMSDOE41/docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
+  "sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+  "array_sha256": "1616b7de764cb328906172ccdfef4c9685971bfd1cde32fb1b29816281d4ee5f",
+  "shape": [
+   3730,
+   3292
+  ],
+  "crs": "EPSG:32611",
+  "transform": [
+   100.0,
+   0.0,
+   243350.0,
+   0.0,
+   -100.0,
+   4508550.0,
+   0.0,
+   0.0,
+   1.0
+  ],
+  "bands": 1,
+  "dtype": "float32",
+  "min": 0.0,
+  "max": 0.9019997119903564,
+  "positive_pixels": 150421,
+  "prediction_mass": 6744.914895294071,
+  "finite_cells": 12279160,
+  "footprint_cells": 5167373,
+  "nodata": null,
+  "internal_mask": true,
+  "all_checks_passed": true
+ },
+ "holdout_means": {
+  "candidate": 0.0,
+  "geometry_only": 0.0,
+  "catalogue_density": 3.5772174122297084e-09,
+  "topography_only": 1.2841899450254897e-09,
+  "historical_h33_CONTAMINATED": 0.006521182788331218
+ },
+ "h42": {
+  "created_utc": "2026-10-06T01:57:11Z",
+  "preregistration": "research/hypotheses-h42.md",
+  "primary": "h42b-junction-lattice-37k",
+  "artifacts": {
+   "h42b-junction-lattice-37k": {
+    "tracking_name": "GEMSDOE41-H42B-BIMODAL-JUNCTION-LATTICE-37K",
+    "checks": {
+     "driver_gtiff": true,
+     "single_band": true,
+     "dtype_float32": true,
+     "crs_epsg32611": true,
+     "width": true,
+     "height": true,
+     "res_100m": true,
+     "transform_matches": true,
+     "nodata_none": true,
+     "all_stored_values_finite": true,
+     "values_in_0_1": true,
+     "no_nan_anywhere": true,
+     "positive_pixels": 33144,
+     "min": 0.0,
+     "max": 1.0,
+     "binary_values": true,
+     "zeros_outside_footprint": true,
+     "emission_inside_footprint_only": true,
+     "template_grid_identical": true,
+     "px_within_200m_of_catalogue": 0,
+     "min_px_distance_to_catalogue": 2.2361,
+     "sha256_bytes": "7e93956c934f0937341b930022b7e222c60a8fa9f7b5999da145f817810a523f",
+     "sha256_pixels": "ee5667cdc1c6b5c2b5808952792c8cdf68809a7659335768fc229b9e627760ae",
+     "bytes": 123247,
+     "path": "/home/user/GEMSDOE41/scripts/../docs/downloads/gemsdoe41-h42b-junction-lattice-37k-20261006T015420Z.tif",
+     "all_pass": true,
+     "zip_path": "/home/user/GEMSDOE41/scripts/../docs/downloads/gemsdoe41-h42b-junction-lattice-37k-20261006T015420Z.zip",
+     "zip_bytes": 80214
+    },
+    "emitted_px": 33144,
+    "requested_budget": 37654,
+    "support_shortfall": 4510,
+    "junction_audit": {
+     "junction_concentration": {
+      "n": 33144,
+      "frac_within_3px_of_corridor": 1.0,
+      "frac_inside_pop_a": 0.0443,
+      "frac_inside_pop_b": 0.0118,
+      "frac_in_neither_population": 0.9442
+     },
+     "frac_emission_beyond_200m_of_reference": 1.0,
+     "min_px_to_reference": 2.2361,
+     "reference": "published_catalogue"
+    },
+    "junction_audit_residual_geometry": {
+     "junction_concentration": {
+      "n": 33144,
+      "frac_within_3px_of_corridor": 0.1969,
+      "frac_inside_pop_a": 0.0112,
+      "frac_inside_pop_b": 0.0071,
+      "frac_in_neither_population": 0.9817
+     },
+     "frac_emission_beyond_200m_of_reference": 0.941347,
+     "min_px_to_reference": 0.0,
+     "reference": "state_map_residual"
+    },
+    "composition": {
+     "on_residual": 442,
+     "near_corridor_3px": 33144
+    },
+    "projection": {
+     "metric": "[MODEL] DTI = c/(0.2 + 0.8*K/S), K = 13000 px; c is an H42-HO ladder-mean measurement against withheld STATE-MAP traces with a 3 px isolation guard \u2014 a line-anchored prior is structurally near-zero on this instrument (see research/hypotheses-h42.md Part 5), so a projection near zero here is NOT a live-score estimate in either direction",
+     "arm": "h42b_junction_prior",
+     "mean_credit_per_mass": 0.00016173342351075845,
+     "projected_at_shipped_mass": 0.00031478980250167817,
+     "caveat": "projection depends on an owner-inferred hidden-set size; never a score promise"
+    }
+   },
+   "h42d-statemap-lattice-37k": {
+    "tracking_name": "GEMSDOE41-H42D-STATEMAP-RESIDUAL-LATTICE-37K",
+    "checks": {
+     "driver_gtiff": true,
+     "single_band": true,
+     "dtype_float32": true,
+     "crs_epsg32611": true,
+     "width": true,
+     "height": true,
+     "res_100m": true,
+     "transform_matches": true,
+     "nodata_none": true,
+     "all_stored_values_finite": true,
+     "values_in_0_1": true,
+     "no_nan_anywhere": true,
+     "positive_pixels": 22061,
+     "min": 0.0,
+     "max": 1.0,
+     "binary_values": true,
+     "zeros_outside_footprint": true,
+     "emission_inside_footprint_only": true,
+     "template_grid_identical": true,
+     "px_within_200m_of_catalogue": 0,
+     "min_px_distance_to_catalogue": 2.2361,
+     "sha256_bytes": "8729eaf846ad20fb5d175e0c7a25b7dab8bea7e1ba5c37bb4b6e24199acc637a",
+     "sha256_pixels": "25fc92e9a31702817f2c835bf8b8e621739e030b7c5f036d654f7a1d967e16f4",
+     "bytes": 110527,
+     "path": "/home/user/GEMSDOE41/scripts/../docs/downloads/gemsdoe41-h42d-statemap-lattice-37k-20261006T015420Z.tif",
+     "all_pass": true,
+     "zip_path": "/home/user/GEMSDOE41/scripts/../docs/downloads/gemsdoe41-h42d-statemap-lattice-37k-20261006T015420Z.zip",
+     "zip_bytes": 70417
+    },
+    "emitted_px": 22061,
+    "requested_budget": 37654,
+    "support_shortfall": 15593,
+    "junction_audit": {
+     "junction_concentration": {
+      "n": 22061,
+      "frac_within_3px_of_corridor": 0.1051,
+      "frac_inside_pop_a": 0.0943,
+      "frac_inside_pop_b": 0.1618,
+      "frac_in_neither_population": 0.7448
+     },
+     "frac_emission_beyond_200m_of_reference": 1.0,
+     "min_px_to_reference": 2.2361,
+     "reference": "published_catalogue"
+    },
+    "junction_audit_residual_geometry": {
+     "junction_concentration": {
+      "n": 22061,
+      "frac_within_3px_of_corridor": 0.3504,
+      "frac_inside_pop_a": 0.0911,
+      "frac_inside_pop_b": 0.153,
+      "frac_in_neither_population": 0.7564
+     },
+     "frac_emission_beyond_200m_of_reference": 0.0,
+     "min_px_to_reference": 0.0,
+     "reference": "state_map_residual"
+    },
+    "composition": {
+     "on_residual": 18618,
+     "near_corridor_3px": 2319
+    },
+    "projection": {
+     "metric": "[MODEL] DTI = c/(0.2 + 0.8*K/S), K = 13000 px; c is an H42-HO ladder-mean measurement against withheld STATE-MAP traces with a 3 px isolation guard \u2014 a line-anchored prior is structurally near-zero on this instrument (see research/hypotheses-h42.md Part 5), so a projection near zero here is NOT a live-score estimate in either direction",
+     "arm": "h42d_state_prior",
+     "mean_credit_per_mass": 0.0,
+     "projected_at_shipped_mass": 0.0,
+     "caveat": "projection depends on an owner-inferred hidden-set size; never a score promise"
+    }
+   }
   },
-  "holdout_means": {
-    "candidate": 0.0,
-    "geometry_only": 0.0,
-    "catalogue_density": 3.5772174122297084e-09,
-    "topography_only": 1.2841899450254897e-09,
-    "historical_h33_CONTAMINATED": 0.006521182788331218
-  }
+  "projection": {
+   "per_arm": {
+    "h42b-junction-lattice-37k": {
+     "metric": "[MODEL] DTI = c/(0.2 + 0.8*K/S), K = 13000 px; c is an H42-HO ladder-mean measurement against withheld STATE-MAP traces with a 3 px isolation guard \u2014 a line-anchored prior is structurally near-zero on this instrument (see research/hypotheses-h42.md Part 5), so a projection near zero here is NOT a live-score estimate in either direction",
+     "arm": "h42b_junction_prior",
+     "mean_credit_per_mass": 0.00016173342351075845,
+     "projected_at_shipped_mass": 0.00031478980250167817,
+     "caveat": "projection depends on an owner-inferred hidden-set size; never a score promise"
+    },
+    "h42d-statemap-lattice-37k": {
+     "metric": "[MODEL] DTI = c/(0.2 + 0.8*K/S), K = 13000 px; c is an H42-HO ladder-mean measurement against withheld STATE-MAP traces with a 3 px isolation guard \u2014 a line-anchored prior is structurally near-zero on this instrument (see research/hypotheses-h42.md Part 5), so a projection near zero here is NOT a live-score estimate in either direction",
+     "arm": "h42d_state_prior",
+     "mean_credit_per_mass": 0.0,
+     "projected_at_shipped_mass": 0.0,
+     "caveat": "projection depends on an owner-inferred hidden-set size; never a score promise"
+    }
+   },
+   "winner_by_table_readout": "control_evidence",
+   "control_evidence_mean_cpm": 0.07913496814751761
+  },
+  "decisions": {
+   "holdout": false,
+   "holdout_winner_by_table": "control_evidence",
+   "holdout_arm_folds_pass": {
+    "h42d_state_prior": 0,
+    "h42b_junction_prior": 0
+   },
+   "enrichment": false,
+   "slot_recommendation": "no promotion: the preregistered holdout rule (arm a or b beats density/evidence/random in >=3 of 4 folds) failed on 0/4 folds and the label-free enrichment gate failed; the LiDAR scarp-evidence control tops the instrument (ladder-mean cpm 0.0791) \u2014 artifacts ship as labeled research only"
+  },
+  "input_digests": {
+   "data/existing_faults.tif": {
+    "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "match": true
+   },
+   "data/example_submission.tif": {
+    "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "match": true
+   },
+   "data/official/qfaults.zip": {
+    "sha256": "c7b091c9ac8bca140ad89ee6bb2bd63dd3ac12e3013acbfd8373d11c9faee59d",
+    "match": true
+   },
+   "data/lidar_scarp_features_u8.tif": {
+    "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568",
+    "match": true
+   },
+   "data/external_gems30/derived_sgmc_faults_100m_u8.tif": {
+    "sha256": "26d142c4c93282cd94f6950ab96f22aeff59fbbea523d43d662e76fa1b161b5c",
+    "match": true
+   },
+   "data/external_gems30/derived_gdr_2m_probes_100m_u8.tif": {
+    "sha256": "7ac3cfdf2412f7f8a8b82d928115888c510f106f0254fb0b3988448db2f3b6ec",
+    "match": true
+   }
+  },
+  "uniqueness_top": {
+   "h42b-junction-lattice-37k": {
+    "gems41-walker-transfer-v1-20261005-1616b7de764c.tif": {
+     "other_positive_px": 150421,
+     "shared_px": 5750,
+     "jaccard": 0.032337,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-20k-20261005T234500Z.tif": {
+     "other_positive_px": 20000,
+     "shared_px": 219,
+     "jaccard": 0.004138,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-20k-uninformative-control-20261005T234500Z.tif": {
+     "other_positive_px": 20000,
+     "shared_px": 88,
+     "jaccard": 0.001659,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-37k-20261005T234500Z.tif": {
+     "other_positive_px": 32151,
+     "shared_px": 339,
+     "jaccard": 0.005219,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-5k-20261005T234500Z.tif": {
+     "other_positive_px": 5000,
+     "shared_px": 100,
+     "jaccard": 0.002629,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-core-20261005T234500Z.tif": {
+     "other_positive_px": 20000,
+     "shared_px": 930,
+     "jaccard": 0.017811,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-rupture2020-union-20261005T234500Z.tif": {
+     "other_positive_px": 20528,
+     "shared_px": 230,
+     "jaccard": 0.004304,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif": {
+     "other_positive_px": 39793,
+     "shared_px": 478,
+     "jaccard": 0.006597,
+     "equal_arrays": false
+    },
+    "comparison-h33.tif": {
+     "other_positive_px": 37654,
+     "shared_px": 390,
+     "jaccard": 0.005539,
+     "equal_arrays": false
+    }
+   },
+   "h42d-statemap-lattice-37k": {
+    "gems41-walker-transfer-v1-20261005-1616b7de764c.tif": {
+     "other_positive_px": 150421,
+     "shared_px": 854,
+     "jaccard": 0.004976,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-20k-20261005T234500Z.tif": {
+     "other_positive_px": 20000,
+     "shared_px": 155,
+     "jaccard": 0.003699,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-20k-uninformative-control-20261005T234500Z.tif": {
+     "other_positive_px": 20000,
+     "shared_px": 159,
+     "jaccard": 0.003795,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-37k-20261005T234500Z.tif": {
+     "other_positive_px": 32151,
+     "shared_px": 266,
+     "jaccard": 0.004931,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-bimodal-thrift-5k-20261005T234500Z.tif": {
+     "other_positive_px": 5000,
+     "shared_px": 56,
+     "jaccard": 0.002074,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-core-20261005T234500Z.tif": {
+     "other_positive_px": 20000,
+     "shared_px": 491,
+     "jaccard": 0.011811,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41-rupture2020-union-20261005T234500Z.tif": {
+     "other_positive_px": 20528,
+     "shared_px": 160,
+     "jaccard": 0.003771,
+     "equal_arrays": false
+    },
+    "gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif": {
+     "other_positive_px": 39793,
+     "shared_px": 190,
+     "jaccard": 0.003081,
+     "equal_arrays": false
+    },
+    "comparison-h33.tif": {
+     "other_positive_px": 37654,
+     "shared_px": 306,
+     "jaccard": 0.005151,
+     "equal_arrays": false
+    }
+   }
+  },
+  "submission_name": "GEMSDOE41-H42B-BIMODAL-JUNCTION-LATTICE-37K",
+  "note": "H42 h42b-junction-lattice-37k: bimodal strike-classified lattice; >=200m off catalogue; 2.83px sep; 37,654 px; holdout FAIL / enrichment FAIL; gate CLOSED pending user slot decision",
+  "slot_eligible": false
+ }
 }

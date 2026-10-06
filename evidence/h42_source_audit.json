@@ -1,0 +1,30 @@
+{
+ "created_utc": "2026-10-06T01:52:53Z",
+ "state_map_residual": {
+  "layer": "/home/user/GEMSDOE41/scripts/../data/external_gems30/derived_sgmc_faults_100m_u8.tif",
+  "sha256": "26d142c4c93282cd94f6950ab96f22aeff59fbbea523d43d662e76fa1b161b5c",
+  "source_official": "https://mrdata.usgs.gov/geology/state/ (SGMC NV+CA, US public domain)",
+  "source_mirror_receipt": "evidence/gems30_external_receipt.json (sibling CI; sha verified locally)",
+  "sgmc_pixels_in_footprint": 82151,
+  "residual_pixels_gt_200m": 65673,
+  "residual_pixels_gt_300m": 61664,
+  "residual_components": 2480,
+  "provenance_class": "sibling-CI-derived from official public-domain source; checksum-pinned; not organizer-authenticated"
+ },
+ "h42a_falsification": {
+  "claim": "official INGENIOUS v2 vectors contain geometry missing from the public raster catalogue",
+  "result": "FALSIFIED",
+  "vector_pixels": 60982,
+  "catalogue_pixels": 60988,
+  "vector_px_gt_200m_from_catalogue": 2,
+  "vector_px_gt_300m_from_catalogue": 1,
+  "vector_px_gt_1km_from_catalogue": 0,
+  "catalogue_px_gt_300m_from_vectors": 0,
+  "reading": "the provided public catalogue is the v2 compilation rasterized; there is no official-vector residual to recall \u2014 hidden expert faults must come from OTHER sources"
+ },
+ "markers": {
+  "seismicity_corridor_px_off_catalogue": 9310,
+  "thermal_probe_px_in_footprint": 2700,
+  "thermal_probe_px_off_catalogue": 2467
+ }
+}

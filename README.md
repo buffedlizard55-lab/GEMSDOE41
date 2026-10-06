@@ -1,8 +1,14 @@
 # GEMSDOE41 — Walker Lane structural transfer
 
-**[Download the new GeoTIFF](docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
+**[Download the H42 candidate GeoTIFF](docs/downloads/gemsdoe41-h42b-junction-lattice-37k-20261006T015420Z.tif)** · [secondary artifact](docs/downloads/gemsdoe41-h42d-statemap-lattice-37k-20261006T015420Z.tif) · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
 
-**Research candidate, NOT cleared for a weekly submission.** This is a genuinely new structural-position prediction, not a renamed previous submission. All numerical cells are finite float32 in [0,1]; an internal mask marks the template's outside region as null. The strict blocked holdout failed to establish useful generalization. No competition slot was spent, and no leaderboard improvement is claimed.
+**Research candidate, NOT cleared for a weekly submission.** H42 is a genuinely new bimodal structural
+prediction — unique tracking name `GEMSDOE41-H42B-BIMODAL-JUNCTION-LATTICE-37K`, max Jaccard 0.0323
+against every shipped raster of this project family, byte-equality with any prior submission refused by
+construction. Every stored value is exactly `0.0` or `1.0` in single-band float32 on the template grid
+(the range-error class is impossible by construction), 0 cells within 200 m of the published catalogue.
+Both preregistered promotion gates failed on the blocked instrument, so no slot is recommended; the
+superseded H41-era candidate remains published as history.
 
 **Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
 
@@ -50,8 +56,22 @@ official archives the sandbox cannot download, the resolution floor of the mass 
 compliance question — are listed with what would unblock each one in
 [`docs/h41/index.html#remaining`](docs/h41/index.html).
 
+## Session 2026-10-06 — H42: bimodal junction lattice (latest work)
+
+Five hypotheses registered and ranked **before** implementation (`research/hypotheses-h42.md`, Parts 1–3),
+one falsified by direct receipt (H42-A: the official v2 vector archive IS the raster catalogue — 60,981
+of 60,982 burned px within 300 m), and the two buildable arms shipped after a frozen validation protocol
+(H42-HO: withheld SGMC residual traces, 4 folds, 3 px isolation guard, budget ladder, one documented
+pre-results amendment A1). Outcome, verbatim: **no promotion** — arms win 0/4 folds against the
+density/evidence/random controls, and the label-free enrichment gate fails (0.294–0.895× vs 500 stratified
+nulls, all p ≥ 0.89). The LiDAR scarp-evidence *control* tops the instrument (0.0791 cpm; random beats
+density), which is itself the session's most useful measurement and motivates the deferred H42-F. Both
+artifacts ship in `docs/downloads/` as labeled research with `checks.json` receipts; three independent
+builds were byte-identical. No submission slot spent. Registries mirror everything
+(`registry/hypotheses.json → h42_registration`, `registry/irregularities.json → IRR-10..13`).
+
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/hypotheses-h42.md` (incl. Parts 5–7), `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
@@ -62,7 +82,9 @@ bash scripts/download_competition_data.sh
 .venv/bin/python scripts/prepare_data.py
 .venv/bin/python -m pytest -q
 .venv/bin/python scripts/run_pipeline.py
+.venv/bin/python scripts/run_h42.py        # H42: ~10 min full run; --skip-holdout reuses the frozen receipt
 .venv/bin/python scripts/build_site.py
+.venv/bin/python scripts/build_docs.py
 ```
 
 GitHub CLI (`gh`) is used to restore checksum-pinned public owner mirrors because the sandbox cannot directly download their binary upstream resources. Core input rasters (~420 MB) remain ignored. The small official GDR vector archive (6.1 MB, CC BY 4.0) is preserved in `data/official/` after direct acquisition on GitHub Actions. See `data/README.md`. The H33 raster is downloaded **only for education and descriptive comparison**, never as a model input.
@@ -74,6 +96,7 @@ GitHub CLI (`gh`) is used to restore checksum-pinned public owner mirrors becaus
 - `docs/downloads/`: submission TIFF, per-trace classification, corridor geometry, machine-readable audits and manifest.
 - `docs/related-sites.json`: source audit of all 39 supplied related websites. Owner claims are not official score receipts.
 - `docs/source-feed.json`: timestamped health snapshot for permitted non-competition official sources. DrivenData leaderboard polling is disabled because its Terms of Use prohibit automated monitoring; its dated historical snapshot is not represented as current.
+- `src/gems41/h42.py` + `scripts/run_h42.py`: the frozen H42 arms, the H42-HO instrument, enrichment and uniqueness gates, artifact writer with re-open checks; digest-gated inputs (`--verify-inputs` receipts).
 - `research/experiments/h41e-kinematic-holdout.json`: preregistered H41-E kinematic-screen test on the unchanged spatial blocks; negative result, no new TIFF or slot.
 - `research/h33-score-analysis.md`: dated source audit of the reported H33 score, historical public leaderboard rows, and the unresolved participant-to-file attribution.
 

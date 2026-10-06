@@ -81,7 +81,9 @@
   "No candidate is shipped on an unvalidated claim; the primary download is chosen by measurement on the strand-level blocked holdout, not by preference.",
   "A candidate that cannot be tested without new external data is labelled with the exact free official source and its obtainability status, checked before the candidate is called viable.",
   "Every instrument is accompanied by a statement of what it cannot test. The blocked-recovery holdout's truth is faults already in the catalogue, so it cannot reward a genuinely new fault; it ranks emission geometry and field variants, nothing more.",
-  "No submission slot is spent on an idea that has not beaten the current holdout best on the instrument that is applicable to it."
+  "No submission slot is spent on an idea that has not beaten the current holdout best on the instrument that is applicable to it.",
+  "H42 addition: a holdout whose truth shares provenance with the candidate prior is self-referential; H42-HO scores only the SGMC residual minus retained-folds under a 3 px isolation guard (this is why line-anchored arms score exactly 0 there, and that 0 must be read as 'un-evaluable', not 'false').",
+  "H42 addition: after a preregistered gate fails, no arm, gate, or kernel may be re-tuned on the same instrument; amendment A1 was the single documented fix, made before its corrected results were seen."
  ],
  "remaining_work": [
   {
@@ -119,6 +121,42 @@
    "state": "OPEN - needs a human",
    "why": "This repository is a public fork of an organizers' repository.",
    "unblocks": "Nothing technical; it gates whether this work should live here at all."
+  },
+  {
+   "item": "H42-F: open-ground evidence x orientation lattice",
+   "state": "PROPOSED - explicitly not implemented; requires its own preregistration and an instrument that can score it",
+   "why": "The only field that beat random on H42-HO was the scarp-evidence control (0.0791 cpm). An open-domain lattice of evidence ridges x bimodal orientation, mass-capped at the live-validated band, is the next registered test -- never a build from these results without Part-1-style preregistration."
   }
- ]
+ ],
+ "h42_registration": {
+  "created_utc": "2026-10-06",
+  "preregistration": "research/hypotheses-h42.md (Parts 1-4 written before any H42-HO score was seen; amendment A1 recorded in Part 5 before the corrected run; outcome log in Part 7)",
+  "ranking_rule": "Ranked by expected DTI improvement x evidence, then cost: H42-D > H42-B > H42-C > H42-A(falsified by receipt) > H42-E(deferred).",
+  "registered_candidates": {
+   "H42-A": {
+    "title": "Official-vector residual recall",
+    "outcome": "FALSIFIED before any modeling: official INGENIOUS v2 burn = 60,982 px, 60,981 within 300 m of the raster catalogue; residual >200 m = 2 px. The provided catalogue IS the official v2 rasterization. Receipt: evidence/h42_source_audit.json. Closed for every future session."
+   },
+   "H42-B": {
+    "title": "Bimodal junction dot lattice (brief-compliant primary)",
+    "cost_at_registration": "low; all inputs local",
+    "outcome": "BUILT and shipped (docs/downloads/gemsdoe41-h42b-junction-lattice-37k-20261006T075812Z.tif, 33,144 px, checks all PASS, max Jaccard vs every shipped sibling raster 0.0323). H42-HO ladder-mean credit-per-mass 0.0002 vs controls {density 0.0110, evidence 0.0791, random 0.0259}; fixed rule arms-against-controls 0/4 folds -> HOLDOUT FAIL; enrichment 0.591x/0.895x p>=0.89 -> FAIL. No promotion; ships as labeled research."
+   },
+   "H42-C": {
+    "title": "Corroboration-intersection variant (diagnostic only)",
+    "outcome": "Registered as diagnostic; the max-composition was not separately promoted. The thermal/rupture channels entered the enrichment gate instead and both failed for H42-B and H42-D (0.294x-0.895x, p>=0.89)."
+   },
+   "H42-D": {
+    "title": "State-map (SGMC) residual fault lattice",
+    "cost_at_registration": "medium; data restored + verified this session",
+    "outcome": "BUILT and shipped (gemsdoe41-h42d-statemap-lattice-37k-20261006T075812Z.tif, 22,061 px, checks all PASS). Under the H42-HO isolation guard its ladder-mean credit-per-mass is 0.0000 -- structural, not noise: any prior anchored to already-mapped line geometry has zero support in the guarded scored domain (allowed pixels are >3 px from retained geometry), so this instrument CANNOT evaluate line-anchored ideas (prereg Part 5/A1). Enrichment 0.294x/0.453x p=1.0 -> FAIL. No promotion."
+   },
+   "H42-E": {
+    "title": "1 m bare-earth DEM LoG scarp edges",
+    "outcome": "Deferred at registration (per-tile acquisition exceeds session; footprint coverage unverified). Not attempted."
+   }
+  },
+  "instrument_finding": "The single most useful measured result: on open ground the LiDAR scarp-evidence control field (0.0791 cpm, 3.1x random) beats every structural prior tried; random > density means spread coverage beats line-following for UNKNOWN faults. Any next hypothesis must beat evidence x orientation on a NEW preregistered instrument (H42-F candidate; NOT registered for building until preregistered).",
+  "decision": "no promotion: the preregistered holdout rule (arm a or b beats density/evidence/random in >=3 of 4 folds) failed on 0/4 folds and the label-free enrichment gate failed; artifacts ship as labeled research only"
+ }
 }
