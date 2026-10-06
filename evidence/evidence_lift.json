@@ -1,0 +1,2115 @@
+{
+ "truth_sgmc_offcatalogue": {
+  "band04_geod_2ndinv": {
+   "n": 62122,
+   "mean_selected": 19.684656143188477,
+   "mean_footprint": 21.18636703491211,
+   "lift": 0.9291189908981323,
+   "frac_above_footprint_median": 0.47583786742216927
+  },
+  "band07_geod_shearrate": {
+   "n": 62122,
+   "mean_selected": 10.294684410095215,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.7797059416770935,
+   "frac_above_footprint_median": 0.4737452110363478
+  },
+  "band12_det_elev": {
+   "n": 62122,
+   "mean_selected": 164.27684020996094,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.7299967408180237,
+   "frac_above_footprint_median": 0.817810115579022
+  },
+  "band15_depth_to_base": {
+   "n": 62122,
+   "mean_selected": 276.29852294921875,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.5194802284240723,
+   "frac_above_footprint_median": 0.27219020636811436
+  },
+  "band16_ieq_density": {
+   "n": 62122,
+   "mean_selected": 992.3194580078125,
+   "mean_footprint": 1115.03759765625,
+   "lift": 0.8899425864219666,
+   "frac_above_footprint_median": 0.46783748108560574
+  },
+  "band17_cond_surf": {
+   "n": 62122,
+   "mean_selected": 2.891202449798584,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 1.0148115158081055,
+   "frac_above_footprint_median": 0.5334825021731432
+  },
+  "band03_tmi_hg": {
+   "n": 62122,
+   "mean_selected": 26.678688049316406,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.0090935230255127,
+   "frac_above_footprint_median": 0.5022858246675895
+  },
+  "band18_iso_grav_hg": {
+   "n": 62122,
+   "mean_selected": -0.0022400477901101112,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.0015000111889094114,
+   "frac_above_footprint_median": 0.5265606387431184
+  },
+  "band19_det_elev_slope": {
+   "n": 62122,
+   "mean_selected": 14.49386215209961,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.9601558446884155,
+   "frac_above_footprint_median": 0.9287048066707446
+  },
+  "lidar_scarp_evidence": {
+   "n": 62122,
+   "mean_selected": 0.1239655390381813,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.247694969177246,
+   "frac_above_footprint_median": 0.628617880943949
+  },
+  "dist_to_catalogue_px": {
+   "n": 62122,
+   "mean_selected": 29.71489906311035,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.9526245594024658,
+   "frac_above_footprint_median": 0.5001609735681402
+  },
+  "near_catalogue_5px": {
+   "n": 62122,
+   "mean_selected": 0.08401992917060852,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 0.6663565039634705,
+   "frac_above_footprint_median": 0.49802002511187665
+  },
+  "catalogue_density_10px": {
+   "n": 62122,
+   "mean_selected": 0.009415951557457447,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.625714898109436,
+   "frac_above_footprint_median": 0.5045716493351792
+  },
+  "sgmc_density_halfA": {
+   "n": 62122,
+   "mean_selected": 0.07006984949111938,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 2.1582224369049072,
+   "frac_above_footprint_median": 0.5610089823251022
+  },
+  "thermal_density_offcat": {
+   "n": 62122,
+   "mean_selected": 0.0005630314699374139,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.08883624523878098,
+   "frac_above_footprint_median": 0.0680596246096391
+  }
+ },
+ "truth_halfB": {
+  "band04_geod_2ndinv": {
+   "n": 32922,
+   "mean_selected": 20.70229148864746,
+   "mean_footprint": 21.18636703491211,
+   "lift": 0.9771515727043152,
+   "frac_above_footprint_median": 0.5050118461818844
+  },
+  "band07_geod_shearrate": {
+   "n": 32922,
+   "mean_selected": 11.164026260375977,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8455487489700317,
+   "frac_above_footprint_median": 0.514458416864103
+  },
+  "band12_det_elev": {
+   "n": 32922,
+   "mean_selected": 158.97134399414062,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.7064207196235657,
+   "frac_above_footprint_median": 0.8236437640483567
+  },
+  "band15_depth_to_base": {
+   "n": 32922,
+   "mean_selected": 273.4510498046875,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.5141265988349915,
+   "frac_above_footprint_median": 0.2763197861612296
+  },
+  "band16_ieq_density": {
+   "n": 32922,
+   "mean_selected": 957.69091796875,
+   "mean_footprint": 1115.03759765625,
+   "lift": 0.8588866591453552,
+   "frac_above_footprint_median": 0.47320940404592676
+  },
+  "band17_cond_surf": {
+   "n": 32922,
+   "mean_selected": 2.8759663105010986,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 1.0094635486602783,
+   "frac_above_footprint_median": 0.5162809063847883
+  },
+  "band03_tmi_hg": {
+   "n": 32922,
+   "mean_selected": 27.057159423828125,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.0234087705612183,
+   "frac_above_footprint_median": 0.4958690237531134
+  },
+  "band18_iso_grav_hg": {
+   "n": 32922,
+   "mean_selected": -0.028374899178743362,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.019000785425305367,
+   "frac_above_footprint_median": 0.5181033959054735
+  },
+  "band19_det_elev_slope": {
+   "n": 32922,
+   "mean_selected": 14.254535675048828,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.9277892112731934,
+   "frac_above_footprint_median": 0.9264625478403499
+  },
+  "lidar_scarp_evidence": {
+   "n": 32922,
+   "mean_selected": 0.11939632147550583,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.2017064094543457,
+   "frac_above_footprint_median": 0.6026972844906142
+  },
+  "dist_to_catalogue_px": {
+   "n": 32922,
+   "mean_selected": 31.38821029663086,
+   "mean_footprint": 31.192665100097656,
+   "lift": 1.0062689781188965,
+   "frac_above_footprint_median": 0.521505376344086
+  },
+  "near_catalogue_5px": {
+   "n": 32922,
+   "mean_selected": 0.07942558825016022,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 0.6299190521240234,
+   "frac_above_footprint_median": 0.4768543830872973
+  },
+  "catalogue_density_10px": {
+   "n": 32922,
+   "mean_selected": 0.00917766708880663,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.609880268573761,
+   "frac_above_footprint_median": 0.4830812222829719
+  },
+  "sgmc_density_halfA": {
+   "n": 32922,
+   "mean_selected": 0.0025658404920250177,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.07903049141168594,
+   "frac_above_footprint_median": 0.17164813802320636
+  },
+  "thermal_density_offcat": {
+   "n": 32922,
+   "mean_selected": 0.000286127848085016,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.045145828276872635,
+   "frac_above_footprint_median": 0.07113784095741449
+  }
+ },
+ "truth_halfA": {
+  "band04_geod_2ndinv": {
+   "n": 29200,
+   "mean_selected": 18.537309646606445,
+   "mean_footprint": 21.18636703491211,
+   "lift": 0.8749640583992004,
+   "frac_above_footprint_median": 0.44294520547945204
+  },
+  "band07_geod_shearrate": {
+   "n": 29200,
+   "mean_selected": 9.314531326293945,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.7054704427719116,
+   "frac_above_footprint_median": 0.42784246575342466
+  },
+  "band12_det_elev": {
+   "n": 29200,
+   "mean_selected": 170.2585906982422,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.7565778493881226,
+   "frac_above_footprint_median": 0.8112328767123288
+  },
+  "band15_depth_to_base": {
+   "n": 29200,
+   "mean_selected": 279.50897216796875,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.5255163311958313,
+   "frac_above_footprint_median": 0.26753424657534247
+  },
+  "band16_ieq_density": {
+   "n": 29200,
+   "mean_selected": 1031.362060546875,
+   "mean_footprint": 1115.03759765625,
+   "lift": 0.9249572157859802,
+   "frac_above_footprint_median": 0.4617808219178082
+  },
+  "band17_cond_surf": {
+   "n": 29200,
+   "mean_selected": 2.9083807468414307,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 1.0208410024642944,
+   "frac_above_footprint_median": 0.5528767123287671
+  },
+  "band03_tmi_hg": {
+   "n": 29200,
+   "mean_selected": 26.251968383789062,
+   "mean_footprint": 26.43827247619629,
+   "lift": 0.9929532408714294,
+   "frac_above_footprint_median": 0.5095205479452055
+  },
+  "band18_iso_grav_hg": {
+   "n": 29200,
+   "mean_selected": 0.027226103469729424,
+   "mean_footprint": 1.493354082107544,
+   "lift": 0.01823151297867298,
+   "frac_above_footprint_median": 0.536095890410959
+  },
+  "band19_det_elev_slope": {
+   "n": 29200,
+   "mean_selected": 14.763694763183594,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.9966480731964111,
+   "frac_above_footprint_median": 0.9312328767123288
+  },
+  "lidar_scarp_evidence": {
+   "n": 29200,
+   "mean_selected": 0.1291171759366989,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.299545407295227,
+   "frac_above_footprint_median": 0.6578424657534246
+  },
+  "dist_to_catalogue_px": {
+   "n": 29200,
+   "mean_selected": 27.828296661376953,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.8921422958374023,
+   "frac_above_footprint_median": 0.4760958904109589
+  },
+  "near_catalogue_5px": {
+   "n": 29200,
+   "mean_selected": 0.08919988572597504,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 0.7074383497238159,
+   "frac_above_footprint_median": 0.5218835616438356
+  },
+  "catalogue_density_10px": {
+   "n": 29200,
+   "mean_selected": 0.00968460738658905,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.6435677409172058,
+   "frac_above_footprint_median": 0.5288013698630137
+  },
+  "sgmc_density_halfA": {
+   "n": 29200,
+   "mean_selected": 0.14617829024791718,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 4.502439498901367,
+   "frac_above_footprint_median": 1.0
+  },
+  "thermal_density_offcat": {
+   "n": 29200,
+   "mean_selected": 0.0008752309367991984,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.1380957067012787,
+   "frac_above_footprint_median": 0.0645890410958904
+  }
+ },
+ "file:H33-2-B2": {
+  "band04_geod_2ndinv": {
+   "n": 37654,
+   "mean_selected": 22.628515243530273,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.068069577217102,
+   "frac_above_footprint_median": 0.5285494237000053
+  },
+  "band07_geod_shearrate": {
+   "n": 37654,
+   "mean_selected": 11.45514965057373,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8675980567932129,
+   "frac_above_footprint_median": 0.5243267647527488
+  },
+  "band12_det_elev": {
+   "n": 37654,
+   "mean_selected": 13.825471878051758,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.06143622845411301,
+   "frac_above_footprint_median": 0.6506612843257025
+  },
+  "band15_depth_to_base": {
+   "n": 37654,
+   "mean_selected": 402.0154724121094,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.755845844745636,
+   "frac_above_footprint_median": 0.42497477027673025
+  },
+  "band16_ieq_density": {
+   "n": 37654,
+   "mean_selected": 1194.12841796875,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.070931077003479,
+   "frac_above_footprint_median": 0.5462367875922877
+  },
+  "band17_cond_surf": {
+   "n": 37654,
+   "mean_selected": 2.7964935302734375,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9815686345100403,
+   "frac_above_footprint_median": 0.46019015244064376
+  },
+  "band03_tmi_hg": {
+   "n": 37654,
+   "mean_selected": 33.472408294677734,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2660588026046753,
+   "frac_above_footprint_median": 0.6318585010888618
+  },
+  "band18_iso_grav_hg": {
+   "n": 37654,
+   "mean_selected": -0.11980975419282913,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.08022863417863846,
+   "frac_above_footprint_median": 0.48560577893450896
+  },
+  "band19_det_elev_slope": {
+   "n": 37654,
+   "mean_selected": 9.126999855041504,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2343391180038452,
+   "frac_above_footprint_median": 0.9029054018165401
+  },
+  "lidar_scarp_evidence": {
+   "n": 37654,
+   "mean_selected": 0.10150033235549927,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0215859413146973,
+   "frac_above_footprint_median": 0.7544749561799543
+  },
+  "dist_to_catalogue_px": {
+   "n": 37654,
+   "mean_selected": 28.996593475341797,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.9295965433120728,
+   "frac_above_footprint_median": 0.44324640144473365
+  },
+  "near_catalogue_5px": {
+   "n": 37654,
+   "mean_selected": 0.12440530955791473,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 0.9866502285003662,
+   "frac_above_footprint_median": 0.5554257183831731
+  },
+  "catalogue_density_10px": {
+   "n": 37654,
+   "mean_selected": 0.01214337907731533,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.8069596290588379,
+   "frac_above_footprint_median": 0.5527168428321029
+  },
+  "sgmc_density_halfA": {
+   "n": 37654,
+   "mean_selected": 0.008052253164350986,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.2480175644159317,
+   "frac_above_footprint_median": 0.23923089180432358
+  },
+  "thermal_density_offcat": {
+   "n": 37654,
+   "mean_selected": 0.00048490328481420875,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.0765090212225914,
+   "frac_above_footprint_median": 0.08838370425452807
+  },
+  "_meta": {
+   "reported_score": 0.2778,
+   "dots": 37654,
+   "median_dist_to_catalogue_px": 19.646883010864258
+  }
+ },
+ "file:H27-4-solo-d2.8": {
+  "band04_geod_2ndinv": {
+   "n": 40199,
+   "mean_selected": 22.644540786743164,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0688260793685913,
+   "frac_above_footprint_median": 0.528570362446827
+  },
+  "band07_geod_shearrate": {
+   "n": 40199,
+   "mean_selected": 11.461424827575684,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8680733442306519,
+   "frac_above_footprint_median": 0.5243414015274012
+  },
+  "band12_det_elev": {
+   "n": 40199,
+   "mean_selected": 12.102045059204102,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.05377783998847008,
+   "frac_above_footprint_median": 0.6478021841339336
+  },
+  "band15_depth_to_base": {
+   "n": 40199,
+   "mean_selected": 400.7737121582031,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7535111904144287,
+   "frac_above_footprint_median": 0.4241896564591159
+  },
+  "band16_ieq_density": {
+   "n": 40199,
+   "mean_selected": 1197.093505859375,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0735902786254883,
+   "frac_above_footprint_median": 0.5473519241772183
+  },
+  "band17_cond_surf": {
+   "n": 40199,
+   "mean_selected": 2.7967934608459473,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9816739559173584,
+   "frac_above_footprint_median": 0.459314908331053
+  },
+  "band03_tmi_hg": {
+   "n": 40199,
+   "mean_selected": 33.14146423339844,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2535412311553955,
+   "frac_above_footprint_median": 0.6260603497599443
+  },
+  "band18_iso_grav_hg": {
+   "n": 40199,
+   "mean_selected": -0.11552928388118744,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.07736228406429291,
+   "frac_above_footprint_median": 0.4877235752133138
+  },
+  "band19_det_elev_slope": {
+   "n": 40199,
+   "mean_selected": 9.143902778625488,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.236625075340271,
+   "frac_above_footprint_median": 0.9052961516455633
+  },
+  "lidar_scarp_evidence": {
+   "n": 40199,
+   "mean_selected": 0.10207360237836838,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0273557901382446,
+   "frac_above_footprint_median": 0.7574317769098734
+  },
+  "dist_to_catalogue_px": {
+   "n": 40199,
+   "mean_selected": 27.26993751525879,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.8742420077323914,
+   "frac_above_footprint_median": 0.4151844573248091
+  },
+  "near_catalogue_5px": {
+   "n": 40199,
+   "mean_selected": 0.1614564210176468,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.2805001735687256,
+   "frac_above_footprint_median": 0.5835717306400656
+  },
+  "catalogue_density_10px": {
+   "n": 40199,
+   "mean_selected": 0.01424732618033886,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.9467725157737732,
+   "frac_above_footprint_median": 0.5810343540884102
+  },
+  "sgmc_density_halfA": {
+   "n": 40199,
+   "mean_selected": 0.007774519734084606,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.23946309089660645,
+   "frac_above_footprint_median": 0.2423940894052091
+  },
+  "thermal_density_offcat": {
+   "n": 40199,
+   "mean_selected": 0.0005754510639235377,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.09079582989215851,
+   "frac_above_footprint_median": 0.0893554566033981
+  },
+  "_meta": {
+   "reported_score": 0.2708,
+   "dots": 40199,
+   "median_dist_to_catalogue_px": 17.69180679321289
+  }
+ },
+ "file:H32-1-prethin": {
+  "band04_geod_2ndinv": {
+   "n": 42294,
+   "mean_selected": 22.654462814331055,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0692943334579468,
+   "frac_above_footprint_median": 0.5274743462429659
+  },
+  "band07_geod_shearrate": {
+   "n": 42294,
+   "mean_selected": 11.45850944519043,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.867852509021759,
+   "frac_above_footprint_median": 0.5228874071972384
+  },
+  "band12_det_elev": {
+   "n": 42294,
+   "mean_selected": 9.244221687316895,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.041078533977270126,
+   "frac_above_footprint_median": 0.6428098548257436
+  },
+  "band15_depth_to_base": {
+   "n": 42294,
+   "mean_selected": 399.2690124511719,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7506821155548096,
+   "frac_above_footprint_median": 0.4236771173216059
+  },
+  "band16_ieq_density": {
+   "n": 42294,
+   "mean_selected": 1200.94580078125,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0770450830459595,
+   "frac_above_footprint_median": 0.5490376885610252
+  },
+  "band17_cond_surf": {
+   "n": 42294,
+   "mean_selected": 2.7954859733581543,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9812150001525879,
+   "frac_above_footprint_median": 0.4578663640232657
+  },
+  "band03_tmi_hg": {
+   "n": 42294,
+   "mean_selected": 32.84321975708008,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.242260456085205,
+   "frac_above_footprint_median": 0.6214120206175817
+  },
+  "band18_iso_grav_hg": {
+   "n": 42294,
+   "mean_selected": -0.11255227774381638,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.07536878436803818,
+   "frac_above_footprint_median": 0.4890291767153733
+  },
+  "band19_det_elev_slope": {
+   "n": 42294,
+   "mean_selected": 9.134642601013184,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.23537278175354,
+   "frac_above_footprint_median": 0.9061569016881827
+  },
+  "lidar_scarp_evidence": {
+   "n": 42294,
+   "mean_selected": 0.10238422453403473,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0304821729660034,
+   "frac_above_footprint_median": 0.7601314607272899
+  },
+  "dist_to_catalogue_px": {
+   "n": 42294,
+   "mean_selected": 25.976213455200195,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.8327667117118835,
+   "frac_above_footprint_median": 0.394618622026765
+  },
+  "near_catalogue_5px": {
+   "n": 42294,
+   "mean_selected": 0.19285187125205994,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.529495358467102,
+   "frac_above_footprint_median": 0.6041991771882537
+  },
+  "catalogue_density_10px": {
+   "n": 42294,
+   "mean_selected": 0.015896636992692947,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.0563735961914062,
+   "frac_above_footprint_median": 0.6017874875868917
+  },
+  "sgmc_density_halfA": {
+   "n": 42294,
+   "mean_selected": 0.00754817808046937,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.23249153792858124,
+   "frac_above_footprint_median": 0.24455005438123611
+  },
+  "thermal_density_offcat": {
+   "n": 42294,
+   "mean_selected": 0.0006264061667025089,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.09883563220500946,
+   "frac_above_footprint_median": 0.09013098784697593
+  },
+  "_meta": {
+   "reported_score": 0.2649,
+   "dots": 42294,
+   "median_dist_to_catalogue_px": 16.124515533447266
+  }
+ },
+ "file:H33d-stepover": {
+  "band04_geod_2ndinv": {
+   "n": 41865,
+   "mean_selected": 22.63812828063965,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0685234069824219,
+   "frac_above_footprint_median": 0.5276722799474501
+  },
+  "band07_geod_shearrate": {
+   "n": 41865,
+   "mean_selected": 11.448814392089844,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.867118239402771,
+   "frac_above_footprint_median": 0.5229666786098173
+  },
+  "band12_det_elev": {
+   "n": 41865,
+   "mean_selected": 9.851911544799805,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.0437789261341095,
+   "frac_above_footprint_median": 0.6429475695688522
+  },
+  "band15_depth_to_base": {
+   "n": 41865,
+   "mean_selected": 401.0954284667969,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7541160583496094,
+   "frac_above_footprint_median": 0.42522393407380865
+  },
+  "band16_ieq_density": {
+   "n": 41865,
+   "mean_selected": 1199.325439453125,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0755919218063354,
+   "frac_above_footprint_median": 0.5486205661053386
+  },
+  "band17_cond_surf": {
+   "n": 41865,
+   "mean_selected": 2.796111822128296,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.98143470287323,
+   "frac_above_footprint_median": 0.4585453242565389
+  },
+  "band03_tmi_hg": {
+   "n": 41865,
+   "mean_selected": 32.892005920410156,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2441056966781616,
+   "frac_above_footprint_median": 0.622381464230264
+  },
+  "band18_iso_grav_hg": {
+   "n": 41865,
+   "mean_selected": -0.10581505298614502,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.07085730880498886,
+   "frac_above_footprint_median": 0.4898602651379434
+  },
+  "band19_det_elev_slope": {
+   "n": 41865,
+   "mean_selected": 9.103607177734375,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2311755418777466,
+   "frac_above_footprint_median": 0.9018273020422788
+  },
+  "lidar_scarp_evidence": {
+   "n": 41865,
+   "mean_selected": 0.10203868895769119,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0270044803619385,
+   "frac_above_footprint_median": 0.7567896811178789
+  },
+  "dist_to_catalogue_px": {
+   "n": 41865,
+   "mean_selected": 26.435606002807617,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.8474943041801453,
+   "frac_above_footprint_median": 0.40169592738564436
+  },
+  "near_catalogue_5px": {
+   "n": 41865,
+   "mean_selected": 0.1820371448993683,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.443724513053894,
+   "frac_above_footprint_median": 0.597133643855249
+  },
+  "catalogue_density_10px": {
+   "n": 41865,
+   "mean_selected": 0.015266047790646553,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.0144692659378052,
+   "frac_above_footprint_median": 0.5943628329153231
+  },
+  "sgmc_density_halfA": {
+   "n": 41865,
+   "mean_selected": 0.007589106913655996,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.23375219106674194,
+   "frac_above_footprint_median": 0.24335363668935867
+  },
+  "thermal_density_offcat": {
+   "n": 41865,
+   "mean_selected": 0.0005796119221486151,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.09145233780145645,
+   "frac_above_footprint_median": 0.08997969664397468
+  },
+  "_meta": {
+   "reported_score": 0.2632,
+   "dots": 41865,
+   "median_dist_to_catalogue_px": 16.6433162689209
+  }
+ },
+ "file:dotted-d2.8-44090": {
+  "band04_geod_2ndinv": {
+   "n": 44090,
+   "mean_selected": 22.705583572387695,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0717072486877441,
+   "frac_above_footprint_median": 0.5284871853027897
+  },
+  "band07_geod_shearrate": {
+   "n": 44090,
+   "mean_selected": 11.495975494384766,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8706901669502258,
+   "frac_above_footprint_median": 0.5242458607393967
+  },
+  "band12_det_elev": {
+   "n": 44090,
+   "mean_selected": 6.724084377288818,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.029879804700613022,
+   "frac_above_footprint_median": 0.6378317078702653
+  },
+  "band15_depth_to_base": {
+   "n": 44090,
+   "mean_selected": 396.2351989746094,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.744978129863739,
+   "frac_above_footprint_median": 0.4211158992968927
+  },
+  "band16_ieq_density": {
+   "n": 44090,
+   "mean_selected": 1203.77587890625,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0795831680297852,
+   "frac_above_footprint_median": 0.5503515536402812
+  },
+  "band17_cond_surf": {
+   "n": 44090,
+   "mean_selected": 2.792839288711548,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9802860021591187,
+   "frac_above_footprint_median": 0.45633930596507144
+  },
+  "band03_tmi_hg": {
+   "n": 44090,
+   "mean_selected": 32.555755615234375,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2313873767852783,
+   "frac_above_footprint_median": 0.6163755953731005
+  },
+  "band18_iso_grav_hg": {
+   "n": 44090,
+   "mean_selected": -0.11634820699691772,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.0779106616973877,
+   "frac_above_footprint_median": 0.4889770923111817
+  },
+  "band19_det_elev_slope": {
+   "n": 44090,
+   "mean_selected": 9.151262283325195,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.23762047290802,
+   "frac_above_footprint_median": 0.9073486051258789
+  },
+  "lidar_scarp_evidence": {
+   "n": 44090,
+   "mean_selected": 0.10284922271966934,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.035162329673767,
+   "frac_above_footprint_median": 0.7630755273304605
+  },
+  "dist_to_catalogue_px": {
+   "n": 44090,
+   "mean_selected": 24.951581954956055,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.7999182343482971,
+   "frac_above_footprint_median": 0.37854388750283513
+  },
+  "near_catalogue_5px": {
+   "n": 44090,
+   "mean_selected": 0.21946173906326294,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.7405364513397217,
+   "frac_above_footprint_median": 0.6203220684962577
+  },
+  "catalogue_density_10px": {
+   "n": 44090,
+   "mean_selected": 0.017385276034474373,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.1552975177764893,
+   "frac_above_footprint_median": 0.6180086187344069
+  },
+  "sgmc_density_halfA": {
+   "n": 44090,
+   "mean_selected": 0.00733052147552371,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.22578749060630798,
+   "frac_above_footprint_median": 0.2453617600362894
+  },
+  "thermal_density_offcat": {
+   "n": 44090,
+   "mean_selected": 0.0007396463770419359,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.11670289933681488,
+   "frac_above_footprint_median": 0.0905647539124518
+  },
+  "_meta": {
+   "reported_score": 0.26,
+   "dots": 44090,
+   "median_dist_to_catalogue_px": 15.0
+  }
+ },
+ "file:dotted-d1.5": {
+  "band04_geod_2ndinv": {
+   "n": 60069,
+   "mean_selected": 22.671634674072266,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0701048374176025,
+   "frac_above_footprint_median": 0.5284089963208977
+  },
+  "band07_geod_shearrate": {
+   "n": 60069,
+   "mean_selected": 11.470069885253906,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8687281012535095,
+   "frac_above_footprint_median": 0.5241139356406799
+  },
+  "band12_det_elev": {
+   "n": 60069,
+   "mean_selected": 4.568192481994629,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.020299671217799187,
+   "frac_above_footprint_median": 0.6347533669613278
+  },
+  "band15_depth_to_base": {
+   "n": 60069,
+   "mean_selected": 396.5771179199219,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7456209659576416,
+   "frac_above_footprint_median": 0.4216317901080424
+  },
+  "band16_ieq_density": {
+   "n": 60069,
+   "mean_selected": 1204.6688232421875,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0803840160369873,
+   "frac_above_footprint_median": 0.5505335530806239
+  },
+  "band17_cond_surf": {
+   "n": 60069,
+   "mean_selected": 2.7948591709136963,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9809949994087219,
+   "frac_above_footprint_median": 0.4591553047328905
+  },
+  "band03_tmi_hg": {
+   "n": 60069,
+   "mean_selected": 32.464908599853516,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.227951169013977,
+   "frac_above_footprint_median": 0.6154921839884133
+  },
+  "band18_iso_grav_hg": {
+   "n": 60069,
+   "mean_selected": -0.1207793578505516,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.08087790757417679,
+   "frac_above_footprint_median": 0.48947044232465997
+  },
+  "band19_det_elev_slope": {
+   "n": 60069,
+   "mean_selected": 9.1410551071167,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.236240029335022,
+   "frac_above_footprint_median": 0.9128835172884516
+  },
+  "lidar_scarp_evidence": {
+   "n": 60069,
+   "mean_selected": 0.10225716233253479,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0292032957077026,
+   "frac_above_footprint_median": 0.7613744194176697
+  },
+  "dist_to_catalogue_px": {
+   "n": 60069,
+   "mean_selected": 24.85529136657715,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.7968313097953796,
+   "frac_above_footprint_median": 0.37621735004744544
+  },
+  "near_catalogue_5px": {
+   "n": 60069,
+   "mean_selected": 0.22142668068408966,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.7561203241348267,
+   "frac_above_footprint_median": 0.6227172085435083
+  },
+  "catalogue_density_10px": {
+   "n": 60069,
+   "mean_selected": 0.017496149986982346,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.1626654863357544,
+   "frac_above_footprint_median": 0.6199370723667782
+  },
+  "sgmc_density_halfA": {
+   "n": 60069,
+   "mean_selected": 0.007318257354199886,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.22540974617004395,
+   "frac_above_footprint_median": 0.24551765469709833
+  },
+  "thermal_density_offcat": {
+   "n": 60069,
+   "mean_selected": 0.0007619670359417796,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.12022469937801361,
+   "frac_above_footprint_median": 0.09182773144217483
+  },
+  "_meta": {
+   "reported_score": 0.2477,
+   "dots": 60069,
+   "median_dist_to_catalogue_px": 14.866068840026855
+  }
+ },
+ "file:topo-gap-d1.5": {
+  "band04_geod_2ndinv": {
+   "n": 61328,
+   "mean_selected": 22.696989059448242,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0713015794754028,
+   "frac_above_footprint_median": 0.529529741716671
+  },
+  "band07_geod_shearrate": {
+   "n": 61328,
+   "mean_selected": 11.500752449035645,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8710519671440125,
+   "frac_above_footprint_median": 0.5255022175841377
+  },
+  "band12_det_elev": {
+   "n": 61328,
+   "mean_selected": 2.175118923187256,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.00966557301580906,
+   "frac_above_footprint_median": 0.6280817897208453
+  },
+  "band15_depth_to_base": {
+   "n": 61328,
+   "mean_selected": 399.9133605957031,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7518935799598694,
+   "frac_above_footprint_median": 0.425498956430994
+  },
+  "band16_ieq_density": {
+   "n": 61328,
+   "mean_selected": 1204.2003173828125,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0799639225006104,
+   "frac_above_footprint_median": 0.5499445603965563
+  },
+  "band17_cond_surf": {
+   "n": 61328,
+   "mean_selected": 2.794609546661377,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9809073805809021,
+   "frac_above_footprint_median": 0.45941494912601094
+  },
+  "band03_tmi_hg": {
+   "n": 61328,
+   "mean_selected": 32.356937408447266,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2238672971725464,
+   "frac_above_footprint_median": 0.6121510566136186
+  },
+  "band18_iso_grav_hg": {
+   "n": 61328,
+   "mean_selected": -0.11476141214370728,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.0768480896949768,
+   "frac_above_footprint_median": 0.490966605791808
+  },
+  "band19_det_elev_slope": {
+   "n": 61328,
+   "mean_selected": 9.044014930725098,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2231162786483765,
+   "frac_above_footprint_median": 0.9004043829898252
+  },
+  "lidar_scarp_evidence": {
+   "n": 61328,
+   "mean_selected": 0.10128920525312424,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0194610357284546,
+   "frac_above_footprint_median": 0.7544351682755022
+  },
+  "dist_to_catalogue_px": {
+   "n": 61328,
+   "mean_selected": 24.46788787841797,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.784411609172821,
+   "frac_above_footprint_median": 0.3684939994782155
+  },
+  "near_catalogue_5px": {
+   "n": 61328,
+   "mean_selected": 0.22446341812610626,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.7802045345306396,
+   "frac_above_footprint_median": 0.630462431515784
+  },
+  "catalogue_density_10px": {
+   "n": 61328,
+   "mean_selected": 0.017774906009435654,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.1811895370483398,
+   "frac_above_footprint_median": 0.6277393686407514
+  },
+  "sgmc_density_halfA": {
+   "n": 61328,
+   "mean_selected": 0.007250309456139803,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.22331687808036804,
+   "frac_above_footprint_median": 0.24396686668405948
+  },
+  "thermal_density_offcat": {
+   "n": 61328,
+   "mean_selected": 0.0008013899787329137,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.12644493579864502,
+   "frac_above_footprint_median": 0.09304069919123402
+  },
+  "_meta": {
+   "reported_score": 0.2449,
+   "dots": 61328,
+   "median_dist_to_catalogue_px": 14.142135620117188
+  }
+ },
+ "file:h19-5-powerlaw": {
+  "band04_geod_2ndinv": {
+   "n": 121131,
+   "mean_selected": 22.686058044433594,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.070785641670227,
+   "frac_above_footprint_median": 0.5289727650229916
+  },
+  "band07_geod_shearrate": {
+   "n": 121131,
+   "mean_selected": 11.478846549987793,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8693928122520447,
+   "frac_above_footprint_median": 0.5253898671686026
+  },
+  "band12_det_elev": {
+   "n": 121131,
+   "mean_selected": 0.12768304347991943,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.000567384937312454,
+   "frac_above_footprint_median": 0.6267924808678208
+  },
+  "band15_depth_to_base": {
+   "n": 121131,
+   "mean_selected": 393.79351806640625,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7403874397277832,
+   "frac_above_footprint_median": 0.419066960563357
+  },
+  "band16_ieq_density": {
+   "n": 121131,
+   "mean_selected": 1207.527587890625,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.082947850227356,
+   "frac_above_footprint_median": 0.5528312323022183
+  },
+  "band17_cond_surf": {
+   "n": 121131,
+   "mean_selected": 2.800828218460083,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9830901622772217,
+   "frac_above_footprint_median": 0.46263136604172345
+  },
+  "band03_tmi_hg": {
+   "n": 121131,
+   "mean_selected": 32.40256881713867,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2255933284759521,
+   "frac_above_footprint_median": 0.6140046726271557
+  },
+  "band18_iso_grav_hg": {
+   "n": 121131,
+   "mean_selected": -0.12968213856220245,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.08683951199054718,
+   "frac_above_footprint_median": 0.48881789137380194
+  },
+  "band19_det_elev_slope": {
+   "n": 121131,
+   "mean_selected": 9.178571701049805,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2413136959075928,
+   "frac_above_footprint_median": 0.9231245511058276
+  },
+  "lidar_scarp_evidence": {
+   "n": 121131,
+   "mean_selected": 0.10116078704595566,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0181684494018555,
+   "frac_above_footprint_median": 0.7577828962032841
+  },
+  "dist_to_catalogue_px": {
+   "n": 121131,
+   "mean_selected": 24.824491500854492,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.7958438992500305,
+   "frac_above_footprint_median": 0.3741816710833725
+  },
+  "near_catalogue_5px": {
+   "n": 121131,
+   "mean_selected": 0.22205878794193268,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.7611335515975952,
+   "frac_above_footprint_median": 0.6247451106653128
+  },
+  "catalogue_density_10px": {
+   "n": 121131,
+   "mean_selected": 0.017420072108507156,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.1576098203659058,
+   "frac_above_footprint_median": 0.6220785760870463
+  },
+  "sgmc_density_halfA": {
+   "n": 121131,
+   "mean_selected": 0.007516334764659405,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.231510728597641,
+   "frac_above_footprint_median": 0.24913523375519067
+  },
+  "thermal_density_offcat": {
+   "n": 121131,
+   "mean_selected": 0.000761781120672822,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.12019536644220352,
+   "frac_above_footprint_median": 0.09271780138857931
+  },
+  "_meta": {
+   "reported_score": 0.1922,
+   "dots": 121131,
+   "median_dist_to_catalogue_px": 14.560219764709473
+  }
+ },
+ "file:h19-4-multiline": {
+  "band04_geod_2ndinv": {
+   "n": 123779,
+   "mean_selected": 22.726566314697266,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.072697639465332,
+   "frac_above_footprint_median": 0.5304049960009372
+  },
+  "band07_geod_shearrate": {
+   "n": 123779,
+   "mean_selected": 11.505997657775879,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8714492321014404,
+   "frac_above_footprint_median": 0.526527116877661
+  },
+  "band12_det_elev": {
+   "n": 123779,
+   "mean_selected": 1.975806713104248,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.008779889903962612,
+   "frac_above_footprint_median": 0.6292343612405982
+  },
+  "band15_depth_to_base": {
+   "n": 123779,
+   "mean_selected": 389.0682373046875,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7315032482147217,
+   "frac_above_footprint_median": 0.4154339589106391
+  },
+  "band16_ieq_density": {
+   "n": 123779,
+   "mean_selected": 1208.1529541015625,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.0835087299346924,
+   "frac_above_footprint_median": 0.5527270377042955
+  },
+  "band17_cond_surf": {
+   "n": 123779,
+   "mean_selected": 2.8035333156585693,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9840396046638489,
+   "frac_above_footprint_median": 0.4646749448614062
+  },
+  "band03_tmi_hg": {
+   "n": 123779,
+   "mean_selected": 32.46438217163086,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.227931261062622,
+   "frac_above_footprint_median": 0.6140863959153007
+  },
+  "band18_iso_grav_hg": {
+   "n": 123779,
+   "mean_selected": -0.13294526934623718,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.0890246108174324,
+   "frac_above_footprint_median": 0.4881118768127065
+  },
+  "band19_det_elev_slope": {
+   "n": 123779,
+   "mean_selected": 9.277974128723145,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2547569274902344,
+   "frac_above_footprint_median": 0.9260860081273883
+  },
+  "lidar_scarp_evidence": {
+   "n": 123779,
+   "mean_selected": 0.10227832198143005,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0294163227081299,
+   "frac_above_footprint_median": 0.7539970431171685
+  },
+  "dist_to_catalogue_px": {
+   "n": 123779,
+   "mean_selected": 24.885833740234375,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.797810435295105,
+   "frac_above_footprint_median": 0.37637240565847196
+  },
+  "near_catalogue_5px": {
+   "n": 123779,
+   "mean_selected": 0.22077441215515137,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.7509472370147705,
+   "frac_above_footprint_median": 0.6225854143271475
+  },
+  "catalogue_density_10px": {
+   "n": 123779,
+   "mean_selected": 0.017351338639855385,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.1530423164367676,
+   "frac_above_footprint_median": 0.6200486350673378
+  },
+  "sgmc_density_halfA": {
+   "n": 123779,
+   "mean_selected": 0.007668168283998966,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.23618735373020172,
+   "frac_above_footprint_median": 0.2516501183561024
+  },
+  "thermal_density_offcat": {
+   "n": 123779,
+   "mean_selected": 0.00073178147431463,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.11546196043491364,
+   "frac_above_footprint_median": 0.09260052189789868
+  },
+  "_meta": {
+   "reported_score": 0.1894,
+   "dots": 123779,
+   "median_dist_to_catalogue_px": 14.764822959899902
+  }
+ },
+ "file:h16-1-topo-geophys": {
+  "band04_geod_2ndinv": {
+   "n": 123939,
+   "mean_selected": 22.770633697509766,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.074777603149414,
+   "frac_above_footprint_median": 0.531745455425653
+  },
+  "band07_geod_shearrate": {
+   "n": 123939,
+   "mean_selected": 11.538030624389648,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8738753795623779,
+   "frac_above_footprint_median": 0.5271060763762819
+  },
+  "band12_det_elev": {
+   "n": 123939,
+   "mean_selected": 2.113985538482666,
+   "mean_footprint": 225.0377655029297,
+   "lift": 0.009393914602696896,
+   "frac_above_footprint_median": 0.6306489482729407
+  },
+  "band15_depth_to_base": {
+   "n": 123939,
+   "mean_selected": 394.5162658691406,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7417463064193726,
+   "frac_above_footprint_median": 0.4226191916991423
+  },
+  "band16_ieq_density": {
+   "n": 123939,
+   "mean_selected": 1209.26416015625,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.084505319595337,
+   "frac_above_footprint_median": 0.5547164330840172
+  },
+  "band17_cond_surf": {
+   "n": 123939,
+   "mean_selected": 2.8029561042785645,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9838370084762573,
+   "frac_above_footprint_median": 0.46353448067194347
+  },
+  "band03_tmi_hg": {
+   "n": 123939,
+   "mean_selected": 32.73810577392578,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2382845878601074,
+   "frac_above_footprint_median": 0.6154963328734296
+  },
+  "band18_iso_grav_hg": {
+   "n": 123939,
+   "mean_selected": -0.13854670524597168,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.09277552366256714,
+   "frac_above_footprint_median": 0.4885548535973342
+  },
+  "band19_det_elev_slope": {
+   "n": 123939,
+   "mean_selected": 9.399246215820312,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2711578607559204,
+   "frac_above_footprint_median": 0.9274320431825334
+  },
+  "lidar_scarp_evidence": {
+   "n": 123939,
+   "mean_selected": 0.10440795868635178,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.050850749015808,
+   "frac_above_footprint_median": 0.7500625307611002
+  },
+  "dist_to_catalogue_px": {
+   "n": 123939,
+   "mean_selected": 24.758207321166992,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.7937188744544983,
+   "frac_above_footprint_median": 0.3760640314993666
+  },
+  "near_catalogue_5px": {
+   "n": 123939,
+   "mean_selected": 0.21964465081691742,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.7419871091842651,
+   "frac_above_footprint_median": 0.6228305860140876
+  },
+  "catalogue_density_10px": {
+   "n": 123939,
+   "mean_selected": 0.01730368286371231,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.149875521659851,
+   "frac_above_footprint_median": 0.6204987937614471
+  },
+  "sgmc_density_halfA": {
+   "n": 123939,
+   "mean_selected": 0.00785699300467968,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.24200335144996643,
+   "frac_above_footprint_median": 0.25431865675856674
+  },
+  "thermal_density_offcat": {
+   "n": 123939,
+   "mean_selected": 0.0006992040434852242,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.11032182723283768,
+   "frac_above_footprint_median": 0.09180322578042424
+  },
+  "_meta": {
+   "reported_score": 0.1855,
+   "dots": 123939,
+   "median_dist_to_catalogue_px": 14.866068840026855
+  }
+ },
+ "file:h28-dotted-ridge": {
+  "band04_geod_2ndinv": {
+   "n": 69281,
+   "mean_selected": 26.13926124572754,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.233777403831482,
+   "frac_above_footprint_median": 0.6591706239806008
+  },
+  "band07_geod_shearrate": {
+   "n": 69281,
+   "mean_selected": 13.83751106262207,
+   "mean_footprint": 13.203290939331055,
+   "lift": 1.0480350255966187,
+   "frac_above_footprint_median": 0.6574241133932824
+  },
+  "band12_det_elev": {
+   "n": 69281,
+   "mean_selected": -48.013607025146484,
+   "mean_footprint": 225.0377655029297,
+   "lift": -0.21335799992084503,
+   "frac_above_footprint_median": 0.5101109972431114
+  },
+  "band15_depth_to_base": {
+   "n": 69281,
+   "mean_selected": 511.82696533203125,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.9623069763183594,
+   "frac_above_footprint_median": 0.5308814826575828
+  },
+  "band16_ieq_density": {
+   "n": 69281,
+   "mean_selected": 1336.830078125,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.1989103555679321,
+   "frac_above_footprint_median": 0.6188421067825234
+  },
+  "band17_cond_surf": {
+   "n": 69281,
+   "mean_selected": 2.786806583404541,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9781685471534729,
+   "frac_above_footprint_median": 0.45175444927180614
+  },
+  "band03_tmi_hg": {
+   "n": 69281,
+   "mean_selected": 32.21755599975586,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2185953855514526,
+   "frac_above_footprint_median": 0.5863656702414803
+  },
+  "band18_iso_grav_hg": {
+   "n": 69281,
+   "mean_selected": -0.03213107958436012,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.021516049280762672,
+   "frac_above_footprint_median": 0.5057375037889176
+  },
+  "band19_det_elev_slope": {
+   "n": 69281,
+   "mean_selected": 7.025144100189209,
+   "mean_footprint": 7.394239902496338,
+   "lift": 0.950083315372467,
+   "frac_above_footprint_median": 0.6207040891442098
+  },
+  "lidar_scarp_evidence": {
+   "n": 69281,
+   "mean_selected": 0.08674563467502594,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 0.8730821013450623,
+   "frac_above_footprint_median": 0.6438994818204126
+  },
+  "dist_to_catalogue_px": {
+   "n": 69281,
+   "mean_selected": 14.349997520446777,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.4600439667701721,
+   "frac_above_footprint_median": 0.18668899120971116
+  },
+  "near_catalogue_5px": {
+   "n": 69281,
+   "mean_selected": 0.31758931279182434,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 2.518779754638672,
+   "frac_above_footprint_median": 0.8122717628209755
+  },
+  "catalogue_density_10px": {
+   "n": 69281,
+   "mean_selected": 0.02702302113175392,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.7957512140274048,
+   "frac_above_footprint_median": 0.8119109135260749
+  },
+  "sgmc_density_halfA": {
+   "n": 69281,
+   "mean_selected": 0.005033764056861401,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.1550450325012207,
+   "frac_above_footprint_median": 0.2006755098800537
+  },
+  "thermal_density_offcat": {
+   "n": 69281,
+   "mean_selected": 0.0009397921967320144,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.14828230440616608,
+   "frac_above_footprint_median": 0.11552951025533696
+  },
+  "_meta": {
+   "reported_score": 0.1839,
+   "dots": 69281,
+   "median_dist_to_catalogue_px": 8.0
+  }
+ },
+ "file:hedge-v2": {
+  "band04_geod_2ndinv": {
+   "n": 227507,
+   "mean_selected": 27.45769500732422,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.296007752418518,
+   "frac_above_footprint_median": 0.6798911681838361
+  },
+  "band07_geod_shearrate": {
+   "n": 227507,
+   "mean_selected": 14.743603706359863,
+   "mean_footprint": 13.203290939331055,
+   "lift": 1.1166613101959229,
+   "frac_above_footprint_median": 0.6783044038205418
+  },
+  "band12_det_elev": {
+   "n": 227507,
+   "mean_selected": -16.864900588989258,
+   "mean_footprint": 225.0377655029297,
+   "lift": -0.07494253665208817,
+   "frac_above_footprint_median": 0.5936476679838423
+  },
+  "band15_depth_to_base": {
+   "n": 227507,
+   "mean_selected": 423.8545227050781,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7969063520431519,
+   "frac_above_footprint_median": 0.465607651632697
+  },
+  "band16_ieq_density": {
+   "n": 227507,
+   "mean_selected": 1367.8154296875,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.226698875427246,
+   "frac_above_footprint_median": 0.6487756420681562
+  },
+  "band17_cond_surf": {
+   "n": 227507,
+   "mean_selected": 2.7882802486419678,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9786857962608337,
+   "frac_above_footprint_median": 0.45578817355070395
+  },
+  "band03_tmi_hg": {
+   "n": 227507,
+   "mean_selected": 37.859928131103516,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.4320122003555298,
+   "frac_above_footprint_median": 0.6551754451511382
+  },
+  "band18_iso_grav_hg": {
+   "n": 227507,
+   "mean_selected": -0.02779991924762726,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.018615758046507835,
+   "frac_above_footprint_median": 0.514283077004224
+  },
+  "band19_det_elev_slope": {
+   "n": 227507,
+   "mean_selected": 8.747381210327148,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.1829993724822998,
+   "frac_above_footprint_median": 0.7882922283709952
+  },
+  "lidar_scarp_evidence": {
+   "n": 227507,
+   "mean_selected": 0.09794643521308899,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 0.985816478729248,
+   "frac_above_footprint_median": 0.683275679429644
+  },
+  "dist_to_catalogue_px": {
+   "n": 227507,
+   "mean_selected": 16.067886352539062,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.5151174664497375,
+   "frac_above_footprint_median": 0.2425903378797136
+  },
+  "near_catalogue_5px": {
+   "n": 227507,
+   "mean_selected": 0.42651456594467163,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 3.3826587200164795,
+   "frac_above_footprint_median": 0.7564558453146497
+  },
+  "catalogue_density_10px": {
+   "n": 227507,
+   "mean_selected": 0.029272640123963356,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.945244312286377,
+   "frac_above_footprint_median": 0.7556866382133297
+  },
+  "sgmc_density_halfA": {
+   "n": 227507,
+   "mean_selected": 0.005176180973649025,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.15943162143230438,
+   "frac_above_footprint_median": 0.21269675218784476
+  },
+  "thermal_density_offcat": {
+   "n": 227507,
+   "mean_selected": 0.0008197757415473461,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.1293458789587021,
+   "frac_above_footprint_median": 0.10916587181932863
+  },
+  "_meta": {
+   "reported_score": 0.1563,
+   "dots": 227507,
+   "median_dist_to_catalogue_px": 6.7082037925720215
+  }
+ },
+ "file:ens12": {
+  "band04_geod_2ndinv": {
+   "n": 172974,
+   "mean_selected": 28.153385162353516,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.328844428062439,
+   "frac_above_footprint_median": 0.7009955253390683
+  },
+  "band07_geod_shearrate": {
+   "n": 172974,
+   "mean_selected": 15.172883033752441,
+   "mean_footprint": 13.203290939331055,
+   "lift": 1.1491743326187134,
+   "frac_above_footprint_median": 0.6990067871472013
+  },
+  "band12_det_elev": {
+   "n": 172974,
+   "mean_selected": -7.467442989349365,
+   "mean_footprint": 225.0377655029297,
+   "lift": -0.03318306431174278,
+   "frac_above_footprint_median": 0.6212378739001237
+  },
+  "band15_depth_to_base": {
+   "n": 172974,
+   "mean_selected": 398.979736328125,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.7501382231712341,
+   "frac_above_footprint_median": 0.44948951865598297
+  },
+  "band16_ieq_density": {
+   "n": 172974,
+   "mean_selected": 1394.74853515625,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.250853419303894,
+   "frac_above_footprint_median": 0.6647704279255842
+  },
+  "band17_cond_surf": {
+   "n": 172974,
+   "mean_selected": 2.7832775115966797,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.9769298434257507,
+   "frac_above_footprint_median": 0.4544498017043024
+  },
+  "band03_tmi_hg": {
+   "n": 172974,
+   "mean_selected": 40.84296798706055,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.5448424816131592,
+   "frac_above_footprint_median": 0.6951391538612739
+  },
+  "band18_iso_grav_hg": {
+   "n": 172974,
+   "mean_selected": -0.026897398754954338,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.01801140047609806,
+   "frac_above_footprint_median": 0.5167481818076706
+  },
+  "band19_det_elev_slope": {
+   "n": 172974,
+   "mean_selected": 9.17470645904541,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.2407909631729126,
+   "frac_above_footprint_median": 0.8466879415403471
+  },
+  "lidar_scarp_evidence": {
+   "n": 172974,
+   "mean_selected": 0.10013295710086823,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 1.0078235864639282,
+   "frac_above_footprint_median": 0.6999433440863945
+  },
+  "dist_to_catalogue_px": {
+   "n": 172974,
+   "mean_selected": 21.13355827331543,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.6775169372558594,
+   "frac_above_footprint_median": 0.3190710742654965
+  },
+  "near_catalogue_5px": {
+   "n": 172974,
+   "mean_selected": 0.2457135021686554,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.9487375020980835,
+   "frac_above_footprint_median": 0.6796744019332385
+  },
+  "catalogue_density_10px": {
+   "n": 172974,
+   "mean_selected": 0.020772026851773262,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 1.3803560733795166,
+   "frac_above_footprint_median": 0.6786626891902829
+  },
+  "sgmc_density_halfA": {
+   "n": 172974,
+   "mean_selected": 0.006157566327601671,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.18965928256511688,
+   "frac_above_footprint_median": 0.21085827927896678
+  },
+  "thermal_density_offcat": {
+   "n": 172974,
+   "mean_selected": 0.0005676610162481666,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.08956670016050339,
+   "frac_above_footprint_median": 0.10662874189184501
+  },
+  "_meta": {
+   "reported_score": 0.1563,
+   "dots": 172974,
+   "median_dist_to_catalogue_px": 13.0
+  }
+ },
+ "file:h25-ctx-ridge": {
+  "band04_geod_2ndinv": {
+   "n": 174232,
+   "mean_selected": 26.241252899169922,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.2385914325714111,
+   "frac_above_footprint_median": 0.6544033243032279
+  },
+  "band07_geod_shearrate": {
+   "n": 174232,
+   "mean_selected": 13.871590614318848,
+   "mean_footprint": 13.203290939331055,
+   "lift": 1.0506161451339722,
+   "frac_above_footprint_median": 0.6525265163689793
+  },
+  "band12_det_elev": {
+   "n": 174232,
+   "mean_selected": -49.565773010253906,
+   "mean_footprint": 225.0377655029297,
+   "lift": -0.22025536000728607,
+   "frac_above_footprint_median": 0.5102736581110244
+  },
+  "band15_depth_to_base": {
+   "n": 174232,
+   "mean_selected": 499.3168640136719,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.9387862086296082,
+   "frac_above_footprint_median": 0.5208228109646907
+  },
+  "band16_ieq_density": {
+   "n": 174232,
+   "mean_selected": 1349.802001953125,
+   "mean_footprint": 1115.03759765625,
+   "lift": 1.2105439901351929,
+   "frac_above_footprint_median": 0.6178371366913081
+  },
+  "band17_cond_surf": {
+   "n": 174232,
+   "mean_selected": 2.7906744480133057,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 0.979526162147522,
+   "frac_above_footprint_median": 0.45011823316038385
+  },
+  "band03_tmi_hg": {
+   "n": 174232,
+   "mean_selected": 32.09983825683594,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.2141427993774414,
+   "frac_above_footprint_median": 0.5818161990908673
+  },
+  "band18_iso_grav_hg": {
+   "n": 174232,
+   "mean_selected": -0.03703032061457634,
+   "mean_footprint": 1.493354082107544,
+   "lift": -0.02479674480855465,
+   "frac_above_footprint_median": 0.5069906790945407
+  },
+  "band19_det_elev_slope": {
+   "n": 174232,
+   "mean_selected": 7.359403133392334,
+   "mean_footprint": 7.394239902496338,
+   "lift": 0.9952886700630188,
+   "frac_above_footprint_median": 0.6571008769915974
+  },
+  "lidar_scarp_evidence": {
+   "n": 174232,
+   "mean_selected": 0.0894530862569809,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 0.9003322124481201,
+   "frac_above_footprint_median": 0.6617785481427063
+  },
+  "dist_to_catalogue_px": {
+   "n": 174232,
+   "mean_selected": 12.111443519592285,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.3882785737514496,
+   "frac_above_footprint_median": 0.1447782267321732
+  },
+  "near_catalogue_5px": {
+   "n": 174232,
+   "mean_selected": 0.3717707693576813,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 2.948489189147949,
+   "frac_above_footprint_median": 0.8544871206207815
+  },
+  "catalogue_density_10px": {
+   "n": 174232,
+   "mean_selected": 0.03066854178905487,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 2.0380055904388428,
+   "frac_above_footprint_median": 0.8537926442903715
+  },
+  "sgmc_density_halfA": {
+   "n": 174232,
+   "mean_selected": 0.005084728356450796,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.15661479532718658,
+   "frac_above_footprint_median": 0.21203338077965012
+  },
+  "thermal_density_offcat": {
+   "n": 174232,
+   "mean_selected": 0.001056375098414719,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.16667699813842773,
+   "frac_above_footprint_median": 0.11375063134211856
+  },
+  "_meta": {
+   "reported_score": 0.128,
+   "dots": 174232,
+   "median_dist_to_catalogue_px": 6.082762718200684
+  }
+ },
+ "file:r13-lattice": {
+  "band04_geod_2ndinv": {
+   "n": 206895,
+   "mean_selected": 21.166973114013672,
+   "mean_footprint": 21.18636703491211,
+   "lift": 0.9990845918655396,
+   "frac_above_footprint_median": 0.49899224244181833
+  },
+  "band07_geod_shearrate": {
+   "n": 206895,
+   "mean_selected": 10.750863075256348,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8142563104629517,
+   "frac_above_footprint_median": 0.4991807438555789
+  },
+  "band12_det_elev": {
+   "n": 206895,
+   "mean_selected": -17.198545455932617,
+   "mean_footprint": 225.0377655029297,
+   "lift": -0.07642515003681183,
+   "frac_above_footprint_median": 0.4999685830977066
+  },
+  "band15_depth_to_base": {
+   "n": 206895,
+   "mean_selected": 531.5656127929688,
+   "mean_footprint": 531.8749389648438,
+   "lift": 0.9994184374809265,
+   "frac_above_footprint_median": 0.49988641581478527
+  },
+  "band16_ieq_density": {
+   "n": 206895,
+   "mean_selected": 1114.312255859375,
+   "mean_footprint": 1115.03759765625,
+   "lift": 0.9993494749069214,
+   "frac_above_footprint_median": 0.49932574494308707
+  },
+  "band17_cond_surf": {
+   "n": 206895,
+   "mean_selected": 2.8501434326171875,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 1.0003997087478638,
+   "frac_above_footprint_median": 0.5011237584281882
+  },
+  "band03_tmi_hg": {
+   "n": 206895,
+   "mean_selected": 26.424190521240234,
+   "mean_footprint": 26.43827247619629,
+   "lift": 0.9994673728942871,
+   "frac_above_footprint_median": 0.49974624809686075
+  },
+  "band18_iso_grav_hg": {
+   "n": 206895,
+   "mean_selected": 0.0025176687631756067,
+   "mean_footprint": 1.493354082107544,
+   "lift": 0.0016859155148267746,
+   "frac_above_footprint_median": 0.49991058266270333
+  },
+  "band19_det_elev_slope": {
+   "n": 206895,
+   "mean_selected": 7.394929885864258,
+   "mean_footprint": 7.394239902496338,
+   "lift": 1.0000933408737183,
+   "frac_above_footprint_median": 0.5005775876652409
+  },
+  "lidar_scarp_evidence": {
+   "n": 206895,
+   "mean_selected": 0.07689190655946732,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 0.7739057540893555,
+   "frac_above_footprint_median": 0.5013074264723653
+  },
+  "dist_to_catalogue_px": {
+   "n": 206895,
+   "mean_selected": 30.850948333740234,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.9890449643135071,
+   "frac_above_footprint_median": 0.5000217501631262
+  },
+  "near_catalogue_5px": {
+   "n": 206895,
+   "mean_selected": 0.12594068050384521,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 0.9988271594047546,
+   "frac_above_footprint_median": 0.49849440537470696
+  },
+  "catalogue_density_10px": {
+   "n": 206895,
+   "mean_selected": 0.011626682244241238,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.7726237773895264,
+   "frac_above_footprint_median": 0.49969308103144106
+  },
+  "sgmc_density_halfA": {
+   "n": 206895,
+   "mean_selected": 0.005640063434839249,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.17371967434883118,
+   "frac_above_footprint_median": 0.17434447425022354
+  },
+  "thermal_density_offcat": {
+   "n": 206895,
+   "mean_selected": 0.0006209053681232035,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.09796769917011261,
+   "frac_above_footprint_median": 0.09827207037386114
+  },
+  "_meta": {
+   "reported_score": 0.0904,
+   "dots": 206895,
+   "median_dist_to_catalogue_px": 23.194826126098633
+  }
+ },
+ "file:placeholder-2314b599": {
+  "band04_geod_2ndinv": {
+   "n": 343816,
+   "mean_selected": 21.258113861083984,
+   "mean_footprint": 21.18636703491211,
+   "lift": 1.0033864974975586,
+   "frac_above_footprint_median": 0.5211126459196663
+  },
+  "band07_geod_shearrate": {
+   "n": 343816,
+   "mean_selected": 10.988502502441406,
+   "mean_footprint": 13.203290939331055,
+   "lift": 0.8322548270225525,
+   "frac_above_footprint_median": 0.5074077083502614
+  },
+  "band12_det_elev": {
+   "n": 343816,
+   "mean_selected": -42.86181640625,
+   "mean_footprint": 225.0377655029297,
+   "lift": -0.19046498835086823,
+   "frac_above_footprint_median": 0.4713916199452886
+  },
+  "band15_depth_to_base": {
+   "n": 343816,
+   "mean_selected": 566.1047973632812,
+   "mean_footprint": 531.8749389648438,
+   "lift": 1.0643569231033325,
+   "frac_above_footprint_median": 0.4940684163484196
+  },
+  "band16_ieq_density": {
+   "n": 343816,
+   "mean_selected": 1101.9833984375,
+   "mean_footprint": 1115.03759765625,
+   "lift": 0.9882925748825073,
+   "frac_above_footprint_median": 0.49861867230031687
+  },
+  "band17_cond_surf": {
+   "n": 343816,
+   "mean_selected": 2.91968035697937,
+   "mean_footprint": 2.8490045070648193,
+   "lift": 1.0248072147369385,
+   "frac_above_footprint_median": 0.5239768695322445
+  },
+  "band03_tmi_hg": {
+   "n": 343816,
+   "mean_selected": 28.34578514099121,
+   "mean_footprint": 26.43827247619629,
+   "lift": 1.072149634361267,
+   "frac_above_footprint_median": 0.4851913545136914
+  },
+  "band18_iso_grav_hg": {
+   "n": 343816,
+   "mean_selected": 0.22425857186317444,
+   "mean_footprint": 1.493354082107544,
+   "lift": 0.15017107129096985,
+   "frac_above_footprint_median": 0.558550689309607
+  },
+  "band19_det_elev_slope": {
+   "n": 343816,
+   "mean_selected": 6.665751934051514,
+   "mean_footprint": 7.394239902496338,
+   "lift": 0.9014790058135986,
+   "frac_above_footprint_median": 0.48254380975596545
+  },
+  "lidar_scarp_evidence": {
+   "n": 343816,
+   "mean_selected": 0.07307584583759308,
+   "mean_footprint": 0.09935564547777176,
+   "lift": 0.7354976534843445,
+   "frac_above_footprint_median": 0.49784675387990573
+  },
+  "dist_to_catalogue_px": {
+   "n": 343816,
+   "mean_selected": 30.982158660888672,
+   "mean_footprint": 31.192665100097656,
+   "lift": 0.993251383304596,
+   "frac_above_footprint_median": 0.4603409983478237
+  },
+  "near_catalogue_5px": {
+   "n": 343816,
+   "mean_selected": 0.14698642492294312,
+   "mean_footprint": 0.12608855962753296,
+   "lift": 1.1657395362854004,
+   "frac_above_footprint_median": 0.5383250724519921
+  },
+  "catalogue_density_10px": {
+   "n": 343816,
+   "mean_selected": 0.013782920315861702,
+   "mean_footprint": 0.015048310160636902,
+   "lift": 0.9159114956855774,
+   "frac_above_footprint_median": 0.539543891010536
+  },
+  "sgmc_density_halfA": {
+   "n": 343816,
+   "mean_selected": 0.005803902633488178,
+   "mean_footprint": 0.03246646374464035,
+   "lift": 0.17876608669757843,
+   "frac_above_footprint_median": 0.18758971858833726
+  },
+  "thermal_density_offcat": {
+   "n": 343816,
+   "mean_selected": 0.0016426191432401538,
+   "mean_footprint": 0.0063378578051924706,
+   "lift": 0.25917577743530273,
+   "frac_above_footprint_median": 0.12584978738387367
+  },
+  "_meta": {
+   "reported_score": 0.0107,
+   "dots": 343816,
+   "median_dist_to_catalogue_px": 119.45500946044922
+  }
+ }
+}

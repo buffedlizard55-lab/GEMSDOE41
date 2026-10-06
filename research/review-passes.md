@@ -192,6 +192,55 @@ This continuation reads the preserved prompt and the H41-A audit above. It corre
 - This is a useful distinction: the intervening PR-run 37394931018 was pixel-identical for both fields, while the post-merge main run repeated the earlier bounded drift. The available evidence does not isolate the runner-sensitive cause. The job uploaded artifact `11382517788`; downloading its ZIP from this sandbox again returned EOF, so the measured values and success state are preserved from GitHub check-run annotations in `docs/evidence/h41a_raster_cross_runner_rebuild_20261006_postmerge.json`.
 - **Outcome:** the post-merge CI gate is green and the 31-epsilon observation is within the measured 64-epsilon ceiling, with no support or spatial-encoding change. Do not describe the builds as universally byte-identical. No model/TIFF, holdout result, candidate ranking, slot gate, or submission decision changed; H41-A-R remains ineligible.
 
+# H42 three-pass review — 2026-10-06
+
+**Pass 1 — implement and verify.** `src/gemsdoe41/density.py::greedy_pack` rewritten to a 2-D `(H,W)` blocked
+mask with a precomputed disc offset; verified on a synthetic field (min pairwise separation 2.236 px at min_sep
+2.0, 4.123 px at 4.0). `scripts/holdout_h42.py` built 18 candidate arms + 3 controls at equal mass on the existing
+20 km four-colour fold design and wrote `evidence/h42_holdout_20km.json`; `scripts/build_h42_final.py` emitted the
+winning configuration and audited the delivered bytes (1 band, float32, EPSG:32611, 100 m, template transform,
+every stored value finite in [0,1], 40,000 positive pixels, sha256 `2943432c6e…`). `.venv/bin/python -m pytest -q`
+→ **47 passed, 2 skipped**.
+
+**Pass 2 — bug and edge-case review, with the defects that were actually found.**
+
+1. *Crash defect (fixed).* `greedy_pack` allocated `blocked = np.zeros(score.size, bool)` (1-D) and indexed it 2-D
+   → `IndexError: too many indices for array` 1 m 20 s into the first instrument run. Fixed before any evidence
+   file was written; the separation unit check above is the regression test.
+2. *Selection-rule defect (caught and re-run).* The first build's fallback clause ("if no candidate passes the
+   profile guard, take the closest-profile candidate") **silently promoted an inadmissible ridge-carpet field** to
+   "primary". The sweep was re-read rather than trusted: the guard failed for *every* candidate, which is a
+   finding, not a tie. A dedicated probe (`scripts/diag_h42_admissible.py`) tested whether a low-elevation-band
+   mask could satisfy the guard at all — it could not — which is what forced the instrument-vs-ledger conflict into
+   the open and produced the blocked-holdout arbiter.
+3. *Renderer defect (fixed).* `scripts/render_h42_map.py` used a boolean mask with a stride along one axis only
+   (`foot[::step]`) → `IndexError`; replaced with equal-axis block pooling. The map also rendered valid-data and
+   nodata as the same white; both now have distinct fills, and block-max pooling stops the 3 px-stride subsample
+   from erasing 1-px dots.
+4. *Format edge case.* A NaN-outside encoding is correct per the task's null convention but fails a naive
+   `[0,1]` range test — the documented cause of the earlier portal rejection. The **primary** file is therefore
+   all-finite (zeros outside the footprint, no nodata sentinel), and the NaN-outside twin ships beside it. Both
+   were audited; the two arrays are identical inside the footprint.
+5. *Mass/FP edge case.* Instrument B over-rewards mass, so equal-mass competition inside held-out interiors is
+   the only fair ranking; a whole-map score without mass matching is also published
+   (`evidence/h42_transfer_view.json`, mean DTI 0.0138, 23.4 % of mass inside held-out blocks) so the flattering
+   number is not the only one on record.
+6. *Circularity guard.* No surface reads the held-out catalogue, and `derived_sgmc_faults_100m_u8.tif` enters only
+   as the instrument's truth half — never as a feature of the half being scored. The `historical_h33_CONTAMINATED`
+   comparator is labelled invalid wherever it appears.
+
+**Pass 3 — re-check against the original request.** Unique TIF, never copied from a prior submission (max Jaccard
+vs every stored raster 0.0337, and the highest match is our own H41 file): ✔. Easy-to-download at the top of the
+site: ✔ (hero button, plus a NaN-outside twin and the gate receipt). Explain the 0.2778 mechanism: ✔
+(`research/h33-score-analysis.md`, reproduced in the site's audit section). Rank 3–5 new hypotheses before
+implementation: ✔ (`registry/hypotheses.json` → H43-A…E). Validate the top candidate on the blocked holdout
+before spending a slot: ✔ (this is the run that opened the gate). Zero out-of-range values: ✔ (all-finite primary,
+audited). Unique name + distinguishing note: ✔ (`GEMS41-H42-BasinMargin-DensityPack`; note in
+`docs/downloads/manifest.json`). PR then merge to main: see the PR referenced in the merge commit. Remaining
+work/limits: `docs/h41/index.html#remaining`, `evidence/h42_final.json::limitations`, and the honest statement
+that the holdout cannot reward a genuinely new fault, that the SGMC instrument disagrees with the shipped choice,
+and that 0.2778 is user-reported without an organizer receipt.
+
 ---
 
 # Arena follow-up review — 2026-10-06 (three passes)

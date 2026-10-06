@@ -1,0 +1,1032 @@
+{
+ "caveats": [
+  "Scores are owner/user reports, not organizer receipts (see registry/irregularities.json).",
+  "Identity A assumes unit mass per dot and uses N_eff = N (optimistic).",
+  "A score cannot identify which pixels are truth; no label inversion is attempted."
+ ],
+ "dot_spacing": {
+  "H16-1 topo-geophys ridges": {
+   "frac_nn_ge_6px": 0.01325,
+   "frac_nn_le_2px": 0.91775,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 2.0
+  },
+  "H19-4 multiline thermal pop": {
+   "frac_nn_ge_6px": 0.013,
+   "frac_nn_le_2px": 0.91675,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 2.0
+  },
+  "H19-5 powerlaw budget": {
+   "frac_nn_ge_6px": 0.01475,
+   "frac_nn_le_2px": 0.93,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 1.4727922061357324
+  },
+  "H25 ctx ridge": {
+   "frac_nn_ge_6px": 0.0015,
+   "frac_nn_le_2px": 0.92875,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 2.0
+  },
+  "H27-4-r1-solo-d2-8": {
+   "frac_nn_ge_6px": 0.08125,
+   "frac_nn_le_2px": 0.0,
+   "nn_median_px": 3.1622776601683795,
+   "nn_p90_px": 5.385164807134504
+  },
+  "H28 dotted ridge": {
+   "frac_nn_ge_6px": 0.02325,
+   "frac_nn_le_2px": 0.0,
+   "nn_median_px": 3.1622776601683795,
+   "nn_p90_px": 4.242640687119285
+  },
+  "H32-1 prethin tip euler": {
+   "frac_nn_ge_6px": 0.06225,
+   "frac_nn_le_2px": 0.0,
+   "nn_median_px": 3.0,
+   "nn_p90_px": 5.0
+  },
+  "H33-2-B2 37,654 px": {
+   "frac_nn_ge_6px": 0.08325,
+   "frac_nn_le_2px": 0.0,
+   "nn_median_px": 3.0,
+   "nn_p90_px": 5.385164807134504
+  },
+  "H33d analog tip stepover": {
+   "frac_nn_ge_6px": 0.06525,
+   "frac_nn_le_2px": 0.00025,
+   "nn_median_px": 3.1622776601683795,
+   "nn_p90_px": 5.0
+  },
+  "Hedge v2": {
+   "frac_nn_ge_6px": 0.0025,
+   "frac_nn_le_2px": 0.97775,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 1.4142135623730951
+  },
+  "dotted H19-5 d1.5": {
+   "frac_nn_ge_6px": 0.03025,
+   "frac_nn_le_2px": 0.427,
+   "nn_median_px": 2.23606797749979,
+   "nn_p90_px": 3.605551275463989
+  },
+  "dotted H19-5 d2.8 (44,090 px)": {
+   "frac_nn_ge_6px": 0.05875,
+   "frac_nn_le_2px": 0.0,
+   "nn_median_px": 3.0,
+   "nn_p90_px": 4.47213595499958
+  },
+  "ens12 adopted (7f00890a)": {
+   "frac_nn_ge_6px": 0.00425,
+   "frac_nn_le_2px": 0.9725,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 1.4142135623730951
+  },
+  "gemsdoe9 2314b599": {
+   "frac_nn_ge_6px": 0.0,
+   "frac_nn_le_2px": 0.982,
+   "nn_median_px": 1.0,
+   "nn_p90_px": 1.0
+  },
+  "r13 lattice s5": {
+   "frac_nn_ge_6px": 0.0,
+   "frac_nn_le_2px": 0.0,
+   "nn_median_px": 5.0,
+   "nn_p90_px": 5.0
+  },
+  "topo-gap-closure-t v2 d1.5": {
+   "frac_nn_ge_6px": 0.03,
+   "frac_nn_le_2px": 0.40075,
+   "nn_median_px": 2.23606797749979,
+   "nn_p90_px": 3.605551275463989
+  }
+ },
+ "ladder": {
+  "best_K": 14090.0,
+  "best_K_implied_T": 5225.484426666667,
+  "best_K_spread": 0.001193275013542839,
+  "files": [
+   {
+    "positive_cells": 44090,
+    "score": 0.26,
+    "tag": "d2.8 @ 44,090 px"
+   },
+   {
+    "positive_cells": 40199,
+    "score": 0.2708,
+    "tag": "h27-4 solo d2.8 @ 40,199 px"
+   },
+   {
+    "positive_cells": 37654,
+    "score": 0.2778,
+    "tag": "h33-2-b2 @ 37,654 px"
+   }
+  ],
+  "interpretation": "Under the assumption that the pruned dots carried no hidden-truth credit, the three nested d2.8 scores are consistent with a single (K, T) pair; the K that minimises their spread is the best available metric-calibrated estimate of the hidden-truth size. Disagreement between the pairwise closed-form estimates measures how far that assumption is from true.",
+  "k_curve": [
+   {
+    "K": 4000.0,
+    "T": 3049.8113599999997,
+    "spread": 0.04710578558537482
+   },
+   {
+    "K": 6000.0,
+    "T": 3481.0646933333333,
+    "spread": 0.033088658254640274
+   },
+   {
+    "K": 8000.0,
+    "T": 3912.3180266666664,
+    "spread": 0.022161736190417333
+   },
+   {
+    "K": 10000.0,
+    "T": 4343.57136,
+    "spread": 0.013404582352711886
+   },
+   {
+    "K": 12000.0,
+    "T": 4774.824693333333,
+    "spread": 0.006229288384457105
+   },
+   {
+    "K": 14000.0,
+    "T": 5206.078026666666,
+    "spread": 0.0012911062733924374
+   },
+   {
+    "K": 16000.0,
+    "T": 5637.331359999999,
+    "spread": 0.004827858832836065
+   },
+   {
+    "K": 18000.0,
+    "T": 6068.584693333333,
+    "spread": 0.009177797264852317
+   },
+   {
+    "K": 20000.0,
+    "T": 6499.838026666667,
+    "spread": 0.012950513482744007
+   },
+   {
+    "K": 22000.0,
+    "T": 6931.091359999999,
+    "spread": 0.016253751992095996
+   },
+   {
+    "K": 24000.0,
+    "T": 7362.3446933333325,
+    "spread": 0.019170012527096023
+   },
+   {
+    "K": 26000.0,
+    "T": 7793.598026666667,
+    "spread": 0.02176353455998609
+   },
+   {
+    "K": 28000.0,
+    "T": 8224.851359999999,
+    "spread": 0.024085084499326316
+   },
+   {
+    "K": 30000.0,
+    "T": 8656.104693333333,
+    "spread": 0.026175311878390357
+   },
+   {
+    "K": 32000.0,
+    "T": 9087.358026666667,
+    "spread": 0.028067149907766653
+   },
+   {
+    "K": 34000.0,
+    "T": 9518.61136,
+    "spread": 0.029787563466610472
+   },
+   {
+    "K": 36000.0,
+    "T": 9949.864693333333,
+    "spread": 0.03135884251863845
+   },
+   {
+    "K": 38000.0,
+    "T": 10381.118026666667,
+    "spread": 0.032799573140903045
+   }
+  ],
+  "pairwise": [
+   {
+    "K_estimate": 13368.305555555638,
+    "T_estimate": 5073.287555555573,
+    "pair": "d2.8 @ 44,090 px vs h27-4 solo d2.8 @ 40,199 px"
+   },
+   {
+    "K_estimate": 15200.28571428569,
+    "T_estimate": 5470.167737142851,
+    "pair": "h27-4 solo d2.8 @ 40,199 px vs h33-2-b2 @ 37,654 px"
+   }
+  ]
+ },
+ "ledger": [
+  {
+   "file": "data/comparison-h33.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4314.5,
+    "12000": 4758.9,
+    "13000": 4981.2,
+    "14088": 5223.0,
+    "16000": 5647.9,
+    "20000": 6536.9,
+    "8000": 3870.0
+   },
+   "label": "H33-2-B2 37,654 px",
+   "mass": 37654.0,
+   "mass_share_beyond_1km": 0.698305624900409,
+   "mass_within_1km_catalogue": 11360.0,
+   "mass_within_200m_catalogue": 0.0,
+   "mass_within_300m_catalogue": 2171.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 19.6468827043885,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "None",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 37654,
+   "reported_score": 0.2778,
+   "site": "GEMSDOE32",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r02708-h27-4-solo-d2-8.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4343.6,
+    "12000": 4776.9,
+    "13000": 4993.5,
+    "14088": 5229.2,
+    "16000": 5643.4,
+    "20000": 6510.0,
+    "8000": 3910.3
+   },
+   "label": "H27-4-r1-solo-d2-8",
+   "mass": 40199.0,
+   "mass_share_beyond_1km": 0.6540958730316675,
+   "mass_within_1km_catalogue": 13905.0,
+   "mass_within_200m_catalogue": 2545.0,
+   "mass_within_300m_catalogue": 4716.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 17.69180601295413,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 40199,
+   "reported_score": 0.2708,
+   "site": "GEMSDOE28/31",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r02649-h32-1-prethin-tip-euler.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4359.9,
+    "12000": 4783.8,
+    "13000": 4995.7,
+    "14088": 5226.3,
+    "16000": 5631.5,
+    "20000": 6479.1,
+    "8000": 3936.1
+   },
+   "label": "H32-1 prethin tip euler",
+   "mass": 42294.0,
+   "mass_share_beyond_1km": 0.6216011727431787,
+   "mass_within_1km_catalogue": 16004.0,
+   "mass_within_200m_catalogue": 4637.0,
+   "mass_within_300m_catalogue": 6816.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 16.1245154965971,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 42294,
+   "reported_score": 0.2649,
+   "site": "GEMSDOE28",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r02632-h33d-analog-tip-stepover.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4309.4,
+    "12000": 4730.5,
+    "13000": 4941.1,
+    "14088": 5170.1,
+    "16000": 5572.7,
+    "20000": 6415.0,
+    "8000": 3888.3
+   },
+   "label": "H33d analog tip stepover",
+   "mass": 41865.0,
+   "mass_share_beyond_1km": 0.633584139495999,
+   "mass_within_1km_catalogue": 15340.0,
+   "mass_within_200m_catalogue": 3894.0,
+   "mass_within_300m_catalogue": 6024.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 16.64331697709324,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 41865,
+   "reported_score": 0.2632,
+   "site": "GEMSDOE33",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r02600-dotted-d2-8-44090.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4372.7,
+    "12000": 4788.7,
+    "13000": 4996.7,
+    "14088": 5223.0,
+    "16000": 5620.7,
+    "20000": 6452.7,
+    "8000": 3956.7
+   },
+   "label": "dotted H19-5 d2.8 (44,090 px)",
+   "mass": 44090.0,
+   "mass_share_beyond_1km": 0.5963710591970969,
+   "mass_within_1km_catalogue": 17796.0,
+   "mass_within_200m_catalogue": 6436.0,
+   "mass_within_300m_catalogue": 8607.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 15.0,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 44090,
+   "reported_score": 0.26,
+   "site": "GEMSDOE25",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r02477-dotted-d1-5.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4957.4,
+    "12000": 5353.7,
+    "13000": 5551.9,
+    "14088": 5767.5,
+    "16000": 6146.4,
+    "20000": 6939.0,
+    "8000": 4561.1
+   },
+   "label": "dotted H19-5 d1.5",
+   "mass": 60069.0,
+   "mass_share_beyond_1km": 0.5931179143984417,
+   "mass_within_1km_catalogue": 24441.0,
+   "mass_within_200m_catalogue": 8769.0,
+   "mass_within_300m_catalogue": 11938.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 14.866068747318506,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 60069,
+   "reported_score": 0.2477,
+   "site": "GEMSDOE24",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r02449-topo-gap-closure-d1-5.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4963.0,
+    "12000": 5354.9,
+    "13000": 5550.8,
+    "14088": 5764.0,
+    "16000": 6138.6,
+    "20000": 6922.2,
+    "8000": 4571.2
+   },
+   "label": "topo-gap-closure-t v2 d1.5",
+   "mass": 61328.0,
+   "mass_share_beyond_1km": 0.5837138012001044,
+   "mass_within_1km_catalogue": 25530.0,
+   "mass_within_200m_catalogue": 8875.0,
+   "mass_within_300m_catalogue": 12187.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 14.142135623730951,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 61328,
+   "reported_score": 0.2449,
+   "site": "GEMSDOE27",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01922-h19-5-powerlaw.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 6193.9,
+    "12000": 6501.4,
+    "13000": 6655.2,
+    "14088": 6822.4,
+    "16000": 7116.4,
+    "20000": 7731.5,
+    "8000": 5886.4
+   },
+   "label": "H19-5 powerlaw budget",
+   "mass": 121131.0,
+   "mass_share_beyond_1km": 0.5893206528469178,
+   "mass_within_1km_catalogue": 49746.0,
+   "mass_within_200m_catalogue": 17326.0,
+   "mass_within_300m_catalogue": 24167.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 14.560219778561036,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 121131,
+   "reported_score": 0.1922,
+   "site": "GEMSDOE19",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01894-h19-4-multiline.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 6203.9,
+    "12000": 6507.0,
+    "13000": 6658.5,
+    "14088": 6823.4,
+    "16000": 7113.1,
+    "20000": 7719.1,
+    "8000": 5900.9
+   },
+   "label": "H19-4 multiline thermal pop",
+   "mass": 123779.0,
+   "mass_share_beyond_1km": 0.5907060163678814,
+   "mass_within_1km_catalogue": 50662.0,
+   "mass_within_200m_catalogue": 17518.0,
+   "mass_within_300m_catalogue": 24496.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 14.7648230602334,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 123779,
+   "reported_score": 0.1894,
+   "site": "GEMSDOE19",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01855-h16-1-topo-geophys.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 6082.1,
+    "12000": 6378.9,
+    "13000": 6527.3,
+    "14088": 6688.8,
+    "16000": 6972.5,
+    "20000": 7566.1,
+    "8000": 5785.3
+   },
+   "label": "H16-1 topo-geophys ridges",
+   "mass": 123939.0,
+   "mass_share_beyond_1km": 0.5921945473176321,
+   "mass_within_1km_catalogue": 50543.0,
+   "mass_within_200m_catalogue": 17394.0,
+   "mass_within_300m_catalogue": 24393.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 14.866068747318506,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 123939,
+   "reported_score": 0.1855,
+   "site": "GEMSDOE16",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01839-h28-dotted-ridge.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4019.4,
+    "12000": 4313.6,
+    "13000": 4460.7,
+    "14088": 4620.8,
+    "16000": 4902.1,
+    "20000": 5490.6,
+    "8000": 3725.1
+   },
+   "label": "H28 dotted ridge",
+   "mass": 69281.0,
+   "mass_share_beyond_1km": 0.42866009439817554,
+   "mass_within_1km_catalogue": 39583.0,
+   "mass_within_200m_catalogue": 13878.0,
+   "mass_within_300m_catalogue": 18502.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 8.0,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 69281,
+   "reported_score": 0.1839,
+   "site": "GEMSDOE10",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01563-hedge-v2.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 8362.3,
+    "12000": 8612.3,
+    "13000": 8737.4,
+    "14088": 8873.4,
+    "16000": 9112.5,
+    "20000": 9612.7,
+    "8000": 8112.2
+   },
+   "label": "Hedge v2",
+   "mass": 227507.0,
+   "mass_share_beyond_1km": 0.43283063817816597,
+   "mass_within_1km_catalogue": 129035.0,
+   "mass_within_200m_catalogue": 82770.0,
+   "mass_within_300m_catalogue": 91847.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 6.708203932499369,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 227507,
+   "reported_score": 0.1563,
+   "site": "GEMSDOE8",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01563-ens12-adopted.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 6657.6,
+    "12000": 6907.6,
+    "13000": 7032.7,
+    "14088": 7168.7,
+    "16000": 7407.8,
+    "20000": 7908.0,
+    "8000": 6407.5
+   },
+   "label": "ens12 adopted (7f00890a)",
+   "mass": 172974.0,
+   "mass_share_beyond_1km": 0.5692878698532727,
+   "mass_within_1km_catalogue": 74502.0,
+   "mass_within_200m_catalogue": 28237.0,
+   "mass_within_300m_catalogue": 37314.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 13.0,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 172974,
+   "reported_score": 0.1563,
+   "site": "GEMSDOE",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r01280-h25-ctx-ridge.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 5484.3,
+    "12000": 5689.1,
+    "13000": 5791.5,
+    "14088": 5903.0,
+    "16000": 6098.7,
+    "20000": 6508.3,
+    "8000": 5279.5
+   },
+   "label": "H25 ctx ridge",
+   "mass": 174232.0,
+   "mass_share_beyond_1km": 0.3585219707057257,
+   "mass_within_1km_catalogue": 111766.0,
+   "mass_within_200m_catalogue": 44496.0,
+   "mass_within_300m_catalogue": 57676.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 6.082762530298219,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 174232,
+   "reported_score": 0.128,
+   "site": "GEMSDOE10",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r00904-r13-lattice-s5.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 4463.9,
+    "12000": 4608.5,
+    "13000": 4680.8,
+    "14088": 4759.5,
+    "16000": 4897.8,
+    "20000": 5187.1,
+    "8000": 4319.2
+   },
+   "label": "r13 lattice s5",
+   "mass": 206895.0,
+   "mass_share_beyond_1km": 0.7470649363203558,
+   "mass_within_1km_catalogue": 52331.0,
+   "mass_within_200m_catalogue": 12169.0,
+   "mass_within_300m_catalogue": 17759.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 23.194827009486403,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "nan",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 206895,
+   "reported_score": 0.0904,
+   "site": "GEMSDOE13",
+   "status": "ok"
+  },
+  {
+   "file": "data/scored/r00107-placeholder-2314b599.tif",
+   "frac_cells_at_one": 1.0,
+   "implied_credit_T": {
+    "10000": 821.4,
+    "12000": 838.5,
+    "13000": 847.0,
+    "14088": 856.4,
+    "16000": 872.7,
+    "20000": 907.0,
+    "8000": 804.2
+   },
+   "label": "gemsdoe9 2314b599",
+   "mass": 343816.0,
+   "mass_share_beyond_1km": 0.8708902436186797,
+   "mass_within_1km_catalogue": 44390.0,
+   "mass_within_200m_catalogue": 10402.0,
+   "mass_within_300m_catalogue": 15213.0,
+   "mean_value": 1.0,
+   "median_catalogue_distance_px": 119.45501096740279,
+   "meta": {
+    "crs": "EPSG:32611",
+    "dtype": "float32",
+    "nodata": "None",
+    "shape": [
+     3730,
+     3292
+    ],
+    "transform": [
+     100.0,
+     0.0,
+     243350.0,
+     0.0,
+     -100.0,
+     4508550.0
+    ]
+   },
+   "positive_cells": 343816,
+   "reported_score": 0.0107,
+   "site": "GEMSDOE9",
+   "status": "ok"
+  }
+ ],
+ "support_jaccard": {
+  "H16-1 topo-geophys ridges | H19-4 multiline thermal pop": 0.71917,
+  "H16-1 topo-geophys ridges | H19-5 powerlaw budget": 0.59175,
+  "H16-1 topo-geophys ridges | H25 ctx ridge": 0.0662,
+  "H16-1 topo-geophys ridges | H27-4-r1-solo-d2-8": 0.21617,
+  "H16-1 topo-geophys ridges | H28 dotted ridge": 0.03305,
+  "H16-1 topo-geophys ridges | H32-1 prethin tip euler": 0.22745,
+  "H16-1 topo-geophys ridges | H33-2-B2 37,654 px": 0.20298,
+  "H16-1 topo-geophys ridges | H33d analog tip stepover": 0.22098,
+  "H16-1 topo-geophys ridges | Hedge v2": 0.05553,
+  "H16-1 topo-geophys ridges | dotted H19-5 d1.5": 0.31283,
+  "H16-1 topo-geophys ridges | dotted H19-5 d2.8 (44,090 px)": 0.23673,
+  "H16-1 topo-geophys ridges | ens12 adopted (7f00890a)": 0.06641,
+  "H16-1 topo-geophys ridges | gemsdoe9 2314b599": 0.00783,
+  "H16-1 topo-geophys ridges | r13 lattice s5": 0.01523,
+  "H16-1 topo-geophys ridges | topo-gap-closure-t v2 d1.5": 0.31008,
+  "H19-4 multiline thermal pop | H19-5 powerlaw budget": 0.77723,
+  "H19-4 multiline thermal pop | H25 ctx ridge": 0.06963,
+  "H19-4 multiline thermal pop | H27-4-r1-solo-d2-8": 0.27142,
+  "H19-4 multiline thermal pop | H28 dotted ridge": 0.03452,
+  "H19-4 multiline thermal pop | H32-1 prethin tip euler": 0.28555,
+  "H19-4 multiline thermal pop | H33-2-B2 37,654 px": 0.2546,
+  "H19-4 multiline thermal pop | H33d analog tip stepover": 0.27962,
+  "H19-4 multiline thermal pop | Hedge v2": 0.05681,
+  "H19-4 multiline thermal pop | dotted H19-5 d1.5": 0.3982,
+  "H19-4 multiline thermal pop | dotted H19-5 d2.8 (44,090 px)": 0.29744,
+  "H19-4 multiline thermal pop | ens12 adopted (7f00890a)": 0.06796,
+  "H19-4 multiline thermal pop | gemsdoe9 2314b599": 0.00782,
+  "H19-4 multiline thermal pop | r13 lattice s5": 0.01529,
+  "H19-4 multiline thermal pop | topo-gap-closure-t v2 d1.5": 0.39442,
+  "H19-5 powerlaw budget | H25 ctx ridge": 0.07181,
+  "H19-5 powerlaw budget | H27-4-r1-solo-d2-8": 0.33186,
+  "H19-5 powerlaw budget | H28 dotted ridge": 0.0357,
+  "H19-5 powerlaw budget | H32-1 prethin tip euler": 0.34916,
+  "H19-5 powerlaw budget | H33-2-B2 37,654 px": 0.31085,
+  "H19-5 powerlaw budget | H33d analog tip stepover": 0.34414,
+  "H19-5 powerlaw budget | Hedge v2": 0.05728,
+  "H19-5 powerlaw budget | dotted H19-5 d1.5": 0.4959,
+  "H19-5 powerlaw budget | dotted H19-5 d2.8 (44,090 px)": 0.36399,
+  "H19-5 powerlaw budget | ens12 adopted (7f00890a)": 0.06863,
+  "H19-5 powerlaw budget | gemsdoe9 2314b599": 0.00789,
+  "H19-5 powerlaw budget | r13 lattice s5": 0.0151,
+  "H19-5 powerlaw budget | topo-gap-closure-t v2 d1.5": 0.4908,
+  "H25 ctx ridge | H27-4-r1-solo-d2-8": 0.02682,
+  "H25 ctx ridge | H28 dotted ridge": 0.29908,
+  "H25 ctx ridge | H32-1 prethin tip euler": 0.02913,
+  "H25 ctx ridge | H33-2-B2 37,654 px": 0.02445,
+  "H25 ctx ridge | H33d analog tip stepover": 0.02822,
+  "H25 ctx ridge | Hedge v2": 0.0843,
+  "H25 ctx ridge | dotted H19-5 d1.5": 0.04099,
+  "H25 ctx ridge | dotted H19-5 d2.8 (44,090 px)": 0.03146,
+  "H25 ctx ridge | ens12 adopted (7f00890a)": 0.0625,
+  "H25 ctx ridge | gemsdoe9 2314b599": 0.01158,
+  "H25 ctx ridge | r13 lattice s5": 0.01891,
+  "H25 ctx ridge | topo-gap-closure-t v2 d1.5": 0.04139,
+  "H27-4-r1-solo-d2-8 | H28 dotted ridge": 0.01906,
+  "H27-4-r1-solo-d2-8 | H32-1 prethin tip euler": 0.89465,
+  "H27-4-r1-solo-d2-8 | H33-2-B2 37,654 px": 0.93669,
+  "H27-4-r1-solo-d2-8 | H33d analog tip stepover": 0.69575,
+  "H27-4-r1-solo-d2-8 | Hedge v2": 0.02036,
+  "H27-4-r1-solo-d2-8 | dotted H19-5 d1.5": 0.36961,
+  "H27-4-r1-solo-d2-8 | dotted H19-5 d2.8 (44,090 px)": 0.91175,
+  "H27-4-r1-solo-d2-8 | ens12 adopted (7f00890a)": 0.0257,
+  "H27-4-r1-solo-d2-8 | gemsdoe9 2314b599": 0.00317,
+  "H27-4-r1-solo-d2-8 | r13 lattice s5": 0.00657,
+  "H27-4-r1-solo-d2-8 | topo-gap-closure-t v2 d1.5": 0.36336,
+  "H28 dotted ridge | H32-1 prethin tip euler": 0.01996,
+  "H28 dotted ridge | H33-2-B2 37,654 px": 0.01807,
+  "H28 dotted ridge | H33d analog tip stepover": 0.01967,
+  "H28 dotted ridge | Hedge v2": 0.03602,
+  "H28 dotted ridge | dotted H19-5 d1.5": 0.02547,
+  "H28 dotted ridge | dotted H19-5 d2.8 (44,090 px)": 0.02122,
+  "H28 dotted ridge | ens12 adopted (7f00890a)": 0.02912,
+  "H28 dotted ridge | gemsdoe9 2314b599": 0.00552,
+  "H28 dotted ridge | r13 lattice s5": 0.01023,
+  "H28 dotted ridge | topo-gap-closure-t v2 d1.5": 0.0256,
+  "H32-1 prethin tip euler | H33-2-B2 37,654 px": 0.85606,
+  "H32-1 prethin tip euler | H33d analog tip stepover": 0.69143,
+  "H32-1 prethin tip euler | Hedge v2": 0.02177,
+  "H32-1 prethin tip euler | dotted H19-5 d1.5": 0.38418,
+  "H32-1 prethin tip euler | dotted H19-5 d2.8 (44,090 px)": 0.8714,
+  "H32-1 prethin tip euler | ens12 adopted (7f00890a)": 0.02744,
+  "H32-1 prethin tip euler | gemsdoe9 2314b599": 0.00335,
+  "H32-1 prethin tip euler | r13 lattice s5": 0.00695,
+  "H32-1 prethin tip euler | topo-gap-closure-t v2 d1.5": 0.37775,
+  "H33-2-B2 37,654 px | H33d analog tip stepover": 0.65993,
+  "H33-2-B2 37,654 px | Hedge v2": 0.01849,
+  "H33-2-B2 37,654 px | dotted H19-5 d1.5": 0.35339,
+  "H33-2-B2 37,654 px | dotted H19-5 d2.8 (44,090 px)": 0.85403,
+  "H33-2-B2 37,654 px | ens12 adopted (7f00890a)": 0.02339,
+  "H33-2-B2 37,654 px | gemsdoe9 2314b599": 0.00291,
+  "H33-2-B2 37,654 px | r13 lattice s5": 0.00623,
+  "H33-2-B2 37,654 px | topo-gap-closure-t v2 d1.5": 0.34734,
+  "H33d analog tip stepover | Hedge v2": 0.02104,
+  "H33d analog tip stepover | dotted H19-5 d1.5": 0.38926,
+  "H33d analog tip stepover | dotted H19-5 d2.8 (44,090 px)": 0.68196,
+  "H33d analog tip stepover | ens12 adopted (7f00890a)": 0.02652,
+  "H33d analog tip stepover | gemsdoe9 2314b599": 0.0033,
+  "H33d analog tip stepover | r13 lattice s5": 0.0067,
+  "H33d analog tip stepover | topo-gap-closure-t v2 d1.5": 0.38269,
+  "Hedge v2 | dotted H19-5 d1.5": 0.03137,
+  "Hedge v2 | dotted H19-5 d2.8 (44,090 px)": 0.02352,
+  "Hedge v2 | ens12 adopted (7f00890a)": 0.7603,
+  "Hedge v2 | gemsdoe9 2314b599": 0.01326,
+  "Hedge v2 | r13 lattice s5": 0.02128,
+  "Hedge v2 | topo-gap-closure-t v2 d1.5": 0.0314,
+  "dotted H19-5 d1.5 | dotted H19-5 d2.8 (44,090 px)": 0.40168,
+  "dotted H19-5 d1.5 | ens12 adopted (7f00890a)": 0.039,
+  "dotted H19-5 d1.5 | gemsdoe9 2314b599": 0.00456,
+  "dotted H19-5 d1.5 | r13 lattice s5": 0.00924,
+  "dotted H19-5 d1.5 | topo-gap-closure-t v2 d1.5": 0.97947,
+  "dotted H19-5 d2.8 (44,090 px) | ens12 adopted (7f00890a)": 0.0296,
+  "dotted H19-5 d2.8 (44,090 px) | gemsdoe9 2314b599": 0.00347,
+  "dotted H19-5 d2.8 (44,090 px) | r13 lattice s5": 0.00713,
+  "dotted H19-5 d2.8 (44,090 px) | topo-gap-closure-t v2 d1.5": 0.39499,
+  "ens12 adopted (7f00890a) | gemsdoe9 2314b599": 0.01103,
+  "ens12 adopted (7f00890a) | r13 lattice s5": 0.01847,
+  "ens12 adopted (7f00890a) | topo-gap-closure-t v2 d1.5": 0.03899,
+  "gemsdoe9 2314b599 | r13 lattice s5": 0.01088,
+  "gemsdoe9 2314b599 | topo-gap-closure-t v2 d1.5": 0.00466,
+  "r13 lattice s5 | topo-gap-closure-t v2 d1.5": 0.00936
+ },
+ "verified_with": {
+  "checks": "tests/test_metric.py",
+  "metric_module": "src/gems41/metric.py"
+ }
+}

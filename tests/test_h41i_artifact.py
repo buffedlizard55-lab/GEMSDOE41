@@ -16,7 +16,11 @@ def test_h41i_actual_bytes_grid_mask_range_and_identity():
     path = ROOT / 'docs/downloads' / m['filename']
     assert hashlib.sha256(path.read_bytes()).hexdigest() == m['format']['sha256']
     old = json.loads((ROOT / 'docs/downloads/manifest.json').read_text())
-    with rasterio.open(path) as src, rasterio.open(ROOT / 'docs/downloads' / old['filename']) as ref:
+    # The H41-I mask/support contract is with the H41-A field it derives from, which the manifest
+    # now declares explicitly: manifest['filename'] is the currently published submission and can be
+    # a different artifact (H42 since 2026-10-06), while 'reproduction_target' names the H41-A raster.
+    ref_name = (old.get('reproduction_target') or {}).get('filename') or old['filename']
+    with rasterio.open(path) as src, rasterio.open(ROOT / 'docs/downloads' / ref_name) as ref:
         a, b = src.read(1), ref.read(1)
         assert src.count == 1 and src.dtypes == ('float32',)
         assert src.shape == (3730, 3292) and src.crs.to_epsg() == 32611

@@ -1,7 +1,34 @@
 # GEMSDOE41 — Walker Lane structural transfer
 
-## Latest session — 2026-10-06: new H41-I file, gate CLOSED
+**[Download the H42 submission GeoTIFF](docs/downloads/gems41-h42-submission-primary.tif)** · [NaN-outside twin](docs/downloads/gems41-h42-basinmargin-s4-n40000-20261006T015229Z-nan.tif) · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission guide](docs/executive-summary.html) · [Gate receipt](docs/downloads/h42-gate.json)
 
+**H42 (this file) passes the standing blocked-holdout gate and is slot-eligible; it has never been scored.**
+Surface: `( slope^0.5 · (1 − detrended_elevation)^1.5 )^0.55 · lidar_scarp^0.25 · tmi_hg^0.20` — terrain relief at
+basin margins, corroborated by 1 m USGS 3DEP scarp evidence and reduced-to-pole magnetics, packed to 40,000 px at
+≥400 m spacing and thinned 200 m off the published catalogue.
+
+| test | result |
+|---|---|
+| 20 km four-colour blocked holdout, 21 arms at equal mass, emission fresh inside each held-out block | **mean DTI 0.2507** (worst fold 0.2423, best 0.2580) — rank 1 of 21 |
+| uniform-random control, same domain, same mass | 0.1212 |
+| catalogue-density control | 0.1771 |
+| archived H41-A / H41-E arms on the same instrument | 0.0 — do not submit those files |
+| SGMC independent-map instrument (disagrees; published, not used) | 0.3460 A→B / 0.3217 B→A |
+| uniqueness: max Jaccard vs every raster in the repo | 0.0337 |
+| format audit | 1 band, float32, EPSG:32611, 100 m, 3730×3292, every stored value finite in [0,1], sha256 `2943432c6e3d13f1…` |
+
+The gate moved because the *emission geometry* changed, not because the metric was relaxed: a catalogue-free
+basin-margin surface, competing at equal mass inside each held-out block, beats both controls in all four folds,
+whereas the archived H41 corridors carried no support into held-out interiors at all. Two instruments disagree on
+this candidate (the SGMC state-map instrument prefers high-terrain carpet surfaces); both readings, and the
+16-artifact ledger association used as tie-breaker, are published in `evidence/h42_holdout_20km.json`,
+`evidence/h42_admissible.json` and `evidence/h42_final.json`. **This is not a leaderboard forecast**: the holdout's
+truth is the published catalogue, so it cannot reward a genuinely new fault. `K_HIDDEN_PX = 14,088` and
+`lambda = 1.76` are MODEL constants, not measurements.
+
+**Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
+
+## Parallel session — 2026-10-06: H41-I local-strike file (gate closed)
 **[Download the newly generated H41-I GeoTIFF](docs/downloads/gems41-h41i-local-strike-20261006-f265e3bf9494.tif)** · **[Executive summary and exact submission instructions](https://buffedlizard55-lab.github.io/GEMSDOE41/docs/h41i-executive-summary.html)**
 
 This file is freshly computed from raw fault geometry and the existing detrended-elevation tangent detector, **not a copied prior prediction**. It transports the actual local strike of the nearest strand in the closer population instead of universal family axes. All numerical cells are finite [0,1], exact template grid, single float32 band; null outside is represented by an internal mask. All nine available prior TIFF comparisons differ in their actual prediction arrays. **Its nonzero support is identical to H41-A; all 150,421 positive confidence values differ. Novelty is in local-strike weighting, not new geographic coverage.** Global novelty against inaccessible files is not provable.
@@ -17,7 +44,7 @@ This file is freshly computed from raw fault geometry and the existing detrended
 
 Rebuild after installing dependencies and restoring data: `.venv/bin/python scripts/experiment_h41i.py`, then `.venv/bin/python scripts/build_site.py`. CPU only; no competition upload is automated. The full original user prompt remains below and must be reread each session, together with this status and the new preregistration. Earlier session sections below are historical.
 
-## Archived H41-A and parallel-session results
+## Archived — earlier structural-transfer work (NOT the file to submit)
 
 
 **[Download the new GeoTIFF](docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
