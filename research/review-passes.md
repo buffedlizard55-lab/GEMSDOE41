@@ -192,6 +192,115 @@ This continuation reads the preserved prompt and the H41-A audit above. It corre
 - This is a useful distinction: the intervening PR-run 37394931018 was pixel-identical for both fields, while the post-merge main run repeated the earlier bounded drift. The available evidence does not isolate the runner-sensitive cause. The job uploaded artifact `11382517788`; downloading its ZIP from this sandbox again returned EOF, so the measured values and success state are preserved from GitHub check-run annotations in `docs/evidence/h41a_raster_cross_runner_rebuild_20261006_postmerge.json`.
 - **Outcome:** the post-merge CI gate is green and the 31-epsilon observation is within the measured 64-epsilon ceiling, with no support or spatial-encoding change. Do not describe the builds as universally byte-identical. No model/TIFF, holdout result, candidate ranking, slot gate, or submission decision changed; H41-A-R remains ineligible.
 
+# H42 three-pass review — 2026-10-06
+
+**Pass 1 — implement and verify.** `src/gemsdoe41/density.py::greedy_pack` rewritten to a 2-D `(H,W)` blocked
+mask with a precomputed disc offset; verified on a synthetic field (min pairwise separation 2.236 px at min_sep
+2.0, 4.123 px at 4.0). `scripts/holdout_h42.py` built 18 candidate arms + 3 controls at equal mass on the existing
+20 km four-colour fold design and wrote `evidence/h42_holdout_20km.json`; `scripts/build_h42_final.py` emitted the
+winning configuration and audited the delivered bytes (1 band, float32, EPSG:32611, 100 m, template transform,
+every stored value finite in [0,1], 40,000 positive pixels, sha256 `2943432c6e…`). `.venv/bin/python -m pytest -q`
+→ **47 passed, 2 skipped**.
+
+**Pass 2 — bug and edge-case review, with the defects that were actually found.**
+
+1. *Crash defect (fixed).* `greedy_pack` allocated `blocked = np.zeros(score.size, bool)` (1-D) and indexed it 2-D
+   → `IndexError: too many indices for array` 1 m 20 s into the first instrument run. Fixed before any evidence
+   file was written; the separation unit check above is the regression test.
+2. *Selection-rule defect (caught and re-run).* The first build's fallback clause ("if no candidate passes the
+   profile guard, take the closest-profile candidate") **silently promoted an inadmissible ridge-carpet field** to
+   "primary". The sweep was re-read rather than trusted: the guard failed for *every* candidate, which is a
+   finding, not a tie. A dedicated probe (`scripts/diag_h42_admissible.py`) tested whether a low-elevation-band
+   mask could satisfy the guard at all — it could not — which is what forced the instrument-vs-ledger conflict into
+   the open and produced the blocked-holdout arbiter.
+3. *Renderer defect (fixed).* `scripts/render_h42_map.py` used a boolean mask with a stride along one axis only
+   (`foot[::step]`) → `IndexError`; replaced with equal-axis block pooling. The map also rendered valid-data and
+   nodata as the same white; both now have distinct fills, and block-max pooling stops the 3 px-stride subsample
+   from erasing 1-px dots.
+4. *Format edge case.* A NaN-outside encoding is correct per the task's null convention but fails a naive
+   `[0,1]` range test — the documented cause of the earlier portal rejection. The **primary** file is therefore
+   all-finite (zeros outside the footprint, no nodata sentinel), and the NaN-outside twin ships beside it. Both
+   were audited; the two arrays are identical inside the footprint.
+5. *Mass/FP edge case.* Instrument B over-rewards mass, so equal-mass competition inside held-out interiors is
+   the only fair ranking; a whole-map score without mass matching is also published
+   (`evidence/h42_transfer_view.json`, mean DTI 0.0138, 23.4 % of mass inside held-out blocks) so the flattering
+   number is not the only one on record.
+6. *Circularity guard.* No surface reads the held-out catalogue, and `derived_sgmc_faults_100m_u8.tif` enters only
+   as the instrument's truth half — never as a feature of the half being scored. The `historical_h33_CONTAMINATED`
+   comparator is labelled invalid wherever it appears.
+
+**Pass 3 — re-check against the original request.** Unique TIF, never copied from a prior submission (max Jaccard
+vs every stored raster 0.0337, and the highest match is our own H41 file): ✔. Easy-to-download at the top of the
+site: ✔ (hero button, plus a NaN-outside twin and the gate receipt). Explain the 0.2778 mechanism: ✔
+(`research/h33-score-analysis.md`, reproduced in the site's audit section). Rank 3–5 new hypotheses before
+implementation: ✔ (`registry/hypotheses.json` → H43-A…E). Validate the top candidate on the blocked holdout
+before spending a slot: ✔ (this is the run that opened the gate). Zero out-of-range values: ✔ (all-finite primary,
+audited). Unique name + distinguishing note: ✔ (`GEMS41-H42-BasinMargin-DensityPack`; note in
+`docs/downloads/manifest.json`). PR then merge to main: see the PR referenced in the merge commit. Remaining
+work/limits: `docs/h41/index.html#remaining`, `evidence/h42_final.json::limitations`, and the honest statement
+that the holdout cannot reward a genuinely new fault, that the SGMC instrument disagrees with the shipped choice,
+and that 0.2778 is user-reported without an organizer receipt.
+
+---
+
+# Arena follow-up review — 2026-10-06 (three passes)
+
+## Pass 1 — read the standing brief, restore data, and reproduce the candidate
+
+- Read `AGENTS.md`, the README and preserved original brief, both hypothesis registrations, the H33 score audit, this review log, `docs/downloads/holdout.json`, and `docs/research.html` before acting. Starting branch was `arena/aa9e7e73-gemsdoe41`; the working tree was clean.
+- Ran the documented `bash scripts/download_competition_data.sh` and `.venv/bin/python scripts/prepare_data.py` without user input. The restored raster hashes matched the pinned owner-mirror manifest: features `4371c82e…`, existing faults `7ba308cc…`, and sample grid `2176d08e…`. The official Qfaults vector archive also matched `c7b091c9…`. This verifies byte integrity against the repository's pins only; the competition rasters are still not organizer-authenticated.
+- Ran `.venv/bin/python scripts/run_pipeline.py` on CPU. It read 5,540 trace parts from 413 source features, formed 268 accepted cross-family corridors, reproduced 150,421 positive cells and probability mass `6744.914895294071`, and rebuilt the existing H41-A GeoTIFF with exact SHA-256 `8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c` and pixel SHA-256 `1616b7de764cb328906172ccdfef4c9685971bfd1cde32fb1b29816281d4ee5f`.
+- Reproduced the registered four-fold proxy mean: candidate DTI `0.0`; only fold 0 has nonzero candidate mass. The separate construction diagnostic still reports 56.89% of confidence mass at defined inter-population junctions, zero mass within 200 m of the raster catalogue, and 24.44× junction enrichment against its density-only control. These do not validate a hidden fault or predict the contest score. The submission gate remains closed.
+
+## Pass 2 — inspect skipped validation and maintenance warnings, then fix
+
+- The initial full suite reported 47 passed and 2 skipped. Review found the cause: `tests/test_gems41_artifacts.py` hard-coded `data/example_submission.tif`, but the documented checksum-pinned downloader creates `data/sample_submission.tif`. Consequently, the exact-grid and outside-footprint checks were silently skipped even after documented data preparation.
+- Fixed the test helper to prefer `sample_submission.tif` and retain legacy `example_submission.tif` paths as fallbacks. With the restored data present, both tests execute; `tests/test_gems41_artifacts.py` now reports 10 passed.
+- Updated the two inverse-affine coordinate transforms in `scripts/model.py` to use Affine's `@` operator, removing six upstream pending-deprecation warnings without changing the mathematical transform. A complete post-change CPU rebuild reproduced the same TIFF hash and pixel hash exactly.
+- Link-audited the external sources named by the proposed H41-G test. Its former USGS 1 m DEM detail URL returned 404. Replaced it in the research plan and generated source register with the live official [USGS Science Data Catalog record](https://data.usgs.gov/datacatalog/data/USGS:77ae0551-c61e-4979-aedd-d797abdcde0e), whose description identifies bare-earth, LiDAR-derived one-meter DEMs and public-domain 3DEP products. Added a low-volume metadata-only health check for that record. The prior TNM query remains sample-window evidence only; full coverage and actual tile download checks remain open.
+- No model parameter, training truth, output values, or holdout selection was changed to obtain a score.
+
+## Pass 3 — independent file verification and complete request recheck
+
+- Reopened the delivered file with `scripts/validate_submission.py` against the restored `data/sample_submission.tif`: one float32 band; EPSG:32611; shape 3,730×3,292; exact 100 m template transform; no nodata sentinel; all 12,279,160 stored numeric cells finite and in `[0,1]`; outside-footprint cells are zero and internally masked; mask count equals the 5,167,373-cell template footprint. File and array hashes match `docs/downloads/manifest.json`.
+- Full local suite after the USGS source-link and workstream-ID regression tests: **51 passed, 0 skipped**, with four non-fatal pending-deprecation warnings from Rasterio's `from_origin` test-fixture helper. `compileall` and `git diff --check` passed.
+- The static home page and executive guide continue to offer the unique H41-A GeoTIFF, submission name, short comment, format receipt, and prominent closed-gate warning. No new upload or weekly submission slot was used. The file was regenerated from raw geometry/topography inputs, not copied from a prior prediction, but its reproducible bytes are intentionally identical to the already-delivered H41-A artifact.
+- H33 attribution remains unresolved: the 0.2778 filename/score pair is user-reported and not tied to an organizer receipt. The dated 2026-10-05 public snapshot recorded 0.3262 at rank 1 and 0.3195 at rank 4; current standings remain unknown. This project does not monitor DrivenData. A permitted-source snapshot published on the project site reported 7/7 non-competition source checks at `2026-10-06T00:47:26Z`; the checked-in `docs/source-feed.json` still records the earlier local 0/7 TLS probe at `2026-10-05T23:55:00Z`. This is a local-versus-published snapshot freshness discrepancy, not evidence that official sources are offline. The scheduled workflow remains the current deployment-side feed; do not label the checkout's older snapshot fresh.
+- The final cross-workstream inventory exposed reused local IDs: the source-vector transfer slate's H41-E/F/G/H are different hypotheses from the same labels in `registry/hypotheses.json` and `docs/h41/hypotheses.html`. Added `research/hypothesis-id-registry.md` and workstream qualifiers to the README/site/guidance; no historical experiment ID or result was rewritten. In the transfer workstream, transfer/H41-E was tested and failed (0/4 strict wins, zero candidate mass in scored interiors); transfer/H41-F (dip-polarity normal-fault relay), transfer/H41-G (official USGS 3DEP 1 m terrain edges), and transfer/H41-H (Qfaults recency/rate/mapping quality) remain untested. TNM confirmed sample-window 1 m DEM listings, not full-grid coverage. No candidate has beaten a clean historical-best OOF comparator, so no submission slot is authorized.
+
+## Outcome and remaining limits
+
+The existing unique H41-A file is an auditable, format-valid research GeoTIFF and has been freshly reconstructed from checksum-pinned inputs. It **does not** beat its fixed holdout best or establish performance above 0.2778, 0.3195, or 0.3262. No hidden expert labels, clean historical-best out-of-fold raster, organizer score-to-file receipt, authenticated competition inputs, or DrivenData submission account are available in this workspace. Further model iteration needs an independent preregistered validation design or new clean truth; reusing failed folds to tune transfer/H41-F, transfer/H41-G, or transfer/H41-H would inflate selection bias.
+
+The earlier IRR-01 organizer-fork concern has been corrected by the main-line review: `gh repo view` reports `fork=false, parent=null`, and merged PR #14 (`e961c13`) records the dated correction. This resolves the stale repository-parent claim, **not** participant eligibility, license, or public-solution compliance. The requested PR/merge is scoped to this now-standalone repository's `main`; no upstream organizer repository is touched. Keep the remaining eligibility/data-rights review visible.
+
+---
+
+# Post-PR #14 rebase and final verification — 2026-10-06
+
+- PR #14 merged to the standalone repository's `main` at `e961c13` during this review. Fetched the updated `origin/main` and rebased the required working branch `arena/aa9e7e73-gemsdoe41` onto it; no branch switch was performed. Preserved PR #14's H41-I artifact, corrected standalone metadata, metric caveats, validation records, and website as the current baseline.
+- Extended `research/hypothesis-id-registry.md` to cover three lineages: source-vector transfer, the older parallel registry, and the merged local-strike H41-I. New candidate references are workstream-qualified. Updated the old parallel-registry compliance row: the parent/fork assertion is corrected, while participant eligibility and data rights remain open.
+- Built the current pages with `scripts/build_site.py` and `scripts/build_docs.py`. The public research page distinguishes transfer/H41-E (failed slip-sense screen), parallel-registry/H41-E (temperature-axis proposal), local-strike/H41-I, and parallel-registry/H41-I (thermal conjunction). The current H41-I one-click artifact remains first and prominently marked gate-closed.
+- Re-ran `.venv/bin/python scripts/experiment_h41i.py` after changing the two deprecated Affine inverse-transform operations from `*` to `@` in `scripts/model.py`. The experiment regenerated the same filename and exact TIFF SHA-256 `a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb`; array SHA-256 remains `f265e3bf94944891ed9205fef9940cd8a76a49281f03ce5dd37072fe2b5ca93b`. Strict 20 km DTI stays 0. Conditional mean remains 0.008975 versus matched-mass H41-A 0.009156; the promotion gate is false. Updated the H41-I manifest's code hash to the verified current `scripts/model.py` bytes. No model parameter, grid, output values, or validation fold changed.
+- Independently validated the current source-vector transfer/H41-A TIFF and H41-I artifact against `data/sample_submission.tif`: both remain single-band float32 EPSG:32611 GeoTIFFs with exact dimensions/transform, finite `[0,1]` values, correct internal footprint mask, and matching recorded byte/pixel hashes. H41-I is newly computed local-strike weighting on the same nonzero support as H41-A, not new geographic coverage.
+- Full local suite: **62 passed, 0 skipped**, four non-fatal Rasterio `from_origin` pending-deprecation warnings. `compileall` and `git diff --check` pass. The new source-link test rejects the dead USGS details URL; the source refresh contains an eighth metadata-only HEAD check for the official Science Data Catalog record and downloads no DEM tiles.
+- Did not refresh the checked-in `docs/source-feed.json`; it remains an older local snapshot, not fresh evidence. No DrivenData page, API, or leaderboard endpoint was accessed, and no weekly submission slot or competition upload was used. No score or win is claimed.
+
+## PR #17 merge record — 2026-10-06
+
+- PR [#17](https://github.com/buffedlizard55-lab/GEMSDOE41/pull/17) merged into `main` at
+  `c473ae78083a94435692f59a85067a4f21f22ebd` (2026-10-06T02:05:17Z) after `verify` and `reproduce`
+  both passed. The branch had to merge `origin/main` first (`68ab4c1`, the H41-I local-strike
+  session): five files conflicted and were resolved by keeping **both** sides — H42 remains the
+  headline and slot-eligible artifact, H41-I remains documented as a parallel-session, gate-closed
+  artifact, and the CI reproduction target is now declared explicitly in the manifest so the H41-A
+  rebuild can never be compared against whichever file is currently published.
+- Post-merge suites: **63 passed** locally; `verify` (Pages build + public-byte check) and
+  `reproduce` (H41-A, H41-A-R and H41-I rebuilds plus comparisons) both green on the PR head.
+- Still not done, and stated as such: no organizer-scored receipt exists for the H42 file; the
+  holdout cannot reward a genuinely new fault; the SGMC instrument disagrees with the shipped
+  choice; and `K_HIDDEN_PX`/`lambda` remain MODEL constants.
+
 ---
 
 # H43 session — 2026-10-06
@@ -214,7 +323,7 @@ band-wise and row-blocked. Baseline before any change: **47 passed, 2 skipped**.
   per-band tags and are now asserted at build time.
 * **Resolved a stale "unexplained oddity".** `src.dataset_mask().sum()` returns 1,317,680,115 for a
   12,279,160-px raster because rasterio's mask is uint8 with 255 inside: 255 × 5,167,373 exactly.
-  Not an upstream defect (IRR-14). Footprint counts must come from `(mask > 0).sum()`.
+  Not an upstream defect (IRR-18). Footprint counts must come from `(mask > 0).sum()`.
 * Built `scripts/build_h43_features.py` (31 features → 1.52 GB memmap, 0 non-finite cells,
   218 s), `src/gems41/coverage.py` (CELF lazy-greedy maximum-coverage emitter + the exact
   Bernoulli-field model of the index), `src/gems41/belief.py` (analytic prior-shift correction and

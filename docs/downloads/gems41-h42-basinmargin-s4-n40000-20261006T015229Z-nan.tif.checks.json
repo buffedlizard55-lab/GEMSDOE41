@@ -1,0 +1,12 @@
+{
+ "file": "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-nan.tif",
+ "sha256": "c532e030ff645de7d64fa1437f55d5175339de9b6ca385d68e9f8637f651560f",
+ "bytes": 342696,
+ "geometry_matches": true,
+ "all_finite": false,
+ "finite_exactly_footprint": true,
+ "values_in_0_1": true,
+ "min": 0.0,
+ "max": 1.0,
+ "positive_px": 40000
+}

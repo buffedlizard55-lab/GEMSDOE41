@@ -1,5 +1,5 @@
 {
- "created_utc": "2026-10-06T02:55:22Z",
+ "created_utc": "2026-10-06T03:04:59Z",
  "hypothesis": "H43-B catalogue-completion learning, emitted by H43-A packing",
  "submission_note": "GEMSDOE41 H43-B catalogue-completion GBM, 19 official bands + USGS 3DEP scarps; 20000 coverage-greedy dots >200 m off catalogue; all-finite [0,1]; slot gate CLOSED",
  "file": {
@@ -240,8 +240,8 @@
   "all_pass": true,
   "zip_path": "/home/user/GEMSDOE41/docs/downloads/gems41-h43-completion-v1-20261006T023145Z-8f1f3ba6d176.zip",
   "zip_bytes": 78584,
-  "zip_sha256": "bf511153202a5ae2fb35e22ad364335a03699b0be7ca48b564d5b6f068d982cc"
+  "zip_sha256": "e559f4d06ddffa0b9bc32888a4a01613348cba493ad50e86c7684708744a680c"
  },
- "runtime_s": 89.2,
+ "runtime_s": 93.8,
  "uniqueness": "built from the organizer feature raster, the organizer label raster, the SHA-256-pinned USGS 3DEP product and this repository's derived features only; no sibling submission raster is read by this script"
 }

@@ -38,14 +38,28 @@ def build():
 
 @pytest.fixture(scope="module")
 def manifest():
-    return load(MANIFEST)
+    m = load(MANIFEST)
+    assert "h43_catalogue_completion" in m, (
+        "the H43 entry is missing from docs/downloads/manifest.json; rebuild with "
+        "scripts/build_h43_submission.py, which writes it")
+    return m["h43_catalogue_completion"]
 
 
-def test_delivered_file_exists_and_is_the_featured_one(build, manifest):
+def test_delivered_file_exists_and_is_listed(build, manifest):
     path = os.path.join(ROOT, build["file"]["path"])
     assert os.path.exists(path), build["file"]["path"]
-    assert manifest["filename"] == build["file"]["name"]
+    assert manifest["primary"]["filename"] == build["file"]["name"]
     assert manifest["slot_eligible"] is False
+
+
+def test_h43_does_not_displace_the_slot_eligible_artifact():
+    """This lineage must not dethrone another session's published, slot-eligible submission."""
+    m = load(MANIFEST)
+    assert m["slot_eligible"] is True, "the featured artifact belongs to basin-margin/H42"
+    assert m["filename"] != m["h43_catalogue_completion"]["primary"]["filename"]
+    assert "CROSS_INSTRUMENT_WARNING" in m["h43_catalogue_completion"]
+    warn = m["h43_catalogue_completion"]["CROSS_INSTRUMENT_WARNING"]
+    assert "NOT comparable" in warn and "0.2507" in warn
 
 
 def test_reopened_bytes_match_the_receipt_exactly(build):
@@ -148,16 +162,18 @@ def test_manifest_note_is_short_and_states_the_gate(manifest):
     assert len(manifest["note"]) <= 200
     assert "CLOSED" in manifest["note"]
     assert manifest["submission_name"].startswith("GEMS41-H43-Completion-")
-    assert manifest["format"]["all_checks_passed"] is True
-    assert manifest["format"]["min_distance_to_catalogue_px"] > 2.0
+    assert manifest["primary"]["all_checks_passed"] is True
+    assert manifest["primary"]["min_distance_to_catalogue_px"] > 2.0
+    assert manifest["primary"]["finite_cells"] == 12_279_160
+    assert manifest["primary"]["min"] >= 0.0 and manifest["primary"]["max"] <= 1.0
 
 
 def test_holdout_gate_is_recorded_and_passed(manifest):
-    g = manifest["h43_holdout"]["promotion_gate"]
+    g = manifest["promotion_gate"]
     assert g["beats_position_blind_null"].startswith("4/4")
     assert g["credit_per_mass_at_2000px"] > g["incumbent_best_credit_per_mass"]
-    agg = manifest["h43_holdout"]["mean_dti_by_strategy_and_mass"]
-    m = str(manifest["h43_holdout"]["chosen"]["mass"])
+    agg = manifest["mean_dti_by_strategy_and_mass"]
+    m = str(manifest["mass_and_operator_selection"]["mass"])
     assert agg["coverage_greedy"][m]["mean_dti"] > agg["uniform_scatter"][m]["mean_dti"]
     assert agg["coverage_greedy"][m]["mean_dti"] > agg["belief_greedy_pack"][m]["mean_dti"]
 

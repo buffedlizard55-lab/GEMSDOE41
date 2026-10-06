@@ -4,7 +4,7 @@
  "entries": [
   {
    "id": "official-problem",
-   "title": "DOE GEMS Prize Challenge — Problem description (page 967)",
+   "title": "DOE GEMS Prize Challenge \u2014 Problem description (page 967)",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
    "class": "official",
    "status": "fetched 2026-10-05",
@@ -17,7 +17,7 @@
   },
   {
    "id": "official-data",
-   "title": "DOE GEMS Prize Challenge — Data tab",
+   "title": "DOE GEMS Prize Challenge \u2014 Data tab",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
    "class": "official",
    "status": "verified login-walled (redirects to /accounts/login/)",
@@ -28,7 +28,7 @@
   },
   {
    "id": "official-rules",
-   "title": "DOE GEMS Prize Challenge — Rules / submission guidance PDF",
+   "title": "DOE GEMS Prize Challenge \u2014 Rules / submission guidance PDF",
    "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
    "class": "official",
    "status": "linked from the competition; digest recorded by the sibling repository as 50d854b1e0239fe6b9648d9fa5c7537bc7b6e5bc10cf6b37a2ff9aa401c36938 (455,140 B)",
@@ -38,7 +38,7 @@
   },
   {
    "id": "official-leaderboard",
-   "title": "DOE GEMS Prize Challenge — Public leaderboard",
+   "title": "DOE GEMS Prize Challenge \u2014 Public leaderboard",
    "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
    "class": "official",
    "status": "URL verified reachable by the sibling session's own browsing path; the numbers quoted in this repository's ledger are owner-reported unless marked official",
@@ -84,25 +84,25 @@
   },
   {
    "id": "faulds2005",
-   "title": "Faulds, J.E., Henry, C.D., Hinz, N.H. (2005) Kinematics of the northern Walker Lane: An incipient transform fault along the Pacific–North American plate boundary. Geology 33(6), 505–508.",
+   "title": "Faulds, J.E., Henry, C.D., Hinz, N.H. (2005) Kinematics of the northern Walker Lane: An incipient transform fault along the Pacific\u2013North American plate boundary. Geology 33(6), 505\u2013508.",
    "url": "https://doi.org/10.1130/G21274.1",
    "alt_url": "https://ui.adsabs.harvard.edu/abs/2005Geo....33..505F",
    "class": "peer-reviewed",
    "status": "search-verified (NASA ADS record + full-text excerpts read via indexing)",
-   "quote": "The northern Walker Lane consists of kinematically linked systems of NW-striking, left-stepping dextral faults, N-striking normal faults, and subordinate ENE-striking sinistral faults. […] The strike-slip faults end in arrays of ~N-striking normal faults, suggesting that dextral shear diffuses into extension in the Great Basin.",
+   "quote": "The northern Walker Lane consists of kinematically linked systems of NW-striking, left-stepping dextral faults, N-striking normal faults, and subordinate ENE-striking sinistral faults. [\u2026] The strike-slip faults end in arrays of ~N-striking normal faults, suggesting that dextral shear diffuses into extension in the Great Basin.",
    "establishes": [
     "The two-population structural framework this repository encodes, and its third (sinistral) family.",
     "Left-stepping en-echelon geometry of the dextral belt -> the relay-ramp element.",
-    "Cumulative dextral slip 20–30 km since ca. 9–3 Ma; long-term slip rate ~2–10 mm/yr."
+    "Cumulative dextral slip 20\u201330 km since ca. 9\u20133 Ma; long-term slip rate ~2\u201310 mm/yr."
    ]
   },
   {
    "id": "siler-astor-pass",
-   "title": "Siler et al. — Structural controls of the Astor Pass blind geothermal system, Nevada (fault-intersection / displacement-transfer zone)",
+   "title": "Siler et al. \u2014 Structural controls of the Astor Pass blind geothermal system, Nevada (fault-intersection / displacement-transfer zone)",
    "url": "https://www.osti.gov/servlets/purl/1110516",
    "class": "conference-paper-OSTI",
    "status": "search-verified (OSTI abstract read)",
-   "quote": "controlled by the intersection of northwest-striking dextral and north-northwest-striking normal faults. […] Along this boundary, strain is transferred from dextral shear in the Walker Lane to west-northwest directed extension in the Basin and Range.",
+   "quote": "controlled by the intersection of northwest-striking dextral and north-northwest-striking normal faults. [\u2026] Along this boundary, strain is transferred from dextral shear in the Walker Lane to west-northwest directed extension in the Basin and Range.",
    "establishes": [
     "The strain-transfer mechanism at a dextral/normal fault intersection, in this same province.",
     "IMPORTANT CORRECTION: the 'Emerson Pass' name in the project brief belongs to Anderson & Faulds (OSTI 1110518), not to Siler; Siler's study is Astor Pass. Both support the same mechanism."
@@ -117,13 +117,13 @@
    "status": "search-verified (OSTI abstract read)",
    "quote": "The NW-striking right-lateral Pyramid Lake fault, a major structure of the northern Walker Lane, terminates at the southern end of Pyramid Lake and transfers strain to the NNE-striking down to the west Lake Range fault, resulting in high geothermal potential.",
    "establishes": [
-    "A named, type-locality example of exactly the geometry the corridor element encodes — and it lies INSIDE this competition's footprint.",
+    "A named, type-locality example of exactly the geometry the corridor element encodes \u2014 and it lies INSIDE this competition's footprint.",
     "The 2 m temperature anomaly (max ~60 C), travertine mounds and chalcedonic veins record a blind system hosted at the fault intersection."
    ]
   },
   {
    "id": "faulds-2015-settings",
-   "title": "Faulds et al. — Structural settings of Great Basin geothermal systems (final report, DOE DE-EE0002748)",
+   "title": "Faulds et al. \u2014 Structural settings of Great Basin geothermal systems (final report, DOE DE-EE0002748)",
    "url": "https://gdr.openei.org/files/354/Final%20Report-DE-EE0002748.pdf",
    "class": "government-report",
    "status": "search-verified (report text read via indexing)",
@@ -140,7 +140,7 @@
    "alt_url": "https://publications.mygeoenergynow.org/grc/1033921.pdf",
    "class": "conference-paper-OSTI",
    "status": "search-verified (abstract + report text read via indexing)",
-   "quote": "The termination of the Petrified Springs fault, a major dextral fault of the central Walker Lane, in an array of normal faults indicates that southeastern Gabbs Valley occupies a displacement transfer zone, which is a favorable structural setting for geothermal activity. […] a 7 km^2 shallow (2 m) temperature anomaly",
+   "quote": "The termination of the Petrified Springs fault, a major dextral fault of the central Walker Lane, in an array of normal faults indicates that southeastern Gabbs Valley occupies a displacement transfer zone, which is a favorable structural setting for geothermal activity. [\u2026] a 7 km^2 shallow (2 m) temperature anomaly",
    "establishes": [
     "A second, independent, in-the-field example of a dextral termination feeding a displacement transfer zone that hosts a >130 C blind system.",
     "Supplies the expected spatial scale of a transfer zone (7 km^2 => a few km across), which bounds the corridor width used here."
@@ -148,7 +148,7 @@
   },
   {
    "id": "usgs-3dep",
-   "title": "USGS 3D Elevation Program (3DEP) 1 m DEM — source of the LiDAR scarp stack",
+   "title": "USGS 3D Elevation Program (3DEP) 1 m DEM \u2014 source of the LiDAR scarp stack",
    "url": "https://www.usgs.gov/3d-elevation-program",
    "class": "official-data",
    "status": "producer record read from the derived product's pinned metadata (external/dem/lidar_scarp_features.json)",
@@ -160,7 +160,7 @@
   },
   {
    "id": "usgs-qfaults",
-   "title": "USGS Quaternary Fault and Fold Database (QFaults), 2020 release — slip_sense/length/centroid used for the kinematic join",
+   "title": "USGS Quaternary Fault and Fold Database (QFaults), 2020 release \u2014 slip_sense/length/centroid used for the kinematic join",
    "url": "https://doi.org/10.5066/P9BCVRCK",
    "alt_url": "https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip",
    "class": "official-data",
@@ -172,13 +172,13 @@
   },
   {
    "id": "gdr-1391",
-   "title": "Geothermal Data Repository submission 1391 (GeoDAWN / INGENIOUS deliverables) — QFaults-in-footprint traces and the well/spring table",
+   "title": "Geothermal Data Repository submission 1391 (GeoDAWN / INGENIOUS deliverables) \u2014 QFaults-in-footprint traces and the well/spring table",
    "url": "https://gdr.openei.org/submissions/1391",
    "class": "official-data",
    "status": "landing page linked from the competition; the two derived tables used here were read from the sibling repository's pinned copies",
    "establishes": [
     "gdr_qfaults_traces.csv: 1,126 traces in the footprint with slip_sense, recency, length and centroid.",
-    "gdr_wellspring_in_footprint.csv: 27,092 geothermal spring/well records with temp_c and three geothermometer estimates — the independent physical instrument used in validation.html."
+    "gdr_wellspring_in_footprint.csv: 27,092 geothermal spring/well records with temp_c and three geothermometer estimates \u2014 the independent physical instrument used in validation.html."
    ]
   },
   {
@@ -189,6 +189,39 @@
    "status": "linked from the official problem description",
    "establishes": [
     "The survey footprint the competition covers, and the provenance of the magnetic/radiometric feature families."
+   ]
+  },
+  {
+   "id": "sgmc-official",
+   "title": "USGS State Geologic Map Compilation (SGMC) - NV.zip / CA.zip",
+   "url": "https://mrdata.usgs.gov/geology/state/shp/NV.zip",
+   "class": "official USGS (public domain); bytes obtained via digest-verified sibling CI mirror (see IRR-11)",
+   "status": "mirror fetched + sha256 26d142c4... verified 2026-10-06; upstream endpoint unreachable from sandbox (000)",
+   "establishes": [
+    "SGMC fault traces on the competition grid: 82,151 px inside footprint; 65,673 px >200 m and 61,664 px >300 m from the published catalogue; 769 traces >=20 px.",
+    "Independent repo burn matched the sibling receipt exactly at 300 m - cross-validated derivation.",
+    "LiDAR scarp evidence on the residual is 1.64x the off-catalogue background (0.1246 vs 0.0761)."
+   ]
+  },
+  {
+   "id": "gemsdoe30-mirror",
+   "title": "Sibling repository GEMSDOE30 (registry + CI-derived external mirrors)",
+   "url": "https://github.com/buffedlizard55-lab/GEMSDOE30",
+   "class": "owner-authored sibling; learn-from, never copy",
+   "status": "fetched via gh api raw, 2026-10-06; receipt evidence/gems30_external_receipt.json",
+   "establishes": [
+    "Carries the SGMC-derived grid (26d142c4) and thermal-probe grid (7ac3cfdf, 2,467 probes + 9,310 corridor px off-catalogue) used for H42 validation.",
+    "Score-ledger and sibling receipts used for uniqueness comparison (max Jaccard 0.0323)."
+   ]
+  },
+  {
+   "id": "comcat-live",
+   "title": "USGS ComCat FDSN event query (30-day, M>=1, study-area bbox)",
+   "url": "https://earthquake.usgs.gov/fdsnws/event/1/",
+   "class": "official; browser-side refresh on the site only",
+   "status": "endpoint unreachable from sandbox (000); site loads it in the visitor's browser",
+   "establishes": [
+    "Context feed for the Walker Lane corridor; explicitly not proof of a fault and not candidate truth."
    ]
   }
  ]

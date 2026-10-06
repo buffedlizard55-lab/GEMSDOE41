@@ -1,0 +1,18 @@
+{
+  "expected_sha256": "a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb",
+  "actual_sha256": "a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb",
+  "valid_cells_compared": 5167373,
+  "exact_pixels": true,
+  "different_pixels": 0,
+  "max_absolute_error": 0.0,
+  "mean_absolute_error": 0.0,
+  "sum_absolute_error": 0.0,
+  "nonzero_support_changed_pixels": 0,
+  "nonzero_support_exact": true,
+  "outside_values_exact": true,
+  "outside_expected_all_nan": false,
+  "outside_actual_all_nan": false,
+  "absolute_tolerance": 7.62939453125e-06,
+  "tolerance_float32_epsilons": 64,
+  "numerically_reproducible": true
+}

@@ -238,63 +238,73 @@ def emit(pi: np.ndarray, domain: np.ndarray, strategy: str, mass: int) -> tuple[
 
 
 def update_manifest(receipt: dict, checks: dict, holdout: dict, sel: dict) -> None:
-    """Point the site's featured download at this artifact and record the audit numbers.
+    """Add ONE key to the shared download manifest, without disturbing any other lineage.
 
-    `scripts/build_site.py` renders every page from `docs/downloads/manifest.json`, so this is the
-    single place that decides what the site offers for download.  The superseded artifact is kept
-    in the manifest and on disk for audit; it is never deleted.
+    `scripts/build_site.py` renders every page from `docs/downloads/manifest.json`.  The manifest's
+    top-level `filename` belongs to another session's slot-eligible basin-margin/H42 submission and
+    is NOT touched here: this lineage is not slot-eligible and must not dethrone a published
+    candidate.  Nothing another lineage already published is renamed either -- that is the rule in
+    `research/hypothesis-id-registry.md`, and it is why this entry is additive only.
     """
     mpath = ROOT / "docs" / "downloads" / "manifest.json"
-    old = json.loads(mpath.read_text()) if mpath.exists() else {}
+    man = json.loads(mpath.read_text()) if mpath.exists() else {}
     f = receipt["file"]
-    superseded = (old.get("superseded_previous_primary")
-                  or ({"filename": old.get("filename"), "sha256": old.get("format", {}).get("sha256"),
-                       "status": "retained in docs/downloads for audit; no longer the featured artifact"}
-                      if old.get("filename") and old.get("filename") != f["name"] else None))
-    agg = holdout.get("aggregate", {})
-    man = dict(
-        filename=f["name"],
+    man["h43_catalogue_completion"] = dict(
+        created_utc=receipt["created_utc"],
+        workstream_id=("catalogue-completion/H43 (this lineage takes H43 because basin-margin/H42 and "
+                       "bimodal-lattice/H42 are already published; see "
+                       "research/hypothesis-id-registry.md)"),
+        preregistration="research/hypotheses-h43.md",
+        slot_eligible=False,
+        slot_eligible_reason=("Never scored by the organizer, and its instrument (H-SIM: withheld "
+                              "MAPPED strands) is not the prize population (faults NEVER mapped). "
+                              "AGENTS.md #4 keeps the gate closed."),
         submission_name="GEMS41-H43-Completion-" + f["pixel_sha12"],
         note=receipt["submission_note"],
-        slot_eligible=False,
-        superseded_previous_primary=superseded,
-        format=dict(file=str((ROOT / f["path"]).resolve()), sha256=checks["sha256"],
-                    array_sha256=checks["pixel_sha256"], shape=[3730, 3292], crs="EPSG:32611",
-                    transform=[100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0, 0.0, 0.0, 1.0],
-                    bands=1, dtype="float32", min=checks["min_value"], max=checks["max_value"],
-                    positive_pixels=checks["n_positive_px"],
-                    prediction_mass=checks["probability_mass"],
-                    finite_cells=checks["n_stored_cells"], footprint_cells=checks["mask_cells"],
-                    nodata=None, internal_mask=True, all_checks_passed=bool(checks["all_pass"]),
-                    bytes=checks["bytes"], compression="deflate", tiled="512x512",
-                    zip_bytes=checks["zip_bytes"], zip_sha256=checks["zip_sha256"],
-                    min_distance_to_catalogue_px=checks["min_dcat_of_positive"],
-                    nearest_neighbour_px=dict(min=checks["nn_min"], median=checks["nn_median"],
-                                              p95=checks["nn_p95"]),
-                    range_error_hardened=("all 12,279,160 stored cells finite and in [0,1]; zeros "
-                                          "plus a GDAL internal mask outside the template footprint")),
-        holdout_means=dict(candidate=old.get("holdout_means", {}).get("candidate"),
-                           note=("H41-A corridor field, retained for audit; superseded by "
-                                 "h43_holdout below")),
-        h43_holdout=dict(instrument=holdout.get("design"),
-                         mean_dti_by_strategy_and_mass=agg,
-                         chosen=sel,
-                         promotion_gate=dict(
-                             beats_position_blind_null="4/4 folds at every mass",
-                             beats_family_operator_greedy_pack=(
-                                 "4/4 at 2,000 px; 3/4 at 8,000 and 20,000 px; 4/4 at 37,654 and "
-                                 "65,000 px"),
-                             credit_per_mass_at_2000px=1.61616,
-                             incumbent_best_credit_per_mass=0.0833,
-                             ratio_vs_incumbent=19.4)),
-        score_record=dict(file="evidence/score_record_calculus.json",
-                          coverage_a_of_incumbent_field=0.2869, hidden_label_count_rho=36467,
-                          incumbent_ceiling_s_max=0.3346,
-                          null_check=dict(probe="h34_scatter", reported=0.0778,
-                                          position_blind_ceiling=0.0776, relative_error=0.0022)),
+        primary=dict(
+            filename=f["name"], path=f["path"],
+            sha256=checks["sha256"], array_sha256=checks["pixel_sha256"],
+            bytes=checks["bytes"], zip_bytes=checks["zip_bytes"], zip_sha256=checks["zip_sha256"],
+            shape=[3730, 3292], crs="EPSG:32611", bands=1, dtype="float32",
+            transform=[100.0, 0.0, 243350.0, 0.0, -100.0, 4508550.0, 0.0, 0.0, 1.0],
+            min=checks["min_value"], max=checks["max_value"],
+            positive_pixels=checks["n_positive_px"],
+            prediction_mass=checks["probability_mass"],
+            finite_cells=checks["n_stored_cells"], footprint_cells=checks["mask_cells"],
+            nodata=None, internal_mask=True, all_checks_passed=bool(checks["all_pass"]),
+            compression="deflate", tiled="512x512",
+            min_distance_to_catalogue_px=checks["min_dcat_of_positive"],
+            nearest_neighbour_px=dict(min=checks["nn_min"], median=checks["nn_median"],
+                                      p95=checks["nn_p95"]),
+            range_error_hardened=("all 12,279,160 stored cells finite and in [0,1]; zeros plus a "
+                                  "GDAL internal mask outside the template footprint")),
+        instrument=holdout.get("design"),
+        mean_dti_by_strategy_and_mass=holdout.get("aggregate", {}),
+        mass_and_operator_selection=sel,
+        promotion_gate=dict(
+            beats_position_blind_null="4/4 folds at every mass",
+            beats_family_operator_greedy_pack=("4/4 at 2,000 px; 3/4 at 8,000 and 20,000 px; "
+                                               "4/4 at 37,654 and 65,000 px"),
+            credit_per_mass_at_2000px=1.61616,
+            incumbent_best_credit_per_mass=0.0833,
+            ratio_vs_incumbent=19.4),
+        score_record_calculus=dict(file="evidence/score_record_calculus.json",
+                                   coverage_a_of_incumbent_field=0.2869,
+                                   hidden_label_count_rho=36467,
+                                   incumbent_ceiling_s_max=0.3346,
+                                   null_check=dict(probe="h34_scatter", reported=0.0778,
+                                                   position_blind_ceiling=0.0776,
+                                                   relative_error=0.0022)),
+        label_field_inversion_NEGATIVE="evidence/label_field_inversion.json",
+        CROSS_INSTRUMENT_WARNING=(
+            "These DTI values are measured on H-SIM (strand-level quadrant blocking, withheld MAPPED "
+            "strands as truth, guard 2 px) and are NOT comparable with basin-margin/H42's 0.2507, "
+            "which is measured on a 20 km four-colour blocked holdout with a different truth, guard "
+            "and emission domain. Neither number is a score and the two instruments have not been "
+            "cross-calibrated. Read research/hypothesis-id-registry.md before comparing them."),
     )
     mpath.write_text(json.dumps(man, indent=1) + "\n")
-    print(f"  manifest -> {mpath.relative_to(ROOT)}")
+    print(f"  manifest -> {mpath.relative_to(ROOT)} (key h43_catalogue_completion added)")
 
 
 def main() -> int:

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "checked_utc": "2026-10-05T23:55:00.737869+00:00",
+  "checked_utc": "2026-10-06T01:04:24.858093+00:00",
   "method": "Daily low-volume availability checks of permitted official sources; no DrivenData access.",
   "competition_leaderboard": {
     "leaderboard_url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",

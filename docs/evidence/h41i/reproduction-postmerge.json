@@ -1,0 +1,63 @@
+{
+  "run_url": "https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37398434694",
+  "merge_commit": "e961c1308705dd5bec7a00c9fb3164e1d06eb9a6",
+  "status": "success",
+  "comparisons": [
+    {
+      "expected_sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f",
+      "actual_sha256": "819779d09a5e3bb2f64c0ac0e8848b36c7d9a4ab2c59ae86ee4b7604d1395441",
+      "valid_cells_compared": 5167373,
+      "exact_pixels": false,
+      "different_pixels": 12043,
+      "max_absolute_error": 3.6954879760742188e-06,
+      "mean_absolute_error": 1.8720758899452754e-10,
+      "sum_absolute_error": 0.0009673714407654188,
+      "nonzero_support_changed_pixels": 0,
+      "nonzero_support_exact": true,
+      "outside_values_exact": true,
+      "outside_expected_all_nan": true,
+      "outside_actual_all_nan": true,
+      "absolute_tolerance": 7.62939453125e-06,
+      "tolerance_float32_epsilons": 64,
+      "numerically_reproducible": true
+    },
+    {
+      "expected_sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+      "actual_sha256": "3ac27957d8126502de76b288e0093c4641694aa7d19d80d7b412fe50137d2db9",
+      "valid_cells_compared": 5167373,
+      "exact_pixels": false,
+      "different_pixels": 27605,
+      "max_absolute_error": 4.172325134277344e-07,
+      "mean_absolute_error": 5.2565689125290215e-11,
+      "sum_absolute_error": 0.0002716265227124183,
+      "nonzero_support_changed_pixels": 0,
+      "nonzero_support_exact": true,
+      "outside_values_exact": true,
+      "outside_expected_all_nan": false,
+      "outside_actual_all_nan": false,
+      "absolute_tolerance": 7.62939453125e-06,
+      "tolerance_float32_epsilons": 64,
+      "numerically_reproducible": true
+    },
+    {
+      "expected_sha256": "a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb",
+      "actual_sha256": "baa2ebb4d2a40987b9e35b8a8b7be7840a55788c5352e7a65d27e057467bc314",
+      "valid_cells_compared": 5167373,
+      "exact_pixels": false,
+      "different_pixels": 36761,
+      "max_absolute_error": 5.960464477539062e-07,
+      "mean_absolute_error": 7.56882852563695e-11,
+      "sum_absolute_error": 0.0003911096016500618,
+      "nonzero_support_changed_pixels": 0,
+      "nonzero_support_exact": true,
+      "outside_values_exact": true,
+      "outside_expected_all_nan": false,
+      "outside_actual_all_nan": false,
+      "absolute_tolerance": 7.62939453125e-06,
+      "tolerance_float32_epsilons": 64,
+      "numerically_reproducible": true
+    }
+  ],
+  "source": "GitHub check-run annotations 112059869006; binary log transport returned EOF, annotations were obtainable",
+  "limitation": "The branch CI was byte-identical. The post-merge runner shows bounded drift. Cause is not isolated; do not claim universal byte identity."
+}

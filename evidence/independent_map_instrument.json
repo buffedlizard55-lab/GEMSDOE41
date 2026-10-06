@@ -1,0 +1,192 @@
+{
+ "truth": {
+  "source": "derived_sgmc_faults_100m_u8.tif (USGS SGMC-derived, owner CI mirror)",
+  "description": "SGMC fault pixels >=300 m from every catalogue pixel, inside the scored footprint",
+  "truth_px": 62122,
+  "provenance_caveat": "owner-CI derivative of the public USGS SGMC; geometry is not organiser-authenticated",
+  "derivation_url": "https://www.usgs.gov/programs/national-cooperative-geologic-mapping-program/science/usgs-state-geologic-map"
+ },
+ "instrument": "official DTI transcribed in src/gems41/metric.py; catalogue pixels masked",
+ "rows": [
+  {
+   "name": "H33-2-B2",
+   "reported_score": 0.2778,
+   "emitted_px": 37654,
+   "T_hidden_implied": 5223.0,
+   "sgmc_tp": 5517.64,
+   "sgmc_fp": 35220.8,
+   "sgmc_dti": 0.095386,
+   "sgmc_credit_per_mass": 0.146535
+  },
+  {
+   "name": "H27-4-solo-d2.8",
+   "reported_score": 0.2708,
+   "emitted_px": 40199,
+   "T_hidden_implied": 5229.2,
+   "sgmc_tp": 5560.73,
+   "sgmc_fp": 37715.9,
+   "sgmc_dti": 0.095295,
+   "sgmc_credit_per_mass": 0.13833
+  },
+  {
+   "name": "H32-1-prethin",
+   "reported_score": 0.2649,
+   "emitted_px": 42294,
+   "T_hidden_implied": 5226.3,
+   "sgmc_tp": 5568.85,
+   "sgmc_fp": 39797.0,
+   "sgmc_dti": 0.094755,
+   "sgmc_credit_per_mass": 0.13167
+  },
+  {
+   "name": "H33d-stepover",
+   "reported_score": 0.2632,
+   "emitted_px": 41865,
+   "T_hidden_implied": 5170.1,
+   "sgmc_tp": 5615.9,
+   "sgmc_fp": 39361.4,
+   "sgmc_dti": 0.095683,
+   "sgmc_credit_per_mass": 0.134143
+  },
+  {
+   "name": "dotted-d2.8-44090",
+   "reported_score": 0.26,
+   "emitted_px": 44090,
+   "T_hidden_implied": 5223.0,
+   "sgmc_tp": 5568.53,
+   "sgmc_fp": 41593.2,
+   "sgmc_dti": 0.094174,
+   "sgmc_credit_per_mass": 0.126299
+  },
+  {
+   "name": "dotted-d1.5",
+   "reported_score": 0.2477,
+   "emitted_px": 60069,
+   "T_hidden_implied": 5767.5,
+   "sgmc_tp": 6221.83,
+   "sgmc_fp": 56657.8,
+   "sgmc_dti": 0.099911,
+   "sgmc_credit_per_mass": 0.103578
+  },
+  {
+   "name": "topo-gap-d1.5",
+   "reported_score": 0.2449,
+   "emitted_px": 61328,
+   "T_hidden_implied": 5764.0,
+   "sgmc_tp": 6326.22,
+   "sgmc_fp": 57859.2,
+   "sgmc_dti": 0.101163,
+   "sgmc_credit_per_mass": 0.103154
+  },
+  {
+   "name": "h19-5-powerlaw",
+   "reported_score": 0.1922,
+   "emitted_px": 121131,
+   "T_hidden_implied": 6822.4,
+   "sgmc_tp": 7334.02,
+   "sgmc_fp": 113957.9,
+   "sgmc_dti": 0.099167,
+   "sgmc_credit_per_mass": 0.060546
+  },
+  {
+   "name": "h19-4-multiline",
+   "reported_score": 0.1894,
+   "emitted_px": 123779,
+   "T_hidden_implied": 6823.4,
+   "sgmc_tp": 7836.54,
+   "sgmc_fp": 116289.0,
+   "sgmc_dti": 0.105156,
+   "sgmc_credit_per_mass": 0.063311
+  },
+  {
+   "name": "h16-1-topo-geophys",
+   "reported_score": 0.1855,
+   "emitted_px": 123939,
+   "T_hidden_implied": 6688.8,
+   "sgmc_tp": 8305.71,
+   "sgmc_fp": 116275.9,
+   "sgmc_dti": 0.111316,
+   "sgmc_credit_per_mass": 0.067015
+  },
+  {
+   "name": "h28-dotted-ridge",
+   "reported_score": 0.1839,
+   "emitted_px": 69281,
+   "T_hidden_implied": 4620.8,
+   "sgmc_tp": 5745.3,
+   "sgmc_fp": 62710.8,
+   "sgmc_dti": 0.090636,
+   "sgmc_credit_per_mass": 0.088069
+  },
+  {
+   "name": "hedge-v2",
+   "reported_score": 0.1563,
+   "emitted_px": 227507,
+   "T_hidden_implied": 8873.4,
+   "sgmc_tp": 8500.29,
+   "sgmc_fp": 157891.8,
+   "sgmc_dti": 0.102443,
+   "sgmc_credit_per_mass": 0.051047
+  },
+  {
+   "name": "ens12",
+   "reported_score": 0.1563,
+   "emitted_px": 172974,
+   "T_hidden_implied": 7168.7,
+   "sgmc_tp": 8500.29,
+   "sgmc_fp": 157891.8,
+   "sgmc_dti": 0.102443,
+   "sgmc_credit_per_mass": 0.051047
+  },
+  {
+   "name": "h25-ctx-ridge",
+   "reported_score": 0.128,
+   "emitted_px": 174232,
+   "T_hidden_implied": 5903.0,
+   "sgmc_tp": 6938.25,
+   "sgmc_fp": 154821.6,
+   "sgmc_dti": 0.084562,
+   "sgmc_credit_per_mass": 0.042997
+  },
+  {
+   "name": "r13-lattice",
+   "reported_score": 0.0904,
+   "emitted_px": 206895,
+   "T_hidden_implied": 4759.5,
+   "sgmc_tp": 23393.47,
+   "sgmc_fp": 196202.5,
+   "sgmc_dti": 0.249885,
+   "sgmc_credit_per_mass": 0.114391
+  },
+  {
+   "name": "placeholder-2314b599",
+   "reported_score": 0.0107,
+   "emitted_px": 343816,
+   "T_hidden_implied": 856.4,
+   "sgmc_tp": 2634.23,
+   "sgmc_fp": 336502.1,
+   "sgmc_dti": 0.022414,
+   "sgmc_credit_per_mass": 0.007708
+  }
+ ],
+ "rank_correlation": {
+  "spearman_proxy_dti_vs_reported_score": -0.129,
+  "spearman_proxy_credit_per_mass_vs_reported_score": 0.832,
+  "note": "A positive rank correlation is evidence that this instrument tracks the hidden-set ordering; it does not prove the hidden truth is SGMC-like."
+ },
+ "best_row_by_dti": {
+  "name": "r13-lattice",
+  "reported_score": 0.0904,
+  "emitted_px": 206895,
+  "T_hidden_implied": 4759.5,
+  "sgmc_tp": 23393.47,
+  "sgmc_fp": 196202.5,
+  "sgmc_dti": 0.249885,
+  "sgmc_credit_per_mass": 0.114391
+ },
+ "caveats": [
+  "SGMC is denser (62k off-catalogue px) and mostly pre-Quaternary; the competition truth is smaller and geothermal-filtered.",
+  "No candidate evaluated here may use SGMC as an input feature (asserted by the builder).",
+  "Reported scores are owner/user reports, not organizer receipts."
+ ]
+}

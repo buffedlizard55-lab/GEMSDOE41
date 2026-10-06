@@ -1,5 +1,5 @@
 {
- "session": "GEMSDOE41 / arena/1ac0a279-gemsdoe41",
+ "session": "GEMSDOE41 / arena/138d7fa0-gemsdoe41",
  "created_utc": "2026-10-05",
  "ranking_rule": "Ranked by expected DTI improvement per unit of implementation cost. 'Expected improvement' is a judgement, stated as such; only the 'status' column carries measurements, and every measured number is reproduced in evidence/*.json.",
  "already_implemented_and_measured": {
@@ -12,9 +12,86 @@
    "cost": "low (geometry only; no new data)",
    "status": "MEASURED, NOT COMPETITIVE AS A STANDALONE EMISSION. On this repository's strand-level blocked holdout the corridor-only ranker earns credit_per_mass = 0.0000 (fp = mass, tp = 0) in the reference setting - i.e. essentially every corridor pixel is more than 300 m from every held-out catalogue strand. Independently, the sibling session's H41-A candidate, built with different code and a different 20 km block holdout, measured DTI = 0.0000 in all four folds (docs/downloads/holdout.json on main). TWO INDEPENDENT IMPLEMENTATIONS AGREE. Read together with the orientation audit (below), the correct conclusion is: the corridor is where the catalogue is NOT, which is the hypothesis, not a falsification - and a catalogue-truth holdout cannot test it either way.",
    "independent_test": "site_control.json: see the 'Transfer-corridor hypothesis' section on validation.html. Geothermal well/spring sites are used as an instrument that does not depend on any fault catalogue."
+  },
+  "H42": {
+   "title": "Basin-margin relief x 3DEP scarp x TMI field, density-packed and catalogue-thinned",
+   "layers": "training_features.tif band 19 (det_elev_slope), band 12 (det_elev) as the relief-position factor, band 3 (tmi_hg); data/external/lidar_scarp_features_u8.tif (USGS 3DEP scarp evidence, public); data/existing_faults.tif only as a 200 m exclusion band",
+   "physical_signature": "Steep terrain at LOW detrended elevation (range front / basin margin), multiplied by 1 m LiDAR scarp evidence and reduced-to-pole magnetic edge strength; greedy packing at 400 m minimum spacing, then deletion of everything within 200 m of the mapped catalogue",
+   "why_it_should_catch_a_missing_fault": "Great Basin geothermal systems sit on range-front faults at basin margins; a young surface-expressed scarp in that position is topographically and magnetically visible without being in the published catalogue, and the 200 m thinning removes exactly the pixels whose credit the published catalogue already expresses",
+   "difference_from_prior_work": "Replaces the H41 corridor geometry (measured 0.0 on the blocked holdout) and the H42 thermal-anchor weightings (measured worse than random on the SGMC instrument). Adds a relief-position factor (1 - det_elev)^1.5 that no earlier field used, and the FIRST field to beat a uniform-random control at equal mass on the 20 km blocked holdout",
+   "measured": {
+    "blocked_holdout_20km_mean_dti": 0.250744,
+    "worst_fold": 0.242272,
+    "uniform_random_control": 0.121243,
+    "training_density_control": 0.17713,
+    "arms_compared": 21,
+    "sgmc_instrument_projection_A_to_B": 0.34601,
+    "sgmc_instrument_projection_B_to_A": 0.32169,
+    "sgmc_instrument_verdict": "disagrees with the blocked holdout; recorded, not used for selection",
+    "max_jaccard_vs_any_stored_raster": 0.0337,
+    "artifact": "docs/downloads/gems41-h42-submission-primary.tif",
+    "sha256": "2943432c6e3d13f1cfae69a473499cdb9c611a873f6841f9268f151f2a025555"
+   },
+   "status": "gate OPEN for one weekly slot; never organizer-scored; not a score forecast"
+  },
+  "H42_thermal_anchor_DEAD": {
+   "title": "H42 DPX: thermal-anchored multi-evidence weighting (retired)",
+   "measured": "best cpm 0.0426 vs uniform-random control 0.0603 vs archived benchmark 0.14653 on the SGMC instrument; thermal layer lift 0.05",
+   "status": "DEAD END - do not rebuild thermal-led surfaces (evidence/h42_density.json, evidence/evidence_lift.json)"
   }
  },
  "new_candidates_ranked": [
+  {
+   "rank": 1,
+   "id": "H43-A",
+   "layers": "training_features bands 3/4/7/16/17 (tmi_hg, geod_2ndinv, geod_shearrate, ieq_n100a15, cond_surf) stacked on the shipped H42 surface",
+   "physical_signature": "Post-hoc re-ranking of the SAME 40,000 packed locations by geophysical multi-evidence agreement, keeping geometry fixed so only ordering inside the 400 m lattice changes",
+   "why_missing_fault": "Adds the four layers whose per-file lift is non-thermal (b03 1.02, b17 1.01, b04 0.98, b16 0.86) without moving the emission geometry that already beat both controls",
+   "difference": "No new emission geometry, no new external data; strictly an in-place re-ranking test",
+   "cost": "LOW (reuses scripts/holdout_h42.py with a composite score)",
+   "expected": "small positive if the geophysical layers add independent signal; zero or negative if slope already captured it"
+  },
+  {
+   "rank": 2,
+   "id": "H43-B",
+   "layers": "USGS 3DEP 1 m bare-earth DEM tiles over the footprint, curvature/slope-break at 1 m, aggregated to 100 m",
+   "physical_signature": "Fine-scale scarp edges sub-pixel at 100 m - the resolution argument for why a real young fault can be absent from the catalogue",
+   "why_missing_fault": "A scarp expressed at 1 m can vanish in 100 m resampling; independent fine-scale morphology is not a catalogue echo",
+   "difference": "H42 uses the provided 100 m LiDAR scarp band; H43-B builds the predictor from 1 m tiles directly",
+   "cost": "HIGH (tile download outside the sandbox egress allowlist; needs .github/workflows) + road/channel false-edge suppression required",
+   "expected": "the most physically distinct untried signal; blocked by data acquisition, not by method"
+  },
+  {
+   "rank": 3,
+   "id": "H43-C",
+   "layers": "GDR wellspring thermal points + the shipped H42 surface as an exclusion/ordering term",
+   "physical_signature": "Thermal springs as surface expression of permeability along range fronts, used to RE-RANK not to generate",
+   "why_missing_fault": "Wellsprings cluster on basin-margin faults; measured Hot+Warm 4,118 with 3,415 more than 300 m from any mapped fault",
+   "difference": "Thermal was anti-informative as a density generator (lift 0.05) but was never tested as an in-place ordering term on an already-validated geometry",
+   "cost": "LOW",
+   "expected": "uncertain; one fold-consistent re-ranking run decides it",
+   "risk": "27,092 rows are one feature across several layer rows (dedupe on name,row,col,temp) and classes include the trailing-space 'Hot ' value"
+  },
+  {
+   "rank": 4,
+   "id": "H43-D",
+   "layers": "catalogue-distance thinning sweep on the shipped H42 field (1, 2, 3, 4 px)",
+   "physical_signature": "The exact mechanism that produced the 0.2778 report, applied as a controlled sweep instead of a single setting",
+   "why_missing_fault": "Not a new detector: a precision/recall trade on the emission boundary, which the ledger shows is worth +0.00487 on the archived base",
+   "difference": "H33-2-B2 applied 2 px once; this measures the response curve on the new geometry",
+   "cost": "LOW",
+   "expected": "+0.001 to +0.005 if the archived thinning response transfers"
+  },
+  {
+   "rank": 5,
+   "id": "H43-E",
+   "layers": "2020 M>=4 seismicity envelope (16 events, azimuth 101 deg, half-axis 11.7 km) as an ordering term",
+   "physical_signature": "Coulomb-stress/aftershock envelope favourable to fluid flow - a time-dependent signal no static layer contains",
+   "why_missing_fault": "A fault that ruptured or was stressed in 2020 need not be in a compilation that stops earlier; the envelope is independent of the catalogue",
+   "difference": "Seismicity was only ever used as context; it has never entered a surface",
+   "cost": "LOW but the sample is 16 events, none within 300 m of a mapped fault",
+   "expected": "small; ranking risk high (a 16-event sample cannot define a regional envelope)"
+  },
   {
    "id": "H41-E",
    "rank": 1,
@@ -78,10 +155,12 @@
   }
  ],
  "validation_policy": [
-  "No candidate is shipped on an unvalidated claim; the primary download is chosen by measurement on the strand-level blocked holdout, not by preference.",
-  "A candidate that cannot be tested without new external data is labelled with the exact free official source and its obtainability status, checked before the candidate is called viable.",
-  "Every instrument is accompanied by a statement of what it cannot test. The blocked-recovery holdout's truth is faults already in the catalogue, so it cannot reward a genuinely new fault; it ranks emission geometry and field variants, nothing more.",
-  "No submission slot is spent on an idea that has not beaten the current holdout best on the instrument that is applicable to it."
+  "A candidate is only slot-eligible if it is emitted fresh inside every held-out 20 km block, competes at equal mass, and beats both the uniform-random and training-density controls in all four folds (gems41 metric.dti, eroded interiors).",
+  "Report every instrument's reading, including the ones that disagree with the selection. The SGMC independent-map instrument over-rewards mass and high terrain; it is published, never used as the selector.",
+  "Never tune on the 0.2778 figure; it is user-reported with no organizer receipt.",
+  "The blocked holdout's truth is the published catalogue and cannot reward a genuinely new fault - state that limitation wherever a holdout number appears.",
+  "H42 addition: a holdout whose truth shares provenance with the candidate prior is self-referential; H42-HO scores only the SGMC residual minus retained-folds under a 3 px isolation guard (this is why line-anchored arms score exactly 0 there, and that 0 must be read as 'un-evaluable', not 'false').",
+  "H42 addition: after a preregistered gate fails, no arm, gate, or kernel may be re-tuned on the same instrument; amendment A1 was the single documented fix, made before its corrected results were seen."
  ],
  "remaining_work": [
   {
@@ -115,10 +194,70 @@
    "unblocks": "A holdout with more held-out mass per fold, or a live score on the 5,000 px variant."
   },
   {
+   "item": "Competition eligibility and data-rights review (IRR-01)",
+   "state": "OPEN - participant review required; repository-parent issue corrected",
+   "why": "GitHub metadata reports this repository as standalone (fork=false, parent=null) as of 2026-10-06. That corrects the earlier repository-parent claim but does not adjudicate competition eligibility, licenses, or public-solution rules.",
+   "unblocks": "Participant review of eligibility and data rights; merging to this standalone repository does not upload or submit an artifact to DrivenData."
+  },
+  {
+   "item": "Authenticated score for the shipped H42 file",
+   "state": "NOT DONE - one weekly slot, participant action",
+   "why": "The slot gate is now open: the shipped arm is the top of 21 on the 20 km blocked holdout at equal mass (0.2507 vs 0.1212 uniform). Only the portal can produce a receipt.",
+   "unblocks": "Replacing [MODEL] projections for this configuration with a measurement."
+  },
+  {
+   "item": "1 m 3DEP tile acquisition for H43-B",
+   "state": "BLOCKED in-sandbox",
+   "why": "Sandbox egress cannot reach tnmaccess.nationalmap.gov; the GitHub Actions path is the only route.",
+   "unblocks": "The most physically distinct untried surface (fine-scale scarp curvature)."
+  },
+  {
+   "item": "H33 receipt linking 0.2778 to a named TIFF",
+   "state": "NOT DONE - unobtainable in-sandbox",
+   "why": "No organizer receipt exists in any accessible source; every 0.2778 statement in this repo is owner-reported.",
+   "unblocks": "An authenticated mechanism claim instead of a plausible one."
+  },
+  {
    "item": "Compliance decision on IRR-01",
    "state": "OPEN - needs a human",
    "why": "This repository is a public fork of an organizers' repository.",
    "unblocks": "Nothing technical; it gates whether this work should live here at all."
+  },
+  {
+   "item": "H42-F: open-ground evidence x orientation lattice",
+   "state": "PROPOSED - explicitly not implemented; requires its own preregistration and an instrument that can score it",
+   "why": "The only field that beat random on H42-HO was the scarp-evidence control (0.0791 cpm). An open-domain lattice of evidence ridges x bimodal orientation, mass-capped at the live-validated band, is the next registered test -- never a build from these results without Part-1-style preregistration."
   }
- ]
+ ],
+ "h42_bimodal_lattice_registration": {
+  "created_utc": "2026-10-06",
+  "preregistration": "research/hypotheses-h42.md (Parts 1-4 written before any H42-HO score was seen; amendment A1 recorded in Part 5 before the corrected run; outcome log in Part 7)",
+  "ranking_rule": "Ranked by expected DTI improvement x evidence, then cost: H42-D > H42-B > H42-C > H42-A(falsified by receipt) > H42-E(deferred).",
+  "registered_candidates": {
+   "H42-A": {
+    "title": "Official-vector residual recall",
+    "outcome": "FALSIFIED before any modeling: official INGENIOUS v2 burn = 60,982 px, 60,981 within 300 m of the raster catalogue; residual >200 m = 2 px. The provided catalogue IS the official v2 rasterization. Receipt: evidence/h42_source_audit.json. Closed for every future session."
+   },
+   "H42-B": {
+    "title": "Bimodal junction dot lattice (brief-compliant primary)",
+    "cost_at_registration": "low; all inputs local",
+    "outcome": "BUILT and shipped (docs/downloads/gemsdoe41-h42b-junction-lattice-37k-20261006T075812Z.tif, 33,144 px, checks all PASS, max Jaccard vs every shipped sibling raster 0.0323). H42-HO ladder-mean credit-per-mass 0.0002 vs controls {density 0.0110, evidence 0.0791, random 0.0259}; fixed rule arms-against-controls 0/4 folds -> HOLDOUT FAIL; enrichment 0.591x/0.895x p>=0.89 -> FAIL. No promotion; ships as labeled research."
+   },
+   "H42-C": {
+    "title": "Corroboration-intersection variant (diagnostic only)",
+    "outcome": "Registered as diagnostic; the max-composition was not separately promoted. The thermal/rupture channels entered the enrichment gate instead and both failed for H42-B and H42-D (0.294x-0.895x, p>=0.89)."
+   },
+   "H42-D": {
+    "title": "State-map (SGMC) residual fault lattice",
+    "cost_at_registration": "medium; data restored + verified this session",
+    "outcome": "BUILT and shipped (gemsdoe41-h42d-statemap-lattice-37k-20261006T075812Z.tif, 22,061 px, checks all PASS). Under the H42-HO isolation guard its ladder-mean credit-per-mass is 0.0000 -- structural, not noise: any prior anchored to already-mapped line geometry has zero support in the guarded scored domain (allowed pixels are >3 px from retained geometry), so this instrument CANNOT evaluate line-anchored ideas (prereg Part 5/A1). Enrichment 0.294x/0.453x p=1.0 -> FAIL. No promotion."
+   },
+   "H42-E": {
+    "title": "1 m bare-earth DEM LoG scarp edges",
+    "outcome": "Deferred at registration (per-tile acquisition exceeds session; footprint coverage unverified). Not attempted."
+   }
+  },
+  "instrument_finding": "The single most useful measured result: on open ground the LiDAR scarp-evidence control field (0.0791 cpm, 3.1x random) beats every structural prior tried; random > density means spread coverage beats line-following for UNKNOWN faults. Any next hypothesis must beat evidence x orientation on a NEW preregistered instrument (H42-F candidate; NOT registered for building until preregistered).",
+  "decision": "no promotion: the preregistered holdout rule (arm a or b beats density/evidence/random in >=3 of 4 folds) failed on 0/4 folds and the label-free enrichment gate failed; artifacts ship as labeled research only"
+ }
 }
