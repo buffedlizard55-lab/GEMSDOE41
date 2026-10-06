@@ -1,0 +1,1185 @@
+{
+ "created_utc": "2026-10-06T02:41:15Z",
+ "metric": {
+  "alpha": 0.2,
+  "beta": 0.8,
+  "radius_px": 3.0
+ },
+ "templates": [
+  "dcat_0_1",
+  "dcat_1_2",
+  "dcat_2_3",
+  "dcat_3_6",
+  "dcat_6_12",
+  "dcat_12_25",
+  "dcat_25_inf",
+  "uniform",
+  "lidar_scarp",
+  "det_elev_slope",
+  "tmi_hg",
+  "iso_grav_hg",
+  "iso_grav_slope",
+  "geod_2ndinv",
+  "geod_shear",
+  "geod_dilate_abs",
+  "cond_surf",
+  "tilt_tc",
+  "eq_distance_near",
+  "eq_intensity",
+  "depth_base_grad"
+ ],
+ "active_px": 5106385,
+ "probes": [
+  {
+   "id": "h19_5",
+   "score": 0.1922,
+   "M": 121131.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h19_4",
+   "score": 0.1894,
+   "M": 123779.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h16_1",
+   "score": 0.1855,
+   "M": 123939.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/16GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "dot_d15",
+   "score": 0.2477,
+   "M": 60069.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE24/"
+  },
+  {
+   "id": "dot_d28",
+   "score": 0.26,
+   "M": 44090.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE25/"
+  },
+  {
+   "id": "tgc_d15",
+   "score": 0.2449,
+   "M": 61328.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE27/"
+  },
+  {
+   "id": "h274_solo",
+   "score": 0.2708,
+   "M": 40199.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE28/"
+  },
+  {
+   "id": "h321_prethin",
+   "score": 0.2649,
+   "M": 42294.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE28/"
+  },
+  {
+   "id": "h33d_stepover",
+   "score": 0.2632,
+   "M": 41865.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE33/"
+  },
+  {
+   "id": "h33_2b2",
+   "score": 0.2778,
+   "M": 37654.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html"
+  },
+  {
+   "id": "h25_ctx_ridge",
+   "score": 0.128,
+   "M": 161366.0,
+   "off_active_mass": 12866.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  },
+  {
+   "id": "h28_dotted_ridge",
+   "score": 0.1839,
+   "M": 65236.0,
+   "off_active_mass": 4045.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  },
+  {
+   "id": "lat_s5",
+   "score": 0.0904,
+   "M": 204504.0,
+   "off_active_mass": 2391.0,
+   "source": "https://buffedlizard55-lab.github.io/13GEMSDOE/"
+  },
+  {
+   "id": "hedge_v2",
+   "score": 0.1563,
+   "M": 166519.0,
+   "off_active_mass": 60988.0,
+   "source": "https://buffedlizard55-lab.github.io/8GEMSDOE/"
+  },
+  {
+   "id": "ens12_adopted",
+   "score": 0.1563,
+   "M": 166519.0,
+   "off_active_mass": 6455.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "placeholder",
+   "score": 0.0107,
+   "M": 145610.0,
+   "off_active_mass": 198206.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE9/docs/index.html"
+  },
+  {
+   "id": "h23a_6pct",
+   "score": 0.1002,
+   "M": 335879.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html"
+  },
+  {
+   "id": "h23b_10pct",
+   "score": 0.0748,
+   "M": 516738.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html"
+  },
+  {
+   "id": "h30_arrmatch",
+   "score": 0.1352,
+   "M": 91533.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE23/"
+  },
+  {
+   "id": "dilcond_oof",
+   "score": 0.1223,
+   "M": 58670.0,
+   "off_active_mass": 1398.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE26/"
+  },
+  {
+   "id": "h20_1",
+   "score": 0.189,
+   "M": 123829.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h20_5",
+   "score": 0.1859,
+   "M": 107710.75,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "poisson300_44090",
+   "score": 0.26,
+   "M": 44090.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE30/"
+  },
+  {
+   "id": "efd28_repro",
+   "score": 0.26,
+   "M": 44090.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE29/docs/index.html"
+  },
+  {
+   "id": "h34_scatter",
+   "score": 0.0778,
+   "M": 37654.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE34/docs/index.html"
+  },
+  {
+   "id": "h35_06",
+   "score": 0.0418,
+   "M": 39530.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE35/docs/index.html"
+  },
+  {
+   "id": "r7_scarp",
+   "score": 0.1294,
+   "M": 103347.0,
+   "off_active_mass": 0.0,
+   "source": "https://buffedlizard55-lab.github.io/12GEMSDOE/docs/index.html"
+  },
+  {
+   "id": "h20_scarp_thin",
+   "score": 0.0921,
+   "M": 143657.0,
+   "off_active_mass": 10300.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  },
+  {
+   "id": "h16_continuation",
+   "score": 0.0461,
+   "M": 283532.0,
+   "off_active_mass": 26510.0,
+   "source": "https://buffedlizard55-lab.github.io/GEMSDOE10/"
+  }
+ ],
+ "evidence_class": "owner-reported scores; NOT organizer receipts. Every fitted quantity is a [MODEL] conditioned on them.",
+ "runtime_s": 85.4,
+ "fit_lam0.0": {
+  "rho": 53892.58379198196,
+  "rmse": 0.10605859598346512,
+  "mae": 0.08759093113605966,
+  "weights": {
+   "dcat_0_1": 0.23152,
+   "dcat_1_2": 0.0,
+   "dcat_2_3": 0.0,
+   "dcat_3_6": 0.0,
+   "dcat_6_12": 0.0,
+   "dcat_12_25": 0.0,
+   "dcat_25_inf": 0.09425,
+   "uniform": 0.0,
+   "lidar_scarp": 0.0,
+   "det_elev_slope": 0.0,
+   "tmi_hg": 0.60401,
+   "iso_grav_hg": 0.0,
+   "iso_grav_slope": 0.07022,
+   "geod_2ndinv": 0.0,
+   "geod_shear": 0.0,
+   "geod_dilate_abs": 0.0,
+   "cond_surf": 0.0,
+   "tilt_tc": 0.0,
+   "eq_distance_near": 0.0,
+   "eq_intensity": 0.0,
+   "depth_base_grad": 0.0
+  },
+  "per_probe": [
+   {
+    "id": "h19_5",
+    "reported": 0.1922,
+    "predicted": 0.10957198848247396,
+    "residual": -0.08262801151752605
+   },
+   {
+    "id": "h19_4",
+    "reported": 0.1894,
+    "predicted": 0.11188866542703038,
+    "residual": -0.07751133457296963
+   },
+   {
+    "id": "h16_1",
+    "reported": 0.1855,
+    "predicted": 0.1142286983217582,
+    "residual": -0.07127130167824179
+   },
+   {
+    "id": "dot_d15",
+    "reported": 0.2477,
+    "predicted": 0.11166548197076535,
+    "residual": -0.13603451802923466
+   },
+   {
+    "id": "dot_d28",
+    "reported": 0.26,
+    "predicted": 0.10449312605399859,
+    "residual": -0.15550687394600143
+   },
+   {
+    "id": "tgc_d15",
+    "reported": 0.2449,
+    "predicted": 0.11297676867290565,
+    "residual": -0.13192323132709435
+   },
+   {
+    "id": "h274_solo",
+    "reported": 0.2708,
+    "predicted": 0.0786342750308952,
+    "residual": -0.19216572496910478
+   },
+   {
+    "id": "h321_prethin",
+    "reported": 0.2649,
+    "predicted": 0.09200061629557098,
+    "residual": -0.17289938370442903
+   },
+   {
+    "id": "h33d_stepover",
+    "reported": 0.2632,
+    "predicted": 0.08842190983064285,
+    "residual": -0.17477809016935714
+   },
+   {
+    "id": "h33_2b2",
+    "reported": 0.2778,
+    "predicted": 0.06608816069772419,
+    "residual": -0.2117118393022758
+   },
+   {
+    "id": "h25_ctx_ridge",
+    "reported": 0.128,
+    "predicted": 0.16009778419104637,
+    "residual": 0.032097784191046363
+   },
+   {
+    "id": "h28_dotted_ridge",
+    "reported": 0.1839,
+    "predicted": 0.14964854751557308,
+    "residual": -0.03425145248442693
+   },
+   {
+    "id": "lat_s5",
+    "reported": 0.0904,
+    "predicted": 0.2268920771707591,
+    "residual": 0.13649207717075912
+   },
+   {
+    "id": "hedge_v2",
+    "reported": 0.1563,
+    "predicted": 0.14472145320698873,
+    "residual": -0.011578546793011263
+   },
+   {
+    "id": "ens12_adopted",
+    "reported": 0.1563,
+    "predicted": 0.14472145320698873,
+    "residual": -0.011578546793011263
+   },
+   {
+    "id": "placeholder",
+    "reported": 0.0107,
+    "predicted": 0.03982524615916319,
+    "residual": 0.02912524615916319
+   },
+   {
+    "id": "h23a_6pct",
+    "reported": 0.1002,
+    "predicted": 0.1481767927010456,
+    "residual": 0.047976792701045615
+   },
+   {
+    "id": "h23b_10pct",
+    "reported": 0.0748,
+    "predicted": 0.14777646913555284,
+    "residual": 0.07297646913555283
+   },
+   {
+    "id": "h30_arrmatch",
+    "reported": 0.1352,
+    "predicted": 0.17329857511851066,
+    "residual": 0.03809857511851067
+   },
+   {
+    "id": "dilcond_oof",
+    "reported": 0.1223,
+    "predicted": 0.08385779019847953,
+    "residual": -0.03844220980152048
+   },
+   {
+    "id": "h20_1",
+    "reported": 0.189,
+    "predicted": 0.11196982971456011,
+    "residual": -0.07703017028543989
+   },
+   {
+    "id": "h20_5",
+    "reported": 0.1859,
+    "predicted": 0.10087035951522552,
+    "residual": -0.08502964048477449
+   },
+   {
+    "id": "poisson300_44090",
+    "reported": 0.26,
+    "predicted": 0.10449312605399859,
+    "residual": -0.15550687394600143
+   },
+   {
+    "id": "efd28_repro",
+    "reported": 0.26,
+    "predicted": 0.10449312605399859,
+    "residual": -0.15550687394600143
+   },
+   {
+    "id": "h34_scatter",
+    "reported": 0.0778,
+    "predicted": 0.06990670796814107,
+    "residual": -0.007893292031858928
+   },
+   {
+    "id": "h35_06",
+    "reported": 0.0418,
+    "predicted": 0.01633078758910084,
+    "residual": -0.025469212410899156
+   },
+   {
+    "id": "r7_scarp",
+    "reported": 0.1294,
+    "predicted": 0.19943829595057563,
+    "residual": 0.07003829595057565
+   },
+   {
+    "id": "h20_scarp_thin",
+    "reported": 0.0921,
+    "predicted": 0.12339298284364507,
+    "residual": 0.03129298284364507
+   },
+   {
+    "id": "h16_continuation",
+    "reported": 0.0461,
+    "predicted": 0.11942165148225149,
+    "residual": 0.07332165148225149
+   }
+  ]
+ },
+ "fit_lam1.0": {
+  "rho": 53892.58379198196,
+  "rmse": 0.10530279364314134,
+  "mae": 0.0869872255879276,
+  "weights": {
+   "dcat_0_1": 0.24552,
+   "dcat_1_2": 0.0,
+   "dcat_2_3": 0.0,
+   "dcat_3_6": 0.0,
+   "dcat_6_12": 0.0,
+   "dcat_12_25": 0.0,
+   "dcat_25_inf": 0.10828,
+   "uniform": 0.0,
+   "lidar_scarp": 0.0,
+   "det_elev_slope": 0.0,
+   "tmi_hg": 0.6462,
+   "iso_grav_hg": 0.0,
+   "iso_grav_slope": 0.0,
+   "geod_2ndinv": 0.0,
+   "geod_shear": 0.0,
+   "geod_dilate_abs": 0.0,
+   "cond_surf": 0.0,
+   "tilt_tc": 0.0,
+   "eq_distance_near": 0.0,
+   "eq_intensity": 0.0,
+   "depth_base_grad": 0.0
+  },
+  "per_probe": [
+   {
+    "id": "h19_5",
+    "reported": 0.1922,
+    "predicted": 0.11133382664829564,
+    "residual": -0.08086617335170437
+   },
+   {
+    "id": "h19_4",
+    "reported": 0.1894,
+    "predicted": 0.11376980218739038,
+    "residual": -0.07563019781260963
+   },
+   {
+    "id": "h16_1",
+    "reported": 0.1855,
+    "predicted": 0.11597194983831763,
+    "residual": -0.06952805016168237
+   },
+   {
+    "id": "dot_d15",
+    "reported": 0.2477,
+    "predicted": 0.11346538695379334,
+    "residual": -0.13423461304620665
+   },
+   {
+    "id": "dot_d28",
+    "reported": 0.26,
+    "predicted": 0.10616932295387825,
+    "residual": -0.15383067704612174
+   },
+   {
+    "id": "tgc_d15",
+    "reported": 0.2449,
+    "predicted": 0.11474050265590753,
+    "residual": -0.1301594973440925
+   },
+   {
+    "id": "h274_solo",
+    "reported": 0.2708,
+    "predicted": 0.07913048717886295,
+    "residual": -0.19166951282113703
+   },
+   {
+    "id": "h321_prethin",
+    "reported": 0.2649,
+    "predicted": 0.09306808376269975,
+    "residual": -0.17183191623730026
+   },
+   {
+    "id": "h33d_stepover",
+    "reported": 0.2632,
+    "predicted": 0.08928662671958686,
+    "residual": -0.17391337328041312
+   },
+   {
+    "id": "h33_2b2",
+    "reported": 0.2778,
+    "predicted": 0.06612552530246306,
+    "residual": -0.21167447469753692
+   },
+   {
+    "id": "h25_ctx_ridge",
+    "reported": 0.128,
+    "predicted": 0.15750337238602027,
+    "residual": 0.02950337238602027
+   },
+   {
+    "id": "h28_dotted_ridge",
+    "reported": 0.1839,
+    "predicted": 0.14961451246157564,
+    "residual": -0.034285487538424364
+   },
+   {
+    "id": "lat_s5",
+    "reported": 0.0904,
+    "predicted": 0.22495914436590644,
+    "residual": 0.13455914436590644
+   },
+   {
+    "id": "hedge_v2",
+    "reported": 0.1563,
+    "predicted": 0.12787864496756582,
+    "residual": -0.028421355032434176
+   },
+   {
+    "id": "ens12_adopted",
+    "reported": 0.1563,
+    "predicted": 0.14668682379458525,
+    "residual": -0.009613176205414742
+   },
+   {
+    "id": "placeholder",
+    "reported": 0.0107,
+    "predicted": 0.0254747573222334,
+    "residual": 0.014774757322233401
+   },
+   {
+    "id": "h23a_6pct",
+    "reported": 0.1002,
+    "predicted": 0.15101040995655285,
+    "residual": 0.05081040995655285
+   },
+   {
+    "id": "h23b_10pct",
+    "reported": 0.0748,
+    "predicted": 0.15083620210762427,
+    "residual": 0.07603620210762427
+   },
+   {
+    "id": "h30_arrmatch",
+    "reported": 0.1352,
+    "predicted": 0.17760338099556172,
+    "residual": 0.042403380995561735
+   },
+   {
+    "id": "dilcond_oof",
+    "reported": 0.1223,
+    "predicted": 0.08346168127595162,
+    "residual": -0.03883831872404839
+   },
+   {
+    "id": "h20_1",
+    "reported": 0.189,
+    "predicted": 0.11374074574121182,
+    "residual": -0.07525925425878818
+   },
+   {
+    "id": "h20_5",
+    "reported": 0.1859,
+    "predicted": 0.10232459779823555,
+    "residual": -0.08357540220176446
+   },
+   {
+    "id": "poisson300_44090",
+    "reported": 0.26,
+    "predicted": 0.10616932295387825,
+    "residual": -0.15383067704612174
+   },
+   {
+    "id": "efd28_repro",
+    "reported": 0.26,
+    "predicted": 0.10616932295387825,
+    "residual": -0.15383067704612174
+   },
+   {
+    "id": "h34_scatter",
+    "reported": 0.0778,
+    "predicted": 0.07130259538971083,
+    "residual": -0.006497404610289165
+   },
+   {
+    "id": "h35_06",
+    "reported": 0.0418,
+    "predicted": 0.015825342348633947,
+    "residual": -0.02597465765136605
+   },
+   {
+    "id": "r7_scarp",
+    "reported": 0.1294,
+    "predicted": 0.20227684910669738,
+    "residual": 0.0728768491066974
+   },
+   {
+    "id": "h20_scarp_thin",
+    "reported": 0.0921,
+    "predicted": 0.1215510199026793,
+    "residual": 0.0294510199026793
+   },
+   {
+    "id": "h16_continuation",
+    "reported": 0.0461,
+    "predicted": 0.11484950979304666,
+    "residual": 0.06874950979304666
+   }
+  ]
+ },
+ "loo": {
+  "lam": 1.0,
+  "rows": [
+   {
+    "id": "h19_5",
+    "reported": 0.1922,
+    "predicted": 0.10909420033464257,
+    "residual": -0.08310579966535744,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "h19_4",
+    "reported": 0.1894,
+    "predicted": 0.11137991422385655,
+    "residual": -0.07802008577614346,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "h16_1",
+    "reported": 0.1855,
+    "predicted": 0.11428241924221046,
+    "residual": -0.07121758075778954,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "dot_d15",
+    "reported": 0.2477,
+    "predicted": 0.11127493295220792,
+    "residual": -0.1364250670477921,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "dot_d28",
+    "reported": 0.26,
+    "predicted": 0.10404852193380353,
+    "residual": -0.15595147806619647,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "tgc_d15",
+    "reported": 0.2449,
+    "predicted": 0.1129302078167775,
+    "residual": -0.13196979218322252,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "h274_solo",
+    "reported": 0.2708,
+    "predicted": 0.07461192675694711,
+    "residual": -0.19618807324305287,
+    "rho_used": 54056.93135271179
+   },
+   {
+    "id": "h321_prethin",
+    "reported": 0.2649,
+    "predicted": 0.09166667707065514,
+    "residual": -0.1732333229293449,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "h33d_stepover",
+    "reported": 0.2632,
+    "predicted": 0.08737436039077982,
+    "residual": -0.17582563960922015,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "h33_2b2",
+    "reported": 0.2778,
+    "predicted": 0.05620021662350647,
+    "residual": -0.22159978337649353,
+    "rho_used": 53593.990685029865
+   },
+   {
+    "id": "h25_ctx_ridge",
+    "reported": 0.128,
+    "predicted": 0.16309935052632518,
+    "residual": 0.03509935052632518,
+    "rho_used": 53618.671190765555
+   },
+   {
+    "id": "h28_dotted_ridge",
+    "reported": 0.1839,
+    "predicted": 0.14778127172267666,
+    "residual": -0.03611872827732335,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "lat_s5",
+    "reported": 0.0904,
+    "predicted": 0.2927395421445949,
+    "residual": 0.20233954214459493,
+    "rho_used": 92705.49274231994
+   },
+   {
+    "id": "hedge_v2",
+    "reported": 0.1563,
+    "predicted": 0.12206640032339632,
+    "residual": -0.03423359967660368,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "ens12_adopted",
+    "reported": 0.1563,
+    "predicted": 0.14539058949015332,
+    "residual": -0.010909410509846673,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "placeholder",
+    "reported": 0.0107,
+    "predicted": 0.025411676117175794,
+    "residual": 0.014711676117175795,
+    "rho_used": 53618.671190765555
+   },
+   {
+    "id": "h23a_6pct",
+    "reported": 0.1002,
+    "predicted": 0.1608139042977886,
+    "residual": 0.06061390429778861,
+    "rho_used": 55342.92306515739
+   },
+   {
+    "id": "h23b_10pct",
+    "reported": 0.0748,
+    "predicted": 0.16879234416731384,
+    "residual": 0.09399234416731383,
+    "rho_used": 59172.41780057405
+   },
+   {
+    "id": "h30_arrmatch",
+    "reported": 0.1352,
+    "predicted": 0.17959596129325392,
+    "residual": 0.04439596129325393,
+    "rho_used": 55504.75510199848
+   },
+   {
+    "id": "dilcond_oof",
+    "reported": 0.1223,
+    "predicted": 0.0833692042883073,
+    "residual": -0.03893079571169271,
+    "rho_used": 53892.58379198195
+   },
+   {
+    "id": "h20_1",
+    "reported": 0.189,
+    "predicted": 0.1116815362492251,
+    "residual": -0.0773184637507749,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "h20_5",
+    "reported": 0.1859,
+    "predicted": 0.10065068205903895,
+    "residual": -0.08524931794096106,
+    "rho_used": 52061.28240099227
+   },
+   {
+    "id": "poisson300_44090",
+    "reported": 0.26,
+    "predicted": 0.1040485219338035,
+    "residual": -0.15595147806619652,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "efd28_repro",
+    "reported": 0.26,
+    "predicted": 0.1040485219338035,
+    "residual": -0.15595147806619652,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "h34_scatter",
+    "reported": 0.0778,
+    "predicted": 0.07088523036566838,
+    "residual": -0.006914769634331616,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "h35_06",
+    "reported": 0.0418,
+    "predicted": 0.01577596209946715,
+    "residual": -0.026024037900532846,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "r7_scarp",
+    "reported": 0.1294,
+    "predicted": 0.2125815407361589,
+    "residual": 0.08318154073615891,
+    "rho_used": 55504.75510199848
+   },
+   {
+    "id": "h20_scarp_thin",
+    "reported": 0.0921,
+    "predicted": 0.12681072088630102,
+    "residual": 0.03471072088630102,
+    "rho_used": 53892.58379198196
+   },
+   {
+    "id": "h16_continuation",
+    "reported": 0.0461,
+    "predicted": 0.1769122596121515,
+    "residual": 0.1308122596121515,
+    "rho_used": 50757.72696647607
+   }
+  ],
+  "rmse": 0.11383043290900449,
+  "mae": 0.0948619311024185,
+  "max_abs": 0.22159978337649353,
+  "within_0p01": 1,
+  "n": 29
+ },
+ "best_fit": {
+  "lam": 1.0,
+  "rho": 53892.58379198196,
+  "rmse": 0.10530279364314134,
+  "weights": {
+   "dcat_0_1": 0.24552,
+   "dcat_1_2": 0.0,
+   "dcat_2_3": 0.0,
+   "dcat_3_6": 0.0,
+   "dcat_6_12": 0.0,
+   "dcat_12_25": 0.0,
+   "dcat_25_inf": 0.10828,
+   "uniform": 0.0,
+   "lidar_scarp": 0.0,
+   "det_elev_slope": 0.0,
+   "tmi_hg": 0.6462,
+   "iso_grav_hg": 0.0,
+   "iso_grav_slope": 0.0,
+   "geod_2ndinv": 0.0,
+   "geod_shear": 0.0,
+   "geod_dilate_abs": 0.0,
+   "cond_surf": 0.0,
+   "tilt_tc": 0.0,
+   "eq_distance_near": 0.0,
+   "eq_intensity": 0.0,
+   "depth_base_grad": 0.0
+  }
+ },
+ "null_model": {
+  "definition": "hidden labels spread uniformly over the active domain: the score a position-blind dot set of the same mass and separation would earn",
+  "rho_used": 53892.58379198196,
+  "rows": [
+   {
+    "id": "h19_5",
+    "reported": 0.1922,
+    "M": 121131.0,
+    "a_uniform": 0.08806478977203369,
+    "q_uniform": 0.2166110873222351,
+    "null_score_at_fitted_rho": 0.07195904163126031,
+    "null_ceiling_rho_inf": 0.11373607505148207,
+    "skill_ratio_vs_null": 2.670963865595798
+   },
+   {
+    "id": "h19_4",
+    "reported": 0.1894,
+    "M": 123779.0,
+    "a_uniform": 0.09121890366077423,
+    "q_uniform": 0.22140927612781525,
+    "null_score_at_fitted_rho": 0.07396228817194432,
+    "null_ceiling_rho_inf": 0.11785967843452698,
+    "skill_ratio_vs_null": 2.5607644744534013
+   },
+   {
+    "id": "h16_1",
+    "reported": 0.1855,
+    "M": 123939.0,
+    "a_uniform": 0.09314756095409393,
+    "q_uniform": 0.2217513471841812,
+    "null_score_at_fitted_rho": 0.07547033342324763,
+    "null_ceiling_rho_inf": 0.12030228347951513,
+    "skill_ratio_vs_null": 2.4579194444483425
+   },
+   {
+    "id": "dot_d15",
+    "reported": 0.2477,
+    "M": 60069.0,
+    "a_uniform": 0.07513049989938736,
+    "q_uniform": 0.10723036527633667,
+    "null_score_at_fitted_rho": 0.07391087895920034,
+    "null_ceiling_rho_inf": 0.09467287148158623,
+    "skill_ratio_vs_null": 3.3513334368102057
+   },
+   {
+    "id": "dot_d28",
+    "reported": 0.26,
+    "M": 44090.0,
+    "a_uniform": 0.06683025509119034,
+    "q_uniform": 0.07869886606931686,
+    "null_score_at_fitted_rho": 0.06952446372112864,
+    "null_ceiling_rho_inf": 0.08378642598781215,
+    "skill_ratio_vs_null": 3.739690838075252
+   },
+   {
+    "id": "tgc_d15",
+    "reported": 0.2449,
+    "M": 61328.0,
+    "a_uniform": 0.07697073370218277,
+    "q_uniform": 0.10952183604240417,
+    "null_score_at_fitted_rho": 0.07538144803643371,
+    "null_ceiling_rho_inf": 0.09700280417926034,
+    "skill_ratio_vs_null": 3.2488099708781637
+   },
+   {
+    "id": "h274_solo",
+    "reported": 0.2708,
+    "M": 40199.0,
+    "a_uniform": 0.06261973083019257,
+    "q_uniform": 0.0731859803199768,
+    "null_score_at_fitted_rho": 0.06611952409799014,
+    "null_ceiling_rho_inf": 0.07848197857927082,
+    "skill_ratio_vs_null": 4.095613265435339
+   },
+   {
+    "id": "h321_prethin",
+    "reported": 0.2649,
+    "M": 42294.0,
+    "a_uniform": 0.06504663079977036,
+    "q_uniform": 0.07629109919071198,
+    "null_score_at_fitted_rho": 0.0681325040311796,
+    "null_ceiling_rho_inf": 0.08153749995995697,
+    "skill_ratio_vs_null": 3.8880120988768208
+   },
+   {
+    "id": "h33d_stepover",
+    "reported": 0.2632,
+    "M": 41865.0,
+    "a_uniform": 0.06487413495779037,
+    "q_uniform": 0.07572472095489502,
+    "null_score_at_fitted_rho": 0.06805970426768204,
+    "null_ceiling_rho_inf": 0.08131324278061158,
+    "skill_ratio_vs_null": 3.8671928247707616
+   },
+   {
+    "id": "h33_2b2",
+    "reported": 0.2778,
+    "M": 37654.0,
+    "a_uniform": 0.05924154818058014,
+    "q_uniform": 0.0690344050526619,
+    "null_score_at_fitted_rho": 0.06317220815079244,
+    "null_ceiling_rho_inf": 0.07423367516471935,
+    "skill_ratio_vs_null": 4.397503397964018
+   },
+   {
+    "id": "h25_ctx_ridge",
+    "reported": 0.128,
+    "M": 161366.0,
+    "a_uniform": 0.12348602712154388,
+    "q_uniform": 0.28445014357566833,
+    "null_score_at_fitted_rho": 0.08730647831925127,
+    "null_ceiling_rho_inf": 0.16082947759202448,
+    "skill_ratio_vs_null": 1.4660996808500948
+   },
+   {
+    "id": "h28_dotted_ridge",
+    "reported": 0.1839,
+    "M": 65236.0,
+    "a_uniform": 0.10190849006175995,
+    "q_uniform": 0.11588159203529358,
+    "null_score_at_fitted_rho": 0.09665865758734063,
+    "null_ceiling_rho_inf": 0.1278321655483762,
+    "skill_ratio_vs_null": 1.902571425987664
+   },
+   {
+    "id": "lat_s5",
+    "reported": 0.0904,
+    "M": 204504.0,
+    "a_uniform": 0.3717535436153412,
+    "q_uniform": 0.3717535436153412,
+    "null_score_at_fitted_rho": 0.2371171943763419,
+    "null_ceiling_rho_inf": 0.4646919295191765,
+    "skill_ratio_vs_null": 0.3812460763875315
+   },
+   {
+    "id": "hedge_v2",
+    "reported": 0.1563,
+    "M": 166519.0,
+    "a_uniform": 0.11173327267169952,
+    "q_uniform": 0.298554390668869,
+    "null_score_at_fitted_rho": 0.0695319715281197,
+    "null_ceiling_rho_inf": 0.1465093510286788,
+    "skill_ratio_vs_null": 2.2478867859627725
+   },
+   {
+    "id": "ens12_adopted",
+    "reported": 0.1563,
+    "M": 166519.0,
+    "a_uniform": 0.11173327267169952,
+    "q_uniform": 0.298554390668869,
+    "null_score_at_fitted_rho": 0.0795505364518209,
+    "null_ceiling_rho_inf": 0.1465093510286788,
+    "skill_ratio_vs_null": 1.9647887616026543
+   },
+   {
+    "id": "placeholder",
+    "reported": 0.0107,
+    "M": 145610.0,
+    "a_uniform": 0.04738473892211914,
+    "q_uniform": 0.2644232213497162,
+    "null_score_at_fitted_rho": 0.02331326128937336,
+    "null_ceiling_rho_inf": 0.06262915800492574,
+    "skill_ratio_vs_null": 0.45896624531366054
+   },
+   {
+    "id": "h23a_6pct",
+    "reported": 0.1002,
+    "M": 335879.0,
+    "a_uniform": 0.21427009999752045,
+    "q_uniform": 0.6061364412307739,
+    "null_score_at_fitted_rho": 0.10887141272520132,
+    "null_ceiling_rho_inf": 0.2969265003208855,
+    "skill_ratio_vs_null": 0.9203517938442799
+   },
+   {
+    "id": "h23b_10pct",
+    "reported": 0.0748,
+    "M": 516738.0,
+    "a_uniform": 0.2972516417503357,
+    "q_uniform": 0.9352721571922302,
+    "null_score_at_fitted_rho": 0.11476653972619924,
+    "null_ceiling_rho_inf": 0.44207830998916114,
+    "skill_ratio_vs_null": 0.6517579093911153
+   },
+   {
+    "id": "h30_arrmatch",
+    "reported": 0.1352,
+    "M": 91533.0,
+    "a_uniform": 0.15661266446113586,
+    "q_uniform": 0.16480503976345062,
+    "null_score_at_fitted_rho": 0.13761512523098746,
+    "null_ceiling_rho_inf": 0.1961676002272238,
+    "skill_ratio_vs_null": 0.982450146908389
+   },
+   {
+    "id": "dilcond_oof",
+    "reported": 0.1223,
+    "M": 58670.0,
+    "a_uniform": 0.07433298975229263,
+    "q_uniform": 0.10613863915205002,
+    "null_score_at_fitted_rho": 0.07312234914025886,
+    "null_ceiling_rho_inf": 0.0936609742174659,
+    "skill_ratio_vs_null": 1.6725392638222214
+   },
+   {
+    "id": "h20_1",
+    "reported": 0.189,
+    "M": 123829.0,
+    "a_uniform": 0.09104833006858826,
+    "q_uniform": 0.2214154303073883,
+    "null_score_at_fitted_rho": 0.07381499324626366,
+    "null_ceiling_rho_inf": 0.1176446609111254,
+    "skill_ratio_vs_null": 2.5604554263041504
+   },
+   {
+    "id": "h20_5",
+    "reported": 0.1859,
+    "M": 107710.75,
+    "a_uniform": 0.077215775847435,
+    "q_uniform": 0.19242772459983826,
+    "null_score_at_fitted_rho": 0.06562164848406843,
+    "null_ceiling_rho_inf": 0.09938222475565585,
+    "skill_ratio_vs_null": 2.832906583337855
+   },
+   {
+    "id": "poisson300_44090",
+    "reported": 0.26,
+    "M": 44090.0,
+    "a_uniform": 0.06683025509119034,
+    "q_uniform": 0.07869886606931686,
+    "null_score_at_fitted_rho": 0.06952446372112864,
+    "null_ceiling_rho_inf": 0.08378642598781215,
+    "skill_ratio_vs_null": 3.739690838075252
+   },
+   {
+    "id": "efd28_repro",
+    "reported": 0.26,
+    "M": 44090.0,
+    "a_uniform": 0.06683025509119034,
+    "q_uniform": 0.07869886606931686,
+    "null_score_at_fitted_rho": 0.06952446372112864,
+    "null_ceiling_rho_inf": 0.08378642598781215,
+    "skill_ratio_vs_null": 3.739690838075252
+   },
+   {
+    "id": "h34_scatter",
+    "reported": 0.0778,
+    "M": 37654.0,
+    "a_uniform": 0.062000855803489685,
+    "q_uniform": 0.06881685554981232,
+    "null_score_at_fitted_rho": 0.06607264723842972,
+    "null_ceiling_rho_inf": 0.07763335698974917,
+    "skill_ratio_vs_null": 1.1774917950426742
+   },
+   {
+    "id": "h35_06",
+    "reported": 0.0418,
+    "M": 39530.0,
+    "a_uniform": 0.011653758585453033,
+    "q_uniform": 0.07073985785245895,
+    "null_score_at_fitted_rho": 0.012465486109508197,
+    "null_ceiling_rho_inf": 0.014785604150455408,
+    "skill_ratio_vs_null": 3.3532587203411626
+   },
+   {
+    "id": "r7_scarp",
+    "reported": 0.1294,
+    "M": 103347.0,
+    "a_uniform": 0.14532218873500824,
+    "q_uniform": 0.182856023311615,
+    "null_score_at_fitted_rho": 0.12357089265590415,
+    "null_ceiling_rho_inf": 0.18337341275377228,
+    "skill_ratio_vs_null": 1.047172171526895
+   },
+   {
+    "id": "h20_scarp_thin",
+    "reported": 0.0921,
+    "M": 143657.0,
+    "a_uniform": 0.087964728474617,
+    "q_uniform": 0.2517890930175781,
+    "null_score_at_fitted_rho": 0.0657148226645114,
+    "null_ceiling_rho_inf": 0.11465159162888139,
+    "skill_ratio_vs_null": 1.4015102874155307
+   },
+   {
+    "id": "h16_continuation",
+    "reported": 0.0461,
+    "M": 283532.0,
+    "a_uniform": 0.09979906678199768,
+    "q_uniform": 0.4898068904876709,
+    "null_score_at_fitted_rho": 0.05329464518353872,
+    "null_ceiling_rho_inf": 0.13822615383676795,
+    "skill_ratio_vs_null": 0.8650024752250166
+   }
+  ],
+  "note": "The rho->inf ceiling a/(0.2a-0.2q+0.8) is the highest score any label count can give a position-blind set.  h34_scatter is the family's own arrangement-matched scatter control and is the empirical check of this null."
+ }
+}

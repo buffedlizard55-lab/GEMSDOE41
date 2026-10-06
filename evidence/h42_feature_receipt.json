@@ -1,0 +1,174 @@
+{
+ "created_utc": "2026-10-06T01:48:51Z",
+ "path": "data/derived/h42_features.f32",
+ "shape": [
+  12279160,
+  31
+ ],
+ "features": [
+  "mag_anom",
+  "rtp",
+  "tmi_hg",
+  "geod_2ndinv",
+  "iso_grav_anom_slope",
+  "tc",
+  "geod_shearrate",
+  "geod_dilaterate",
+  "tmi_vg",
+  "deq_n100a15",
+  "iso_grav_anom_vg",
+  "det_elev",
+  "iso_grav_anom",
+  "tmi",
+  "depth_to_base_surf",
+  "ieq_n100a15",
+  "cond_surf",
+  "iso_grav_anom_hg",
+  "det_elev_slope",
+  "det_elev_std5",
+  "det_elev_coherence5",
+  "det_elev_maxcurv",
+  "tmi_hg_max3",
+  "iso_grav_hg_max3",
+  "geod_2ndinv_max3",
+  "depth_base_gradmag",
+  "lidar_scarp_evidence",
+  "lidar_strike_nw_align",
+  "lidar_strike_nne_align",
+  "lidar_valid",
+  "input_sentinel_count"
+ ],
+ "footprint_px": 5167373,
+ "notes": [],
+ "sentinel_cells_inside_footprint": 58171,
+ "lidar_valid_px": 3894460,
+ "runtime_s": 218.1,
+ "bytes": 1522615840,
+ "nonfinite_feature_cells": 0,
+ "per_feature_minmax": {
+  "mag_anom": [
+   -1052.0047607421875,
+   2109.447509765625
+  ],
+  "rtp": [
+   -2786.299560546875,
+   4508.76025390625
+  ],
+  "tmi_hg": [
+   0.004909869749099016,
+   2200.4365234375
+  ],
+  "geod_2ndinv": [
+   1.2000000476837158,
+   87.45342254638672
+  ],
+  "iso_grav_anom_slope": [
+   0.0013825353235006332,
+   0.6517290472984314
+  ],
+  "tc": [
+   2.9534237384796143,
+   88.56654357910156
+  ],
+  "geod_shearrate": [
+   0.0,
+   54.400001525878906
+  ],
+  "geod_dilaterate": [
+   -16.5,
+   34.52448272705078
+  ],
+  "tmi_vg": [
+   -7.650597095489502,
+   20.510923385620117
+  ],
+  "deq_n100a15": [
+   0.0,
+   4962515.0
+  ],
+  "iso_grav_anom_vg": [
+   -18.164581298828125,
+   12.578903198242188
+  ],
+  "det_elev": [
+   -589.9837036132812,
+   1469.9127197265625
+  ],
+  "iso_grav_anom": [
+   -45.75756072998047,
+   24.232954025268555
+  ],
+  "tmi": [
+   -2178.27783203125,
+   4506.14111328125
+  ],
+  "depth_to_base_surf": [
+   -14.837310791015625,
+   7135.306640625
+  ],
+  "ieq_n100a15": [
+   236.8000030517578,
+   7869.5
+  ],
+  "cond_surf": [
+   0.1937037855386734,
+   4.969292640686035
+  ],
+  "iso_grav_anom_hg": [
+   -15.441243171691895,
+   12.856057167053223
+  ],
+  "det_elev_slope": [
+   0.001103136339224875,
+   62.64591598510742
+  ],
+  "det_elev_std5": [
+   0.0,
+   615.1129150390625
+  ],
+  "det_elev_coherence5": [
+   0.0,
+   1.0
+  ],
+  "det_elev_maxcurv": [
+   -2510.85498046875,
+   2392.220703125
+  ],
+  "tmi_hg_max3": [
+   0.08457669615745544,
+   2200.4365234375
+  ],
+  "iso_grav_hg_max3": [
+   -13.362299919128418,
+   12.856057167053223
+  ],
+  "geod_2ndinv_max3": [
+   1.2000000476837158,
+   87.45342254638672
+  ],
+  "depth_base_gradmag": [
+   0.0,
+   4547.96826171875
+  ],
+  "lidar_scarp_evidence": [
+   0.0,
+   0.9763779640197754
+  ],
+  "lidar_strike_nw_align": [
+   0.0,
+   0.9999235272407532
+  ],
+  "lidar_strike_nne_align": [
+   0.0,
+   0.9999914765357971
+  ],
+  "lidar_valid": [
+   0.0,
+   1.0
+  ],
+  "input_sentinel_count": [
+   0.0,
+   19.0
+  ]
+ }
+}

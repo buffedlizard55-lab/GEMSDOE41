@@ -1,12 +1,109 @@
-# GEMSDOE41 — Walker Lane structural transfer
+# GEMSDOE41 — finding faults that are not in the catalogue
 
-**[Download the new GeoTIFF](docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
+**[⬇ Download the current research candidate GeoTIFF](docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif)** · **[Project website](https://buffedlizard55-lab.github.io/GEMSDOE41/)** · [Submission instructions](docs/executive-summary.html)
 
-**Research candidate, NOT cleared for a weekly submission.** This is a genuinely new structural-position prediction, not a renamed previous submission. All numerical cells are finite float32 in [0,1]; an internal mask marks the template's outside region as null. The strict blocked holdout failed to establish useful generalization. No competition slot was spent, and no leaderboard improvement is claimed.
+| | |
+|---|---|
+| **File** | `docs/downloads/gems41-h42-completion-v1-20261006T023145Z-8f1f3ba6d176.tif` |
+| **Unique submission name** | `GEMS41-H42-Completion-8f1f3ba6d176` |
+| **Note for the submission form** | `GEMSDOE41 H42-B catalogue-completion GBM on all 19 official bands + USGS 3DEP 1 m scarps; 20000 coverage-greedy dots, all >200 m off catalogue; all-finite [0,1]` |
+| **SHA-256** | `e9f27784afdb5d5a467618bdfcdffbcca48b659d0e0ebb63df9dbbce6ab6bbaa` |
+| **Pixel SHA-256** | `8f1f3ba6d176a3579a921f580f56e89c1d2c7ef0fec5d0d65a96ab63e715014e` |
+| **Size** | 123,881 bytes (zip 78,584) |
+| **Content** | 20,000 positive pixels, value 1.0; all 12,279,160 stored cells finite float32 in [0, 1]; internal mask nulls the outside-footprint region |
+| **Grid** | 3292 × 3730, EPSG:32611, 100 m, transform 243350 / 4508550 — verified against `sample_submission.tif` |
+| **Slot eligible** | **NO** — `AGENTS.md` #4 keeps the gate closed. This is a research candidate, never scored by the organizer. |
 
-**Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
+## What is new this session (2026-10-06, H42)
 
-## Second line of work — kinematic ranking of the support (branch `arena/1ac0a279-gemsdoe41`)
+**1. The validation protocol was broken, and that — not geology — is why H41-A and H41-E read as
+zero.** The prize round scores faults *absent* from the published catalogue and masks catalogue
+pixels out of every term. A holdout whose truth *is* the published catalogue, with the retained
+catalogue masked, returns ≈0 for any candidate designed to avoid the catalogue. H41-A's
+`7.098e-09` and H41-E's `0.000000` are instrument failures. The replacement (**H-SIM**) withholds
+whole mapped strands, treats them as the hidden set, and scores beyond a guard. See
+`registry/irregularities.json` IRR-11 and `research/hypotheses-h42.md` §0.
+
+**2. A belief field that actually finds withheld faults (H42-B).** A gradient-boosted classifier
+over **all 19 official competition bands** (18 of which this repository had never used — the band
+names are read from the file's own per-band tags and transcribed in
+`scripts/build_h42_features.py`), plus local morphology of detrended elevation and of the
+magnetic/gravity/geodetic gradient bands, plus USGS 3DEP 1 m scarp products. It contains **no
+catalogue-geometry feature**, so it cannot echo catalogue density by construction. Mean DTI over
+four strand-blocked folds at matched mass:
+
+| emitted mass | H42 coverage greedy | family's score-ordered packing | position-blind null |
+|---|---|---|---|
+| 2,000 | 0.31284 | 0.30313 | 0.00450 |
+| 20,000 | **0.56063** | 0.46191 | 0.03234 |
+| 37,654 | 0.54528 | 0.39344 | 0.04680 |
+| 65,000 | 0.48826 | 0.31634 | 0.06260 |
+
+**17.3× the position-blind null** at the shipped mass, 4/4 folds, and credit-per-mass 1.616 at
+2,000 px against this repository's previous best of 0.0833 (19.4×). Independent corroboration of
+the probability calibration: the field's own total mass lands at 0.75–0.88 × the withheld truth
+count in all four folds, which nothing in training targets.
+
+**3. The emission operator the index actually asks for (H42-A).** `TP_w` is a *maximum* over
+predictions per truth pixel, so a second dot inside an already-covered 300 m kernel earns nothing
+and still pays 0.2 of its mass. Emission is therefore maximum-coverage selection over the kernel
+(monotone submodular → CELF lazy greedy, `src/gems41/coverage.py`), not a threshold and not a
+fixed minimum separation. It beats fixed-separation packing at every mass tested and the gap
+widens with mass.
+
+**4. The family's own live score record, read as a measurement** (`research/score-record-calculus.md`,
+`evidence/score_record_calculus.json`). 29 published sibling rasters with reported scores are
+probes of the hidden label set. Five form an exactly nested lineage (containment 1.0000, verified
+from the bytes), and for a nested lineage the official index collapses to
+
+```
+1/score = 2.98842 + 1.78715e-05 × mass        (R² = 0.9922 over the eight-point chain)
+```
+
+The intercept gives the incumbent belief field's kernel-weighted coverage **a = 0.287** and its
+**ceiling 0.3346** — above the 0.3262 that headed the dated 2026-10-05 public snapshot. The slope
+gives a hidden label count **ρ ≈ 36,467 px**, 2.8× the `K_HIDDEN_PX = 13,000` this repository
+carried (IRR-10). Coverage did not move at all while 69 % of the mass was removed
+(121,131 → 37,654 px): **most of the shipped mass was paying for nothing.**
+
+The null model is verified against a live score. The family's arrangement-matched scatter control
+(same mass, same separation, same catalogue-distance distribution, randomised positions) was
+reported at **0.0778**; a position-blind label density puts its ceiling at **0.0776** — a relative
+error of **+0.21 %**. That is the strongest end-to-end verification of the metric transcription
+available in this sandbox.
+
+**5. A negative result, published.** A 21-template mixture inversion for the full hidden label
+field does **not** identify it from 29 scalar scores: leave-one-probe-out RMSE 0.111, systematic
+residuals, geologically meaningless weights. `evidence/label_field_inversion.json` and
+`research/score-record-calculus.md` §5 keep the failure rather than a fitted field nobody can
+verify.
+
+**Honest limit on all of the above.** The holdout truth is withheld *mapped* strands; the prize
+round's truth is faults that were *never* mapped. The two populations are related, not identical,
+so 0.5606 is an upper-leaning estimate and **no live score is claimed or projected for the shipped
+artifact**. Every score quoted from the family record is owner-reported, not an organizer receipt.
+
+### Reproduce H42
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+PYTHON=.venv/bin/python bash scripts/download_competition_data.sh   # official rasters + owner mirrors
+.venv/bin/python scripts/prepare_data.py                            # grid/footprint/label checks
+.venv/bin/python scripts/build_h42_features.py                      # 31-feature float32 memmap (~220 s)
+.venv/bin/python scripts/fetch_probe_corpus.py                      # 29 scored sibling rasters (calibration only)
+.venv/bin/python scripts/invert_label_field.py                      # design matrix + the failed mixture inversion
+.venv/bin/python scripts/score_record_calculus.py                   # nested-lineage fit, ceiling, null check
+.venv/bin/python scripts/experiment_h42.py --folds 4                # H-SIM holdout, 4 folds (~510 s)
+.venv/bin/python scripts/build_h42_submission.py --mass auto        # trains, emits, writes, re-verifies
+.venv/bin/python -m pytest -q
+```
+
+`data/probes/` and `data/derived/` are gitignored (large, restorable). `scripts/fetch_probe_corpus.py`
+reads sibling rasters **for calibration arithmetic only**; `scripts/build_h42_submission.py` never
+opens one, and the shipped artifact is built solely from the organizer's feature and label rasters,
+the checksum-pinned USGS 3DEP product, and this repository's derived features.
+
+## Previous line of work — kinematic ranking of the support (branch `arena/1ac0a279-gemsdoe41`)
 
 A separate, independently validated result lives beside the structural-transfer model above. It
 leaves the transfer-corridor hypothesis alone — **that hypothesis failed and is published as a
@@ -51,7 +148,7 @@ compliance question — are listed with what would unblock each one in
 [`docs/h41/index.html#remaining`](docs/h41/index.html).
 
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses-h42.md`, `research/score-record-calculus.md`, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
