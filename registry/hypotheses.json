@@ -100,9 +100,60 @@
   "The blocked holdout's truth is the published catalogue and cannot reward a genuinely new fault - state that limitation wherever a holdout number appears."
  ],
  "remaining_work": [
-  "Organizer-authenticated score for the H42 file (one weekly slot; portal validation is the only real receipt).",
-  "An authenticated H33 receipt linking 0.2778 to a specific TIFF - still unobtainable in-sandbox.",
-  "1 m 3DEP tile acquisition for H43-B requires the GitHub Actions path (sandbox egress blocks tnmaccess.nationalmap.gov).",
-  "K_HIDDEN_PX and lambda remain MODEL constants (14,088 and 1.76); no in-sandbox measurement exists."
+
+ {
+  "item": "Authenticated live score",
+  "state": "NOT DONE - cannot be done from here",
+  "why": "The sandbox has no competition account and its network egress cannot reach drivendata.org; every leaderboard figure in this repository is a dated snapshot. A human must upload the primary artifact and report the score back.",
+  "unblocks": "Replacing the [MODEL] projection with a measurement, and calibrating K_HIDDEN_PX."
+ },
+ {
+  "item": "Calibrate K_HIDDEN_PX",
+  "state": "MODEL, not measured",
+  "why": "The projection constant (13,000 px hidden true mass) is inferred from one owner-reported score and spans 12,691-15,200 depending on which artifact of the trio is used.",
+  "unblocks": "One authenticated score on any known-mass artifact."
+ },
+ {
+  "item": "Test the ranking on network-mapped fault inventories",
+  "state": "PROPOSED, not run",
+  "why": "The strand holdout uses the published catalogue only. An independent inventory (state geological surveys, USGS Quaternary fault compilations beyond the competition's catalogue) would test the ranking against faults this competition never showed anyone.",
+  "unblocks": "A criterion test that shares no data with the scorer."
+ },
+ {
+  "item": "H41-B and H41-C from the register",
+  "state": "PROPOSED, not run",
+  "why": "Both need official source archives that this sandbox cannot download (gravity, aeromag, 2 m temperature probes); the URLs are recorded so a human or a CI job can fetch them.",
+  "unblocks": "Two of the five ranked candidates, once the archives are in data/."
+ },
+ {
+  "item": "Widen the floor of the mass ladder",
+  "state": "MEASURED INCOMPLETELY",
+  "why": "The ladder explored 2,500-30,000 px and the in-house instrument begins to lose discrimination below ~2,500 px (very few emitted pixels means very few chances to hit a held-out strand), so the measured optimum cannot be resolved from the artifact that ships there.",
+  "unblocks": "A holdout with more held-out mass per fold, or a live score on the 5,000 px variant."
+ },
+ {
+  "item": "Competition eligibility and data-rights review (IRR-01)",
+  "state": "OPEN - participant review required; repository-parent issue corrected",
+  "why": "GitHub metadata reports this repository as standalone (fork=false, parent=null) as of 2026-10-06. That corrects the earlier repository-parent claim but does not adjudicate competition eligibility, licenses, or public-solution rules.",
+  "unblocks": "Participant review of eligibility and data rights; merging to this standalone repository does not upload or submit an artifact to DrivenData."
+ },
+ {
+  "item": "Authenticated score for the shipped H42 file",
+  "state": "NOT DONE - one weekly slot, participant action",
+  "why": "The slot gate is now open: the shipped arm is the top of 21 on the 20 km blocked holdout at equal mass (0.2507 vs 0.1212 uniform). Only the portal can produce a receipt.",
+  "unblocks": "Replacing [MODEL] projections for this configuration with a measurement."
+ },
+ {
+  "item": "1 m 3DEP tile acquisition for H43-B",
+  "state": "BLOCKED in-sandbox",
+  "why": "Sandbox egress cannot reach tnmaccess.nationalmap.gov; the GitHub Actions path is the only route.",
+  "unblocks": "The most physically distinct untried surface (fine-scale scarp curvature)."
+ },
+ {
+  "item": "H33 receipt linking 0.2778 to a named TIFF",
+  "state": "NOT DONE - unobtainable in-sandbox",
+  "why": "No organizer receipt exists in any accessible source; every 0.2778 statement in this repo is owner-reported.",
+  "unblocks": "An authenticated mechanism claim instead of a plausible one."
+ }
  ]
 }

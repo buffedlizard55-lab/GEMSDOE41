@@ -63,3 +63,10 @@ jobs:
           SHA=$(python3 -c "import json; print(json.load(open('docs/downloads/manifest.json'))['format']['sha256'])")
           curl --fail --location --retry 3 "https://buffedlizard55-lab.github.io/GEMSDOE41/docs/downloads/$NAME" -o /tmp/published.tif
           echo "$SHA  /tmp/published.tif" | sha256sum --check
+
+      - name: Verify latest H41-I public download bytes
+        run: |
+          NAME=$(python3 -c "import json; print(json.load(open('docs/evidence/h41i/manifest.json'))['filename'])")
+          SHA=$(python3 -c "import json; print(json.load(open('docs/evidence/h41i/manifest.json'))['format']['sha256'])")
+          curl --fail --location --retry 3 "https://buffedlizard55-lab.github.io/GEMSDOE41/docs/downloads/$NAME" -o /tmp/published-h41i.tif
+          echo "$SHA  /tmp/published-h41i.tif" | sha256sum --check

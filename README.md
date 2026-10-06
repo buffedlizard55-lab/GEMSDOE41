@@ -28,6 +28,22 @@ truth is the published catalogue, so it cannot reward a genuinely new fault. `K_
 
 **Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
 
+## Parallel session — 2026-10-06: H41-I local-strike file (gate closed)
+**[Download the newly generated H41-I GeoTIFF](docs/downloads/gems41-h41i-local-strike-20261006-f265e3bf9494.tif)** · **[Executive summary and exact submission instructions](https://buffedlizard55-lab.github.io/GEMSDOE41/docs/h41i-executive-summary.html)**
+
+This file is freshly computed from raw fault geometry and the existing detrended-elevation tangent detector, **not a copied prior prediction**. It transports the actual local strike of the nearest strand in the closer population instead of universal family axes. All numerical cells are finite [0,1], exact template grid, single float32 band; null outside is represented by an internal mask. All nine available prior TIFF comparisons differ in their actual prediction arrays. **Its nonzero support is identical to H41-A; all 150,421 positive confidence values differ. Novelty is in local-strike weighting, not new geographic coverage.** Global novelty against inaccessible files is not provable.
+
+**Do not use a weekly slot:** strict 20 km audit DTI = 0. The new conditional, geographically grouped short-strand holdout gives H41-I mean **0.008975**, versus matched-mass H41-A **0.009156** (pooled **0.009038 vs 0.009912**). This is a failed refinement, not a leaderboard improvement. The new protocol preserves donor/receiver context and withholds whole target sources, but uses label-conditioned target selection; it is not an independent hidden-fault test. No clean historical-best OOF comparator is available.
+
+- Tracking name: `GEMS41-H41I-LocalStrike-f265e3bf9494`
+- Note: `H41-I local-strike transfer; raw mapped NW endpoints to N/NNE receivers; det_elev tangent; >200m off catalogue. Research only; holdout gate closed; unscored.`
+- SHA-256: `a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb`
+- **Reproduction:** local rebuild and branch CI were byte-identical; the post-merge runner differed by at most 5 float32 epsilons with exact support/grid/mask. [Measured cross-run receipt](docs/evidence/h41i/reproduction-postmerge.json). No claim of universal byte identity.
+- [Four hypotheses registered before implementation](research/hypotheses-20261006.md) · [all evidence / input and code hashes](docs/evidence/h41i/manifest.json) · [three-pass review and next steps](research/review-20261006.md).
+- **Corrections:** current GitHub metadata reports `fork=false, parent=null`; the inherited organizer-fork assertion is withdrawn. Not every prediction pixel costs exactly 0.2 in a distance-weighted metric. H33's reported 0.2778 remains unverified; pruning is a plausible mechanism, not proven free deletion or a guaranteed path to 0.3195+.
+
+Rebuild after installing dependencies and restoring data: `.venv/bin/python scripts/experiment_h41i.py`, then `.venv/bin/python scripts/build_site.py`. CPU only; no competition upload is automated. The full original user prompt remains below and must be reread each session, together with this status and the new preregistration. Earlier session sections below are historical.
+
 ## Archived — earlier structural-transfer work (NOT the file to submit)
 
 
@@ -38,6 +54,8 @@ truth is the published catalogue, so it cannot reward a genuinely new fault. `K_
 **Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
 
 ## Second line of work — kinematic ranking of the support (branch `arena/1ac0a279-gemsdoe41`)
+
+**Identifier scope:** the parallel hypothesis registry reuses H41-E/F/G/H labels for different ideas than the source-vector transfer follow-on plan below; it also uses H41-I for a thermal conjunction, distinct from the local-strike/H41-I GeoTIFF above. See [`research/hypothesis-id-registry.md`](research/hypothesis-id-registry.md); always qualify a reused ID by workstream and source path.
 
 A separate, independently validated result lives beside the structural-transfer model above. It
 leaves the transfer-corridor hypothesis alone — **that hypothesis failed and is published as a
@@ -59,19 +77,17 @@ The criterion wins at **6 of 6** guard/separation settings (mean 0.0773 vs 0.063
 (94.1 % of its pixels coincide with an uninformative control there). That is why the primary
 artifact ships at 20,000 px: the mass band where the criterion is measurably active.
 
-Three independent tests say the transfer-corridor story does **not** explain the hidden set:
+Three recorded diagnostics did not support that transfer-corridor implementation; none is hidden-set validation:
 corridor-only emission scores 0.0000 on the holdout; the 2020 USGS catalogue places 16 M>=4
 events 7.07-83.19 px from every mapped fault (0 within 300 m, 11 beyond 3 km); and against 27,092
 INGENIOUS well records the corridors are *depleted* for hot sites (0.34x, p=1.0) while the
-published catalogue is enriched 2.15x at p=0.016 — so the test has power and the corridor fails
-it.
+published catalogue is enriched 2.15x at p=0.016 — this is a negative association diagnostic, not a formal power analysis or proof that transfer zones lack geothermal systems.
 
 Artifacts and the full write-up: **[`docs/h41/`](docs/h41/index.html)** (overview, executive
 summary, submit, validation, hypotheses, sources, irregularities) with one-click GeoTIFFs in
 [`docs/downloads/`](docs/downloads/index.html). All six artifacts pass range, CRS, shape and
 geotransform checks on the files themselves. Sources and open compliance questions are in
-`registry/sources.json` and `registry/irregularities.json` (see **IRR-01**: this repository is a
-public fork of an organizers' repository and needs a human decision before merge).
+`registry/sources.json` and `registry/irregularities.json` (see **IRR-01**: the earlier fork assertion was corrected on 2026-10-06; GitHub currently reports a standalone repository).
 
 **Honest limit:** credit-per-mass is measured against the *published* catalogue's strands, not the
 hidden set, and projected scores are tagged `[MODEL]` because they depend on a constant inferred
@@ -82,7 +98,7 @@ compliance question — are listed with what would unblock each one in
 [`docs/h41/index.html#remaining`](docs/h41/index.html).
 
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/hypothesis-id-registry.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
@@ -105,7 +121,7 @@ GitHub CLI (`gh`) is used to restore checksum-pinned public owner mirrors becaus
 - `docs/downloads/`: submission TIFF, per-trace classification, corridor geometry, machine-readable audits and manifest.
 - `docs/related-sites.json`: source audit of all 39 supplied related websites. Owner claims are not official score receipts.
 - `docs/source-feed.json`: timestamped health snapshot for permitted non-competition official sources. DrivenData leaderboard polling is disabled because its Terms of Use prohibit automated monitoring; its dated historical snapshot is not represented as current.
-- `research/experiments/h41e-kinematic-holdout.json`: preregistered H41-E kinematic-screen test on the unchanged spatial blocks; negative result, no new TIFF or slot.
+- `research/experiments/h41e-kinematic-holdout.json`: source-vector transfer/H41-E kinematic-screen test on the unchanged spatial blocks; negative result, no new TIFF or slot. Its local ID is distinct from the parallel-registry/H41-E temperature-probe proposal. The newly generated local-strike/H41-I TIFF is also distinct from parallel-registry/H41-I thermal conjunction; see the ID registry.
 - `research/h33-score-analysis.md`: dated source audit of the reported H33 score, historical public leaderboard rows, and the unresolved participant-to-file attribution.
 
 **Limitations:** no authenticated DrivenData account, hidden labels, organizer filename-to-score receipt, or clean historical-best out-of-fold predictions. The repository initially contained only its title, so there was no prior local pipeline or holdout to resume. Geometric strike is not measured slip sense; the brief conflates Astor Pass and Emerson Pass. The last archived leaderboard observation (0.3262 on 2026-10-05) is historical, not current. Full evidence, corrections, and next-session priorities are in the website.

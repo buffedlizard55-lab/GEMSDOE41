@@ -1,0 +1,383 @@
+{
+  "protocol": "strict",
+  "folds": [
+    {
+      "fold": 0,
+      "removed_sources": 226,
+      "visible_parts": 1353,
+      "evaluation_pixels": 1261665,
+      "corridors": 57,
+      "tangent_audit": {
+        "queried_pixels": 33521,
+        "undefined_tangents": 0,
+        "family_pixels": {
+          "0": 18221,
+          "1": 15300
+        }
+      },
+      "models": {
+        "H41-I": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.004024112407932989,
+          "fn": 14453.0,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.004024112407932989,
+          "positive_pixels": 4
+        },
+        "H41-A": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.004673554509132961,
+          "fn": 14453.0,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.004673554509132961,
+          "positive_pixels": 4
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.03335623047314584,
+          "fn": 14453.0,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.03335623047314584,
+          "positive_pixels": 6
+        },
+        "H41-A_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.004024112427055643,
+          "fn": 14453.0,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.004024112427055643,
+          "positive_pixels": 4,
+          "mass_matched": true
+        },
+        "geometry_only_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.004024112509796396,
+          "fn": 14453.0,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.004024112509796396,
+          "positive_pixels": 6,
+          "mass_matched": true
+        },
+        "catalogue_density": {
+          "dti": 1.232049502738057e-08,
+          "tp": 0.00014245450080583536,
+          "fp": 0.003551086303887433,
+          "fn": 14452.9998575455,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.004024112560549465,
+          "positive_pixels": 397551,
+          "mass_matched": true
+        },
+        "topography_only": {
+          "dti": 4.422950231655648e-09,
+          "tp": 5.113992321346961e-05,
+          "fp": 0.003854595101519732,
+          "fn": 14452.999948860077,
+          "truth_pixels": 14453,
+          "prediction_mass": 0.004024112565148119,
+          "positive_pixels": 1084162,
+          "mass_matched": true
+        }
+      }
+    },
+    {
+      "fold": 1,
+      "removed_sources": 185,
+      "visible_parts": 1712,
+      "evaluation_pixels": 1184320,
+      "corridors": 77,
+      "tangent_audit": {
+        "queried_pixels": 40857,
+        "undefined_tangents": 0,
+        "family_pixels": {
+          "0": 23037,
+          "1": 17820
+        }
+      },
+      "models": {
+        "H41-I": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "H41-A": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "H41-A_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "geometry_only_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "catalogue_density": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "topography_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 12944.0,
+          "truth_pixels": 12944,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        }
+      }
+    },
+    {
+      "fold": 2,
+      "removed_sources": 219,
+      "visible_parts": 1983,
+      "evaluation_pixels": 1248516,
+      "corridors": 90,
+      "tangent_audit": {
+        "queried_pixels": 52031,
+        "undefined_tangents": 0,
+        "family_pixels": {
+          "0": 29686,
+          "1": 22345
+        }
+      },
+      "models": {
+        "H41-I": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "H41-A": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "H41-A_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "geometry_only_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "catalogue_density": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "topography_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14799.0,
+          "truth_pixels": 14799,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        }
+      }
+    },
+    {
+      "fold": 3,
+      "removed_sources": 180,
+      "visible_parts": 2030,
+      "evaluation_pixels": 1145742,
+      "corridors": 90,
+      "tangent_audit": {
+        "queried_pixels": 46140,
+        "undefined_tangents": 0,
+        "family_pixels": {
+          "0": 25071,
+          "1": 21069
+        }
+      },
+      "models": {
+        "H41-I": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "H41-A": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "geometry_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0
+        },
+        "H41-A_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "geometry_only_matched": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "catalogue_density": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        },
+        "topography_only": {
+          "dti": 0.0,
+          "tp": 0.0,
+          "fp": 0.0,
+          "fn": 14809.0,
+          "truth_pixels": 14809,
+          "prediction_mass": 0.0,
+          "positive_pixels": 0,
+          "mass_matched": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "H41-I": {
+      "mean_dti": 0.0,
+      "pooled_dti": 0.0,
+      "evaluable_folds": 4
+    },
+    "H41-A": {
+      "mean_dti": 0.0,
+      "pooled_dti": 0.0,
+      "evaluable_folds": 4
+    },
+    "geometry_only": {
+      "mean_dti": 0.0,
+      "pooled_dti": 0.0,
+      "evaluable_folds": 4
+    },
+    "H41-A_matched": {
+      "mean_dti": 0.0,
+      "pooled_dti": 0.0,
+      "evaluable_folds": 4
+    },
+    "geometry_only_matched": {
+      "mean_dti": 0.0,
+      "pooled_dti": 0.0,
+      "evaluable_folds": 4
+    },
+    "catalogue_density": {
+      "mean_dti": 3.0801237568451424e-09,
+      "pooled_dti": 3.123728148809575e-09,
+      "evaluable_folds": 4
+    },
+    "topography_only": {
+      "mean_dti": 1.105737557913912e-09,
+      "pooled_dti": 1.12139115729976e-09,
+      "evaluable_folds": 4
+    }
+  },
+  "targets": {},
+  "proxy_gate_passed": false,
+  "clean_historical_best_oof_available": false,
+  "slot_eligible": false,
+  "limitations": "Catalogue reconstruction only. Strict folds reused as negative audit. Conditional audit selects short known sources near both families and retains observed context inside test quadrants; not independent geographic extrapolation or hidden-fault validation."
+}

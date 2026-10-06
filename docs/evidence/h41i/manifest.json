@@ -1,0 +1,151 @@
+{
+  "hypothesis_id": "H41-I",
+  "filename": "gems41-h41i-local-strike-20261006-f265e3bf9494.tif",
+  "submission_name": "GEMS41-H41I-LocalStrike-f265e3bf9494",
+  "note": "H41-I local-strike transfer; raw mapped NW endpoints to N/NNE receivers; det_elev tangent; >200m off catalogue. Research only; holdout gate closed; unscored.",
+  "slot_eligible": false,
+  "format": {
+    "file": "docs/downloads/gems41-h41i-local-strike-20261006-f265e3bf9494.tif",
+    "sha256": "a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb",
+    "array_sha256": "f265e3bf94944891ed9205fef9940cd8a76a49281f03ce5dd37072fe2b5ca93b",
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0,
+      0.0,
+      0.0,
+      1.0
+    ],
+    "bands": 1,
+    "dtype": "float32",
+    "min": 0.0,
+    "max": 0.90333491563797,
+    "positive_pixels": 150421,
+    "prediction_mass": 7904.920607206734,
+    "finite_cells": 12279160,
+    "footprint_cells": 5167373,
+    "nodata": null,
+    "internal_mask": true,
+    "all_checks_passed": true
+  },
+  "concentration": {
+    "junction_mass_fraction": 0.5754277269759257,
+    "top5percent_positive_at_junction_fraction": 0.9551980856155278,
+    "positive_pixels_within_200m_catalogue": 0,
+    "family_density_controls": {
+      "0": {
+        "junction_mass_fraction": 0.05657136360208748,
+        "enrichment": 10.171713926207932
+      },
+      "1": {
+        "junction_mass_fraction": 0.012028425910375734,
+        "enrichment": 47.83898834838905
+      }
+    },
+    "junction_area_fraction_off_catalogue": 0.006395048145882281,
+    "passed": true,
+    "meaning": "Construction diagnostic, not independent fault or geothermal truth."
+  },
+  "novelty": {
+    "comparisons": [
+      {
+        "file": "docs/downloads/gems41-walker-transfer-v1-20261005-1616b7de764c.tif",
+        "sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+        "different_valid_pixels": 150421,
+        "equal_arrays": false,
+        "support_jaccard": 1.0
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41-bimodal-thrift-20k-20261005T234500Z.tif",
+        "sha256": "15738b42ddf6cc30bfba3d3dacabfe36e594c64c82f5eafb6aff0226246d0a6a",
+        "different_valid_pixels": 169491,
+        "equal_arrays": false,
+        "support_jaccard": 0.00548701700975273
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41-bimodal-thrift-20k-uninformative-control-20261005T234500Z.tif",
+        "sha256": "8b77ec8369275e6e0a26992e1685a35b69f06c8f945805b0db126f89580f7149",
+        "different_valid_pixels": 169698,
+        "equal_arrays": false,
+        "support_jaccard": 0.0042605098469045005
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41-bimodal-thrift-37k-20261005T234500Z.tif",
+        "sha256": "a56c55ba2f92d319557cb0ab84862cc24a368a5d2f1d74099f39c0a1e3d71bd9",
+        "different_valid_pixels": 181011,
+        "equal_arrays": false,
+        "support_jaccard": 0.008623785294816336
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41-bimodal-thrift-5k-20261005T234500Z.tif",
+        "sha256": "488dd2af1d251730a404ea84f01ca81f132b31fcdf2a09938d53cbcbc4bcd089",
+        "different_valid_pixels": 155205,
+        "equal_arrays": false,
+        "support_jaccard": 0.0013917077413743114
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41-core-20261005T234500Z.tif",
+        "sha256": "4c63cf4e5bea95d981dbe00d14d8de4549f2c8df5b8da8ea8cb91b40a69fb31f",
+        "different_valid_pixels": 169707,
+        "equal_arrays": false,
+        "support_jaccard": 0.004207251321395111
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41-rupture2020-union-20261005T234500Z.tif",
+        "sha256": "62ccee8f81241afe6a110022b7eec4b857c1972ca6f25b45dca92bd367197ea4",
+        "different_valid_pixels": 170019,
+        "equal_arrays": false,
+        "support_jaccard": 0.0054699768849363894
+      },
+      {
+        "file": "docs/downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif",
+        "sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f",
+        "different_valid_pixels": 185534,
+        "equal_arrays": false,
+        "support_jaccard": 0.025224487155992972
+      },
+      {
+        "file": "data/comparison-h33.tif",
+        "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+        "different_valid_pixels": 186239,
+        "equal_arrays": false,
+        "support_jaccard": 0.009858300355994179
+      }
+    ],
+    "passed": true,
+    "scope": "Every other checked-in download TIFF plus pinned H33. Predictions were compared only after fresh construction. Not global proof against unavailable files."
+  },
+  "tangent": {
+    "queried_pixels": 150421,
+    "undefined_tangents": 0,
+    "family_pixels": {
+      "0": 82903,
+      "1": 67518
+    }
+  },
+  "corridors": 268,
+  "trace_parts": 5540,
+  "inputs": {
+    "data/official/qfaults.zip": "c7b091c9ac8bca140ad89ee6bb2bd63dd3ac12e3013acbfd8373d11c9faee59d",
+    "data/training_features.tif": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5",
+    "data/existing_faults.tif": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "data/sample_submission.tif": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+  },
+  "code": {
+    "scripts/experiment_h41i.py": "d0e4d2a0684910bc6b682b4b1c375759cee77fd9cadfbad1a634237eccbc885e",
+    "scripts/local_strike.py": "c4b2d2deeca51853402777985f3d9e3b3010d7254e88d59ebe79ae8964526ea1",
+    "scripts/model.py": "c9d6d4b916995c225bcb6781b137f2b86d9d78e7099b54d6398245fc86628d2d",
+    "scripts/metric.py": "1dc391444ec68089591db411638c76062e6d40a0f81125060d6bc8872b361fc2",
+    "scripts/run_pipeline.py": "d88ae7a5b0a612eeb94b73fa33db8ff18640e7bb9027b30f06dfb115cd55061b",
+    "scripts/validate_submission.py": "5a6592c14b15e19e38d8dc100e4459f1d60fd30aab67400288513c03319bbd0e",
+    "research/hypotheses-20261006.md": "98575868fc1d17c6683a123347d52ab9f2557634f210f363d66d8e15b9a8fe04"
+  }
+}

@@ -31,6 +31,40 @@ def test_all_local_site_links_exist():
             assert (path.parent / unquote(parts.path)).exists(), (path, link)
 
 
+def test_usgs_one_meter_dem_record_uses_the_current_catalogue_url():
+    record = next(
+        source for source in SOURCE_CHECKS
+        if source["id"] == "usgs_3dep_1m_collection_record"
+    )
+    assert record["url"] == (
+        "https://data.usgs.gov/datacatalog/data/"
+        "USGS:77ae0551-c61e-4979-aedd-d797abdcde0e"
+    )
+    assert record["method"] == "HEAD"
+    assert "no DEM tiles" in record["scope"]
+    assert not any("1-meter-digital-elevation-models-dem" in source["url"] for source in SOURCE_CHECKS)
+    sources_page = (ROOT / "docs/sources.html").read_text()
+    assert record["url"] in sources_page
+    assert "https://www.usgs.gov/3d-elevation-program/1-meter-digital-elevation-models-dem" not in sources_page
+
+
+def test_hypothesis_ids_are_workstream_qualified_in_both_research_sites():
+    transfer_page = (ROOT / "docs/research.html").read_text()
+    parallel_page = (ROOT / "docs/h41/hypotheses.html").read_text()
+    registry = (ROOT / "research/hypothesis-id-registry.md").read_text()
+
+    assert 'id="id-namespaces"' in transfer_page
+    assert "transfer/H41-E" in transfer_page
+    assert "parallel-registry/H41-E" in transfer_page
+    assert "local-strike/H41-I" in transfer_page
+    assert "Workstream-scoped IDs" in parallel_page
+    assert "../research.html#id-namespaces" in parallel_page
+    assert "Source-vector transfer ID" in registry
+    assert "parallel-registry/H41-H" in registry
+    assert "local-strike/H41-I" in registry
+    assert "local-strike/H41-I" in parallel_page
+
+
 def test_public_source_refresh_never_requests_drivendata():
     class Response:
         def __init__(self, url, json_data=None):

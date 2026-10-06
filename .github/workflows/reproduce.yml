@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'scripts/model.py'
+      - 'scripts/local_strike.py'
+      - 'scripts/experiment_h41i.py'
       - 'scripts/metric.py'
       - 'scripts/run_pipeline.py'
       - 'scripts/build_submission.py'
@@ -30,11 +32,13 @@ jobs:
           python-version: '3.11'
           cache: pip
       - run: pip install -r requirements.txt
-      - name: Preserve both expected rasters
+      - name: Preserve all expected rasters
         run: |
           mkdir -p .cache
           python - <<'PY'
           import json, shutil
+          latest=json.load(open('docs/evidence/h41i/manifest.json'))
+          shutil.copyfile('docs/downloads/'+latest['filename'],'.cache/expected-h41i.tif')
           main=json.load(open('docs/downloads/manifest.json'))
           raster=json.load(open('docs/evidence/h41a_raster_build_receipt.json'))
           target=(main.get('reproduction_target') or {}).get('filename') or main['filename']
@@ -53,8 +57,12 @@ jobs:
         run: |
           python scripts/build_h41a_raster_submission.py --data-dir data --template data/sample_submission.tif --faults data/existing_faults.tif --features data/training_features.tif --compare-raster data/comparison-h33.tif
           python scripts/validate_h41a_raster_submission.py --template data/sample_submission.tif --compare-raster data/comparison-h33.tif
-      - name: Verify both prediction fields
+      - name: Rebuild H41-I local-strike model and both spatial audits
+        run: python scripts/experiment_h41i.py
+      - name: Verify all prediction fields
         run: |
+          LATEST=$(python -c "import json; print(json.load(open('docs/evidence/h41i/manifest.json'))['filename'])")
+          python scripts/check_reproduction.py .cache/expected-h41i.tif "docs/downloads/$LATEST" --output docs/evidence/h41i/reproduction-ci.json
           NAME=$(python -c "import json; m=json.load(open('docs/downloads/manifest.json')); print((m.get('reproduction_target') or {}).get('filename') or m['filename'])")
           python scripts/check_reproduction.py .cache/expected-main.tif "docs/downloads/$NAME" --output docs/downloads/reproduction-receipt.json
           ALT=$(python -c "import json; print(json.load(open('docs/evidence/h41a_raster_build_receipt.json'))['output']['path'])")
@@ -66,3 +74,4 @@ jobs:
           path: |
             docs/downloads/
             docs/evidence/h41a_raster_*
+            docs/evidence/h41i/
