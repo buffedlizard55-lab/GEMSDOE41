@@ -1,0 +1,114 @@
+{
+ "h42b-junction-lattice-37k": {
+  "gems41-walker-transfer-v1-20261005-1616b7de764c.tif": {
+   "other_positive_px": 150421,
+   "shared_px": 5750,
+   "jaccard": 0.032337,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-20k-20261005T234500Z.tif": {
+   "other_positive_px": 20000,
+   "shared_px": 219,
+   "jaccard": 0.004138,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-20k-uninformative-control-20261005T234500Z.tif": {
+   "other_positive_px": 20000,
+   "shared_px": 88,
+   "jaccard": 0.001659,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-37k-20261005T234500Z.tif": {
+   "other_positive_px": 32151,
+   "shared_px": 339,
+   "jaccard": 0.005219,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-5k-20261005T234500Z.tif": {
+   "other_positive_px": 5000,
+   "shared_px": 100,
+   "jaccard": 0.002629,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-core-20261005T234500Z.tif": {
+   "other_positive_px": 20000,
+   "shared_px": 930,
+   "jaccard": 0.017811,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-rupture2020-union-20261005T234500Z.tif": {
+   "other_positive_px": 20528,
+   "shared_px": 230,
+   "jaccard": 0.004304,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif": {
+   "other_positive_px": 39793,
+   "shared_px": 478,
+   "jaccard": 0.006597,
+   "equal_arrays": false
+  },
+  "comparison-h33.tif": {
+   "other_positive_px": 37654,
+   "shared_px": 390,
+   "jaccard": 0.005539,
+   "equal_arrays": false
+  }
+ },
+ "h42d-statemap-lattice-37k": {
+  "gems41-walker-transfer-v1-20261005-1616b7de764c.tif": {
+   "other_positive_px": 150421,
+   "shared_px": 854,
+   "jaccard": 0.004976,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-20k-20261005T234500Z.tif": {
+   "other_positive_px": 20000,
+   "shared_px": 155,
+   "jaccard": 0.003699,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-20k-uninformative-control-20261005T234500Z.tif": {
+   "other_positive_px": 20000,
+   "shared_px": 159,
+   "jaccard": 0.003795,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-37k-20261005T234500Z.tif": {
+   "other_positive_px": 32151,
+   "shared_px": 266,
+   "jaccard": 0.004931,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-bimodal-thrift-5k-20261005T234500Z.tif": {
+   "other_positive_px": 5000,
+   "shared_px": 56,
+   "jaccard": 0.002074,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-core-20261005T234500Z.tif": {
+   "other_positive_px": 20000,
+   "shared_px": 491,
+   "jaccard": 0.011811,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41-rupture2020-union-20261005T234500Z.tif": {
+   "other_positive_px": 20528,
+   "shared_px": 160,
+   "jaccard": 0.003771,
+   "equal_arrays": false
+  },
+  "gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif": {
+   "other_positive_px": 39793,
+   "shared_px": 190,
+   "jaccard": 0.003081,
+   "equal_arrays": false
+  },
+  "comparison-h33.tif": {
+   "other_positive_px": 37654,
+   "shared_px": 306,
+   "jaccard": 0.005151,
+   "equal_arrays": false
+  }
+ }
+}

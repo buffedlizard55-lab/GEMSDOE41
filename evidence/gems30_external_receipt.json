@@ -1,0 +1,788 @@
+{
+  "generated_utc": "2026-10-03T18:03:32+00:00",
+  "runner": "GitHub Actions (general internet access); the agent sandbox cannot reach these hosts",
+  "drivendata_contacted": false,
+  "grid_source_note": "Derived rasters use the hash-pinned owner-mirror competition grid. Those bytes are owner-mirrored, not organizer-authenticated; alignment is verified, labels are never learnt from.",
+  "downloads": {
+    "grid_labels": {
+      "url": "https://raw.githubusercontent.com/buffedlizard55-lab/GEMSDOE24/07345ea0604953d7efb858d9cfbc21e20c7aca0b/data/bridge/labels.tif",
+      "bytes": 425830,
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+      "ok": true
+    },
+    "grid_template": {
+      "url": "https://raw.githubusercontent.com/buffedlizard55-lab/GEMSDOE24/07345ea0604953d7efb858d9cfbc21e20c7aca0b/data/bridge/sample_submission.tif",
+      "bytes": 1599597,
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+      "ok": true
+    },
+    "sgmc_nv": {
+      "url": "https://mrdata.usgs.gov/geology/state/shp/NV.zip",
+      "bytes": 69056094,
+      "sha256": "3b333ac025e59aae7f0d827db45ba32c425cf867eb341561a788af1de186b76b",
+      "ok": true,
+      "licence": "US Government work / public domain (USGS Mineral Resources Program)",
+      "what": "USGS State Geologic Map Compilation, Nevada state geological map package",
+      "landing": "https://mrdata.usgs.gov/geology/state/"
+    },
+    "sgmc_ca": {
+      "url": "https://mrdata.usgs.gov/geology/state/shp/CA.zip",
+      "bytes": 24977406,
+      "sha256": "78765ba4428df9f25a84f86e0b2529bd0508fc8a2cf65d2f41a830e82bccfd58",
+      "ok": true,
+      "licence": "US Government work / public domain (USGS Mineral Resources Program)",
+      "what": "USGS State Geologic Map Compilation, California state geological map package",
+      "landing": "https://mrdata.usgs.gov/geology/state/"
+    },
+    "gdr_qfaults_v2": {
+      "url": "https://gdr.openei.org/files/1391/qfaults_ingenious_nad83conus117_2023-06-27.zip",
+      "bytes": 6131182,
+      "sha256": "c7b091c9ac8bca140ad89ee6bb2bd63dd3ac12e3013acbfd8373d11c9faee59d",
+      "ok": true,
+      "licence": "CC BY 4.0 (DOI 10.15121/1881483)",
+      "what": "INGENIOUS Quaternary fault compilation v2 (provenance check for the training catalogue)",
+      "landing": "https://gdr.openei.org/submissions/1391"
+    },
+    "gdr_paleo": {
+      "url": "https://gdr.openei.org/files/1391/paleo_geothermal_regional.zip",
+      "bytes": 84008,
+      "sha256": "faffcf697f32dbbf6cbb317cd1effb3e305538ce38eb239d72d0c6fa071e91ca",
+      "ok": true,
+      "licence": "CC BY 4.0 (DOI 10.15121/1881483)",
+      "what": "paleogeothermal features (sinter/tufa and related spring deposits)",
+      "landing": "https://gdr.openei.org/submissions/1391"
+    },
+    "gdr_volcanics": {
+      "url": "https://gdr.openei.org/files/1391/great_basin_q_volcanics.zip",
+      "bytes": 9898770,
+      "sha256": "c4a2d2dfd5c44f42e0aba37290948881631aff312b8b9ca7934b6dc1e451e5be",
+      "ok": true,
+      "licence": "CC BY 4.0 (DOI 10.15121/1881483)",
+      "what": "Quaternary volcanic vents and flows",
+      "landing": "https://gdr.openei.org/submissions/1391"
+    },
+    "gdr_2m_probes": {
+      "url": "https://gdr.openei.org/files/1391/2m_temperature_probe_INGENIOUS_regional_data.zip",
+      "bytes": 1080530,
+      "sha256": "1301f70d230058e616ea5d34d1c7a32fabf7d49198172f376c59c89bd652eca3",
+      "ok": true,
+      "licence": "CC BY 4.0 (DOI 10.15121/1881483)",
+      "what": "2 m shallow temperature probe surveys",
+      "landing": "https://gdr.openei.org/submissions/1391"
+    }
+  },
+  "derived": {
+    "sgmc_faults": {
+      "path": "data/external/derived_sgmc_faults_100m_u8.tif",
+      "bytes": 213034,
+      "sha256": "26d142c4c93282cd94f6950ab96f22aeff59fbbea523d43d662e76fa1b161b5c",
+      "ok": true,
+      "feature_count_in_grid": 21160,
+      "layers": [
+        {
+          "layer": "NV_structure.shp",
+          "rows": 54602
+        },
+        {
+          "layer": "CA_structure.shp",
+          "rows": 31145
+        }
+      ],
+      "pixels_in_footprint": 82151,
+      "pixels_off_catalogue_gt_300m": 61664,
+      "fraction_within_300m_of_catalogue": 0.24938223515234142
+    },
+    "gdr_qfaults_v2": {
+      "ok": false,
+      "reason": "no features intersect the grid",
+      "layers": [
+        {
+          "layer": "qfaults_ingenious_nad83conus117_2023-06-27.shp",
+          "rows": 22956
+        }
+      ]
+    },
+    "gdr_paleo": {
+      "path": "data/external/derived_gdr_paleo_100m_u8.tif",
+      "bytes": 70221,
+      "sha256": "d6a3609bd7943fa5f1126a3cc688441aeceee261a76cd6a90a206830400066a4",
+      "ok": true,
+      "feature_count_in_grid": 402,
+      "layers": [
+        {
+          "file": "Paleo_geothermal_final.shp",
+          "rows": 709,
+          "used": true
+        }
+      ],
+      "pixels_in_footprint": 244
+    },
+    "gdr_volcanics": {
+      "path": "data/external/derived_gdr_volcanics_100m_u8.tif",
+      "bytes": 72349,
+      "sha256": "c219bd644e6f7a4071dc429e29b909a2296967b0657bf456bb6675413ee76cb2",
+      "ok": true,
+      "feature_count_in_grid": 941,
+      "layers": [
+        {
+          "file": "great_basin_flows.shp",
+          "rows": 5281,
+          "used": true
+        },
+        {
+          "file": "great_basin_vents.shp",
+          "rows": 1514,
+          "used": true
+        }
+      ],
+      "pixels_in_footprint": 6776
+    },
+    "gdr_2m_probes": {
+      "path": "data/external/derived_gdr_2m_probes_100m_u8.tif",
+      "bytes": 78021,
+      "sha256": "7ac3cfdf2412f7f8a8b82d928115888c510f106f0254fb0b3988448db2f3b6ec",
+      "ok": true,
+      "feature_count_in_grid": 3439,
+      "layers": [
+        {
+          "file": "2m_temperature_probe_n83geo.shp",
+          "rows": 3800,
+          "used": true
+        }
+      ],
+      "pixels_in_footprint": 2700
+    }
+  },
+  "errors": {
+    "gdr_paleo:Paleo_geothermal_final.csv": "UnicodeDecodeError('utf-8', b'FID,Long_deg_NAD83,Lat_deg_NAD83,Location,State,Deposit_type,Map_unit,Ref_source,Comments\\r\\n1,-115.8682057,38.36521629,Abel Springs,NV,Travertine,Qt,Ayling_2020, \\r\\n2,-"
+  },
+  "stage": "completed",
+  "updated_utc": "2026-10-03T18:03:44+00:00",
+  "python": "3.11.16",
+  "imports": {
+    "numpy": "2.4.6",
+    "rasterio": "1.4.4",
+    "shapely": "2.1.2"
+  },
+  "grid": {
+    "shape": [
+      3730,
+      3292
+    ],
+    "crs": "EPSG:32611",
+    "transform": [
+      243350.0,
+      100.0,
+      0.0,
+      4508550.0,
+      0.0,
+      -100.0
+    ],
+    "footprint_pixels": 5167373,
+    "catalogue_pixels": 60988
+  },
+  "inventory_attributes": {
+    "sgmc_faults:NV_structure.shp": {
+      "rows": 54602,
+      "fields": {
+        "STATE": {
+          "dtype": "str",
+          "n_unique": 1,
+          "top_values": {
+            "NV": 54602
+          }
+        },
+        "DESCRIPT": {
+          "dtype": "str",
+          "n_unique": 12,
+          "top_values": {
+            "Fault, sense of displacement unknown or undefined, certain": 37797,
+            "Fault, sense of displacement unknown or undefined, approximate": 9893,
+            "Thrust fault, certain, (teeth on right from origin)": 3610,
+            "Fault, sense of displacement unknown or undefined, concealed": 2180,
+            "Thrust fault, approximate, (teeth on right from origin)": 521,
+            "Fault, sense of displacement unknown or undefined, inferred or queried": 302,
+            "Scarp": 250,
+            "Thrust fault, concealed, (teeth on right from origin)": 34,
+            "Thrust fault, inferred or queried, (teeth on right from origin)": 10,
+            "Right lateral fault, certain": 3,
+            "Left lateral fault, certain": 1,
+            "Right lateral fault, inferred or queried": 1
+          }
+        },
+        "MISC": {
+          "dtype": "object",
+          "n_unique": 0,
+          "top_values": {}
+        },
+        "REF_ID": {
+          "dtype": "str",
+          "n_unique": 1,
+          "top_values": {
+            "NV001": 54602
+          }
+        },
+        "SRC_URL": {
+          "dtype": "str",
+          "n_unique": 1,
+          "top_values": {
+            "https://pubs.usgs.gov/ds/2007/249/": 54602
+          }
+        },
+        "GEOM": {
+          "dtype": "str",
+          "n_unique": 54595,
+          "top_values": {
+            "0105000020CE13000001000000010200000002000000189E5EB9EB0038C140BD52665C943E4128A0": 2,
+            "0105000020CE13000001000000010200000005000000686FF085F16E38C1905CFEA3641C3D410868": 2,
+            "0105000020CE13000001000000010200000002000000B8270FAB92413BC180D0B379FFE63F4130BB": 2,
+            "0105000020CE130000010000000102000000020000008095432B6DF43AC160984CF514333F4118FB": 2,
+            "0105000020CE1300000100000001020000000200000090B96B6974D93AC138234A73B75B4041E04F": 2,
+            "0105000020CE13000001000000010200000002000000D8A3706D42DD3AC1FCEDEBB0B01840413892": 2,
+            "0105000020CE13000001000000010200000002000000904AEAA411A53BC1D8A3709D7CB43F4138B4": 2,
+            "0105000020CE13000001000000010200000002000000885AD3AC8A343AC1384547A2D0803D414894": 1,
+            "0105000020CE13000001000000010200000008000000C03923EAE1563AC18051496D66B03D41C8C3": 1,
+            "0105000020CE1300000100000001020000000900000008F9A0F748023BC1C8E53FA462D63C41887C": 1,
+            "0105000020CE1300000100000001020000000300000078BE9F9A1E3E3AC108341156C3AA3C4138EF": 1,
+            "0105000020CE1300000100000001020000000200000000000010B5533AC190E4F21F2FAA3C414872": 1,
+            "0105000020CE1300000100000001020000000A000000E0BE0EDC8D2E3BC18026C2461A843D4150AF": 1,
+            "0105000020CE1300000100000001020000000200000020B9FC7725323BC11848500C6CE83C417046": 1,
+            "0105000020CE13000001000000010200000002000000C0C1171625AA3AC16032554036093D41D8A3": 1,
+            "0105000020CE13000001000000010200000002000000B07BF24063D63AC1102DB23DEBCE3C4138CD": 1,
+            "0105000020CE13000001000000010200000002000000580E2D32B54B3AC118AE47C16C163D4188B0": 1,
+            "0105000020CE13000001000000010200000005000000C0EC9E9C791A3AC138EF3825D81C3D41C8DC": 1,
+            "0105000020CE13000001000000010200000005000000D0B359F55FB13AC1E8839EADFD373D417078": 1,
+            "0105000020CE13000001000000010200000006000000285C8F12FC0A3BC1B01C5AA4084B3D41383C": 1,
+            "0105000020CE13000001000000010200000006000000C0D32B85CDE73AC150FC18D3877B3C4160CC": 1,
+            "0105000020CE130000010000000102000000020000007824973F48653AC1F07C3F759DAD3C41E804": 1,
+            "0105000020CE13000001000000010200000007000000688863CD88CD3AC130BB270F77B63D41F85C": 1,
+            "0105000020CE130000010000000102000000020000003880B7F0A4CC39C1186A4D83179F3D41B8AF": 1,
+            "0105000020CE1300000100000001020000000600000000917E2B5F913AC1984C15CC03513D414869": 1
+          }
+        },
+        "WEB_GEOM": {
+          "dtype": "str",
+          "n_unique": 54595,
+          "top_values": {
+            "0105000020110F00000100000001020000000200000085F4D210505668C1953D816778605241E10C": 2,
+            "0105000020110F000001000000010200000005000000D37C30DCEC5B68C15F2D8A1A66E35141AA28": 2,
+            "0105000020110F0000010000000102000000020000007B68FC7E85E768C1FCE717E075935241DA54": 2,
+            "0105000020110F000001000000010200000002000000D89E7CFDAAD468C17043FA9731605241EA90": 2,
+            "0105000020110F000001000000010200000002000000952DB40C60DE68C1C052EA3028DD52415CFB": 2,
+            "0105000020110F000001000000010200000002000000A3D46F7E1CDA68C1C333E9D83AB25241CF94": 2,
+            "0105000020110F000001000000010200000002000000AE3450BC99F568C1F1A0C5654E7C5241710E": 2,
+            "0105000020110F0000010000000102000000020000008825F74B09A768C14082ACEB67E551413305": 1,
+            "0105000020110F0000010000000102000000080000000A50A81317AE68C1DDFD794AEDF15141615F": 1,
+            "0105000020110F00000100000001020000000900000012D0F2029AC168C1208F9153A7A25141FF29": 1,
+            "0105000020110F000001000000010200000003000000781F38C451A168C19DCF6D7052A25141C8D8": 1,
+            "0105000020110F0000010000000102000000020000007D59C0D7B0A468C1038EE7BAB6A05141BFEB": 1,
+            "0105000020110F00000100000001020000000A000000288689D49CCE68C118DEA13F6BD55141449E": 1,
+            "0105000020110F000001000000010200000002000000ABC89144BCC968C1409C8E5BF5A4514190E7": 1,
+            "0105000020110F0000010000000102000000020000000DD5E0DD80B568C1D9D210355AB851412048": 1,
+            "0105000020110F00000100000001020000000200000081D8C8CA74BA68C139D5ADCC52A35141FA7B": 1,
+            "0105000020110F000001000000010200000002000000729704F515A768C1D0C87570C8C251411E66": 1,
+            "0105000020110F00000100000001020000000500000072FA6CBF8A9F68C17B714D460CC85141FE54": 1,
+            "0105000020110F0000010000000102000000050000009D0706233FB868C1CC1F18FA5DC65141B855": 1,
+            "0105000020110F000001000000010200000006000000DF371CCE03C768C1AA0C3B392AC651417E68": 1,
+            "0105000020110F000001000000010200000006000000A19734BF53BA68C1D31E5967678851413649": 1,
+            "0105000020110F0000010000000102000000020000007BECA8FE90A768C1F23339BE9BA05141DC51": 1,
+            "0105000020110F000001000000010200000007000000CEC315FA0FC168C143F23AC4C0EB5141C504": 1,
+            "0105000020110F0000010000000102000000020000008994C71C9D9768C10AF4C5F8C0F551418720": 1,
+            "0105000020110F000001000000010200000006000000FA9CD4F20FB468C1C14FEBA54CD051413A54": 1
+          }
+        },
+        "SYMBOL": {
+          "dtype": "int64",
+          "n_unique": 2
+        }
+      }
+    },
+    "sgmc_faults:CA_structure.shp": {
+      "rows": 31145,
+      "fields": {
+        "STATE": {
+          "dtype": "str",
+          "n_unique": 1,
+          "top_values": {
+            "CA": 31145
+          }
+        },
+        "DESCRIPT": {
+          "dtype": "str",
+          "n_unique": 22,
+          "top_values": {
+            "Fault, sense of displacement unknown or undefined, certain": 19735,
+            "Fault, sense of displacement unknown or undefined, approximate": 5380,
+            "Fault, sense of displacement unknown or undefined, concealed": 2528,
+            "Thrust fault, certain, (teeth on right from origin)": 981,
+            "Anticline, certain": 454,
+            "Anticline, concealed": 367,
+            "Syncline, certain": 320,
+            "Undefined type; generic line symbol; (see MISC column)": 309,
+            "Normal fault, certain, (U/D designated in source)": 303,
+            "Thrust fault, approximate, (teeth on right from origin)": 293,
+            "Syncline, concealed": 137,
+            "Normal fault, approximate, (U/D designated in source)": 111,
+            "Fault, sense of displacement unknown or undefined, inferred or queried": 78,
+            "Right lateral fault, certain": 48,
+            "Normal fault, concealed, (U/D designated in source)": 44,
+            "Thrust fault, concealed, (teeth on right from origin)": 26,
+            "Left lateral fault, certain": 11,
+            "Right lateral fault, approximate": 8,
+            "Right lateral fault, concealed": 5,
+            "Normal fault, inferred or queried, (U/D designated in source)": 4,
+            "Left lateral fault, approximate": 2,
+            "Monocline, certain": 1
+          }
+        },
+        "MISC": {
+          "dtype": "str",
+          "n_unique": 8,
+          "top_values": {
+            "scratch boundary": 304,
+            "south plunge": 75,
+            "east plunge": 42,
+            "north plunge": 28,
+            "double plunge": 26,
+            "west plunge": 22,
+            "structural discontinuity": 4,
+            "ephemeral water boundary": 1
+          }
+        },
+        "REF_ID": {
+          "dtype": "str",
+          "n_unique": 1,
+          "top_values": {
+            "CA294": 31145
+          }
+        },
+        "SRC_URL": {
+          "dtype": "str",
+          "n_unique": 1,
+          "top_values": {
+            "ftp://ftp.consrv.ca.gov/pub/dmg/rgmp/Published_GIS_Data/GDM_002_GMC_750k_v2/": 31145
+          }
+        },
+        "GEOM": {
+          "dtype": "str",
+          "n_unique": 31138,
+          "top_values": {
+            "0105000020CE13000001000000010200000002000000280F0BB5739641C1647FD9DDCD994041FC3A": 2,
+            "0105000020CE13000001000000010200000002000000A813D04472D63CC160BA49BC5D123A41782D": 2,
+            "0105000020CE1300000100000001020000001300000008341106DD093FC1083D9B45D95A364108F0": 2,
+            "0105000020CE1300000100000001020000000800000090ED7CCF650A3EC1E895B2DC7094334168F7": 2,
+            "0105000020CE1300000100000001020000000300000098FF90367AA841C1B8AF034FA86F4241F05A": 2,
+            "0105000020CE1300000100000001020000000F000000B0E1E95DDAA641C104098A2707E2414144B6": 2,
+            "0105000020CE13000001000000010200000009000000141DC98D28A341C174029AB82B5B42413C2C": 2,
+            "0105000020CE13000001000000010200000006000000C84B3781DE2A40C1A8DFBE2E7A603D41B025": 1,
+            "0105000020CE1300000100000001020000000F000000F085C934A6ED3FC1B0E1E9B5C53C3941204A": 1,
+            "0105000020CE13000001000000010200000005000000CC7F48EFA83D40C1B059F54997F438417012": 1,
+            "0105000020CE13000001000000010200000007000000A0ABADF8F40340C188416065A55F3841AC8B": 1,
+            "0105000020CE1300000100000001020000000500000098FF904E11F73BC1682BF6D7236E394140BD": 1,
+            "0105000020CE1300000100000001020000000700000074E09C617F4A40C1B0E1E91532F3384170F0": 1,
+            "0105000020CE13000001000000010200000008000000049A08DB57A340C1F09E3CCCB9423841E458": 1,
+            "0105000020CE13000001000000010200000024000000F8065F980D8640C150499D30D7AD3741306E": 1,
+            "0105000020CE13000001000000010200000004000000506B9A17CA2940C1B0E1E9C5995B3D4108CE": 1,
+            "0105000020CE130000010000000102000000030000006007CE79ED113CC1808CB95B321D3441888E": 1,
+            "0105000020CE13000001000000010200000008000000D0915C06D5B740C170E7FB599BB6394154C1": 1,
+            "0105000020CE1300000100000001020000000800000074E09C19FFEF40C17CA52C331354414134C4": 1,
+            "0105000020CE1300000100000001020000000B00000050FC18ABE89940C1A05E2913FF0D41413845": 1,
+            "0105000020CE130000010000000102000000090000005CFE43E2521E40C1A8F1D22D3DE53C4124DB": 1,
+            "0105000020CE130000010000000102000000080000004CF38E2338B040C1B49DEF3F9FAC4041B88D": 1,
+            "0105000020CE13000001000000010200000011000000907EFBDA7B6240C1A84E40832D6D38414057": 1,
+            "0105000020CE1300000100000001020000000D0000005C8FC215085C40C1100BB5B6ABDD3741A4DF": 1,
+            "0105000020CE130000010000000102000000050000001C7C61AA052941C1F063CCAD4C653E419C77": 1
+          }
+        },
+        "WEB_GEOM": {
+          "dtype": "str",
+          "n_unique": 31138,
+          "top_values": {
+            "0105000020110F000001000000010200000002000000FF34BC3800376AC1D767FD5223555241F7E0": 2,
+            "0105000020110F00000100000001020000000200000046D66EE769F168C1852543988EAA5041E186": 2,
+            "0105000020110F000001000000010200000013000000D5C3F0DD702469C1E92B38DA0BD24E41C601": 2,
+            "0105000020110F000001000000010200000008000000F77C756EA3E668C19DCC6276F3574D41865A": 2,
+            "0105000020110F000001000000010200000003000000432D5436DE696AC1062295471A785341E4D0": 2,
+            "0105000020110F00000100000001020000000F00000063B56B5B715B6AC14F0F8454C91E5341E10B": 2,
+            "0105000020110F0000010000000102000000090000008E47C3FE21666AC1FF350FF91F6C5341F7DC": 2,
+            "0105000020110F000001000000010200000006000000A1B92410159B69C19E24F909A9675141C9DF": 1,
+            "0105000020110F00000100000001020000000F0000009E858996786169C1A854D2DEAC315041E92F": 1,
+            "0105000020110F000001000000010200000005000000344F5C52F37369C12BC6D163A41150413DCB": 1,
+            "0105000020110F000001000000010200000007000000B1F12AFC0B5D69C1120AD35DB7DC4F41C362": 1,
+            "0105000020110F000001000000010200000005000000EAC773DEA5C968C1D6F0B13D50885041DD9A": 1,
+            "0105000020110F000001000000010200000007000000B74259A4BC7769C1DB71530E480F5041BB5D": 1,
+            "0105000020110F000001000000010200000008000000918F0E10638B69C17EFD447C969B4F411005": 1,
+            "0105000020110F0000010000000102000000240000008CCEB0E3F77C69C1C7F186CB4B4D4F41F7D2": 1,
+            "0105000020110F0000010000000102000000040000002B940AB18C9A69C1146745E759665141F93D": 1,
+            "0105000020110F000001000000010200000003000000CB346BF452A168C1CB0C8CC0E1E74D4142CE": 1,
+            "0105000020110F0000010000000102000000080000001DF64C841EA069C1119DA1A71B385041F1CF": 1,
+            "0105000020110F0000010000000102000000080000008075F84FAF136AC1BFEB491EADE75241E961": 1,
+            "0105000020110F00000100000001020000000B000000E768E01CE1F169C1476377BF21CB5241BE51": 1,
+            "0105000020110F000001000000010200000009000000ACAB0E8E339269C16A3A5F843F445141E450": 1,
+            "0105000020110F00000100000001020000000800000082F1CFAA39F069C1C1C121493F8A524183AB": 1,
+            "0105000020110F000001000000010200000011000000C04CC70BBE7969C1D759F7B24EC84F412E1E": 1,
+            "0105000020110F00000100000001020000000D0000001D9D8962577269C104B79862FB754F41F6B9": 1,
+            "0105000020110F000001000000010200000005000000720D3BF78DF469C136E129E9988C514112D0": 1
+          }
+        },
+        "SYMBOL": {
+          "dtype": "int64",
+          "n_unique": 3
+        }
+      }
+    },
+    "gdr_qfaults_v2:qfaults_ingenious_nad83conus117_2023-06-27.shp": {
+      "rows": 22956,
+      "fields": {
+        "NAME": {
+          "dtype": "str",
+          "n_unique": 995,
+          "top_values": {
+            "Wasatch fault zone Provo section": 1581,
+            "Beaver Basin faults Intrabasin faults section": 1437,
+            "Wasatch fault zone Brigham City section": 1105,
+            "Wasatch fault zone Nephi section Southern strand": 1061,
+            "Wasatch fault zone Weber section": 986,
+            "Wasatch fault zone Salt Lake City section": 597,
+            "Sevier Valley (Hills near Panguitch) faults-folds": 545,
+            "Mineral Mountains (West Side) faults": 538,
+            "Wasatch fault zone Levan section": 467,
+            "Hurricane fault zone Anderson Junction section": 462,
+            "Drum Mountains fault zone": 451,
+            "Blackfoot Volcanic Field fault": 411,
+            "Oquirrh fault zone": 402,
+            "Parowan Valley faults": 348,
+            "Riddle fault system": 311,
+            "Cove Fort fault zone": 269,
+            "Hurricane fault zone Ash Creek section": 259,
+            "East Bear Lake fault southern section": 256,
+            "Stansbury fault zone": 254,
+            "Markagunt Plateau faults": 229,
+            "unnamed fault": 228,
+            "Washington (Fort Pearce)": 227,
+            "Clover fault zone": 212,
+            "Gem Valley fault": 208,
+            "Wah Wah Mountains (South End Near Lund) fault": 200
+          }
+        },
+        "NUM": {
+          "dtype": "str",
+          "n_unique": 876,
+          "top_values": {
+            "2351g": 1581,
+            "2351d": 1105,
+            "2351h": 1061,
+            "2351e": 986,
+            "2351f": 597,
+            "2537": 545,
+            "2489": 538,
+            "2351i": 467,
+            "998c": 462,
+            "2432": 451,
+            "2398": 402,
+            "2533": 278,
+            "2491": 269,
+            "2364c": 256,
+            "2395": 254,
+            "998b": 251,
+            "1004b": 227,
+            "2396": 212,
+            "623": 208,
+            "2535": 202,
+            "2485": 200,
+            "2521c": 200,
+            "2545": 184,
+            "2528": 168,
+            "2351j": 165
+          }
+        },
+        "DIPDIRECT": {
+          "dtype": "str",
+          "n_unique": 15,
+          "top_values": {
+            "W": 6677,
+            "E": 3788,
+            "NW": 2031,
+            "SW": 1424,
+            "Unspecified": 1226,
+            "SE": 1172,
+            "NE": 791,
+            "NE,SW": 311,
+            "N": 309,
+            "S": 249,
+            "SW,NE": 34,
+            "W,E": 30,
+            "Various": 28,
+            "E,W": 13,
+            "E?": 1
+          }
+        },
+        "SLIPDIRECT": {
+          "dtype": "str",
+          "n_unique": 2,
+          "top_values": {
+            "E": 3,
+            "W": 1
+          }
+        },
+        "SLIPSENSE": {
+          "dtype": "str",
+          "n_unique": 7,
+          "top_values": {
+            "N": 19465,
+            "RL": 144,
+            "LL": 91,
+            "Fissure": 27,
+            "normal": 13,
+            "T": 2,
+            "SW": 1
+          }
+        },
+        "SECONDARY": {
+          "dtype": "str",
+          "n_unique": 5,
+          "top_values": {
+            "N": 50,
+            "RL": 28,
+            "LL": 7,
+            "R": 3,
+            "T": 1
+          }
+        },
+        "SLIPRT2023": {
+          "dtype": "str",
+          "n_unique": 96,
+          "top_values": {
+            "0.076": 4205,
+            "1.2": 2183,
+            "0.05": 1638,
+            "0.124": 1203,
+            "2.0": 1105,
+            "1.9": 1061,
+            "1.5": 1005,
+            "<0.2": 914,
+            "0.001": 828,
+            "0.25": 613,
+            "0.1": 590,
+            "0.06": 512,
+            "0.21": 510,
+            "0.5": 510,
+            "0.04": 480,
+            "0.0001": 462,
+            "0.6": 417,
+            "0.15": 416,
+            "0.08": 346,
+            "<0.08": 315,
+            "0.17": 292,
+            "0.2": 278,
+            "0.03": 263,
+            "0.52": 256,
+            "0.01": 233
+          }
+        },
+        "SLIPRTNUM": {
+          "dtype": "float64",
+          "n_unique": 84
+        },
+        "REC2023": {
+          "dtype": "str",
+          "n_unique": 77,
+          "top_values": {
+            "600": 1581,
+            "<130,000": 1378,
+            "50,000": 1296,
+            "<1,600,000": 1231,
+            "2,500": 1105,
+            "<15,000": 1069,
+            "210": 1061,
+            "500": 986,
+            "20,000": 862,
+            "200,000": 790,
+            "1,300": 597,
+            "28,000": 537,
+            "10,000": 504,
+            "1,600": 467,
+            "9,000": 456,
+            "40,000": 449,
+            "25,000": 446,
+            "8,000": 438,
+            "300,000": 405,
+            "150,000": 404,
+            "5,600": 402,
+            ">5,330,000": 397,
+            "100,000": 380,
+            "12,000": 379,
+            "1,000,000": 353
+          }
+        },
+        "RECNUM": {
+          "dtype": "int64",
+          "n_unique": 67
+        },
+        "CODE2023": {
+          "dtype": "int64",
+          "n_unique": 53
+        },
+        "FCODE2023": {
+          "dtype": "int64",
+          "n_unique": 4
+        },
+        "RCODE2023": {
+          "dtype": "int64",
+          "n_unique": 6
+        },
+        "SCODE2023": {
+          "dtype": "int64",
+          "n_unique": 3
+        },
+        "FTYPE_": {
+          "dtype": "str",
+          "n_unique": 5,
+          "top_values": {
+            "Well Constrained": 12048,
+            "Inferred": 5280,
+            "Moderately Constrained": 5054,
+            "Poor": 100,
+            "Other": 27
+          }
+        },
+        "MAPSCALE": {
+          "dtype": "str",
+          "n_unique": 11,
+          "top_values": {
+            "10": 11334,
+            "24": 3025,
+            "250": 2229,
+            "100": 1856,
+            "62.5": 272,
+            "50": 120,
+            "125": 45,
+            "1:10,000": 12,
+            "155": 2,
+            "60": 1,
+            "700": 1
+          }
+        },
+        "SLIPINFO": {
+          "dtype": "str",
+          "n_unique": 72,
+          "top_values": {
+            "USGS Geologic Deformation Model (in prep.)": 8597,
+            "USGS Geologic Deformation Model (in prep.): Provo (south)": 1581,
+            "TRK 2022 ING interp of geology (Biek and others [2015]) and scarp morphology": 701,
+            "USGS Geologic Deformation Model (in prep.); East Bench Rate (highest)": 597,
+            "Applying USGS Geologic Deformation Model (in prep.) rate, but deformation model ": 567,
+            "USGS Geologic Deformation Model (in prep.);": 467,
+            "\" 0.1\u20130.4 mmyr\u22121 over the last c. 35 ka.\" Used average (0.25) for the value. Sta": 451,
+            "USGS Geologic Deformation Model (in prep.)\n": 428,
+            "USGS Geologic Deformation Model (in prep.); Olig et al., (1996) UGS Special Stud": 402,
+            "ejk interpretation": 396,
+            "TRK 2022 ING interp; mostly intrabasin faults that have produced little topograp": 348,
+            "TRK 2022 ING interpretation; minimal topography development along faults": 347,
+            "TRK 2022 ING interpretation": 283,
+            "Based on scarps being up to 60 m tall.": 263,
+            "2023 NSHM Geologic Deformation Model": 252,
+            "TRK 2022 ING interp of geology (Biek and others [2015], Rowley and others [2019]": 229,
+            "Lund (2005) UGS Bulletin (Utah hazard consensus rate)": 225,
+            "Stahl et al., 2021": 216,
+            "Stahl et al., 2019": 189,
+            "USGS Geologic Deformation Model (in prep.); McDonald and others, 2019": 165,
+            "TRK 2022 ING interp": 163,
+            "EJK inferred based on Cove Fort inferred slip rate. Shallow magmatism plays a bi": 153,
+            "QFFD": 131,
+            "TRK interp. ING 2022; ~750 ka flows displaced ~15 m (Biek and others, 2015; Ande": 124,
+            "TRK 2022 ING interp of geology (Rowley and others [2019], Biek and others [2015]": 111
+          }
+        },
+        "RECINFO": {
+          "dtype": "str",
+          "n_unique": 149,
+          "top_values": {
+            "Lund and others, 1991": 1581,
+            "DuRoss and others, 2012": 1105,
+            "Crone and others, 2014": 1061,
+            "McDonald and others, 2019": 632,
+            "TRK 2022 ING interp of scarp morphology and existing geologic mapping (Rowley an": 431,
+            "TRK 2022 ING interp of geology (Anderson and Christenson [1989], Biek and others": 576,
+            "TRK 2022 ING interp of scarp morphology and existing geologic mapping (e.g., Mac": 547,
+            "Age of offset Qaf2 fans from OSL ages. Knudsen and others, 2019.": 537,
+            "EJK inferred": 530,
+            "Stahl et al., 2021": 450,
+            "Olig and others, 1996": 402,
+            "TRK 2022 ING interp of geologic mapping (Knudsen and others [in prep]) and scarp": 305,
+            "TRK 2022 ING interp of geology (Rowley and others [2019], Biek and others [2015]": 295,
+            "Lund and others (2006)(UGS SS-115); Stenner and others (1999)": 278,
+            "QFFD; ejk interpretation": 275,
+            "Tiffany Rivera (personal Comm.) days she has the Cove Fort flow dates to 640 ka.": 269,
+            "QFFD; McCalpin, 2003": 256,
+            "Lidar interpretation (AIH)": 246,
+            "Lidar interpretation (EJK)": 240,
+            "TRK 2022 ING interp of geology (Biek and others [2015], Rowley and others [2019]": 229,
+            "QFFD; Black and others (2000); Lidar interpretation (AIH)": 228,
+            "Anderson and Christenson (1989)": 195,
+            "TRK 2022 ING interp of lidar and existing geologic mapping (Rowley and others, 2": 173,
+            "Lund and others (2006)(UGS SS-115)": 164
+          }
+        },
+        "COMMENTS": {
+          "dtype": "str",
+          "n_unique": 18,
+          "top_values": {
+            "These are \"class B\" in QFFD, so they are not nessecarily tectonic in origin.": 265,
+            "outside of Utah study bourndary. See Idaho compilation for full update.": 139,
+            "The completed version of this FZ should be included in the Idaho fault compilati": 127,
+            "mapped by S.Kirby": 115,
+            "Changed some geometries based on air photos (2011 NAIP)": 97,
+            "possible voncanogenic connection.": 35,
+            "Suspected to be almost completely volcanogenic faults": 35,
+            "Likely more volcanic-related than tectonic": 28,
+            "Reconnaisanace level lidar fault mapping": 20,
+            "Class B fault- could have some shallow volcanic influence.": 13,
+            "Air photo mapping (NAIP 2011)": 11,
+            "AIH new mapping": 7,
+            "AIH - new mapping": 5,
+            "Subtle older fault - may want to discuss with Don C": 3,
+            "Study area boundary": 2,
+            "Just barely in study area": 1,
+            "changed to mostly burried": 1,
+            "Not re-mapped from lidar - traces from Tooele/Rush 30x60": 1
+          }
+        },
+        "GEOCOMM": {
+          "dtype": "str",
+          "n_unique": 145,
+          "top_values": {
+            "Mcdonald and others, 2020": 5888,
+            "Hiscock and Hylland, 2015": 632,
+            "Knudsen and others, 2019": 421,
+            "dense network of highly dissected scarps formed on the ~0.5 Ma Last Chance Bench": 404,
+            "moderately dissected scarps formed on Pleistocene alluvium (units Qafo, Qap, Qal": 350,
+            "well-preserved scarps formed on fan alluvium as young as Holocene in age; most a": 292,
+            "Lund and others (2006; SS-119) discuss available paleoseismic data and suggest a": 278,
+            "closely spaced faults in southern Beaver basin that cut levels 3 to 1 fan alluvi": 243,
+            "deeply dissected bedrock escarpments partially buried by landslides; a few stran": 229,
+            "QFFDU": 218,
+            "highly degraded scarps formed on ~5 Ma lava flows and Tertiary basin fill": 195,
+            "New lidar-based fault mapping": 189,
+            "EJK ING lidar interp March 2022": 175,
+            "trenching results discussed in Lund (2015) indicate latest Holocene faulting of ": 165,
+            "some faults cut 1.1 Ma Basalt of Cunningham Hill and probable middle Pleistocene": 163,
+            "Lund and others (2006; SS-119) discuss faulted alluvium estimated to be ~1,260 y": 162,
+            "moderately dissected scarps formed on late Pleistocene to Holocene alluvial fan ": 129,
+            "moderately dissected scarps on late Tertiary and early Q fan; diplaces ~1 Ma Nor": 154,
+            "lidar reconn mapping by S. Kirby": 149,
+            "relatively straight, youthful-appearing scarps formed on Tertiary to early Quate": 127,
+            "minor bedrock faults adjacent to Hurricane fault that lack evidence for late Qua": 126,
+            "faults cut late Pleistocene-age fan": 125,
+            "moderately disected scarps formed on bedrock, including middle to late Pleistoce": 124,
+            "faults formed on alluvial-fan deposits as young as latest Pleistocene-Holocene (": 118
+          }
+        },
+        "Shape_Leng": {
+          "dtype": "float64",
+          "n_unique": 20423
+        }
+      }
+    }
+  }
+}

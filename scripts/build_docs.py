@@ -221,6 +221,41 @@ def dl_table(build):
         + "".join(rows) + "</tbody></table>")
 
 
+def h42_dl_table(man):
+    """bimodal-lattice/H42 artifacts, read from docs/downloads/manifest.json; never invented."""
+    h = (man or {}).get("h42_bimodal_lattice") or {}
+    arts = h.get("artifacts") or {}
+    if not arts:
+        return ""
+    prim = h.get("primary")
+    rows = []
+    for name, a in sorted(arts.items(), key=lambda kv: (kv[0] != prim, kv[0])):
+        c = a.get("checks", {})
+        tif = os.path.basename(c.get("path", ""))
+        zb = int(c.get("zip_bytes") or 0)
+        ok = c.get("all_pass")
+        badge = ('<span class="badge b-ok">checks pass</span>' if ok
+                 else '<span class="badge b-bad">checks failed</span>')
+        if name == prim:
+            badge += ' <span class="badge b-ok">primary</span>'
+        badge += ' <span class="badge b-warn">research only &middot; gates failed</span>'
+        rows.append(
+            f'<tr><td><code>{E(name)}</code>{badge}</td>'
+            f'<td class="num">{int(a.get("emitted_px") or 0):,}</td>'
+            f'<td class="num">{zb/1e6:.2f} MB</td>'
+            f'<td><a href="{DLO}/{E(tif)}" download>one-click .tif</a> &middot; '
+            f'<a href="{DLO}/{E(tif).replace(".tif", ".zip")}" download>.zip</a> &middot; '
+            f'<a href="{DLO}/{E(tif)}.checks.json">checks</a></td></tr>')
+    return ('<h2>bimodal-lattice/H42 session artifacts (2026-10-06) — labeled research only</h2>'
+            '<p class="mut">A second, parallel H42 lineage from another session: preregistered protocol '
+            '(<code>research/hypotheses-h42.md</code>); both promotion gates failed, so these ship for '
+            'inspection, not submission. Built by <code>scripts/run_h42.py</code>; rerunnable and '
+            'byte-deterministic.</p>'
+            '<table><thead><tr><th>artifact</th><th class="num">emitted px</th>'
+            '<th class="num">zip</th><th>download</th></tr></thead><tbody>'
+            + "".join(rows) + "</tbody></table>")
+
+
 def main():
     os.makedirs(DOCS, exist_ok=True)
     hold = load("evidence/holdout.json", {})
@@ -291,6 +326,11 @@ def main():
     A(f'<p><a href="submit.html">How to submit</a> &middot; '
       f'<a href="{DLO}/">all artifacts</a> &middot; '
       f'<a href="../index.html">the other site in this repository</a></p></div>')
+    A('<div class="card"><h2 style="margin-top:0">Session update 2026-10-06 &mdash; second parallel H42 (bimodal lattice)</h2>'
+      '<p>A second, independent H42 lineage registered five hypotheses and shipped two lattice rasters '
+      'as labeled research (both preregistered gates failed; no slot spent). See the '
+      '<a href="../index.html">main site</a> and <code>research/hypotheses-h42.md</code>; IDs are '
+      'workstream-qualified per <code>research/hypothesis-id-registry.md</code>.</p></div>')
 
     A('<div class="grid">')
     for v, l in [
@@ -677,6 +717,7 @@ def main():
              '<p class="sub">Every file here was built by <code>scripts/build_final.py</code> and '
              'validated locally for grid and range; organizer portal acceptance is untested. Each <code>.tif</code> link '
              'downloads directly; each <code>.zip</code> holds the same GeoTIFF.</p>',
+             h42_dl_table(load("docs/downloads/manifest.json", {})),
              dl_table(build),
              '<h2>Evidence published alongside</h2><ul>']
     for f in sorted(os.listdir(DOCS)):
