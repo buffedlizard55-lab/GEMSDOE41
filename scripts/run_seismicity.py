@@ -168,7 +168,7 @@ def main() -> int:
     os.makedirs("docs/downloads", exist_ok=True)
     json.dump(out, open("evidence/seismicity.json", "w"), indent=1, default=float)
     json.dump(out, open("docs/downloads/seismicity-2020.json", "w"), indent=1, default=float)
-    np.save("evidence/seismicity_corridor.npy", off_catalogue)
+    np.savez_compressed("evidence/seismicity_corridor.npz", corridor=off_catalogue)
     print(json.dumps({k: v for k, v in out.items() if k in ("events", "envelope", "catalog_separation", "corridor")}, indent=1))
     print(f"done in {time.time()-t0:.1f}s")
     return 0

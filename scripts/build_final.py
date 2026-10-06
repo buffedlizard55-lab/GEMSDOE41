@@ -112,7 +112,7 @@ def main() -> int:
 
     # ---------------- 2020 rupture envelope, if the seismicity evidence exists ----------------
     seis = None
-    npy = "evidence/seismicity_corridor.npy"
+    npy = "evidence/seismicity_corridor.npz"
     if os.path.exists(npy):
         seis = np.load(npy) & footprint & (~cat_mask) & (comp["exclusion"] > 0)
         seis = E.thin_support(seis, min_sep_px=sep, priority=comp["evidence"])
