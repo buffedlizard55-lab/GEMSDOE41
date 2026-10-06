@@ -89,7 +89,7 @@ def geometry_field(records, catalogue, footprint, transform, cfg=Config(), forbi
     for i,line in enumerate(groups[0]):
         for end in [0,1]:
             tip=Point(line.coords[0 if end==0 else -1])
-            col,row=(~transform)*(tip.x,tip.y); row,col=int(np.floor(row)),int(np.floor(col))
+            col,row=(~transform) @ (tip.x,tip.y); row,col=int(np.floor(row)),int(np.floor(col))
             if not (0<=row<shape[0] and 0<=col<shape[1]) or boundary_distance[row,col]<=300: continue
             # Same-family connected fragments must not be interpreted as terminations.
             neighbors=nw_tree.query(tip.buffer(200))
@@ -107,7 +107,7 @@ def geometry_field(records, catalogue, footprint, transform, cfg=Config(), forbi
             # enter a held-out area, representing extrapolation from visible anchors.
             margin=3*cfg.corridor_sigma_m
             minx,miny,maxx,maxy=connector.bounds
-            c0,r1=(~transform)*(minx-margin,miny-margin); c1,r0=(~transform)*(maxx+margin,maxy+margin)
+            c0,r1=(~transform) @ (minx-margin,miny-margin); c1,r0=(~transform) @ (maxx+margin,maxy+margin)
             r0=max(0,int(np.floor(r0))); r1=min(shape[0],int(np.ceil(r1)))
             c0=max(0,int(np.floor(c0))); c1=min(shape[1],int(np.ceil(c1)))
             if r0>=r1 or c0>=c1: continue

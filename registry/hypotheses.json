@@ -115,10 +115,10 @@
    "unblocks": "A holdout with more held-out mass per fold, or a live score on the 5,000 px variant."
   },
   {
-   "item": "Compliance decision on IRR-01",
-   "state": "OPEN - needs a human",
-   "why": "This repository is a public fork of an organizers' repository.",
-   "unblocks": "Nothing technical; it gates whether this work should live here at all."
+   "item": "Competition eligibility and data-rights review (IRR-01)",
+   "state": "OPEN - participant review required; repository-parent issue corrected",
+   "why": "GitHub metadata reports this repository as standalone (fork=false, parent=null) as of 2026-10-06. That corrects the earlier repository-parent claim but does not adjudicate competition eligibility, licenses, or public-solution rules.",
+   "unblocks": "Participant review of eligibility and data rights; merging to this standalone repository does not upload or submit an artifact to DrivenData."
   }
  ]
 }
