@@ -285,3 +285,18 @@ The earlier IRR-01 organizer-fork concern has been corrected by the main-line re
 - Independently validated the current source-vector transfer/H41-A TIFF and H41-I artifact against `data/sample_submission.tif`: both remain single-band float32 EPSG:32611 GeoTIFFs with exact dimensions/transform, finite `[0,1]` values, correct internal footprint mask, and matching recorded byte/pixel hashes. H41-I is newly computed local-strike weighting on the same nonzero support as H41-A, not new geographic coverage.
 - Full local suite: **62 passed, 0 skipped**, four non-fatal Rasterio `from_origin` pending-deprecation warnings. `compileall` and `git diff --check` pass. The new source-link test rejects the dead USGS details URL; the source refresh contains an eighth metadata-only HEAD check for the official Science Data Catalog record and downloads no DEM tiles.
 - Did not refresh the checked-in `docs/source-feed.json`; it remains an older local snapshot, not fresh evidence. No DrivenData page, API, or leaderboard endpoint was accessed, and no weekly submission slot or competition upload was used. No score or win is claimed.
+
+## PR #17 merge record — 2026-10-06
+
+- PR [#17](https://github.com/buffedlizard55-lab/GEMSDOE41/pull/17) merged into `main` at
+  `c473ae78083a94435692f59a85067a4f21f22ebd` (2026-10-06T02:05:17Z) after `verify` and `reproduce`
+  both passed. The branch had to merge `origin/main` first (`68ab4c1`, the H41-I local-strike
+  session): five files conflicted and were resolved by keeping **both** sides — H42 remains the
+  headline and slot-eligible artifact, H41-I remains documented as a parallel-session, gate-closed
+  artifact, and the CI reproduction target is now declared explicitly in the manifest so the H41-A
+  rebuild can never be compared against whichever file is currently published.
+- Post-merge suites: **63 passed** locally; `verify` (Pages build + public-byte check) and
+  `reproduce` (H41-A, H41-A-R and H41-I rebuilds plus comparisons) both green on the PR head.
+- Still not done, and stated as such: no organizer-scored receipt exists for the H42 file; the
+  holdout cannot reward a genuinely new fault; the SGMC instrument disagrees with the shipped
+  choice; and `K_HIDDEN_PX`/`lambda` remain MODEL constants.
