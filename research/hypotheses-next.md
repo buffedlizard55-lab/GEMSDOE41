@@ -49,3 +49,35 @@ The experiment was run after the preregistration above, with no fold or paramete
 - The mass-matched density and topography controls were vacuous in all folds because candidate mass was zero; they cannot be counted as wins.
 - **H41-E fails the preregistered gate.** No variant TIFF was exported, no weekly slot was used, and the existing H41-A TIFF remains the single prominently linked research artifact. Its file bytes were not changed by this experiment (SHA-256 `8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c`).
 - This result rejects the tested kinematic-screened model under this proxy protocol; it does not prove that the structural setting lacks undiscovered faults. Clean historical-best OOF predictions and expert hidden labels remain unavailable.
+
+## Result — H42 basin-margin validation (2026-10-06), the gate that opened
+
+Preregistered rule, fixed in `scripts/build_h42_final.py` before the final build: *select the surface with the
+highest mean DTI on the 20 km four-colour blocked holdout, emitted fresh inside every held-out block at equal mass,
+cross-checked against the hidden-truth association measured from the 16 archived artifacts.*
+
+- **Best valid arm: `SH_basin_strong|sep4.0|N40000` — mean DTI 0.2507** (worst fold 0.2423, best 0.2580),
+  rank 1 of 21 arms. Controls on the identical domain and mass: uniform-random **0.1212**, training-catalogue
+  density **0.1771**. Archived H41-A/H41-E arms on the same instrument: **0.0**.
+- Surface: `( slope^0.5 · (1 − detrended_elevation)^1.5 )^0.55 · lidar_scarp^0.25 · tmi_hg^0.20`, packed at
+  ≥4 px (400 m) to 40,000 px, with everything within 2 px (200 m) of the catalogue deleted.
+- **Two instruments disagreed, and both readings are published.** The SGMC independent-map instrument ranks
+  terrain-carpet surfaces far higher (detrended-elevation enrichment 1.9–2.8×) and puts the shipped surface at
+  0.346 A→B / 0.322 B→A. A mass-controlled association across the 16 archived artifacts says that direction is
+  wrong (detrended-elevation partial ρ = −0.56; the five highest-scoring artifacts sit at 0.89×). The blocked
+  holdout agrees with the ledger, so the ledger association was the tie-breaker. This is a judgement call,
+  recorded rather than hidden.
+- **The thermal-anchored H42 weightings are a measured dead end** (best cpm 0.0426 vs uniform-random control
+  0.0603 on the SGMC instrument; thermal layer lift 0.05). Do not rebuild them.
+- **Ceiling, stated where the number is:** the holdout truth is the *published* catalogue, so this instrument
+  cannot reward a genuinely new fault. It ranks geometry. 0.2507 is not a leaderboard forecast.
+- Full receipts: `evidence/h42_holdout_20km.json`, `evidence/h42_final.json`,
+  `evidence/h42_admissibility.json`, `evidence/h42_transfer_view.json`, `docs/downloads/h42-gate.json`.
+
+### Ranked follow-on hypotheses (registered 2026-10-06, before implementation)
+
+Registry entry with layers/signature/rationale/cost: `registry/hypotheses.json` → `new_candidates_ranked`.
+Order: **H43-A** in-place geophysical re-ranking of the shipped 40,000 locations (lowest cost, no geometry
+change); **H43-B** 1 m 3DEP curvature reconstruction (most distinct signal, acquisition outside the sandbox);
+**H43-C** GDR wellspring re-ranking; **H43-D** catalogue-thinning response sweep; **H43-E** 2020 seismicity
+envelope ordering. None may be used before it beats the shipped arm on the same fold design.

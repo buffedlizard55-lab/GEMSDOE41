@@ -1,0 +1,224 @@
+{
+ "generated_utc": "2026-10-06T01:52:33.012636+00:00",
+ "hypothesis": "H42: basin-margin terrain x LiDAR-scarp surface, density-packed, catalogue-thinned",
+ "configuration": {
+  "surface": "geometric_mean[(slope^0.5 * (1-detrended_elevation)^1.5)^0.55, lidar_scarp^0.25, tmi_hg^0.20]",
+  "min_sep_px": 4.0,
+  "budget_px": 40000,
+  "catalogue_thinning_px": 2.0,
+  "emission_px": 40000
+ },
+ "selection_evidence": {
+  "blocked_holdout_20km": {
+   "mean_dti": 0.250744,
+   "min_dti": 0.242272,
+   "max_dti": 0.258025,
+   "folds": 4
+  },
+  "blocked_holdout_uniform_control": {
+   "mean_dti": 0.121243,
+   "min_dti": 0.115356,
+   "max_dti": 0.126855,
+   "folds": 4
+  },
+  "blocked_holdout_training_density_control": {
+   "mean_dti": 0.17713,
+   "min_dti": 0.170055,
+   "max_dti": 0.18094,
+   "folds": 4
+  },
+  "sgmc_instrument_projection": {
+   "A->B": {
+    "tp": 3788.5,
+    "cpm": 0.09471,
+    "projected_hidden_dti": 0.34601
+   },
+   "B->A": {
+    "tp": 3522.2,
+    "cpm": 0.08806,
+    "projected_hidden_dti": 0.32169
+   }
+  },
+  "ledger_profile": {
+   "reference": {
+    "slope": 1.198,
+    "scarp": 1.358,
+    "tmi_hg": 1.239,
+    "det_elev": 0.89,
+    "dist_cat": 0.867
+   },
+   "ours": {
+    "slope": 2.065,
+    "scarp": 3.009,
+    "tmi_hg": 1.903,
+    "det_elev": 0.938,
+    "dist_cat": 0.829
+   },
+   "note": "detrended-elevation enrichment is the layer the 16-file ledger associates negatively with score; this surface moves it from 1.9-2.8 (terrain-carpet surfaces) to the successful band"
+  },
+  "sgmc_instrument_caveat": "the SGMC instrument rewards high terrain and is contradicted by both the ledger association and the blocked holdout; it is reported for completeness, not used for selection"
+ },
+ "artifact": {
+  "primary": "gems41-h42-submission-primary.tif",
+  "all_finite": "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-allfinite.tif",
+  "nan_outside": "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-nan.tif"
+ },
+ "audits": {
+  "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-allfinite.tif": {
+   "file": "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-allfinite.tif",
+   "sha256": "2943432c6e3d13f1cfae69a473499cdb9c611a873f6841f9268f151f2a025555",
+   "bytes": 289957,
+   "geometry_matches": true,
+   "all_finite": true,
+   "finite_exactly_footprint": false,
+   "values_in_0_1": true,
+   "min": 0.0,
+   "max": 1.0,
+   "positive_px": 40000
+  },
+  "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-nan.tif": {
+   "file": "gems41-h42-basinmargin-s4-n40000-20261006T015229Z-nan.tif",
+   "sha256": "c532e030ff645de7d64fa1437f55d5175339de9b6ca385d68e9f8637f651560f",
+   "bytes": 342696,
+   "geometry_matches": true,
+   "all_finite": false,
+   "finite_exactly_footprint": true,
+   "values_in_0_1": true,
+   "min": 0.0,
+   "max": 1.0,
+   "positive_px": 40000
+  },
+  "gems41-h42-submission-primary.tif": {
+   "file": "gems41-h42-submission-primary.tif",
+   "sha256": "2943432c6e3d13f1cfae69a473499cdb9c611a873f6841f9268f151f2a025555",
+   "bytes": 289957,
+   "geometry_matches": true,
+   "all_finite": true,
+   "finite_exactly_footprint": false,
+   "values_in_0_1": true,
+   "min": 0.0,
+   "max": 1.0,
+   "positive_px": 40000
+  }
+ },
+ "uniqueness": {
+  "max_jaccard": 0.0337,
+  "per_file": {
+   "r00107-placeholder-2314b599.tif": {
+    "jaccard": 0.00289,
+    "shared": 1105
+   },
+   "r00904-r13-lattice-s5.tif": {
+    "jaccard": 0.00641,
+    "shared": 1572
+   },
+   "r01280-h25-ctx-ridge.tif": {
+    "jaccard": 0.0087,
+    "shared": 1848
+   },
+   "r01563-ens12-adopted.tif": {
+    "jaccard": 0.01409,
+    "shared": 2960
+   },
+   "r01563-hedge-v2.tif": {
+    "jaccard": 0.01119,
+    "shared": 2960
+   },
+   "r01839-h28-dotted-ridge.tif": {
+    "jaccard": 0.00636,
+    "shared": 691
+   },
+   "r01855-h16-1-topo-geophys.tif": {
+    "jaccard": 0.00986,
+    "shared": 1600
+   },
+   "r01894-h19-4-multiline.tif": {
+    "jaccard": 0.01031,
+    "shared": 1671
+   },
+   "r01922-h19-5-powerlaw.tif": {
+    "jaccard": 0.01082,
+    "shared": 1724
+   },
+   "r02449-topo-gap-closure-d1-5.tif": {
+    "jaccard": 0.0085,
+    "shared": 854
+   },
+   "r02477-dotted-d1-5.tif": {
+    "jaccard": 0.00856,
+    "shared": 849
+   },
+   "r02600-d28-repro-44090.tif": {
+    "jaccard": 0.00743,
+    "shared": 620
+   },
+   "r02600-dotted-d2-8-44090.tif": {
+    "jaccard": 0.00743,
+    "shared": 620
+   },
+   "r02632-h33d-analog-tip-stepover.tif": {
+    "jaccard": 0.00768,
+    "shared": 624
+   },
+   "r02649-h32-1-prethin-tip-euler.tif": {
+    "jaccard": 0.00755,
+    "shared": 617
+   },
+   "r02708-h27-4-solo-d2-8.tif": {
+    "jaccard": 0.00779,
+    "shared": 620
+   },
+   "unscored-d28-offcat-44090.tif": {
+    "jaccard": 0.00743,
+    "shared": 620
+   },
+   "unscored-topo-gap-closure-d2-8.tif": {
+    "jaccard": 0.00737,
+    "shared": 625
+   },
+   "gems41-walker-transfer-v1-20261005-1616b7de764c.tif": {
+    "jaccard": 0.0104,
+    "shared": 1960
+   },
+   "gemsdoe41-h41-bimodal-thrift-20k-20261005T234500Z.tif": {
+    "jaccard": 0.00654,
+    "shared": 390
+   },
+   "gemsdoe41-h41-bimodal-thrift-20k-uninformative-control-20261005T234500Z.tif": {
+    "jaccard": 0.00388,
+    "shared": 232
+   },
+   "gemsdoe41-h41-bimodal-thrift-37k-20261005T234500Z.tif": {
+    "jaccard": 0.00743,
+    "shared": 532
+   },
+   "gemsdoe41-h41-bimodal-thrift-5k-20261005T234500Z.tif": {
+    "jaccard": 0.00198,
+    "shared": 89
+   },
+   "gemsdoe41-h41-core-20261005T234500Z.tif": {
+    "jaccard": 0.0337,
+    "shared": 1956
+   },
+   "gemsdoe41-h41-rupture2020-union-20261005T234500Z.tif": {
+    "jaccard": 0.00692,
+    "shared": 416
+   },
+   "gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif": {
+    "jaccard": 0.00508,
+    "shared": 403
+   }
+  }
+ },
+ "compliance": {
+  "no_hidden_labels": true,
+  "no_leaderboard_polling": true,
+  "no_prior_submission_as_input": true,
+  "scores_used": "owner-reported scalars only, for calibration"
+ },
+ "limitations": [
+  "The blocked holdout's truth is the published catalogue, so it ranks geometry; it is not a live score.",
+  "The profile guard is a 16-file association with a wide confidence interval, not a measurement of the hidden set.",
+  "Projections use K_HIDDEN_PX = 14,088 (metric-calibrated) and lambda = 1.76; both are MODEL constants."
+ ]
+}

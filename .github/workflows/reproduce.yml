@@ -37,7 +37,8 @@ jobs:
           import json, shutil
           main=json.load(open('docs/downloads/manifest.json'))
           raster=json.load(open('docs/evidence/h41a_raster_build_receipt.json'))
-          shutil.copyfile('docs/downloads/'+main['filename'],'.cache/expected-main.tif')
+          target=(main.get('reproduction_target') or {}).get('filename') or main['filename']
+          shutil.copyfile('docs/downloads/'+target,'.cache/expected-main.tif')
           shutil.copyfile(raster['output']['path'],'.cache/expected-h41a-raster.tif')
           PY
       - name: Restore and verify inputs
@@ -54,7 +55,7 @@ jobs:
           python scripts/validate_h41a_raster_submission.py --template data/sample_submission.tif --compare-raster data/comparison-h33.tif
       - name: Verify both prediction fields
         run: |
-          NAME=$(python -c "import json; print(json.load(open('docs/downloads/manifest.json'))['filename'])")
+          NAME=$(python -c "import json; m=json.load(open('docs/downloads/manifest.json')); print((m.get('reproduction_target') or {}).get('filename') or m['filename'])")
           python scripts/check_reproduction.py .cache/expected-main.tif "docs/downloads/$NAME" --output docs/downloads/reproduction-receipt.json
           ALT=$(python -c "import json; print(json.load(open('docs/evidence/h41a_raster_build_receipt.json'))['output']['path'])")
           python scripts/check_reproduction.py .cache/expected-h41a-raster.tif "$ALT" --output docs/evidence/h41a_raster_rebuild_comparison.json
