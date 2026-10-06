@@ -11,6 +11,7 @@ This file is freshly computed from raw fault geometry and the existing detrended
 - Tracking name: `GEMS41-H41I-LocalStrike-f265e3bf9494`
 - Note: `H41-I local-strike transfer; raw mapped NW endpoints to N/NNE receivers; det_elev tangent; >200m off catalogue. Research only; holdout gate closed; unscored.`
 - SHA-256: `a0dc6909715a4bd97b6aa9fe226cd8c54b7127af4e13a852ac052093527682fb`
+- **Reproduction:** local rebuild and branch CI were byte-identical; the post-merge runner differed by at most 5 float32 epsilons with exact support/grid/mask. [Measured cross-run receipt](docs/evidence/h41i/reproduction-postmerge.json). No claim of universal byte identity.
 - [Four hypotheses registered before implementation](research/hypotheses-20261006.md) · [all evidence / input and code hashes](docs/evidence/h41i/manifest.json) · [three-pass review and next steps](research/review-20261006.md).
 - **Corrections:** current GitHub metadata reports `fork=false, parent=null`; the inherited organizer-fork assertion is withdrawn. Not every prediction pixel costs exactly 0.2 in a distance-weighted metric. H33's reported 0.2778 remains unverified; pruning is a plausible mechanism, not proven free deletion or a guaranteed path to 0.3195+.
 
