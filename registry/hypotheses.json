@@ -37,7 +37,8 @@
    "how_it_differs_from_prior_work": "The family's H33-E was declared data-blocked after earthquake.usgs.gov returned HTTP 000 from a bash sandbox. THIS SESSION VERIFIED THE DATA IS OBTAINABLE through the browsing path (see evidence/seismicity_2020.json and registry/seismicity_2020.csv). No repository in the family has executed this.",
    "cost": "medium (fetch per time window + lineament fit + corridor taper)",
    "expected": "high, and qualitatively different from every catalogue-derived prior: it is an instrument reading, not a map",
-   "viability": "VERIFIED OBTAINABLE 2026-10-05. Endpoint https://earthquake.usgs.gov/fdsnws/event/1/query returned reviewed network solutions inside the footprint (20 events at M >= 4.6 in the 2020 window). No login, no key, public domain (USGS)."
+   "viability": "VERIFIED OBTAINABLE 2026-10-05. Endpoint https://earthquake.usgs.gov/fdsnws/event/1/query returned reviewed network solutions inside the footprint (20 events at M >= 4.6 in the 2020 window). No login, no key, public domain (USGS).",
+   "status": "IMPLEMENTED THIS SESSION, MEASURED, AND SHIPPED AS A VARIANT. The 16 reviewed USGS events were fetched (registry/seismicity_2020.csv), fitted to an envelope (azimuth 101.0 deg, minor-axis sigma 1,919.5 m), and turned into a 11,992 px corridor whose pixels ship as the `h41-rupture2020-union` artifact. The measured result is a NEGATIVE for the corridor-as-truth hypothesis and a POSITIVE for the catalogue-gap observation: 0 of 16 epicentres lie within 300 m of any mapped fault and 11 lie beyond 3 km, so the 2020 sequence ruptured ground the published catalogue does not express. It does not, by itself, identify which pixels to emit."
   },
   {
    "id": "H41-F",
@@ -81,5 +82,43 @@
   "A candidate that cannot be tested without new external data is labelled with the exact free official source and its obtainability status, checked before the candidate is called viable.",
   "Every instrument is accompanied by a statement of what it cannot test. The blocked-recovery holdout's truth is faults already in the catalogue, so it cannot reward a genuinely new fault; it ranks emission geometry and field variants, nothing more.",
   "No submission slot is spent on an idea that has not beaten the current holdout best on the instrument that is applicable to it."
+ ],
+ "remaining_work": [
+  {
+   "item": "Authenticated live score",
+   "state": "NOT DONE - cannot be done from here",
+   "why": "The sandbox has no competition account and its network egress cannot reach drivendata.org; every leaderboard figure in this repository is a dated snapshot. A human must upload the primary artifact and report the score back.",
+   "unblocks": "Replacing the [MODEL] projection with a measurement, and calibrating K_HIDDEN_PX."
+  },
+  {
+   "item": "Calibrate K_HIDDEN_PX",
+   "state": "MODEL, not measured",
+   "why": "The projection constant (13,000 px hidden true mass) is inferred from one owner-reported score and spans 12,691-15,200 depending on which artifact of the trio is used.",
+   "unblocks": "One authenticated score on any known-mass artifact."
+  },
+  {
+   "item": "Test the ranking on network-mapped fault inventories",
+   "state": "PROPOSED, not run",
+   "why": "The strand holdout uses the published catalogue only. An independent inventory (state geological surveys, USGS Quaternary fault compilations beyond the competition's catalogue) would test the ranking against faults this competition never showed anyone.",
+   "unblocks": "A criterion test that shares no data with the scorer."
+  },
+  {
+   "item": "H41-B and H41-C from the register",
+   "state": "PROPOSED, not run",
+   "why": "Both need official source archives that this sandbox cannot download (gravity, aeromag, 2 m temperature probes); the URLs are recorded so a human or a CI job can fetch them.",
+   "unblocks": "Two of the five ranked candidates, once the archives are in data/."
+  },
+  {
+   "item": "Widen the floor of the mass ladder",
+   "state": "MEASURED INCOMPLETELY",
+   "why": "The ladder explored 2,500-30,000 px and the in-house instrument begins to lose discrimination below ~2,500 px (very few emitted pixels means very few chances to hit a held-out strand), so the measured optimum cannot be resolved from the artifact that ships there.",
+   "unblocks": "A holdout with more held-out mass per fold, or a live score on the 5,000 px variant."
+  },
+  {
+   "item": "Compliance decision on IRR-01",
+   "state": "OPEN - needs a human",
+   "why": "This repository is a public fork of an organizers' repository.",
+   "unblocks": "Nothing technical; it gates whether this work should live here at all."
+  }
  ]
 }

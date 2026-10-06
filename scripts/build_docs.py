@@ -321,6 +321,18 @@ def main():
       'plain-language version, <a href="validation.html">validation</a> for the experiment, and '
       '<a href="submit.html">submit</a> for the file.</p>')
 
+    if hyp.get("remaining_work"):
+        A('<h2 id="remaining">Remaining work, and why each item is still open</h2>')
+        A('<p class="mut">Nothing in this list is hidden in a comment or a TODO: it is the honest '
+          'state of the project on the day this page was generated.</p>')
+        A('<table><thead><tr><th>item</th><th>state</th><th>why it is open</th>'
+          '<th>what would unblock it</th></tr></thead><tbody>')
+        for it in hyp["remaining_work"]:
+            A(f'<tr><td>{E(it.get("item", ""))}</td>'
+              f'<td><span class="badge b-warn">{E(it.get("state", ""))}</span></td>'
+              f'<td>{E(it.get("why", ""))}</td><td>{E(it.get("unblocks", ""))}</td></tr>')
+        A('</tbody></table>')
+
     if rel:
         A('<h2 id="related">Related work and prior art in this family</h2>')
         A(f'<p class="mut">{len(rel)} catalogued sibling sites/artifacts. This entry deliberately does '
