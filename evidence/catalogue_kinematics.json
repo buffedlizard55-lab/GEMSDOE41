@@ -1,0 +1,67 @@
+{
+ "catalogue": {
+  "px": 60988,
+  "traces": 911,
+  "min_trace_px": 20
+ },
+ "kinematics_join": {
+  "joined": 911,
+  "by_sense": {
+   "unknown": 745,
+   "N": 129,
+   "LL": 9,
+   "RL": 28
+  },
+  "max_join_px": 15.0
+ },
+ "populations": {
+  "RL": {
+   "traces": 28,
+   "px": 1472,
+   "length_weighted_mean_strike": 153.6,
+   "frac_length_NW_striking": 0.711,
+   "frac_length_NNE_to_N_striking": 0.226
+  },
+  "N": {
+   "traces": 129,
+   "px": 6205,
+   "length_weighted_mean_strike": 15.0,
+   "frac_length_NW_striking": 0.148,
+   "frac_length_NNE_to_N_striking": 0.71
+  },
+  "LL": {
+   "traces": 9,
+   "px": 394,
+   "length_weighted_mean_strike": 59.5,
+   "frac_length_NW_striking": 0.0,
+   "frac_length_NNE_to_N_striking": 0.287
+  },
+  "unknown": {
+   "traces": 745,
+   "px": 31239,
+   "length_weighted_mean_strike": 11.0,
+   "frac_length_NW_striking": 0.292,
+   "frac_length_NNE_to_N_striking": 0.544
+  }
+ },
+ "population_raster": {
+  "A": {
+   "traces": 265,
+   "px": 38329
+  },
+  "B": {
+   "traces": 532,
+   "px": 73945
+  },
+  "none": 114
+ },
+ "element_counts": {
+  "transfer": 527,
+  "extension": 530,
+  "relay": 3399
+ },
+ "reference_strikes": {
+  "walker_lane_NW_deg": 142.0,
+  "basin_range_NNE_deg": 8.6
+ }
+}

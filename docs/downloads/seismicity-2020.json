@@ -1,0 +1,73 @@
+{
+ "created_utc": "2026-10-05T23:49:30Z",
+ "source": {
+  "name": "USGS FDSN event service",
+  "url": "https://earthquake.usgs.gov/fdsnws/event/1/query",
+  "queries": [
+   "format=geojson&starttime=2020-05-01&endtime=2020-12-31&minlatitude=37.9&maxlatitude=38.6&minlongitude=-118.4&maxlongitude=-117.4&minmagnitude=4.6",
+   "format=geojson&starttime=2020-05-15&endtime=2020-05-16&minlatitude=38.0&maxlatitude=38.6&minlongitude=-118.6&maxlongitude=-117.9&minmagnitude=4.0"
+  ],
+  "obtained_utc": "2026-10-05",
+  "licence": "USGS public domain; no key, no login",
+  "data_blocked_claim_retested": "sibling H33-E declared earthquake.usgs.gov HTTP 000 from bash; the browsing path reaches it, so that was a sandbox limit, not an availability limit"
+ },
+ "events": {
+  "n": 16,
+  "n_inside_footprint": 16
+ },
+ "magnitudes": {
+  "min": 4.0,
+  "max": 5.3,
+  "mean": 4.75
+ },
+ "envelope": {
+  "azimuth_deg": 101.0,
+  "major_axis_half_length_km": 11.7,
+  "elongation": 5.29,
+  "centroid_utm": [
+   416603.3,
+   4224810.4
+  ]
+ },
+ "catalog_separation": {
+  "distance_to_nearest_mapped_fault_px": [
+   7.07,
+   9.49,
+   19.7,
+   21.95,
+   29.07,
+   32.76,
+   36.62,
+   39.12,
+   40.2,
+   43.01,
+   48.27,
+   51.62,
+   56.0,
+   60.44,
+   63.39,
+   83.19
+  ],
+  "min_px": 7.07,
+  "median_px": 39.66,
+  "max_px": 83.19,
+  "n_within_300m": 0,
+  "n_beyond_3km": 11,
+  "interpretation": "A rupture that is kilometres from every mapped fault is either unmapped or mapped on a different strand; either way it is a candidate the published catalogue does not express."
+ },
+ "corridor": {
+  "pixels": 11992,
+  "off_catalogue_pixels": 11965,
+  "half_width_px": 22.07,
+  "minor_axis_sigma_m": 1919.5,
+  "major_axis_fwhm_km": 23.4,
+  "axis_pixels": 250,
+  "note": "all in-footprint pixels within 1.15 x the minor-axis sigma of the fitted envelope axis (minimum 3 px = 300 m, the metric's kernel support); the published catalogue is excluded by construction"
+ },
+ "caveats": [
+  "Epicentres are not a rupture trace; the across-strike width is a modelling choice.",
+  "The 2020 sequence is ONE earthquake; its envelope predicts where that rupture is, not where other unmapped faults are.",
+  "Surface displacement of the 2020 event was mostly < 5 cm over zones up to 800 m wide, so it may be absent from the expert label set even though the fault is real. That is a reason for a SMALL mass, not for omitting the hypothesis."
+ ],
+ "elapsed_s": 1.7
+}

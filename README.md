@@ -6,8 +6,48 @@
 
 **Dated leaderboard observation (2026-10-05 UTC only):** the public page showed rank 1 at 0.3262, rank 4 at 0.3195, and rank 13 at 0.2778 for `extradr19`. Current standings are unknown; participant rows do not identify TIFFs. The H33 filename-to-0.2778 mapping remains user-reported, not artifact-authenticated. We do not monitor the leaderboard. See the [H33 score audit](research/h33-score-analysis.md).
 
+## Second line of work — kinematic ranking of the support (branch `arena/1ac0a279-gemsdoe41`)
+
+A separate, independently validated result lives beside the structural-transfer model above. It
+leaves the transfer-corridor hypothesis alone — **that hypothesis failed and is published as a
+failure** — and instead re-ranks the *incumbent* fault support by local structural kinematics
+(strike population of the adjacent strands and junction proximity) before emitting pixels.
+
+Measured on four strand-level folds, identical truth, identical allowed domain, identical minimum
+separation, credit-per-mass:
+
+| emitted mass | kinematic ranking | uniform control | ratio |
+|---|---|---|---|
+| 2,500 px | 0.0833 | 0.0549 | **1.52x** |
+| 5,000 px | 0.0788 | 0.0606 | **1.30x** |
+| 20,000 px | 0.0727 | 0.0581 | **1.25x** |
+| 30,000 px | 0.0671 | 0.0667 | 1.006x |
+
+The criterion wins at **6 of 6** guard/separation settings (mean 0.0773 vs 0.0636, a factor of
+1.22) — but it is **nearly inert at the ~37,000 px mass the public leaderboard's best files use**
+(94.1 % of its pixels coincide with an uninformative control there). That is why the primary
+artifact ships at 20,000 px: the mass band where the criterion is measurably active.
+
+Three independent tests say the transfer-corridor story does **not** explain the hidden set:
+corridor-only emission scores 0.0000 on the holdout; the 2020 USGS catalogue places 16 M>=4
+events 7.07-83.19 px from every mapped fault (0 within 300 m, 11 beyond 3 km); and against 27,092
+INGENIOUS well records the corridors are *depleted* for hot sites (0.34x, p=1.0) while the
+published catalogue is enriched 2.15x at p=0.016 — so the test has power and the corridor fails
+it.
+
+Artifacts and the full write-up: **[`docs/h41/`](docs/h41/index.html)** (overview, executive
+summary, submit, validation, hypotheses, sources, irregularities) with one-click GeoTIFFs in
+[`docs/downloads/`](docs/downloads/index.html). All six artifacts pass range, CRS, shape and
+geotransform checks on the files themselves. Sources and open compliance questions are in
+`registry/sources.json` and `registry/irregularities.json` (see **IRR-01**: this repository is a
+public fork of an organizers' repository and needs a human decision before merge).
+
+**Honest limit:** credit-per-mass is measured against the *published* catalogue's strands, not the
+hidden set, and projected scores are tagged `[MODEL]` because they depend on a constant inferred
+from one reported hidden-set size. Nothing here claims a leaderboard score.
+
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 

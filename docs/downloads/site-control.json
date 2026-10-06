@@ -1,0 +1,176 @@
+{
+ "created_utc": "2026-10-05T23:54:33Z",
+ "sites_total": 27092,
+ "sites_hot": 2824,
+ "population_summary": {
+  "A": {
+   "traces": 265,
+   "px": 38329
+  },
+  "B": {
+   "traces": 532,
+   "px": 73945
+  },
+  "none": 114
+ },
+ "element_counts": {
+  "transfer": 527,
+  "extension": 530,
+  "relay": 3399
+ },
+ "corridor_px": 198791,
+ "footprint_px": 5167373,
+ "tests": {
+  "hot_r3px": {
+   "n_sites": 2824,
+   "hot_only": true,
+   "radius_px": 3.0,
+   "observed_fraction": 0.02833,
+   "area_fraction": 0.12174,
+   "enrichment_vs_area": 0.233,
+   "null_mean": 0.07508,
+   "null_sd": 0.00442,
+   "enrichment_vs_null": 0.377,
+   "p_value_blocked_permutation": 1.0,
+   "n_blocks": 99,
+   "n_perm": 60
+  },
+  "hot_r7.5px": {
+   "n_sites": 2824,
+   "hot_only": true,
+   "radius_px": 7.5,
+   "observed_fraction": 0.08994,
+   "area_fraction": 0.18339,
+   "enrichment_vs_area": 0.49,
+   "null_mean": 0.13078,
+   "null_sd": 0.00606,
+   "enrichment_vs_null": 0.688,
+   "p_value_blocked_permutation": 1.0,
+   "n_blocks": 99,
+   "n_perm": 60
+  },
+  "hot_r15px": {
+   "n_sites": 2824,
+   "hot_only": true,
+   "radius_px": 15.0,
+   "observed_fraction": 0.26239,
+   "area_fraction": 0.25963,
+   "enrichment_vs_area": 1.011,
+   "null_mean": 0.21025,
+   "null_sd": 0.00691,
+   "enrichment_vs_null": 1.248,
+   "p_value_blocked_permutation": 0.01639344262295082,
+   "n_blocks": 99,
+   "n_perm": 60
+  },
+  "all_r3px": {
+   "n_sites": 27092,
+   "hot_only": false,
+   "radius_px": 3.0,
+   "observed_fraction": 0.09907,
+   "area_fraction": 0.12174,
+   "enrichment_vs_area": 0.814,
+   "null_mean": 0.10749,
+   "null_sd": 0.00164,
+   "enrichment_vs_null": 0.922,
+   "p_value_blocked_permutation": 1.0,
+   "n_blocks": 492,
+   "n_perm": 60
+  },
+  "all_r7.5px": {
+   "n_sites": 27092,
+   "hot_only": false,
+   "radius_px": 7.5,
+   "observed_fraction": 0.15876,
+   "area_fraction": 0.18339,
+   "enrichment_vs_area": 0.866,
+   "null_mean": 0.16355,
+   "null_sd": 0.00161,
+   "enrichment_vs_null": 0.971,
+   "p_value_blocked_permutation": 0.9836065573770492,
+   "n_blocks": 492,
+   "n_perm": 60
+  },
+  "all_r15px": {
+   "n_sites": 27092,
+   "hot_only": false,
+   "radius_px": 15.0,
+   "observed_fraction": 0.23963,
+   "area_fraction": 0.25963,
+   "enrichment_vs_area": 0.923,
+   "null_mean": 0.23373,
+   "null_sd": 0.00179,
+   "enrichment_vs_null": 1.025,
+   "p_value_blocked_permutation": 0.01639344262295082,
+   "n_blocks": 492,
+   "n_perm": 60
+  }
+ },
+ "per_element": {
+  "transfer": {
+   "n_sites": 2824,
+   "hot_only": true,
+   "radius_px": 7.5,
+   "observed_fraction": 0.02125,
+   "area_fraction": 0.06197,
+   "enrichment_vs_area": 0.343,
+   "null_mean": 0.04054,
+   "null_sd": 0.0035,
+   "enrichment_vs_null": 0.524,
+   "p_value_blocked_permutation": 1.0,
+   "n_blocks": 99,
+   "n_perm": 60
+  },
+  "extension": {
+   "n_sites": 2824,
+   "hot_only": true,
+   "radius_px": 7.5,
+   "observed_fraction": 0.07259,
+   "area_fraction": 0.10495,
+   "enrichment_vs_area": 0.692,
+   "null_mean": 0.08741,
+   "null_sd": 0.00529,
+   "enrichment_vs_null": 0.83,
+   "p_value_blocked_permutation": 1.0,
+   "n_blocks": 99,
+   "n_perm": 60
+  },
+  "relay": {
+   "n_sites": 2824,
+   "hot_only": true,
+   "radius_px": 7.5,
+   "observed_fraction": 0.03506,
+   "area_fraction": 0.11739,
+   "enrichment_vs_area": 0.299,
+   "null_mean": 0.07126,
+   "null_sd": 0.00428,
+   "enrichment_vs_null": 0.492,
+   "p_value_blocked_permutation": 1.0,
+   "n_blocks": 99,
+   "n_perm": 60
+  }
+ },
+ "vs_catalogue": {
+  "n_hot": 2824,
+  "frac_within_corridor": 0.0899,
+  "frac_within_catalogue": 0.4171,
+  "n_catalogue_detached": 878,
+  "corridor_capture_of_detached": 0.0308,
+  "frac_of_detached_within_corridor": 0.0308,
+  "note": "catalogue-detached = more than 3 km from every published fault, where an unmapped fault is the only available explanation"
+ },
+ "control_known_catalogue": {
+  "n_sites": 2824,
+  "hot_only": true,
+  "radius_px": 7.5,
+  "observed_fraction": 0.41714,
+  "area_fraction": 0.19383,
+  "enrichment_vs_area": 2.152,
+  "null_mean": 0.20375,
+  "null_sd": 0.00615,
+  "enrichment_vs_null": 2.047,
+  "p_value_blocked_permutation": 0.01639344262295082,
+  "n_blocks": 99,
+  "n_perm": 60
+ }
+}

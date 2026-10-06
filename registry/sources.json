@@ -1,0 +1,195 @@
+{
+ "verified_utc": "2026-10-05",
+ "method": "Every entry below was opened or fetched during this session. 'fetched' = the bytes/HTML were retrieved and read; 'search-verified' = the title, authors, venue, year and DOI were read from an indexing record (NASA ADS / publisher page) but the full text was not retrieved.",
+ "entries": [
+  {
+   "id": "official-problem",
+   "title": "DOE GEMS Prize Challenge — Problem description (page 967)",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/",
+   "class": "official",
+   "status": "fetched 2026-10-05",
+   "establishes": [
+    "DTI = TPw/(TPw + alpha*FPw + beta*FNw), alpha=0.2, beta=0.8, triangular kernel k(d)=max(1-d/R,0), R=300 m (3 px at 100 m).",
+    "Submission format: single-band float32 GeoTIFF, EPSG:32611, 100 m, same bounds, values in [0,1], null/NaN outside.",
+    "'we have consulted with fault experts who have manually identified faults that are not contained within the current public USGS database. These new faults will comprise the test dataset for the initial prize round.'",
+    "Two rounds: fixed private expert label set (top 5 = $50k), then an expanded label set after expert review of all submissions (top 5 = $250k)."
+   ]
+  },
+  {
+   "id": "official-data",
+   "title": "DOE GEMS Prize Challenge — Data tab",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/data/",
+   "class": "official",
+   "status": "verified login-walled (redirects to /accounts/login/)",
+   "establishes": [
+    "training_features.tif, labels.tif, sample_submission.tif and 1m_DEM_links.csv are served only behind a DrivenData login.",
+    "Our pipeline therefore depends on none of them; see the README 'Limitations' section."
+   ]
+  },
+  {
+   "id": "official-rules",
+   "title": "DOE GEMS Prize Challenge — Rules / submission guidance PDF",
+   "url": "https://docs.nlr.gov/docs/fy26osti/96647.pdf",
+   "class": "official",
+   "status": "linked from the competition; digest recorded by the sibling repository as 50d854b1e0239fe6b9648d9fa5c7537bc7b6e5bc10cf6b37a2ff9aa401c36938 (455,140 B)",
+   "establishes": [
+    "Competition rules, eligibility, and the requirement that external data be licensed for use and shareable with the sponsor."
+   ]
+  },
+  {
+   "id": "official-leaderboard",
+   "title": "DOE GEMS Prize Challenge — Public leaderboard",
+   "url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+   "class": "official",
+   "status": "URL verified reachable by the sibling session's own browsing path; the numbers quoted in this repository's ledger are owner-reported unless marked official",
+   "establishes": [
+    "The authoritative reading of any submission."
+   ]
+  },
+  {
+   "id": "forum-masking",
+   "title": "Scoring clarification: are known USGS/INGENIOUS faults masked when scoring? (forum thread 11516)",
+   "url": "https://community.drivendata.org/t/scoring-clarification-are-known-usgs-ingenious-faults-masked-when-scoring-and-are-they-in-the-final-round-label-set/11516",
+   "class": "official-organizer-statement",
+   "status": "fetched 2026-10-05",
+   "quote": "Pixels corresponding to known USGS/INGENIOUS faults are masked / excluded from evaluation, so they do not count towards penalty terms. Re-evaluation will also mask/exclude the existing USGS/INGENIOUS faults.",
+   "attributed_to": "chrisk-dd, DrivenData Staff, 2026-09-16",
+   "establishes": [
+    "Predictions on the published catalogue are inert in BOTH rounds.",
+    "A model trained to reproduce the catalogue is optimising a masked objective."
+   ]
+  },
+  {
+   "id": "forum-label-sources",
+   "title": "How were the new test faults identified? (forum thread 11527)",
+   "url": "https://community.drivendata.org/t/how-were-the-new-test-faults-identified-data-sources-and-fault-types/11527",
+   "class": "official-organizer-statement",
+   "status": "fetched 2026-10-05",
+   "quote": "We're not sharing details about the data sources, fault types, or coverage behind the test faults beyond what's in the problem description.",
+   "attributed_to": "chrisk-dd, DrivenData Staff, 2026-09-23",
+   "establishes": [
+    "No participant can know which sensor the hidden labels come from; hypotheses must rest on independent geology, and the Phase-2 pool is fed by expert review of participants' submissions."
+   ]
+  },
+  {
+   "id": "reference-solution",
+   "title": "GEMS Prize reference solution (U-Net, Monte Carlo cross-validation)",
+   "url": "https://github.com/drivendataorg/gems-prize-reference-solution",
+   "class": "official",
+   "status": "cloned and read 2026-10-05",
+   "establishes": [
+    "The organizers' own baseline: segmentation_models_pytorch U-Net (resnet18), Tversky loss with alpha=0.2 / beta=0.8, 128 px patches, 5 Monte Carlo splits, output written with the label raster's CRS/transform.",
+    "Confirms the intended label semantics: y[y < 1] = 0, i.e. a binary fault mask."
+   ]
+  },
+  {
+   "id": "faulds2005",
+   "title": "Faulds, J.E., Henry, C.D., Hinz, N.H. (2005) Kinematics of the northern Walker Lane: An incipient transform fault along the Pacific–North American plate boundary. Geology 33(6), 505–508.",
+   "url": "https://doi.org/10.1130/G21274.1",
+   "alt_url": "https://ui.adsabs.harvard.edu/abs/2005Geo....33..505F",
+   "class": "peer-reviewed",
+   "status": "search-verified (NASA ADS record + full-text excerpts read via indexing)",
+   "quote": "The northern Walker Lane consists of kinematically linked systems of NW-striking, left-stepping dextral faults, N-striking normal faults, and subordinate ENE-striking sinistral faults. […] The strike-slip faults end in arrays of ~N-striking normal faults, suggesting that dextral shear diffuses into extension in the Great Basin.",
+   "establishes": [
+    "The two-population structural framework this repository encodes, and its third (sinistral) family.",
+    "Left-stepping en-echelon geometry of the dextral belt -> the relay-ramp element.",
+    "Cumulative dextral slip 20–30 km since ca. 9–3 Ma; long-term slip rate ~2–10 mm/yr."
+   ]
+  },
+  {
+   "id": "siler-astor-pass",
+   "title": "Siler et al. — Structural controls of the Astor Pass blind geothermal system, Nevada (fault-intersection / displacement-transfer zone)",
+   "url": "https://www.osti.gov/servlets/purl/1110516",
+   "class": "conference-paper-OSTI",
+   "status": "search-verified (OSTI abstract read)",
+   "quote": "controlled by the intersection of northwest-striking dextral and north-northwest-striking normal faults. […] Along this boundary, strain is transferred from dextral shear in the Walker Lane to west-northwest directed extension in the Basin and Range.",
+   "establishes": [
+    "The strain-transfer mechanism at a dextral/normal fault intersection, in this same province.",
+    "IMPORTANT CORRECTION: the 'Emerson Pass' name in the project brief belongs to Anderson & Faulds (OSTI 1110518), not to Siler; Siler's study is Astor Pass. Both support the same mechanism."
+   ]
+  },
+  {
+   "id": "anderson-emerson-pass",
+   "title": "Structural controls of the Emerson Pass geothermal system, northwestern Nevada: characterization of a 'blind' system",
+   "url": "https://www.osti.gov/biblio/1110519",
+   "alt_url": "https://www.osti.gov/servlets/purl/1110518",
+   "class": "conference-paper-OSTI",
+   "status": "search-verified (OSTI abstract read)",
+   "quote": "The NW-striking right-lateral Pyramid Lake fault, a major structure of the northern Walker Lane, terminates at the southern end of Pyramid Lake and transfers strain to the NNE-striking down to the west Lake Range fault, resulting in high geothermal potential.",
+   "establishes": [
+    "A named, type-locality example of exactly the geometry the corridor element encodes — and it lies INSIDE this competition's footprint.",
+    "The 2 m temperature anomaly (max ~60 C), travertine mounds and chalcedonic veins record a blind system hosted at the fault intersection."
+   ]
+  },
+  {
+   "id": "faulds-2015-settings",
+   "title": "Faulds et al. — Structural settings of Great Basin geothermal systems (final report, DOE DE-EE0002748)",
+   "url": "https://gdr.openei.org/files/354/Final%20Report-DE-EE0002748.pdf",
+   "class": "government-report",
+   "status": "search-verified (report text read via indexing)",
+   "quote": "1) Step-overs or relay ramps in normal faults are the most favorable setting, hosting ~32% of the systems. 2) Intersections of normal faults and strike-slip or oblique-slip faults host 22%. 3) Normal fault terminations host 22%.",
+   "establishes": [
+    "Quantitative priors for WHICH structural positions to favour: step-overs/relay ramps, normal x strike-slip intersections, normal-fault terminations.",
+    "This is the ranking used to prioritise the structural element families in this repository."
+   ]
+  },
+  {
+   "id": "gabbs-valley",
+   "title": "Discovery of a blind geothermal system in southern / southeastern Gabbs Valley, western Nevada (GRC + OSTI)",
+   "url": "https://www.osti.gov/biblio/1724116",
+   "alt_url": "https://publications.mygeoenergynow.org/grc/1033921.pdf",
+   "class": "conference-paper-OSTI",
+   "status": "search-verified (abstract + report text read via indexing)",
+   "quote": "The termination of the Petrified Springs fault, a major dextral fault of the central Walker Lane, in an array of normal faults indicates that southeastern Gabbs Valley occupies a displacement transfer zone, which is a favorable structural setting for geothermal activity. […] a 7 km^2 shallow (2 m) temperature anomaly",
+   "establishes": [
+    "A second, independent, in-the-field example of a dextral termination feeding a displacement transfer zone that hosts a >130 C blind system.",
+    "Supplies the expected spatial scale of a transfer zone (7 km^2 => a few km across), which bounds the corridor width used here."
+   ]
+  },
+  {
+   "id": "usgs-3dep",
+   "title": "USGS 3D Elevation Program (3DEP) 1 m DEM — source of the LiDAR scarp stack",
+   "url": "https://www.usgs.gov/3d-elevation-program",
+   "class": "official-data",
+   "status": "producer record read from the derived product's pinned metadata (external/dem/lidar_scarp_features.json)",
+   "quote": "USGS 3DEP products are available without use restrictions; acknowledge 'Map services and data available from U.S. Geological Survey, National Geospatial Program.'",
+   "establishes": [
+    "The 12-band scarp stack is derived from 716 official 3DEP tiles (706 ok, 10 failed) at 2 m work resolution, aggregated to the 100 m grid.",
+    "Licence: no use restrictions."
+   ]
+  },
+  {
+   "id": "usgs-qfaults",
+   "title": "USGS Quaternary Fault and Fold Database (QFaults), 2020 release — slip_sense/length/centroid used for the kinematic join",
+   "url": "https://doi.org/10.5066/P9BCVRCK",
+   "alt_url": "https://earthquake.usgs.gov/static/lfs/nshm/qfaults/Qfaults_GIS.zip",
+   "class": "official-data",
+   "status": "pin read from the sibling repository's fetch record (zip sha256 447eadc5926256710d988c30e5996ba540604caa0154f9746c48bad637926893, 112,809 features)",
+   "establishes": [
+    "The authoritative source of the slip-sense attributes that classify the catalogue into populations.",
+    "CAVEAT recorded by that repository and repeated here: QFaults is an existing catalogue, so it is not an independent discovery signal."
+   ]
+  },
+  {
+   "id": "gdr-1391",
+   "title": "Geothermal Data Repository submission 1391 (GeoDAWN / INGENIOUS deliverables) — QFaults-in-footprint traces and the well/spring table",
+   "url": "https://gdr.openei.org/submissions/1391",
+   "class": "official-data",
+   "status": "landing page linked from the competition; the two derived tables used here were read from the sibling repository's pinned copies",
+   "establishes": [
+    "gdr_qfaults_traces.csv: 1,126 traces in the footprint with slip_sense, recency, length and centroid.",
+    "gdr_wellspring_in_footprint.csv: 27,092 geothermal spring/well records with temp_c and three geothermometer estimates — the independent physical instrument used in validation.html."
+   ]
+  },
+  {
+   "id": "geodawn",
+   "title": "GeoDAWN: Airborne magnetic and radiometric surveys, northwestern Great Basin, Nevada and California (USGS data release)",
+   "url": "https://www.sciencebase.gov/catalog/item/657e1d85d34e23d3533209f7",
+   "class": "official-data",
+   "status": "linked from the official problem description",
+   "establishes": [
+    "The survey footprint the competition covers, and the provenance of the magnetic/radiometric feature families."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,122 @@
+{
+ "created_utc": "2026-10-05T23:56:11Z",
+ "design": "identical folds, identical allowed domain (guard 3 px), identical 2.83 px separation; only the emitted mass changes; both rankers compared at every mass",
+ "budgets": [
+  2500,
+  5000,
+  8000,
+  12000,
+  20000,
+  30000
+ ],
+ "rows": [
+  {
+   "budget": 2500,
+   "uniform": {
+    "c": 0.05489691682404406,
+    "n_px": 2500.0,
+    "projected": 0.012591035968817443
+   },
+   "kinematic": {
+    "c": 0.08325731884037986,
+    "n_px": 2500.0,
+    "projected": 0.01909571533036235
+   },
+   "ratio_c": 1.517,
+   "ratio_projected": 1.517
+  },
+  {
+   "budget": 5000,
+   "uniform": {
+    "c": 0.06056674130151626,
+    "n_px": 5000.0,
+    "projected": 0.02656436021996327
+   },
+   "kinematic": {
+    "c": 0.07877705242694374,
+    "n_px": 5000.0,
+    "projected": 0.034551338783747255
+   },
+   "ratio_c": 1.301,
+   "ratio_projected": 1.301
+  },
+  {
+   "budget": 8000,
+   "uniform": {
+    "c": 0.0640588384848223,
+    "n_px": 8000.0,
+    "projected": 0.04270589232321487
+   },
+   "kinematic": {
+    "c": 0.0781691955805203,
+    "n_px": 8000.0,
+    "projected": 0.052112797053680195
+   },
+   "ratio_c": 1.22,
+   "ratio_projected": 1.22
+  },
+  {
+   "budget": 12000,
+   "uniform": {
+    "c": 0.05881791399114532,
+    "n_px": 12000.0,
+    "projected": 0.055141794366698735
+   },
+   "kinematic": {
+    "c": 0.075960698652855,
+    "n_px": 12000.0,
+    "projected": 0.07121315498705157
+   },
+   "ratio_c": 1.291,
+   "ratio_projected": 1.291
+  },
+  {
+   "budget": 20000,
+   "uniform": {
+    "c": 0.05806873061651059,
+    "n_px": 20000.0,
+    "projected": 0.0806510147451536
+   },
+   "kinematic": {
+    "c": 0.07272190019164068,
+    "n_px": 20000.0,
+    "projected": 0.1010026391550565
+   },
+   "ratio_c": 1.252,
+   "ratio_projected": 1.252
+  },
+  {
+   "budget": 30000,
+   "uniform": {
+    "c": 0.06671622651898522,
+    "n_px": 30000.0,
+    "projected": 0.1220418777786315
+   },
+   "kinematic": {
+    "c": 0.06713384470006971,
+    "n_px": 30000.0,
+    "projected": 0.12280581347573728
+   },
+   "ratio_c": 1.006,
+   "ratio_projected": 1.006
+  }
+ ],
+ "best_kinematic_by_projection": {
+  "budget": 30000,
+  "uniform": {
+   "c": 0.06671622651898522,
+   "n_px": 30000.0,
+   "projected": 0.1220418777786315
+  },
+  "kinematic": {
+   "c": 0.06713384470006971,
+   "n_px": 30000.0,
+   "projected": 0.12280581347573728
+  },
+  "ratio_c": 1.006,
+  "ratio_projected": 1.006
+ },
+ "K_hidden_px_model": 13000,
+ "interpretation": "credit-per-mass rises as emission thins for BOTH rankers, which is the metric's own arithmetic (removing below-bar mass helps).  The kinematic ranker's advantage over the uniform control shrinks as mass grows and nearly vanishes at dense emission, where the separation constraint keeps almost the whole support and the ranking has nothing to decide.  The projected optimum is therefore at a SPARSER mass than the owner's 37,654 px, and that is where this repository's contribution is expected to pay.",
+ "caveat": "PROJECTION IS A MODEL conditioned on an owner-reported hidden-set size. It is not a score."
+}
