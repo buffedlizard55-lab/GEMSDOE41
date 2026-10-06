@@ -95,6 +95,11 @@ def test_historical_score_is_never_mislabeled_current():
     site_js = (ROOT / "docs/site.js").read_text().lower()
     assert "fetch('source-feed.json'" in site_js
     assert "fetch('https://www.drivendata.org" not in site_js
+    assert "earthquake.usgs.gov/fdsnws/event/1/query" in site_js
+    home = (ROOT / "docs/index.html").read_text()
+    assert 'id="comcat-status"' in home
+    assert 'id="comcat-events"' in home
+    assert "not proof of a fault" in home.lower()
 
 
 def test_gate_and_note_are_honest():
@@ -119,6 +124,29 @@ def test_h41e_negative_result_is_reported_and_gate_stays_closed():
     assert result["strict_mean_improvement_over_h41a"] is False
     assert result["weekly_slot_eligible"] is False
     assert all(fold["models"]["H41-E"]["prediction_mass"] == 0 for fold in result["folds"])
+
+
+def test_supplemental_h41a_raster_variant_is_visible_and_gated():
+    receipt = json.loads((ROOT / "docs/evidence/h41a_raster_build_receipt.json").read_text())
+    home = (ROOT / "docs/index.html").read_text()
+    variant = (ROOT / "docs/h41a-raster-variant.html").read_text()
+    assert receipt["candidate_id"] == "H41-A-R"
+    assert receipt["slot_eligible"] is False
+    assert "H41-A-R" in home
+    assert receipt["output"]["path"].split("/", 2)[-1] in home
+    assert "null/unevaluable" in home
+    assert "H41-A-R" in variant and "do not submit" in variant.lower()
+    assert receipt["output"]["sha256"] in variant
+    assert receipt["submission_name"] in variant
+    assert (ROOT / receipt["output"]["path"]).is_file()
+
+
+def test_kinematic_ranking_page_is_linked_from_the_main_site():
+    home = (ROOT / "docs/index.html").read_text()
+    ranking = ROOT / "docs/h41/index.html"
+    assert ranking.is_file()
+    assert 'href="h41/index.html"' in home
+    assert "Kinematic ranking" in home
 
 
 def test_rendered_pages_disclose_restriction_and_historical_snapshot():

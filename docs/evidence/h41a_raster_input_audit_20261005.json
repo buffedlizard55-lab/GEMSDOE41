@@ -1,0 +1,95 @@
+{
+  "audit_utc": "2026-10-06T00:07:51.283992+00:00",
+  "source": {
+    "manifest_path": "data/raw/source_manifest.json",
+    "manifest_generator": "scripts/make_data_bridge.py",
+    "owner_mirror_hash_match": {
+      "example_submission.tif": true,
+      "existing_faults.tif": true,
+      "training_features.tif": true
+    },
+    "organizer_download_authenticated": false
+  },
+  "inputs": {
+    "example_submission.tif": {
+      "path": "data/raw/example_submission.tif",
+      "sha256": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc"
+    },
+    "existing_faults.tif": {
+      "path": "data/raw/existing_faults.tif",
+      "sha256": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093"
+    },
+    "training_features.tif": {
+      "path": "data/raw/training_features.tif",
+      "sha256": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5"
+    }
+  },
+  "template_grid": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "bounds": [
+      243350.0,
+      4135550.0,
+      572550.0,
+      4508550.0
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "nodata": "NaN"
+  },
+  "fault_grid": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "bounds": [
+      243350.0,
+      4135550.0,
+      572550.0,
+      4508550.0
+    ],
+    "dtype": "int8",
+    "count": 1,
+    "nodata": -1.0
+  },
+  "template_fault_grid_match": true,
+  "feature_grid_match": true,
+  "feature_band_count": 19,
+  "det_elev_band_indices": [
+    12
+  ],
+  "det_elev_slope_band_indices": [
+    19
+  ],
+  "pixelwise_check": {
+    "template_valid_pixels": 5167373,
+    "template_positive_pixels": 60988,
+    "fault_positive_pixels": 60988,
+    "positive_mask_disagreements": 0,
+    "fault_positive_outside_template_finite_mask": 0,
+    "template_positive_outside_faults": 0,
+    "template_positive_mask_equals_fault_positive_mask": true,
+    "irregularity": "The owner-mirror example_submission positive mask is identical to existing_faults despite the official problem page describing its sample as total fault absence. Treat its pixel values only as a footprint/grid template; never as predictions."
+  },
+  "audit_passed": true
+}

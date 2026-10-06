@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "candidate_id": "H41-A-R",
+  "hypothesis_id": "H41-A",
+  "implementation_variant": "100 m raster-derived geometry; distinct from the source-vector H41-A implementation",
+  "run_utc": "2026-10-06T00:14:36.825019+00:00",
+  "submission_name": "GEMSDOE41-H41A-RASTER-BIMODAL-TRANSFER",
+  "submission_note": "H41-A-R raster geometry; NW-tip to N/NNE corridor + det_elev orientation; 300 m catalogue exclusion; 30k mass; local proxy only, unscored",
+  "score_status": "UNSCORED_RESEARCH_CANDIDATE",
+  "slot_eligible": false,
+  "holdout": {
+    "candidate_id": "H41-A-R",
+    "protocol": "H41-A-PRE-1",
+    "proxy_only": true,
+    "proxy_truth": "known public catalogue faults hidden in four spatial quadrants",
+    "fold_order": [
+      "NW",
+      "NE",
+      "SW",
+      "SE"
+    ],
+    "collar_px": 33,
+    "collar_m": 3300,
+    "total_expected_probability_mass": 30000.0,
+    "per_fold_expected_probability_mass": 7500.0,
+    "support_factor": 3,
+    "alpha": 0.2,
+    "beta": 0.8,
+    "radius_m": 300,
+    "fold_results": [
+      {
+        "fold": "NW",
+        "truth_pixels": 27940,
+        "training_catalogue_pixels": 30692,
+        "evaluation_cells": 2355829,
+        "per_arm": {
+          "h41a_full": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "corridor_only": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "terrain_only": {
+            "eligible_pixels": 2355829,
+            "status": "scored",
+            "tp": 719.8835516102492,
+            "fp": 6245.346577426901,
+            "fn": 27220.116448389752,
+            "truth_pixels": 27940,
+            "dti": 0.03031721020155264,
+            "emission": {
+              "probability_mass": 7499.999998062849,
+              "nonzero_pixels": 22500,
+              "eligible_pixels": 2355829,
+              "requested_mass": 7500.0,
+              "requested_support_pixels": 22500,
+              "support_pixels": 22500,
+              "support_factor_met": true,
+              "support_shortfall_pixels": 0,
+              "min_nonzero_probability": 0.3290764093399048,
+              "max_probability": 0.3417494297027588
+            }
+          }
+        },
+        "candidate_stats": {
+          "catalogue_positive_pixels": 30692,
+          "skeleton_pixels": 29601,
+          "nw_family_skeleton_pixels": 6746,
+          "normal_family_skeleton_pixels": 6393,
+          "other_or_low_coherence_skeleton_pixels": 16462,
+          "nw_tip_candidates": 1065,
+          "paired_tips": 527,
+          "corridor_centerline_pixels": 6451,
+          "candidate_domain_pixels": 16992,
+          "emission_pixels_within_300m_of_catalogue": 0,
+          "candidate_pixels_closer_to_nw_family": 11017,
+          "candidate_pixels_closer_to_normal_family": 5975,
+          "terrain_gradient_reference": 10.656536102294922,
+          "max_normalized_score": 1.0
+        },
+        "status": "matched_candidate_unavailable",
+        "unmatched_arms": [
+          "h41a_full",
+          "corridor_only"
+        ]
+      },
+      {
+        "fold": "NE",
+        "truth_pixels": 11956,
+        "training_catalogue_pixels": 47303,
+        "evaluation_cells": 1300121,
+        "per_arm": {
+          "h41a_full": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "corridor_only": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "terrain_only": {
+            "eligible_pixels": 1300121,
+            "status": "scored",
+            "tp": 650.2339831144425,
+            "fp": 6170.354146614865,
+            "fn": 11305.766016885558,
+            "truth_pixels": 11956,
+            "dti": 0.05949664965633518,
+            "emission": {
+              "probability_mass": 7499.999999701977,
+              "nonzero_pixels": 22500,
+              "eligible_pixels": 1300121,
+              "requested_mass": 7500.0,
+              "requested_support_pixels": 22500,
+              "support_pixels": 22500,
+              "support_factor_met": true,
+              "support_shortfall_pixels": 0,
+              "min_nonzero_probability": 0.3277208209037781,
+              "max_probability": 0.3435139060020447
+            }
+          }
+        },
+        "candidate_stats": {
+          "catalogue_positive_pixels": 47303,
+          "skeleton_pixels": 45793,
+          "nw_family_skeleton_pixels": 9763,
+          "normal_family_skeleton_pixels": 10156,
+          "other_or_low_coherence_skeleton_pixels": 25874,
+          "nw_tip_candidates": 1740,
+          "paired_tips": 875,
+          "corridor_centerline_pixels": 10385,
+          "candidate_domain_pixels": 29603,
+          "emission_pixels_within_300m_of_catalogue": 0,
+          "candidate_pixels_closer_to_nw_family": 18771,
+          "candidate_pixels_closer_to_normal_family": 10832,
+          "terrain_gradient_reference": 10.656536102294922,
+          "max_normalized_score": 1.0
+        },
+        "status": "matched_candidate_unavailable",
+        "unmatched_arms": [
+          "h41a_full",
+          "corridor_only"
+        ]
+      },
+      {
+        "fold": "SW",
+        "truth_pixels": 8193,
+        "training_catalogue_pixels": 50334,
+        "evaluation_cells": 490107,
+        "per_arm": {
+          "h41a_full": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "corridor_only": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "terrain_only": {
+            "eligible_pixels": 490107,
+            "status": "scored",
+            "tp": 533.1716633272667,
+            "fp": 6515.639633549799,
+            "fn": 7659.828336672733,
+            "truth_pixels": 8193,
+            "dti": 0.06694635869566162,
+            "emission": {
+              "probability_mass": 7499.999998688698,
+              "nonzero_pixels": 22500,
+              "eligible_pixels": 490107,
+              "requested_mass": 7500.0,
+              "requested_support_pixels": 22500,
+              "support_pixels": 22500,
+              "support_factor_met": true,
+              "support_shortfall_pixels": 0,
+              "min_nonzero_probability": 0.3216342628002167,
+              "max_probability": 0.3534407615661621
+            }
+          }
+        },
+        "candidate_stats": {
+          "catalogue_positive_pixels": 50334,
+          "skeleton_pixels": 49002,
+          "nw_family_skeleton_pixels": 11971,
+          "normal_family_skeleton_pixels": 10407,
+          "other_or_low_coherence_skeleton_pixels": 26624,
+          "nw_tip_candidates": 2180,
+          "paired_tips": 1003,
+          "corridor_centerline_pixels": 12042,
+          "candidate_domain_pixels": 34295,
+          "emission_pixels_within_300m_of_catalogue": 0,
+          "candidate_pixels_closer_to_nw_family": 21670,
+          "candidate_pixels_closer_to_normal_family": 12625,
+          "terrain_gradient_reference": 10.656536102294922,
+          "max_normalized_score": 1.0
+        },
+        "status": "matched_candidate_unavailable",
+        "unmatched_arms": [
+          "h41a_full",
+          "corridor_only"
+        ]
+      },
+      {
+        "fold": "SE",
+        "truth_pixels": 8709,
+        "training_catalogue_pixels": 50499,
+        "evaluation_cells": 729888,
+        "per_arm": {
+          "h41a_full": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "corridor_only": {
+            "eligible_pixels": 0,
+            "status": "insufficient_support_for_matched_mass",
+            "dti": null
+          },
+          "terrain_only": {
+            "eligible_pixels": 729888,
+            "status": "scored",
+            "tp": 488.5774876406787,
+            "fp": 6545.375150339808,
+            "fn": 8220.422512359322,
+            "truth_pixels": 8709,
+            "dti": 0.05834464297875794,
+            "emission": {
+              "probability_mass": 7499.999999821186,
+              "nonzero_pixels": 22500,
+              "eligible_pixels": 729888,
+              "requested_mass": 7500.0,
+              "requested_support_pixels": 22500,
+              "support_pixels": 22500,
+              "support_factor_met": true,
+              "support_shortfall_pixels": 0,
+              "min_nonzero_probability": 0.3237192928791046,
+              "max_probability": 0.35054704546928406
+            }
+          }
+        },
+        "candidate_stats": {
+          "catalogue_positive_pixels": 50499,
+          "skeleton_pixels": 49273,
+          "nw_family_skeleton_pixels": 12215,
+          "normal_family_skeleton_pixels": 9771,
+          "other_or_low_coherence_skeleton_pixels": 27287,
+          "nw_tip_candidates": 2257,
+          "paired_tips": 1030,
+          "corridor_centerline_pixels": 12466,
+          "candidate_domain_pixels": 35122,
+          "emission_pixels_within_300m_of_catalogue": 0,
+          "candidate_pixels_closer_to_nw_family": 22279,
+          "candidate_pixels_closer_to_normal_family": 12843,
+          "terrain_gradient_reference": 10.656536102294922,
+          "max_normalized_score": 1.0
+        },
+        "status": "matched_candidate_unavailable",
+        "unmatched_arms": [
+          "h41a_full",
+          "corridor_only"
+        ]
+      }
+    ],
+    "pooled_counts": {
+      "h41a_full": {
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "truth_pixels": 0.0
+      },
+      "corridor_only": {
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 0.0,
+        "truth_pixels": 0.0
+      },
+      "terrain_only": {
+        "tp": 2391.866685692637,
+        "fp": 25476.715507931374,
+        "fn": 54406.133314307364,
+        "truth_pixels": 56798.0
+      }
+    },
+    "pooled_dti": {
+      "h41a_full": null,
+      "corridor_only": null,
+      "terrain_only": 0.04688820720789446
+    },
+    "pooled_best_control": 0.04688820720789446,
+    "paired_fold_comparisons": [],
+    "candidate_wins": 0,
+    "primary_promotion_gate_passed": false,
+    "sensitivity_gate": {
+      "required": "gain survives collar and orientation-window sensitivity checks",
+      "performed": false,
+      "passed": false,
+      "status": "not_run_primary_candidate_unavailable",
+      "note": "No sensitivity result is inferred. Freeze numeric sensitivity variants in a new dated preregistration before any future scoring."
+    },
+    "promotion_gate_passed": false,
+    "failure_reason": "H41-A-R had insufficient/nonexistent support in leak-resistant spatial fold(s): NW, NE, SW, SE. No registered H41-A-R pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there.",
+    "promotion_gate": "primary: full candidate beats both matched controls on >=3/4 folds and pooled DTI; slot eligibility additionally requires the preregistered collar/orientation sensitivity gate",
+    "limitations": [
+      "The hidden competition labels are not available; this proxy rewards recovery of withheld known faults, not discovery of genuinely new faults.",
+      "A missing candidate field in a block is an inability to generalize, not a DTI of zero; that fold is marked unevaluable rather than assigned a fabricated score.",
+      "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A-R support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
+      "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A-R deliberately excludes that zone and may miss such corrections.",
+      "The supplied raster is not the original vector catalogue, so strike estimates are 100 m raster approximations and slip sense is not observed."
+    ]
+  },
+  "config": {
+    "fault_smooth_sigma_px": 1.0,
+    "fault_tensor_sigma_px": 2.5,
+    "min_fault_coherence": 0.25,
+    "nw_strike_min_deg": 120.0,
+    "nw_strike_max_deg": 150.0,
+    "normal_strike_min_deg": 0.0,
+    "normal_strike_max_deg": 30.0,
+    "endpoint_to_nw_max_px": 4.0,
+    "max_tip_to_normal_px": 30.0,
+    "corridor_sigma_px": 3.0,
+    "corridor_support_max_px": 5.0,
+    "family_max_distance_px": 20.0,
+    "family_distance_balance_px": 12.0,
+    "known_fault_exclusion_px": 3.0,
+    "terrain_smoothing_sigma_px": 1.2,
+    "terrain_tensor_sigma_px": 2.0,
+    "orientation_tolerance_deg": 20.0,
+    "terrain_gradient_quantile": 0.7
+  },
+  "grid": {
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "footprint_pixels": 5167373,
+    "template_nodata": "NaN",
+    "known_fault_positive_pixels": 60988,
+    "fault_raster_nodata": -1.0,
+    "feature_band_count": 19,
+    "det_elev_band_index": 12,
+    "det_elev_description": "det_elev - Detrended elevation - topography with regional trends removed",
+    "det_elev_nodata": -3.4028234663852886e+38,
+    "valid_det_elev_pixels": 5148042,
+    "terrain_gradient_reference": 10.656536102294922
+  },
+  "input_sha256": {
+    "template": "2176d08e485aa2cd2860ce8df539db4faf4d76163b38a4dd8c30a40454d35cbc",
+    "known_faults": "7ba308ccdc4418b31a178f4f1ef21aaa6e152e4028f2f6f64b01f7eb25ae4093",
+    "training_features": "4371c82e3b8339b807bdffcf4ef59a225520fe2988d521be208ae33743123bc5"
+  },
+  "output": {
+    "path": "docs/downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif",
+    "crs": "EPSG:32611",
+    "shape": [
+      3730,
+      3292
+    ],
+    "dtype": "float32",
+    "count": 1,
+    "transform": [
+      100.0,
+      0.0,
+      243350.0,
+      0.0,
+      -100.0,
+      4508550.0
+    ],
+    "bounds": [
+      243350.0,
+      4135550.0,
+      572550.0,
+      4508550.0
+    ],
+    "nodata": "NaN",
+    "all_finite": false,
+    "inside_footprint_finite": true,
+    "outside_footprint_all_nan": true,
+    "valid_footprint_pixels": 5167373,
+    "outside_footprint_pixels": 7111787,
+    "min": 0.0,
+    "max": 1.0,
+    "positive_pixels": 39793,
+    "probability_mass": 29999.999999409254,
+    "outside_footprint_encoding": "NaN_with_NaN_nodata_tag",
+    "sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f"
+  },
+  "candidate_distribution": {
+    "within_100m_NW_family": 0,
+    "within_200m_NW_family": 0,
+    "within_300m_NW_family": 0,
+    "within_100m_normal_family": 0,
+    "within_200m_normal_family": 0,
+    "within_300m_normal_family": 0,
+    "probability_mass": 29999.999999409254,
+    "nonzero_pixels": 39793,
+    "emission": {
+      "probability_mass": 29999.999999409254,
+      "nonzero_pixels": 39793,
+      "eligible_pixels": 39793,
+      "requested_mass": 30000.0,
+      "requested_support_pixels": 90000,
+      "support_pixels": 39793,
+      "support_factor_met": false,
+      "support_shortfall_pixels": 50207,
+      "min_nonzero_probability": 4.768122835230315e-06,
+      "max_probability": 1.0
+    },
+    "within_100m_known_fault": 0,
+    "within_200m_known_fault": 0,
+    "within_300m_known_fault": 0,
+    "outside_300m_all_known_traces": 39793,
+    "within_500m_of_pair_centerline": 39793,
+    "both_families_within_2km": 39793,
+    "closer_to_NW_family_pixels": 25227,
+    "closer_to_normal_family_pixels": 14566,
+    "nearest_catalogue_distance": {
+      "min_m": 316.227783203125,
+      "median_m": 500.0,
+      "p90_m": 948.6832885742188
+    },
+    "nearest_NW_family_distance": {
+      "min_m": 316.227783203125,
+      "median_m": 721.1102294921875,
+      "p90_m": 1403.56689453125
+    },
+    "nearest_normal_family_distance": {
+      "min_m": 316.227783203125,
+      "median_m": 1000.0,
+      "p90_m": 1581.1387939453125
+    },
+    "probability_weighted_mean_catalogue_distance_m": 575.4545543101384,
+    "probability_weighted_mean_NW_distance_m": 813.3832302619011,
+    "probability_weighted_mean_normal_distance_m": 986.0104969090927,
+    "catalogue_train_pixels": 60988,
+    "known_catalogue_pixels": 60988,
+    "valid_footprint_pixels": 5167373,
+    "maximum_probability": 1.0
+  },
+  "uniqueness_checks": [
+    {
+      "path": "data/prior_reference/h27-4-solo-d2-8-base.tif",
+      "sha256": "4dc4cc54b061cb4567a5500c8fa2bfe750a39340b02c8cdbb4308916f36cbcc3",
+      "comparable": true,
+      "candidate_nonzero": 39793,
+      "prior_nonzero": 44090,
+      "intersection": 423,
+      "jaccard": 0.005068296189791517,
+      "candidate_contained_in_prior": 0.010630010303319679
+    },
+    {
+      "path": "data/comparison-h33.tif",
+      "sha256": "c55bafc470054e8271dcb89347a17e07fefe50de6af6e6ba6c4b169ef7ab6fa9",
+      "comparable": true,
+      "candidate_nonzero": 39793,
+      "prior_nonzero": 37654,
+      "intersection": 423,
+      "jaccard": 0.005491794765267968,
+      "candidate_contained_in_prior": 0.010630010303319679
+    }
+  ],
+  "limitations": [
+    "No organizer score or hidden test labels are available to this build.",
+    "Spatial holdout scores known-catalogue line recovery and is not a valid estimate of performance on unseen expert labels.",
+    "The NW dextral and N/NNE normal interpretations are regional priors; the input raster does not carry trace-level slip-sense attributes.",
+    "Raster skeleton strike is estimated at 100 m resolution, not from original fault-vector geometry.",
+    "Terrain orientation is a detrended-elevation gradient-coherence proxy, not an independently field-mapped fault lineament.",
+    "A 300 m exclusion intentionally avoids catalogue-density echoes but may miss valid new-fault corrections within that distance, which competition staff say can exist.",
+    "NaN is preserved outside the local template footprint, following the competition page and sample nodata convention; the organizer's exact validator behavior cannot be tested without an authenticated submission account.",
+    "Hashes authenticate the local files against the public owner-maintained bridge manifest, not against DrivenData's login-gated source files."
+  ]
+}

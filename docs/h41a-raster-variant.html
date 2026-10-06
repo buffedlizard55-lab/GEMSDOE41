@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="H41-A-R: a separately labeled raster-derived Walker Lane structural-transfer experiment with reproducible evidence and a closed submission gate.">
+  <title>H41-A-R raster variant · GEMSDOE41</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">GEMS<span> / </span>41</a>
+    <nav aria-label="Main">
+      <a href="index.html">Main project</a>
+      <a href="executive-summary.html">Main submission guide</a>
+      <a href="research.html">Research &amp; tests</a>
+      <a href="sources.html">Evidence</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <span class="eyebrow">Supplemental implementation · raster-derived geometry</span>
+      <h1>H41-A-R: a distinct raster test of fault-transfer geometry.</h1>
+      <p class="lead">This is the additional, raster-based implementation preserved from <a href="https://github.com/buffedlizard55-lab/GEMSDOE41/pull/8">PR #8</a>. The main site’s H41-A uses the official-source vector geometry; H41-A-R instead estimates strike families and endpoints from the 100 m competition fault raster. It is not a replacement for the main candidate.</p>
+      <span class="pill warn">Research artifact · holdout gate failed · do not submit</span>
+      <div class="actions">
+        <a class="button primary" href="downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif" download>↓ Download H41-A-R GeoTIFF</a>
+        <a href="h41a-raster-submission-guide.html">Read the variant-specific guide →</a>
+      </div>
+      <p class="fine">Unique name: <code>GEMSDOE41-H41A-RASTER-BIMODAL-TRANSFER</code>. The file is unscored and not eligible for a competition slot.</p>
+    </div>
+    <div class="card">
+      <span class="pill warn">HOLDOUT · NOT EVALUABLE</span>
+      <h2>Zero candidate support in all four test interiors</h2>
+      <p>H41-A-R did not produce enough eligible cells for a matched-mass score in NW, NE, SW, or SE. Its DTI is <strong>null / unevaluable</strong>, not zero. The terrain-only pooled proxy DTI of 0.046888 is a control result, not the candidate score.</p>
+      <p class="fine">No slot was used or recommended; the exact organizer score and hidden labels are unavailable.</p>
+    </div>
+  </section>
+
+  <section class="section notice">
+    <strong>Identifier history:</strong> before integration, this raster implementation and its dated four-quadrant protocol were called H41-A / <code>H41-A-PRE-1</code> on the PR branch. The independently developed source-vector candidate on main already uses H41-A. This page uses H41-A-R to distinguish the raster implementation; the original protocol ID and thresholds are preserved in its evidence.
+  </section>
+
+  <section class="section split">
+    <div>
+      <span class="eyebrow">What it predicts</span>
+      <h2>Between two structural populations—not on catalogue density.</h2>
+      <p>The model skeletonizes the existing-fault raster, estimates local axial strike and coherence, classifies confident NW and N-to-NNE traces, and pairs eligible NW tips with the nearest normal-family trace within 3 km. A 500 m corridor neighborhood is scored only where the independently derived orientation proxy from detrended elevation (<code>det_elev</code>) agrees with the closer mapped family. Cells within 300 m of any mapped trace are excluded.</p>
+      <p>No new magnetic, gravity, thermal, conductivity, or radiometric transform is used. The regional fault-family labels are structural interpretations; the raster does not measure per-trace slip sense.</p>
+    </div>
+    <div class="card">
+      <span class="eyebrow">Measured artifact</span>
+      <h2>New file, fully audited</h2>
+      <p><strong>File</strong><br><code>gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif</code></p>
+      <p><strong>SHA-256</strong><br><code id="sha">5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f</code></p>
+      <p>39,793 nonzero cells · 30,000 expected probability mass · maximum value 1.0. The support-mask Jaccard is 0.00507 versus the retrieved H27-4 raster and 0.00549 versus H33-2-B2 (423 overlapping cells each). These are two measured comparisons, not proof of global uniqueness.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <span class="eyebrow">Format and validation</span>
+    <h2>Valid file does not mean validated discovery.</h2>
+    <div class="three">
+      <article class="card"><h3>GeoTIFF checks passed</h3><p>One float32 band; EPSG:32611; 3,730 × 3,292; 100 m; exact template transform and bounds; finite in-footprint values in [0,1]; NaN outside the footprint with a NaN nodata tag. An independent re-read passed.</p></article>
+      <article class="card"><h3>Spatial holdout failed</h3><p>Four quadrant folds, 3.3 km collar, 7,500 target mass per fold. H41-A-R and corridor-only had zero eligible support in each test interior. The terrain-only control DTI values were 0.030317, 0.059497, 0.066946, and 0.058345; pooled 0.046888. No candidate comparison is valid.</p></article>
+      <article class="card"><h3>Protocol limitation retained</h3><p>The 33-pixel collar exceeds the 30-pixel tip-pair radius but is 2 pixels shorter than the 35-pixel maximum centerline-plus-support reach. No H41-A-R support entered a scored fold, but the margin remains a limitation for any future nonzero result.</p></article>
+    </div>
+    <p class="fine">The known-fault spatial holdout is only a proxy for hidden-label discovery. The owner-maintained input mirror matches its pinned hashes but is not authenticated against DrivenData’s login-gated download. No portal upload or organizer score was obtained.</p>
+    <p>
+      Evidence: <a href="evidence/h41a_raster_holdout_20261005.json">holdout report</a> ·
+      <a href="evidence/h41a_raster_build_receipt.json">build and uniqueness receipt</a> ·
+      <a href="evidence/h41a_raster_format_audit.json">independent format audit</a> ·
+      <a href="evidence/h41a_raster_input_audit_20261005.json">input/pixelwise audit</a> ·
+      <a href="evidence/h41a_raster_uniqueness.md">prior-raster overlap audit</a> ·
+      <a href="evidence/h41a_raster_review_log.md">three-pass review log</a> ·
+      <a href="hypotheses-raster-variant.md">ranked hypotheses and preregistration</a>.
+    </p>
+  </section>
+
+  <section class="section split">
+    <div>
+      <h2>Use only as a research artifact</h2>
+      <p>The official competition page specifies a single-band float32 GeoTIFF on the supplied CRS, shape, and geotransform. Local format compliance is not a portal validation. The 300 m exclusion may also remove legitimate corrections because official staff have said valid truth can be close to existing traces.</p>
+      <p>Do not spend one of the weekly submission slots on H41-A-R: its registered support gate failed, its candidate DTI is unavailable, and there is no evidence that it beats the current spatially blocked best.</p>
+    </div>
+    <div class="card">
+      <h3>Sources for manual review</h3>
+      <p><a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">Official problem, score, and format</a><br>
+      <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/data/">Competition data page (login required)</a><br>
+      <a href="https://doi.org/10.1130/G21274.1">Faulds, Henry &amp; Hinz (2005), Walker Lane</a><br>
+      <a href="https://www.osti.gov/biblio/1110518">Anderson &amp; Faulds, Emerson Pass</a><br>
+      <a href="https://www.osti.gov/biblio/1110516">Siler, Mayhew &amp; Faulds, Astor Pass</a><br>
+      <a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS ComCat live feed</a></p>
+    </div>
+  </section>
+</main>
+<footer class="footer">
+  <span>Maximize P(Win). Own the Outcome.<br>Research artifact only; no score promise.</span>
+  <span><a href="index.html">Return to main site</a> · <a href="h41a-raster-submission-guide.html">Variant guide</a></span>
+</footer>
+</body>
+</html>

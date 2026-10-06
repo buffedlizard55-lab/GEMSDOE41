@@ -64,3 +64,67 @@ if (feed) {
       feed.append(link);
     });
 }
+
+// Live, public USGS ComCat events are useful regional context, but are not a
+// fault inventory, geothermal confirmation, validation labels, or competition score.
+const comcatStatus = document.getElementById('comcat-status');
+const comcatList = document.getElementById('comcat-events');
+const comcatQuery = document.getElementById('comcat-query');
+if (comcatStatus && comcatList && comcatQuery) {
+  const start = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  const end = new Date().toISOString().slice(0, 10);
+  const params = new URLSearchParams({
+    format: 'geojson',
+    starttime: start,
+    endtime: end,
+    minlatitude: '37.33119',
+    maxlatitude: '40.72788',
+    minlongitude: '-120.03717',
+    maxlongitude: '-116.14092',
+    minmagnitude: '1.0',
+    orderby: 'time',
+    limit: '20'
+  });
+  const url = `https://earthquake.usgs.gov/fdsnws/event/1/query?${params.toString()}`;
+  comcatQuery.href = url;
+  fetch(url, {headers: {Accept: 'application/geo+json'}, cache: 'no-store'})
+    .then(response => {
+      if (!response.ok) throw new Error(`USGS returned HTTP ${response.status}`);
+      return response.json();
+    })
+    .then(payload => {
+      const events = Array.isArray(payload.features) ? payload.features : [];
+      comcatList.replaceChildren();
+      if (events.length === 0) {
+        const item = document.createElement('li');
+        item.textContent = 'No magnitude ≥1 events were returned in this window.';
+        comcatList.append(item);
+      }
+      for (const event of events) {
+        const properties = event.properties || {};
+        const item = document.createElement('li');
+        const time = Number.isFinite(properties.time)
+          ? new Date(properties.time).toLocaleString()
+          : 'time unavailable';
+        const magnitude = Number.isFinite(properties.mag)
+          ? `M ${properties.mag.toFixed(1)}`
+          : 'M —';
+        item.append(document.createTextNode(`${magnitude} · ${properties.place || 'Unlocated event'} · ${time} `));
+        if (properties.url) {
+          const link = document.createElement('a');
+          link.href = properties.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = 'USGS ↗';
+          item.append(link);
+        }
+        comcatList.append(item);
+      }
+      comcatStatus.textContent = `Updated from USGS ComCat ${new Date().toLocaleString()} · ${events.length} event(s)`;
+    })
+    .catch(error => {
+      comcatStatus.textContent = 'Live USGS feed unavailable in this browser; use the linked official query.';
+      comcatList.replaceChildren();
+      console.warn('USGS ComCat feed error:', error);
+    });
+}

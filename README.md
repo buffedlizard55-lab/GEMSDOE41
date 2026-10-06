@@ -51,7 +51,7 @@ compliance question — are listed with what would unblock each one in
 [`docs/h41/index.html#remaining`](docs/h41/index.html).
 
 ## Start every session here
-Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
+Read the original brief below, `research/hypotheses.md`, `research/hypotheses-next.md`, `research/h33-score-analysis.md`, `docs/research.html`, `docs/h41/index.html`, and `research/review-passes.md` before changing the model. For the supplemental raster implementation, also read `docs/hypotheses-raster-variant.md`, `docs/PROJECT_BRIEF.md`, and `docs/evidence/h41a_raster_review_log.md`. Preserve honest failed experiments. **Maximize P(Win):** do not spend slots on unvalidated hypotheses. **Own the Outcome:** deliver working artifacts and report problems rather than hiding them.
 
 ## Reproduce (CPU, no GPU needed)
 
@@ -557,3 +557,34 @@ Do not stop after the first pass. Each pass must build on the previous one. Befo
 Go ahead and create a pull request and then merge the pull request onto the main. Make suggestions for what work still needs to be done and any limitations that is in the way of a successful project. It should be worked on in this next session or the next session. Work line by line verify everything no hallucinations.
 
 </details>
+
+## Supplemental raster implementation from PR #8 — H41-A-R
+
+The main project candidate above is the official-source **vector-based H41-A**. This repository also preserves a separate raster-derived implementation contributed by [PR #8](https://github.com/buffedlizard55-lab/GEMSDOE41/pull/8). It was originally named H41-A on its branch; because main independently preregistered a vector implementation with that ID, this distinct version is labeled **H41-A-R** here. The historical branch-local holdout protocol remains `H41-A-PRE-1`; the new label is an integration disambiguation, not a changed test or a rerun.
+
+- **Research-only download:** [`gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif`](docs/downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif)
+- **Unique tracking name:** `GEMSDOE41-H41A-RASTER-BIMODAL-TRANSFER`
+- **Short note:** `H41-A-R raster geometry; NW-tip to N/NNE corridor + det_elev orientation; 300 m catalogue exclusion; 30k mass; local proxy only, unscored`
+- **Final GeoTIFF SHA-256:** `5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f`
+- **Measured holdout:** zero eligible H41-A-R support in all four 3.3 km-collared quadrants. Candidate DTI is **null/unevaluable**, not zero. Terrain-only control DTI was 0.030317, 0.059497, 0.066946, and 0.058345 by fold (0.046888 pooled); those are not candidate scores. `slot_eligible=false`; do not submit this variant.
+- **Measured file:** one float32 band, EPSG:32611, 3,730×3,292, 100 m, exact owner-mirror template grid, finite `[0,1]` inside the footprint and NaN outside. Independent format validation passed locally; organizer/portal validation was not performed.
+
+The new TIFF tag/name changes the file hash relative to the pre-merge branch artifact, but not its raster values: the cross-version audit compared all 5,167,373 valid cells exactly (zero changed cells; outside NaNs also identical). See [`docs/evidence/h41a_raster_rebuild_comparison.json`](docs/evidence/h41a_raster_rebuild_comparison.json), the [variant page](docs/h41a-raster-variant.html), the [variant-specific guide](docs/h41a-raster-submission-guide.html), the [preregistration and results](docs/hypotheses-raster-variant.md), and the [three-pass review log](docs/evidence/h41a_raster_review_log.md).
+
+To rebuild this variant after restoring the project’s hash-pinned public owner-mirror inputs (not organizer-authenticated originals):
+
+```bash
+bash scripts/download_competition_data.sh
+.venv/bin/python scripts/prepare_data.py
+.venv/bin/python scripts/build_h41a_raster_submission.py \
+  --data-dir data \
+  --template data/sample_submission.tif \
+  --faults data/existing_faults.tif \
+  --features data/training_features.tif \
+  --compare-raster data/comparison-h33.tif
+.venv/bin/python scripts/validate_h41a_raster_submission.py \
+  --template data/sample_submission.tif \
+  --compare-raster data/comparison-h33.tif
+```
+
+The independent comparisons to both H27-4 and H33-2-B2 are preserved in the checked-in receipt; the former comparison raster is an optional, ignored local reference under `data/prior_reference/`. The rebuild workflow checks both the main source-vector model and this raster-derived variant. Neither candidate is a leaderboard-proven improvement, and no slot should be spent unless the relevant locked spatial holdout gate is passed.

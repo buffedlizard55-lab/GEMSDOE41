@@ -1,0 +1,308 @@
+{
+  "candidate_id": "H41-A-R",
+  "protocol": "H41-A-PRE-1",
+  "proxy_only": true,
+  "proxy_truth": "known public catalogue faults hidden in four spatial quadrants",
+  "fold_order": [
+    "NW",
+    "NE",
+    "SW",
+    "SE"
+  ],
+  "collar_px": 33,
+  "collar_m": 3300,
+  "total_expected_probability_mass": 30000.0,
+  "per_fold_expected_probability_mass": 7500.0,
+  "support_factor": 3,
+  "alpha": 0.2,
+  "beta": 0.8,
+  "radius_m": 300,
+  "fold_results": [
+    {
+      "fold": "NW",
+      "truth_pixels": 27940,
+      "training_catalogue_pixels": 30692,
+      "evaluation_cells": 2355829,
+      "per_arm": {
+        "h41a_full": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "corridor_only": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "terrain_only": {
+          "eligible_pixels": 2355829,
+          "status": "scored",
+          "tp": 719.8835516102492,
+          "fp": 6245.346577426901,
+          "fn": 27220.116448389752,
+          "truth_pixels": 27940,
+          "dti": 0.03031721020155264,
+          "emission": {
+            "probability_mass": 7499.999998062849,
+            "nonzero_pixels": 22500,
+            "eligible_pixels": 2355829,
+            "requested_mass": 7500.0,
+            "requested_support_pixels": 22500,
+            "support_pixels": 22500,
+            "support_factor_met": true,
+            "support_shortfall_pixels": 0,
+            "min_nonzero_probability": 0.3290764093399048,
+            "max_probability": 0.3417494297027588
+          }
+        }
+      },
+      "candidate_stats": {
+        "catalogue_positive_pixels": 30692,
+        "skeleton_pixels": 29601,
+        "nw_family_skeleton_pixels": 6746,
+        "normal_family_skeleton_pixels": 6393,
+        "other_or_low_coherence_skeleton_pixels": 16462,
+        "nw_tip_candidates": 1065,
+        "paired_tips": 527,
+        "corridor_centerline_pixels": 6451,
+        "candidate_domain_pixels": 16992,
+        "emission_pixels_within_300m_of_catalogue": 0,
+        "candidate_pixels_closer_to_nw_family": 11017,
+        "candidate_pixels_closer_to_normal_family": 5975,
+        "terrain_gradient_reference": 10.656536102294922,
+        "max_normalized_score": 1.0
+      },
+      "status": "matched_candidate_unavailable",
+      "unmatched_arms": [
+        "h41a_full",
+        "corridor_only"
+      ]
+    },
+    {
+      "fold": "NE",
+      "truth_pixels": 11956,
+      "training_catalogue_pixels": 47303,
+      "evaluation_cells": 1300121,
+      "per_arm": {
+        "h41a_full": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "corridor_only": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "terrain_only": {
+          "eligible_pixels": 1300121,
+          "status": "scored",
+          "tp": 650.2339831144425,
+          "fp": 6170.354146614865,
+          "fn": 11305.766016885558,
+          "truth_pixels": 11956,
+          "dti": 0.05949664965633518,
+          "emission": {
+            "probability_mass": 7499.999999701977,
+            "nonzero_pixels": 22500,
+            "eligible_pixels": 1300121,
+            "requested_mass": 7500.0,
+            "requested_support_pixels": 22500,
+            "support_pixels": 22500,
+            "support_factor_met": true,
+            "support_shortfall_pixels": 0,
+            "min_nonzero_probability": 0.3277208209037781,
+            "max_probability": 0.3435139060020447
+          }
+        }
+      },
+      "candidate_stats": {
+        "catalogue_positive_pixels": 47303,
+        "skeleton_pixels": 45793,
+        "nw_family_skeleton_pixels": 9763,
+        "normal_family_skeleton_pixels": 10156,
+        "other_or_low_coherence_skeleton_pixels": 25874,
+        "nw_tip_candidates": 1740,
+        "paired_tips": 875,
+        "corridor_centerline_pixels": 10385,
+        "candidate_domain_pixels": 29603,
+        "emission_pixels_within_300m_of_catalogue": 0,
+        "candidate_pixels_closer_to_nw_family": 18771,
+        "candidate_pixels_closer_to_normal_family": 10832,
+        "terrain_gradient_reference": 10.656536102294922,
+        "max_normalized_score": 1.0
+      },
+      "status": "matched_candidate_unavailable",
+      "unmatched_arms": [
+        "h41a_full",
+        "corridor_only"
+      ]
+    },
+    {
+      "fold": "SW",
+      "truth_pixels": 8193,
+      "training_catalogue_pixels": 50334,
+      "evaluation_cells": 490107,
+      "per_arm": {
+        "h41a_full": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "corridor_only": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "terrain_only": {
+          "eligible_pixels": 490107,
+          "status": "scored",
+          "tp": 533.1716633272667,
+          "fp": 6515.639633549799,
+          "fn": 7659.828336672733,
+          "truth_pixels": 8193,
+          "dti": 0.06694635869566162,
+          "emission": {
+            "probability_mass": 7499.999998688698,
+            "nonzero_pixels": 22500,
+            "eligible_pixels": 490107,
+            "requested_mass": 7500.0,
+            "requested_support_pixels": 22500,
+            "support_pixels": 22500,
+            "support_factor_met": true,
+            "support_shortfall_pixels": 0,
+            "min_nonzero_probability": 0.3216342628002167,
+            "max_probability": 0.3534407615661621
+          }
+        }
+      },
+      "candidate_stats": {
+        "catalogue_positive_pixels": 50334,
+        "skeleton_pixels": 49002,
+        "nw_family_skeleton_pixels": 11971,
+        "normal_family_skeleton_pixels": 10407,
+        "other_or_low_coherence_skeleton_pixels": 26624,
+        "nw_tip_candidates": 2180,
+        "paired_tips": 1003,
+        "corridor_centerline_pixels": 12042,
+        "candidate_domain_pixels": 34295,
+        "emission_pixels_within_300m_of_catalogue": 0,
+        "candidate_pixels_closer_to_nw_family": 21670,
+        "candidate_pixels_closer_to_normal_family": 12625,
+        "terrain_gradient_reference": 10.656536102294922,
+        "max_normalized_score": 1.0
+      },
+      "status": "matched_candidate_unavailable",
+      "unmatched_arms": [
+        "h41a_full",
+        "corridor_only"
+      ]
+    },
+    {
+      "fold": "SE",
+      "truth_pixels": 8709,
+      "training_catalogue_pixels": 50499,
+      "evaluation_cells": 729888,
+      "per_arm": {
+        "h41a_full": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "corridor_only": {
+          "eligible_pixels": 0,
+          "status": "insufficient_support_for_matched_mass",
+          "dti": null
+        },
+        "terrain_only": {
+          "eligible_pixels": 729888,
+          "status": "scored",
+          "tp": 488.5774876406787,
+          "fp": 6545.375150339808,
+          "fn": 8220.422512359322,
+          "truth_pixels": 8709,
+          "dti": 0.05834464297875794,
+          "emission": {
+            "probability_mass": 7499.999999821186,
+            "nonzero_pixels": 22500,
+            "eligible_pixels": 729888,
+            "requested_mass": 7500.0,
+            "requested_support_pixels": 22500,
+            "support_pixels": 22500,
+            "support_factor_met": true,
+            "support_shortfall_pixels": 0,
+            "min_nonzero_probability": 0.3237192928791046,
+            "max_probability": 0.35054704546928406
+          }
+        }
+      },
+      "candidate_stats": {
+        "catalogue_positive_pixels": 50499,
+        "skeleton_pixels": 49273,
+        "nw_family_skeleton_pixels": 12215,
+        "normal_family_skeleton_pixels": 9771,
+        "other_or_low_coherence_skeleton_pixels": 27287,
+        "nw_tip_candidates": 2257,
+        "paired_tips": 1030,
+        "corridor_centerline_pixels": 12466,
+        "candidate_domain_pixels": 35122,
+        "emission_pixels_within_300m_of_catalogue": 0,
+        "candidate_pixels_closer_to_nw_family": 22279,
+        "candidate_pixels_closer_to_normal_family": 12843,
+        "terrain_gradient_reference": 10.656536102294922,
+        "max_normalized_score": 1.0
+      },
+      "status": "matched_candidate_unavailable",
+      "unmatched_arms": [
+        "h41a_full",
+        "corridor_only"
+      ]
+    }
+  ],
+  "pooled_counts": {
+    "h41a_full": {
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 0.0,
+      "truth_pixels": 0.0
+    },
+    "corridor_only": {
+      "tp": 0.0,
+      "fp": 0.0,
+      "fn": 0.0,
+      "truth_pixels": 0.0
+    },
+    "terrain_only": {
+      "tp": 2391.866685692637,
+      "fp": 25476.715507931374,
+      "fn": 54406.133314307364,
+      "truth_pixels": 56798.0
+    }
+  },
+  "pooled_dti": {
+    "h41a_full": null,
+    "corridor_only": null,
+    "terrain_only": 0.04688820720789446
+  },
+  "pooled_best_control": 0.04688820720789446,
+  "paired_fold_comparisons": [],
+  "candidate_wins": 0,
+  "primary_promotion_gate_passed": false,
+  "sensitivity_gate": {
+    "required": "gain survives collar and orientation-window sensitivity checks",
+    "performed": false,
+    "passed": false,
+    "status": "not_run_primary_candidate_unavailable",
+    "note": "No sensitivity result is inferred. Freeze numeric sensitivity variants in a new dated preregistration before any future scoring."
+  },
+  "promotion_gate_passed": false,
+  "failure_reason": "H41-A-R had insufficient/nonexistent support in leak-resistant spatial fold(s): NW, NE, SW, SE. No registered H41-A-R pair-corridor cells reached the 3.3 km-collared test interiors; the registered local corridor method therefore could not provide a matched-mass prediction there.",
+  "promotion_gate": "primary: full candidate beats both matched controls on >=3/4 folds and pooled DTI; slot eligibility additionally requires the preregistered collar/orientation sensitivity gate",
+  "limitations": [
+    "The hidden competition labels are not available; this proxy rewards recovery of withheld known faults, not discovery of genuinely new faults.",
+    "A missing candidate field in a block is an inability to generalize, not a DTI of zero; that fold is marked unevaluable rather than assigned a fabricated score.",
+    "The 33 px collar exceeds the 30 px pairing radius but is 2 px smaller than the maximum 35 px centerline-plus-support reach; no H41-A-R support entered any scored quadrant, but this geometric margin is a protocol limitation for any future nonzero fold.",
+    "The exact hidden evaluation may include corrections within 300 m of known faults; H41-A-R deliberately excludes that zone and may miss such corrections.",
+    "The supplied raster is not the original vector catalogue, so strike estimates are 100 m raster approximations and slip sense is not observed."
+  ]
+}

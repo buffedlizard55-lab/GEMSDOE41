@@ -1,7 +1,14 @@
 .venv/
 __pycache__/
 .pytest_cache/
+*.py[cod]
+
+# Main project input policy: keep large/local competition data out of Git.
 data/*
 !data/README.md
+data/raw/
+data/prior_reference/
 
 .cache/
+*.tmp
+.DS_Store

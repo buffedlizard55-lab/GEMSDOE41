@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Variant-specific executive summary and submission instructions for the unscored H41-A-R raster research GeoTIFF.">
+  <title>H41-A-R variant guide · GEMSDOE41</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">GEMS<span> / </span>41</a>
+    <nav aria-label="Main">
+      <a href="index.html">Main project</a>
+      <a href="executive-summary.html">Main submission guide</a>
+      <a href="research.html">Research &amp; tests</a>
+      <a href="h41a-raster-variant.html">H41-A-R details</a>
+    </nav>
+  </div>
+</header>
+<main class="prose">
+  <span class="eyebrow">Supplemental executive summary · upload guide</span>
+  <h1>H41-A-R is not authorized for submission.</h1>
+  <p class="lead">This page explains how the artifact would be handled if a future version passed its scientific gate. The current file has not passed that gate. Do not spend a competition slot on it.</p>
+  <div class="notice"><strong>Stop here: H41-A-R is unscored and slot-ineligible.</strong><p>Its candidate DTI is null/unevaluable because it had no eligible prediction support in any of four test interiors. The terrain-only control’s pooled 0.046888 is not the candidate’s score. No competition slot has been used, and no official upload or hidden-label result is available.</p></div>
+
+  <div class="actions">
+    <a class="button primary" href="downloads/gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif" download>↓ Download the research GeoTIFF</a>
+    <a href="h41a-raster-variant.html">Read method, holdout, and format evidence →</a>
+  </div>
+
+  <h2>Artifact identity</h2>
+  <p><strong>Filename</strong><br><code>gemsdoe41-h41a-raster-bimodal-transfer-20261005.tif</code></p>
+  <p><strong>Unique tracking name</strong><br><code>GEMSDOE41-H41A-RASTER-BIMODAL-TRANSFER</code></p>
+  <p><strong>Short note</strong> (for identification only; does not authorize an upload)</p>
+  <div class="copybox"><code>H41-A-R raster geometry; NW-tip to N/NNE corridor + det_elev orientation; 300 m catalogue exclusion; 30k mass; local proxy only, unscored</code></div>
+  <p class="fine">The 100 m GeoTIFF is one float32 band in EPSG:32611, 3,730 × 3,292, exact local template grid, values in [0,1] within the footprint, NaN outside. Format checks passed locally; the competition portal’s validator was not tested.</p>
+
+  <h2>What would be required before any future upload</h2>
+  <ol>
+    <li>Re-read the official <a href="https://www.drivendata.org/competitions/306/competition-doe-gems/page/967/">competition rules, metric, and file-format instructions</a> and the currently published competition instructions.</li>
+    <li>Build the intended file from the exact recorded input hashes. Run the independent local validator and inspect its receipt; do not edit the TIFF after validating it.</li>
+    <li>Require a preregistered, spatially blocked holdout to beat the current best matched baseline under the project gate, including sensitivity checks, before spending a weekly slot. H41-A-R does not meet this requirement.</li>
+    <li>Only after the gate is honestly passed, sign in to DrivenData through your own account, open <strong>New submission</strong>, select the single-band GeoTIFF, and paste the exact internal name and note. Never send credentials to this repository or put them in chat.</li>
+    <li>After an actual upload, record the organizer-returned score, submission timestamp, leaderboard row, and uploaded-file hash separately. Do not infer a competition score from a local proxy.</li>
+  </ol>
+
+  <h2>Known limitations</h2>
+  <ul>
+    <li>No candidate support reached the four held-out interiors, so H41-A-R has no matched-mass DTI. A null result is not evidence that its score is zero or positive.</li>
+    <li>The 300 m exclusion can omit genuine new-fault corrections near existing traces.</li>
+    <li>Strike and endpoint estimates come from 100 m rasterized faults, not original trace geometry; regional family names do not establish local slip sense.</li>
+    <li>The orientation signal is derived from detrended elevation and is not an independently mapped fault-lineament dataset.</li>
+    <li>Input integrity is pinned against a public owner-maintained mirror; the login-gated DrivenData inputs were not authenticated in this environment.</li>
+  </ul>
+
+  <p>For the main source-vector candidate and its own status, use the <a href="executive-summary.html">main project submission guide</a>. The main site has a permitted-source update feed and links to the official leaderboard; any displayed leaderboard observation is explicitly dated and historical, not a current score claim.</p>
+</main>
+<footer class="footer">
+  <span>Maximize P(Win). Own the Outcome.<br>No slot until the evidence clears the gate.</span>
+  <span><a href="index.html">Main project</a> · <a href="h41a-raster-variant.html">H41-A-R evidence</a></span>
+</footer>
+</body>
+</html>
