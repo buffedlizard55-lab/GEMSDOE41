@@ -1,0 +1,76 @@
+{
+ "product": "data/lidar_scarp_features_u8.tif",
+ "sha256": "d580bb8bdcdb941e32fefb8b38044bc5bf04e199bf2e83498c3576e6fc465568",
+ "bands": [
+  "ex_max",
+  "ex_mean",
+  "step_max",
+  "lapneg_max",
+  "lappos_max",
+  "downface_max",
+  "upface_max",
+  "cross_max",
+  "relief",
+  "coh100",
+  "strike",
+  "valid"
+ ],
+ "quantisation": {
+  "ex_max": [
+   1.5,
+   "sqrt"
+  ],
+  "ex_mean": [
+   0.3,
+   "sqrt"
+  ],
+  "step_max": [
+   1.0,
+   "sqrt"
+  ],
+  "lapneg_max": [
+   0.05,
+   "sqrt"
+  ],
+  "lappos_max": [
+   0.05,
+   "sqrt"
+  ],
+  "downface_max": [
+   1.0,
+   "sqrt"
+  ],
+  "upface_max": [
+   1.0,
+   "sqrt"
+  ],
+  "cross_max": [
+   1.0,
+   "sqrt"
+  ],
+  "relief": [
+   300.0,
+   "sqrt"
+  ],
+  "coh100": [
+   1.0,
+   "linear"
+  ],
+  "strike": [
+   180.0,
+   "linear"
+  ],
+  "valid": [
+   1.0,
+   "linear"
+  ]
+ },
+ "valid_px": 3894460,
+ "valid_fraction_of_footprint": 0.7537,
+ "source": "USGS 3DEP 1 m DEM tiles -> 2 m work grid -> 100 m competition grid",
+ "rights": "USGS 3DEP products are available without use restrictions",
+ "caveats": [
+  "uncalibrated terrain descriptors, not fault detections",
+  "roads, channels, terrace risers, paleo-shorelines, landslides and mines also create steps"
+ ]
+}
