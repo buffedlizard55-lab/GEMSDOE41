@@ -1,0 +1,617 @@
+{
+  "checked_utc": "2026-10-05",
+  "method": "GitHub contents API source audit",
+  "sites": [
+    {
+      "repo": "GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "82ac28947c0d29a942c2ffa1811479129854d535",
+      "text_sha256": "f5be5e69e9f4b137676886c407561d11bcb92396c2ebbe378462cf3df92e0023",
+      "excerpt": " Overview \u2014 GEMS Prize \u26f0\ufe0f \"> \u26f0\ufe0f GEMS Prize \u2014 working notes Geological fault detection in the GeoDAWN region \u00b7 every figure below is machine-measured Overview Executive summary \u21b3 How to submit Submission details Data Metric Method Results Sources Verification Current review Reproduce Overview A fault-detection entry for the DOE GEMS Prize, built so every claim can be checked. The file to submit \u2014 build and download it here, in your browser The DrivenData File to submit dialog asks for a single-ba",
+      "claim_excerpts": [
+        " every claim can be checked. The file to submit \u2014 build and download it here, in your browser The DrivenData File to submit dialog asks for a single-band GeoTIFF ( .tif ) \u2014 or a .zip containing one \u2014 that matches the submission format's CRS, shape and geotransform: 3,292 \u00d7 3,730 px \u00b7 EPSG:32611 \u00b7 float32 in [0, 1], NaN outside the footprint . This page ships the pixel field of the adopted, format-validated artifact \u2014 measured by scripts/build_submission_payload.py as an gems-",
+        "es the format gate and it is the same field whose surrogate scores are on results ; only the platform's hidden new-fault labels can score it. If the platform answers Predicted values must be in range [0, 1] : that means NaN sat inside the template's valid (scored) region \u2014 this payload is conformed to the official template (finite inside it, NaN outside it, GDAL_NODATA=nan ), the conformance is enforced by scripts/validate_submission.py since 2026-09-25, and how to submit \u00a76 "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "6GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/6GEMSDOE/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "97b65791585e3606f15573293c7a80cb4f20441a",
+      "text_sha256": "ee3b8980ef7b5610064c931dfd6ccecabe82ea9f69c53f2e457c79ceb2aa54e9",
+      "excerpt": " GEMS Prize \u2014 6GEMSDOE entry GEMS Prize \u2014 6GEMSDOE entry DOE GEMS Prize (Geologic Enhanced Mapping System) \u2014 one entry, one repo, one site. Predict per-pixel fault probability across the GeoDAWN region of Nevada/California. Overview Line-by-line verification Research & method Download the submission file This is the single file for our single entry. It has been through scripts/validate_submission.py , which is a hard gate : it refuses to publish anything the platform would reject. \u2b07 gems6_hgb88-",
+      "claim_excerpts": [
+        "strator will award a single dollar amount to the designated primary submitter Generative-AI use must be disclosed \u00a73.2 Process Overview you must indicate in the narrative \u2026 the extent to which, if any, you used generative AI technology and how you used it Finalists submit code + documentation \u00a73.5 Their solution\u2019s complete code assets and documentation \u2026 should be able to sufficiently reproduce the winning results and generate predictions on new data samples. Eligibility \u00a71.3",
+        "ornia. Overview Line-by-line verification Research & method Download the submission file This is the single file for our single entry. It has been through scripts/validate_submission.py , which is a hard gate : it refuses to publish anything the platform would reject. \u2b07 gems6_hgb88-topk03_33cec71ff0.tif 1,652,883 bytes \u00b7 sha256 33cec71ff00b3f32d0d59c81c156f3f1\u2026 Download the file above (one click). Open the competition page and click Submit \u2192 Make new submission (DrivenData si",
+        "sing in the predicted value, so fractional confidence gives score away. The budget is the minimax-regret choice across ground-truth sizes (experiments card). Blocked-CV proxy DTI 0.1698 against the public catalogue \u2014 a proxy, not a leaderboard value. Format verified by scripts/validate_submission.py (13/13 checks incl. NaN-inside-footprint). Format gate \u2014 all checks (13) Check Result Detail file-exists PASS 1652883 bytes single-band PASS band count = 1 dtype-float32 PASS dtyp"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE3",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE3/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "fc6a841de96b73d95297ebea1ed1c57b0819e5df",
+      "text_sha256": "7c46ffb2ee035d0d4c196210e690aa80efa0cd5ea2cdd4bb55b925a1fc887cdf",
+      "excerpt": " Mission control \u00b7 GEMSDOE3 Skip to content gemsdoe3 GEMS DISCOVERY LAB WORKSPACE 03 Mission control Executive summary Experiments Data & sources Research log Verification Evidence before confidence A new strategy. A traceable result. No unverified score claims. Competition View repository GEMSDOE3 RESEARCH BUILD DOE GEMS PRIZE / Mission control Checking snapshot age READY TO SUBMIT Download \u2192 upload \u2192 paste the Note. Three files, in this order. Card 1 is the measured best; card 2 is a second, i",
+      "claim_excerpts": [
+        "locks \u00b7 3.2 km buffer Evidence feed SNAPSHOT, NOT STREAMING Primary sources and rule checks 15 monitored sources. Last-success timestamps are preserved when a refresh fails. Candidate generated and locally validated 2026-09-25T01:18:19Z \u00b7 real rasters, real model, complete read-back. View source health & alerts THE NEXT DECISION Measure the new candidate. Don\u2019t assume the gain. The target is to beat the public lead. The next credible signal is a scored upload, followed by rot",
+        "IZE / Mission control Checking snapshot age READY TO SUBMIT Download \u2192 upload \u2192 paste the Note. Three files, in this order. Card 1 is the measured best; card 2 is a second, independently trained system; card 3 is the dense control, published so the placement hypothesis can be tested on the real leaderboard rather than assumed. No account data, no modelling and no install needed: every file is re-validated and re-hashed before publishing. 1 Pindrop nodes 155,021 pixels \u00b7 13/13",
+        "em; card 3 is the dense control, published so the placement hypothesis can be tested on the real leaderboard rather than assumed. No account data, no modelling and no install needed: every file is re-validated and re-hashed before publishing. 1 Pindrop nodes 155,021 pixels \u00b7 13/13 format gates \u00b7 0.74 MB 2 Pindrop catalogue-gap target SUBMIT SECOND 155,021 pixels \u00b7 13/13 format gates \u00b7 0.74 MB 3 Pindrop dense ridge control CONTROL \u00b7 UPLOAD LAST 155,021 pixels \u00b7 13/13 format ga",
+        "onfidence A new strategy. A traceable result. No unverified score claims. Competition View repository GEMSDOE3 RESEARCH BUILD DOE GEMS PRIZE / Mission control Checking snapshot age READY TO SUBMIT Download \u2192 upload \u2192 paste the Note. Three files, in this order. Card 1 is the measured best; card 2 is a second, independently trained system; card 3 is the dense control, published so the placement hypothesis can be tested on the real leaderboard rather than assumed. No account dat"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE2",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE2/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "4d4dfca59d7f8f03129dfe02508477f16205f8f4",
+      "text_sha256": "265e7b30c7388b9cb9bf00a93708dca710902261f81fe062216717dd912b3fc1",
+      "excerpt": " Overview \u2014 GEMS Prize \u26f0\ufe0f \"> \u26f0\ufe0f GEMS Prize \u2014 working notes Geological fault detection in the GeoDAWN region \u00b7 every figure below is machine-measured Overview Executive summary \u21b3 How to submit Submission details Data Metric Method Results Sources Verification Current review Reproduce Overview A fault-detection entry for the DOE GEMS Prize, built so every claim can be checked. Start here \u2014 the file to submit Download \u2192 File to submit \u2192 paste the Note. That is the whole procedure; the long version ",
+      "claim_excerpts": [
+        "le field; the Recall-Union v1 card immediately above is the primary candidate. The DrivenData File to submit dialog asks for a single-band GeoTIFF ( .tif ) \u2014 or a .zip containing one \u2014 that matches the submission format's CRS, shape and geotransform: 3,292 \u00d7 3,730 px \u00b7 EPSG:32611 \u00b7 float32 in [0, 1], NaN outside the footprint . This page ships the pixel field of the adopted, format-validated artifact \u2014 measured by scripts/build_submission_payload.py as an gems-rle-v1 stream o",
+        "every claim can be checked. Start here \u2014 the file to submit Download \u2192 File to submit \u2192 paste the Note. That is the whole procedure; the long version is How to submit . The downloaded file is already in the competition's format \u2014 every gate below was re-measured from these bytes when this page was built. \ud83d\udce5 Download gemsdoe2-dual-family-union-20260925T160406Z-f68e590f.tif \ud83d\udce6 Download the ZIP \u2197 Open the submissions page Step-by-step Download the GeoTIFF above (or the ZIP contain",
+        "at failed. The one-week upload plan (three submissions, one hypothesis each) The prize allows 3 submissions per week and one final selection, so a week is an experiment with three slots, not a lottery. Every file below is already built, format-gated and packaged in this site; download it, open https://www.drivendata.org/competitions/306/competition-doe-gems/submissions/ while signed in, click New submission / File to submit , choose the file, paste its Note , submit, and writ",
+        "ame sha256 (f68e590f8534d036\u2026) What it is not a leaderboard score. The only labels that can score it are the organizers' hidden new-fault labels; every DTI on this page is a local stand-in, measured on populations this repository can see. Results ranks every candidate, including the ones that failed. The one-week upload plan (three submissions, one hypothesis each) The prize allows 3 submissions per week and one final selection, so a week is an experiment with three slots, no"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE4",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE4/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "205ad579fbb99f80249d6ba50bb8a87db2495fdb",
+      "text_sha256": "d48be15d86a7537451e9bba1818d7eaf03e464d08157c4c2ae2e1549000a3eaf",
+      "excerpt": " GEMS Prize \u2014 working notes Pages -> Source to \"GitHub Actions\", the workflow publishes docs/ directly at the root and this redirect becomes harmless. 2026-09-25 (session 31): the canonical URL pointed at the GEMSDOE repository - a leftover from the tree copy, telling search engines this site is the other repository. Fixed to GEMSDOE4. The page now also carries the standing \"build it here\" link (session-30 open item 5): the submission builder is one click away even from this redirect screen. -->",
+      "claim_excerpts": [],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "5GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/5GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "19ba5a7a2ae32fb6d5bef8401fd8d10501f93b83",
+      "text_sha256": "8ee9e505a919007bb2b6671cdf1b27648d8237ce2817b7224bcd5adef9733dd6",
+      "excerpt": " Overview \u2014 GEMS Prize \u26f0\ufe0f \"> \u26f0\ufe0f GEMS Prize \u2014 working notes Geological fault detection in the GeoDAWN region \u00b7 every figure below is machine-measured Overview \u2605 Strategy 5 Executive summary \u21b3 How to submit Submission details Data Metric Method Results Sources Verification Current review Reproduce Site directory Overview A fault-detection entry for the DOE GEMS Prize, built so every claim can be checked. The file to submit \u2014 build and download it here, in your browser The DrivenData File to submit",
+      "claim_excerpts": [
+        " every claim can be checked. The file to submit \u2014 build and download it here, in your browser The DrivenData File to submit dialog asks for a single-band GeoTIFF ( .tif ) \u2014 or a .zip containing one \u2014 that matches the submission format's CRS, shape and geotransform: 3,292 \u00d7 3,730 px \u00b7 EPSG:32611 \u00b7 float32 in [0, 1], NaN outside the footprint . This page ships the pixel field of the adopted, format-validated artifact \u2014 measured by scripts/build_submission_payload.py as an gems-",
+        "es the format gate and it is the same field whose surrogate scores are on results ; only the platform's hidden new-fault labels can score it. If the platform answers Predicted values must be in range [0, 1] : that means NaN sat inside the template's valid (scored) region \u2014 this payload is conformed to the official template (finite inside it, NaN outside it, GDAL_NODATA=nan ), the conformance is enforced by scripts/validate_submission.py since 2026-09-25, and how to submit \u00a76 "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "7GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/7GEMSDOE/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "5df43eb49ded30600933094acd5c16bf5985458e",
+      "text_sha256": "b363657ce0657542b9cb807fecd669578acd7fe2ef12a39c8608607a985c75ac",
+      "excerpt": " Executive summary \u00b7 7GEMSDOE Skip to content 7GEMS DOE Fault discovery lab Executive summary Submit Results Experiments Research Data Metric Evidence first. Reproducible experiments. One accountable competition entry. DOWNLOAD \u2192 UPLOAD \u2192 PASTE THE NOTE Current H1 test: region-wide lidar scarp evidence. Recommended next upload (a decisive leaderboard test, not a proven winner): a thin-line map from a model trained only on 1 m lidar scarp descriptors. Group best is 0.1563; leader 0.3049. Exact su",
+      "claim_excerpts": [
+        "3; leader 0.3049. Exact submission instructions \u2192 Session 4 primary \u00b7 H1 leaderboard test \u00b7 LOCAL FORMAT PASS \u00b7 NOT YET SCORED Lidar scarp model \u00b7 ridge-thinned top 2% gems7-lidarscarp-ridge-top2pct-36c3a3f341c8.tif Download .TIF \u00b7 0.55 MB Single-file ZIP Built and re-read by the strict local format gate. Browser checks SHA-256 when supported. Short submission Note Lidar scarp model, ridge-thinned top 2% | 36c3a3f341c8 Copy Note File integrity & measured format SHA-256 36c3a3",
+        "eproducible experiments. One accountable competition entry. DOWNLOAD \u2192 UPLOAD \u2192 PASTE THE NOTE Current H1 test: region-wide lidar scarp evidence. Recommended next upload (a decisive leaderboard test, not a proven winner): a thin-line map from a model trained only on 1 m lidar scarp descriptors. Group best is 0.1563; leader 0.3049. Exact submission instructions \u2192 Session 4 primary \u00b7 H1 leaderboard test \u00b7 LOCAL FORMAT PASS \u00b7 NOT YET SCORED Lidar scarp model \u00b7 ridge-thinned top ",
+        " wins in all four folds, but these are diagnostic catalogue holdouts, not leaderboard estimates or a locked final test. No new submission is promoted. Next: independent native DEM evidence, survey-block tests and positive-unlabeled sensitivity. Structural/null/matched-mass report \u00b7 Trained expert report \u00b7 Science, source audit and next hypotheses Rules flag: \u00a73.4 allows three feedback submissions per week per participating entity , not per teammate account. One final submissi",
+        "o new faults. Full experiment report \u00b7 Session 4 research & hypotheses \u00b7 Leaderboard forensics Session 5\u20137: new evidence and external-data tests Lidar covers 3,894,460 of 5,167,373 footprint pixels; the gap is 24.6% and still holds 12,523 catalogue pixels (20.5% of known faults). The NE quadrant is 47.4% gap \u2014 fill priority #1. The H1 candidate emits 0 px in gaps (verified). Quadrant Footprint px Gap px Gap % Catalogue px NW 2449030 541195 22.1% 29319 NE 1366431 648030 47.4% ",
+        "primary \u00b7 H1 leaderboard test \u00b7 LOCAL FORMAT PASS \u00b7 NOT YET SCORED Lidar scarp model \u00b7 ridge-thinned top 2% gems7-lidarscarp-ridge-top2pct-36c3a3f341c8.tif Download .TIF \u00b7 0.55 MB Single-file ZIP Built and re-read by the strict local format gate. Browser checks SHA-256 when supported. Short submission Note Lidar scarp model, ridge-thinned top 2% | 36c3a3f341c8 Copy Note File integrity & measured format SHA-256 36c3a3f341c8306dfb5610f61acfec635a7cb8a3ef6ef00380ca083d2f9745fe S"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "8GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/8GEMSDOE/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "c91b990cecdb263c6c25c5de5d22d99be0633604",
+      "text_sha256": "9a38dd1f730ee8027e28e5e6be064b0a4b12f32ebb0be7aa8fa0272e37c42ac3",
+      "excerpt": " 8GEMSDOE \u2014 Apex Geothermal Fault Discovery & Submission Hub 8GEMSDOE Apex System Executive Summary How To Submit Strategy & Metric Geothermal Science Data & Verification Results Ledger Hypotheses Leaderboard Sources Official Competition Submission File \u2014 8GEMSDOE-Hedge-v2 Ready for immediate upload to the DrivenData GEMS Prize Challenge. Verified against all 13 format gates, and the only artifact here whose score has a proven floor : it contains the byte-verified 0.1563 leaderboard pattern plus",
+      "claim_excerpts": [
+        ") \u00b7 3292\u00d73730 \u2713 227,507 Positive px \u00b7 Floor 0.1563 by Proof Primary Deliverable: 8GEMSDOE_Hedge-v2_submission.tif Single-band float32 GeoTIFF (736 KB) \u00b7 sha256 052688eafb\u2026 \u00b7 verified 0.1563 emission \u222a full USGS/INGENIOUS catalogue at p=1.0 \u00b7 pixel-identical to the independently built sibling candidate (0 differing px) Download Hedge-v2 .tif Download .ZIP Submission Note (Paste into DrivenData \"Note (optional)\" field) Copied to clipboard! Copy Note Platform Error Resolved: \"Pr",
+        " the independently built sibling candidate (0 differing px) Download Hedge-v2 .tif Download .ZIP Submission Note (Paste into DrivenData \"Note (optional)\" field) Copied to clipboard! Copy Note Platform Error Resolved: \"Predicted values must be in range [0, 1]\" Root Cause: DrivenData's backend validator inspects all 5,167,373 scored footprint pixels. If any single pixel inside this scored area contains NaN , the platform raises \"Predicted values must be in range [0, 1]\" . 8GEMS",
+        ". Every genuinely new candidate must first beat the current holdout best under the clean protocol ( scripts/lofso_train_eval.py ) before it is allowed to spend a slot; none has yet. Explore Project Modules 1. How To Submit (Executive Summary Subpage) \u2192 Step-by-step DrivenData upload guide, file format checks, and resolution of submission errors. 2. Strategy & Metric Analysis \u2192 Mathematical decomposition of the Distance-Weighted Tversky index (alpha=0.2, beta=0.8) and how to b",
+        "etric Geothermal Science Data & Verification Results Ledger Hypotheses Leaderboard Sources Official Competition Submission File \u2014 8GEMSDOE-Hedge-v2 Ready for immediate upload to the DrivenData GEMS Prize Challenge. Verified against all 13 format gates, and the only artifact here whose score has a proven floor : it contains the byte-verified 0.1563 leaderboard pattern plus the whole catalogue, which carries zero false-positive weight. Full argument: executive summary . \u2713 13/13",
+        "ainst all 13 format gates, and the only artifact here whose score has a proven floor : it contains the byte-verified 0.1563 leaderboard pattern plus the whole catalogue, which carries zero false-positive weight. Full argument: executive summary . \u2713 13/13 Format Gates: PASS \u2713 Values in [0, 1], No NaN Inside Footprint \u2713 EPSG:32611 (100m) \u00b7 3292\u00d73730 \u2713 227,507 Positive px \u00b7 Floor 0.1563 by Proof Primary Deliverable: 8GEMSDOE_Hedge-v2_submission.tif Single-band float32 GeoTIFF (7"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE9",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE9/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "f53017599c9b70ea19ccb3ffac4d09cb048978d8",
+      "text_sha256": "ce97a650606d5fa6fc2eb7ac208cb95891db2a0412559b295cf25b81438fea36",
+      "excerpt": " Overview \u2014 GEMSDOE9 GEMSDOE9 \u2014 Geothermal Fault Discovery Beyond the Catalogue DOE GEMS Prize entry. Faults in the GeoDAWN region (northwestern Nevada, UTM 11N EPSG:32611, 100 m) that are not in the USGS/INGENIOUS catalogue. GEMSDOE9 No model trained yet Submission file passes all 14 gates Overview How to submit Strategy & metric Hypotheses G-1..G-5 Official intel Data & access Verification & flags Leaderboard Research notes Sources \u2b07 The file to submit DrivenData wants a single-band GeoTIFF (.",
+      "claim_excerpts": [
+        "). Every number on this site is either quoted from a linked primary source, read live on 2026-09-27, or computed by code in this repository from the published metric. Nothing is estimated. Sources: Competition \u00b7 Problem description \u00b7 About \u00b7 Leaderboard \u00b7 Forum \u00b7 Reference solution Built by python scripts/build_site.py . Sources of every claim: Sources . Problems found and fixed: Verification & flags . ",
+        "11 \u00b7 100 m \u00b7 float32 \u00b7 every value finite and in [0, 1] . \u2b07 Download gemsdoe9-PLACEHOLDER-2314b599.tif Build in this browser (uniquely named) File gemsdoe9-PLACEHOLDER-2314b599.tif SHA256 2314b59920bfeeaf6a592d4868b25eca62212825620f9945723c2f6d0a2e5b22 Size 439,456 bytes Positive pixels 343,816 (2.80%) \u2014 the rest are 0.0, i.e. 'no fault' Note to paste GEMSDOE9 FORMAT-CHECK placeholder (no model, no GeoDAWN data) | band-pattern 2.8% | 2314b599 What it is PLACEHOLDER \u2014 not a pr",
+        "ontrol and a catalogue-only baseline on a spatially-blocked holdout: # 1. get the data (needs a DrivenData account, on an unrestricted machine) bash scripts/download_competition_data.sh # \u2192 data/ # 2. blocked holdout + submission gate python scripts/validate_holdout.py --holdout-gate python scripts/build_submission.py --holdout-gate # or just re-run the checks bash scripts/run_all_checks.sh Why 0.1563 keeps repeating Because it is an attractor of the metric , not a coincidenc",
+        "asses all 14 gates Overview How to submit Strategy & metric Hypotheses G-1..G-5 Official intel Data & access Verification & flags Leaderboard Research notes Sources \u2b07 The file to submit DrivenData wants a single-band GeoTIFF (.tif) , or a .zip holding one, matching the submission format: 3,292 \u00d7 3,730 px \u00b7 EPSG:32611 \u00b7 100 m \u00b7 float32 \u00b7 every value finite and in [0, 1] . \u2b07 Download gemsdoe9-PLACEHOLDER-2314b599.tif Build in this browser (uniquely named) File gemsdoe9-PLACEHOL",
+        " 1], so a 0.0 outside the footprint satisfies \u201cnull\u201d in the scorer's sense and can never trip a range check. We publish only the all-finite variant. Re-verify any file yourself: python scripts/validate_submission.py docs/downloads/gemsdoe9-PLACEHOLDER-2314b599.tif Full click-by-click instructions They are on their own page, with the unique-name rule, the Note text, the .zip option, and what to do when a submission is rejected. How to submit \u2192 What the current file is, honestl"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "11GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/11GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "3a492629171d968ead077d08650fe9e544aeea94",
+      "text_sha256": "8acef041b2c34df4c1049a88e92ea6d39075b2a5d4c958c8e24b75f98c7ba4b3",
+      "excerpt": " 11GEMSDOE \u00b7 GEMS Prize submission G 11GEMSDOE Download How to submit Hypotheses Sources Review READY TO SUBMIT \u00b7 VALIDATED GEOTIFF Download the competition file. Single-band float32, EPSG:32611, 3292 \u00d7 3730 at 100 m, values in [0, 1], NaN outside the data bounds. It passes every check on the official submission list, re-read from the written file. Use the note below verbatim in DrivenData's Note (optional) field. \u2b07 Download submission.tif .tif \u00b7 688 KB Step-by-step upload guide \u2192 Manifest & has",
+      "claim_excerpts": [
+        "ew \u2192 For GEMSDOE1 and 5GEMSDOE: the same file The published primary artifacts are byte-identical \u2014 SHA-256 7f00890a\u2026 , 570,890 bytes, identical pixels on the same grid. That is the whole explanation for that pair, and it is not a coincidence. For everything else: a proxy that flatters us 8GEMSDOE shows the same 0.1563 from a different raster, and unrelated competitors sit at 0.1563 too. Every one of our files was tuned against the mapped catalogue \u2014 which the organisers confi",
+        " 11GEMSDOE \u00b7 GEMS Prize submission G 11GEMSDOE Download How to submit Hypotheses Sources Review READY TO SUBMIT \u00b7 VALIDATED GEOTIFF Download the competition file. Single-band float32, EPSG:32611, 3292 \u00d7 3730 at 100 m, values in [0, 1], NaN outside the data bounds. It passes every check on the official submission list, re-read from the written file. Use the note below verbatim in DrivenData's Note (optional) field. \u2b07 Download submission.tif .tif \u00b7 688 KB Step-by-s",
+        "nnels. Emitted as a binary mask at the leakage-free spatial holdout optimum: top 6% of in-footprint pixels by probability, corridor width 0 px, supplied USGS/INGENIOUS catalogue included at 1.0 because known faults are excluded from scoring. DOE GEMS PRIZE \u00b7 FAULT MAPPING The data blocker is closed. The previous session stopped at \u201cwe cannot place the data\u201d. This session placed it, verified it, wrote the official metric from the official page, and measured five hypotheses aga",
+        " \u00b7 GEMS Prize submission G 11GEMSDOE Download How to submit Hypotheses Sources Review READY TO SUBMIT \u00b7 VALIDATED GEOTIFF Download the competition file. Single-band float32, EPSG:32611, 3292 \u00d7 3730 at 100 m, values in [0, 1], NaN outside the data bounds. It passes every check on the official submission list, re-read from the written file. Use the note below verbatim in DrivenData's Note (optional) field. \u2b07 Download submission.tif .tif \u00b7 688 KB Step-by-step upload guide \u2192 Mani",
+        " (40% \u2192 6%) 0.3049 public leader \u00b7 official snapshot PUBLIC SCORE FEED Leaderboard, refreshed automatically Loading saved snapshot\u2026 Fallback snapshot loading \u00b7 Snapshot UTC: 2026-09-27 Rank Participant Public DTI 1 DARD 0.3049 Public values change and are not the private or final-round score. extradr19 \u2014 the account our team's published anchor associates with 0.1563 \u2014 sits at rank 24 with 2 submissions. Source: official DrivenData leaderboard \u2197 WHY 0.1563 KEPT COMING BACK Two"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "12GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/12GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "94a280ece41bce578eda7bb73fa9de3bcb063d3b",
+      "text_sha256": "30ecdede6c722ef93a311f574498325f5afe1d55c425c47ae3816822fe127928",
+      "excerpt": " 12GEMSDOE \u00b7 Geothermal Fault Discovery Workbench 12GEMS / Research & Discovery Workbench Workbench Submission Guide Evidence Audit Hypotheses Round-2 H6\u2013H10 Round-3 H11\u2013H14 Round-4 H15\u2013H19 Round-5 Emission Geometry Round-6 Seismic+Texture Round-7 DEM Scarp Round-8 Register Sibling Audit Knowledge Base Leaderboard \u2197 Geologic Enhanced Mapping System \u2022 DOE GEMS Prize Challenge Different Science. Verified Discovery. Evidence Before Submission. Predicting unmapped geothermal fault systems in the Gre",
+      "claim_excerpts": [
+        "/ 0.12706 \u2014 H28 is irrelevant either way; the preregistered primary is shipped. Artifact 12GEMSDOE_r7-nms3-dem10-scarp_0c9199f14e62.tif ; no DrivenData slot spent. Evidence: holdout_round7.json \u00b7 round7-feature-build.json . What is actually new \u2014 and what is not. The distinctness table was a surprise: 10 m slope and gradient aggregated to 100 m correlate 0.80\u20130.97 with the supplied det_elev_slope (B19), i.e. the sponsor's slope band was evidently already computed from high-re",
+        "folds on both protocols \u00b7 format-validated \u00b7 not yet scored Download Submission GeoTIFF \u2014 Round-7 Thin-Trace + 10 m DEM Scarp Signature 103,347 predicted fault pixels (exactly 2.000 % of the survey footprint) , laid down by non-maximum suppression with a 5 \u00d7 5 exclusion box \u2014 no two predictions inside one 300 m credit cell. Model: multi25 + H28 + H32 (12 label-free channels from the USGS 3DEP 1/3\u2033 \u224810 m DEM: slope, horizontal gradient at 20/50/200 m, micro-relief, curvature a",
+        "st earn its release through leakage-free, spatially-blocked holdout validation. Round-7 candidate \u00b7 H32 passes 4/4 folds on both protocols \u00b7 format-validated \u00b7 not yet scored Download Submission GeoTIFF \u2014 Round-7 Thin-Trace + 10 m DEM Scarp Signature 103,347 predicted fault pixels (exactly 2.000 % of the survey footprint) , laid down by non-maximum suppression with a 5 \u00d7 5 exclusion box \u2014 no two predictions inside one 300 m credit cell. Model: multi25 + H28 + H32 (12 label-fr",
+        "scovery Workbench Workbench Submission Guide Evidence Audit Hypotheses Round-2 H6\u2013H10 Round-3 H11\u2013H14 Round-4 H15\u2013H19 Round-5 Emission Geometry Round-6 Seismic+Texture Round-7 DEM Scarp Round-8 Register Sibling Audit Knowledge Base Leaderboard \u2197 Geologic Enhanced Mapping System \u2022 DOE GEMS Prize Challenge Different Science. Verified Discovery. Evidence Before Submission. Predicting unmapped geothermal fault systems in the Great Basin using multi-physics geophysical transforms.",
+        "es 4/4 folds on both protocols \u00b7 format-validated \u00b7 not yet scored Download Submission GeoTIFF \u2014 Round-7 Thin-Trace + 10 m DEM Scarp Signature 103,347 predicted fault pixels (exactly 2.000 % of the survey footprint) , laid down by non-maximum suppression with a 5 \u00d7 5 exclusion box \u2014 no two predictions inside one 300 m credit cell. Model: multi25 + H28 + H32 (12 label-free channels from the USGS 3DEP 1/3\u2033 \u224810 m DEM: slope, horizontal gradient at 20/50/200 m, micro-relief, curv"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "15GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/15GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "1c0b2b77c09590726acf9d1fb39147df9068cbca",
+      "text_sha256": "017d316dbcff642fa0a8f449a309ef4fabc98f74c197a61329e095d2f1756630",
+      "excerpt": " 15GEMSDOE - 15GEMSDOE Home How to submit Metric audit Holdout Hypotheses Sources Download the submission file Download gems-tso1-20260929T005627Z-conj_alteration_mag.tif 313478 bytes \u00b7 SHA-256 b437efcec17fb4582a3ff2f5f6ce6a179545c1e21fcd51e0c4b828cfd185d631 \u00b7 single band float32 \u00b7 EPSG:32611 \u00b7 100 m \u00b7 NaN outside the footprint \u00b7 every finite value in [0, 1] validator: READY TO UPLOAD 15GEMSDOE - DOE GEMS Prize Predicting the faults that are missing from the USGS/INGENIOUS catalogue over the Geo",
+      "claim_excerpts": [
+        " Home How to submit Metric audit Holdout Hypotheses Sources Download the submission file Download gems-tso1-20260929T005627Z-conj_alteration_mag.tif 313478 bytes \u00b7 SHA-256 b437efcec17fb4582a3ff2f5f6ce6a179545c1e21fcd51e0c4b828cfd185d631 \u00b7 single band float32 \u00b7 EPSG:32611 \u00b7 100 m \u00b7 NaN outside the footprint \u00b7 every finite value in [0, 1] validator: READY TO UPLOAD 15GEMSDOE - DOE GEMS Prize Predicting the faults that are missing from the USGS/INGENIOUS catalogue over the GeoDA",
+        " 15GEMSDOE - 15GEMSDOE Home How to submit Metric audit Holdout Hypotheses Sources Download the submission file Download gems-tso1-20260929T005627Z-conj_alteration_mag.tif 313478 bytes \u00b7 SHA-256 b437efcec17fb4582a3ff2f5f6ce6a179545c1e21fcd51e0c4b828cfd185d631 \u00b7 single band float32 \u00b7 EPSG:32611 \u00b7 100 m \u00b7 NaN outside the footprint \u00b7 every finite value in [0, 1] validator: READY TO UPLOAD 15GEMSDOE - DOE GEMS Prize Predicting the faults that are missing from the USGS/INGENIO",
+        "GEMSDOE - 15GEMSDOE Home How to submit Metric audit Holdout Hypotheses Sources Download the submission file Download gems-tso1-20260929T005627Z-conj_alteration_mag.tif 313478 bytes \u00b7 SHA-256 b437efcec17fb4582a3ff2f5f6ce6a179545c1e21fcd51e0c4b828cfd185d631 \u00b7 single band float32 \u00b7 EPSG:32611 \u00b7 100 m \u00b7 NaN outside the footprint \u00b7 every finite value in [0, 1] validator: READY TO UPLOAD 15GEMSDOE - DOE GEMS Prize Predicting the faults that are missing from the USGS/INGENIOUS catal",
+        " from the USGS/INGENIOUS catalogue over the GeoDAWN region, scored with the official distance-weighted Tversky index. What changed in this session The score was audited before any model was fitted: all 7 checks pass against the problem page's own worked example (0.6027 \u2192 0.60). Four consequences of the metric were proved , not assumed - including that the optimum is binary and that a block of predictions pays off iff its weighted precision exceeds 0.2 \u00d7 the current DTI. A lea"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "14GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/14GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "afc35026fae795048a92d73a13001c60df370466",
+      "text_sha256": "5c6ca193d376438042e2d410c329271f7b2ec3cab66c06c7a3d031201f0ec8d7",
+      "excerpt": " 14GEMSDOE \u2014 GEMS Prize submission builder 14GEMSDOE GEMS PRIZE Executive summary How to submit Strategy Hypotheses (round 1) Hypotheses (round 2) Hypotheses (round 3) Hypotheses (round 4) Hypotheses (round 5) Hypotheses (round 6) Hypotheses (round 7) Artifact audit Data & sources Leaderboard Methods Find the faults nobody has mapped yet. The GEMS Prize (US DOE Office of Geothermal) pays for algorithms that surface geological faults missing from the public USGS/INGENIOUS catalogue \u2014 faults that ",
+      "claim_excerpts": [
+        "page \u2014 see Data & sources ). \u2b07 The file to submit \u2014 build & download it here 1 \u00b7 Download the finished submission file \u2b07 Download GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f.tif 259,215 B \u00b7 float32 [0,1], no NaN \u00b7 EPSG:32611 \u00b7 3,292 \u00d7 3,730 px \u00b7 116,225 px above 0.0 file sha256 ccbe1de0cfd70cbe\u2026 \u00b7 pixels sha256 e96e942f\u2026 \u00b7 manifest \u00b7 checksum This is the real prediction field, not a placeholder: it is the same pixel array the in-browser builder produce",
+        "igible for a slot until it beats the real spatially-blocked holdout. Round 6 breaks the plateau: three arms now meet the promote rule on real data \u2014 R6-1 horsetail splay (4/4 sparse & far), R6-5 paleo-shoreline (4/4 both, far \u2248 13\u00d7 baseline) and R6-3 conductive-base step (3/4 & 4/4). The validated field is built as submissions/GEMS_r5-geom-horse-ensemble_\u2026 .tif (finite, 0 outside, passes format gate); the all6 ensemble gate is finishing before the next slot goes to the best f",
+        "GEMSDOE GEMS PRIZE Executive summary How to submit Strategy Hypotheses (round 1) Hypotheses (round 2) Hypotheses (round 3) Hypotheses (round 4) Hypotheses (round 5) Hypotheses (round 6) Hypotheses (round 7) Artifact audit Data & sources Leaderboard Methods Find the faults nobody has mapped yet. The GEMS Prize (US DOE Office of Geothermal) pays for algorithms that surface geological faults missing from the public USGS/INGENIOUS catalogue \u2014 faults that indicate geothermal resou",
+        "ces in the GeoDAWN region of Nevada and eastern California. Score: a distance-weighted Tversky index that punishes missed faults four times harder than false alarms. Competition closes Dec 3, 2026 23:59 UTC ; prize pool $300,000 (verified on the official page \u2014 see Data & sources ). \u2b07 The file to submit \u2014 build & download it here 1 \u00b7 Download the finished submission file \u2b07 Download GEMS_r5-geom-horse-ensemble_20260929T154852Z_ccbe1de0_site_e96e942f.tif 259,215 B \u00b7 float32 [0,"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "17GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/17GEMSDOE/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "dbe994b55c63ab418194a83369d6548384749c7a",
+      "text_sha256": "fb116fca14fc62930e604a98b9eb55f2fad46b6807c1725077573b07ca1b33a6",
+      "excerpt": " 17GEMSDOE \u00b7 download the submission Download the submission GeoTIFF One click, then paste the name and the comment into the competition form. This is the same file the full site serves; both are generated from the same evidence. Download the submission GeoTIFF sha256 c5ea501eba0ab840d26f0c017d01074c4bd9040ec5e2c5ac19bde8655d150e64 \u00b7 987,669 bytes \u00b7 value range [0.0, 1.0] \u00b7 10 format checks passed, 0 failed Submission name 17GEMSDOE_A-verified-01563-support_c5ea501e_20260930T021105Z Short commen",
+      "claim_excerpts": [
+        " 17GEMSDOE \u00b7 download the submission Download the submission GeoTIFF One click, then paste the name and the comment into the competition form. This is the same file the full site serves; both are generated from the same evidence. Download the submission GeoTIFF sha256 c5ea501eba0ab840d26f0c017d01074c4bd9040ec5e2c5ac19bde8655d150e64 \u00b7 987,669 bytes \u00b7 value range [0.0, 1.0] \u00b7 10 format checks passed, 0 failed Submission name 17GEMS",
+        "cumentation: executive summary \u00b7 how to submit \u00b7 findings \u00b7 hypotheses \u00b7 sources \u00b7 limitations . "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "18GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/18GEMSDOE/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "6ed69098fcbd97315d6a260aa3056897bfb5a4aa",
+      "text_sha256": "8511bf66e79c9000d80780870cd6702ada2ec354d4acfc6ac03726b16b4a385d",
+      "excerpt": " Home \u2014 18GEMSDOE 18GEMSDOE Submit Format Hypotheses Validation Results Audit Sources Data 18GEMSDOE \u2014 download the submission, see the evidence One click to a competition-ready file. The GeoTIFF below is a single-band float32 raster in the official submission format (EPSG:32611, 100 m, template bounds, finite values in [0, 1] inside the footprint, NaN outside) and has passed the format validator against the official template. Nothing is generated or uploaded in your browser. \u2b07 Download 18GEMSDO",
+      "claim_excerpts": [
+        "ypotheses Validation Results Audit Sources Data 18GEMSDOE \u2014 download the submission, see the evidence One click to a competition-ready file. The GeoTIFF below is a single-band float32 raster in the official submission format (EPSG:32611, 100 m, template bounds, finite values in [0, 1] inside the footprint, NaN outside) and has passed the format validator against the official template. Nothing is generated or uploaded in your browser. \u2b07 Download 18GEMSDOE_H19-C_20260930T212401",
+        "phy conjunction (388,228 px) | one-pixel, uniform value 1 | holdout split 41332369d7dd448b | sha256 c11e495e5817730a Up to date, without anyone checking by hand Read from the public leaderboard on 2026-09-30 ( source ); DrivenData's terms of use prohibit robots and automated access; this file is a dated manual snapshot, never a polled feed. Rank Participant Best public DW-Tversky Submissions #1 DARD 0.3168 11 #2 alexoktaba 0.3042 17 #3 joeyfezster 0.2919 16 #4 xiaofanhu 0.290",
+        " Home \u2014 18GEMSDOE 18GEMSDOE Submit Format Hypotheses Validation Results Audit Sources Data 18GEMSDOE \u2014 download the submission, see the evidence One click to a competition-ready file. The GeoTIFF below is a single-band float32 raster in the official submission format (EPSG:32611, 100 m, template bounds, finite values in [0, 1] inside the footprint, NaN outside) and has passed the format validator against the official template. Nothing is generated or uploade",
+        "t lie within 300 m of a label), which says exactly what the scored truth is not . Data \u00a72 . The metric's own algebra reduces to DTI = TP_w / (0.2\u00b7M + 0.8\u00b7|G|) , so an emitted pixel costs 0.2 and a newly covered truth pixel earns up to 0.8: sparse, thin, confident is arithmetic, not taste. Where to go next Page What it answers Executive summary the file, the format requirements, the click-by-click upload path and the [0, 1] error triage Validation the locked holdout, the arms,"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "19GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/19GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "d30ffaf577753292540e5c846492a1e2ec1d3779",
+      "text_sha256": "91c3d765e94202970e7c04eec6a496610f34a8818c4a02aa9d3e9947a80fedb2",
+      "excerpt": " 19GEMSDOE Submission Hub & Executive Summary \u00b7 19GEMSDOE Skip to content 19GEMSDOE Home & Downloads Executive Summary & Upload Guide Hypotheses & 4-Line Physics Leaderboard & Forensic Audit Knowledge Base Source Verification & Flags GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Group Best: 0.1855 (16GEMSDOE) \u00b7 Leader: 0.3168 Competition 19GEMSDOE \u2014 Executive Summary & Validated GeoTIFF Submission Downloads Ready-to-upload single-band floa",
+      "claim_excerpts": [
+        "utes): Click Download submission (.tif) on Upload #1 (H19-4 Primary) below open the DrivenData Submissions Page select the downloaded .tif file paste the copyable DrivenData note click Submit. Full step-by-step instructions and the interactive browser pre-flight verifier are on the Executive Summary & Upload Guide subpage . Upload #1 \u00b7 Primary Recommended (4-Line Corroborated \u00b7 2.50% Budget \u00b7 4/4 Folds Won) H19-4 Multi-Line Corroborated Synthesis (Primary Recommended \u00b7 2.50% ",
+        "cutive Summary \u00b7 19GEMSDOE Skip to content 19GEMSDOE Home & Downloads Executive Summary & Upload Guide Hypotheses & 4-Line Physics Leaderboard & Forensic Audit Knowledge Base Source Verification & Flags GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Group Best: 0.1855 (16GEMSDOE) \u00b7 Leader: 0.3168 Competition 19GEMSDOE \u2014 Executive Summary & Validated GeoTIFF Submission Downloads Ready-to-upload single-band float32 GeoTIFF",
+        "andidates are validated on the 4-quadrant spatially blocked holdout and are not live-scored yet). Every file is strictly verified in [0.0, 1.0] across all 5,167,373 scored footprint pixels (eliminating the \"Predicted values must be in range [0, 1]\" error), satisfies all 4 independent physical lines of reasoning (Power-Law Fault Population Scaling, Backward Thermal/Geochemical Conduit Inversion, 1m/10m 3DEP DEM Topographic Openness & Local Relief Model, and Geopotential Strike",
+        "19GEMSDOE Home & Downloads Executive Summary & Upload Guide Hypotheses & 4-Line Physics Leaderboard & Forensic Audit Knowledge Base Source Verification & Flags GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Group Best: 0.1855 (16GEMSDOE) \u00b7 Leader: 0.3168 Competition 19GEMSDOE \u2014 Executive Summary & Validated GeoTIFF Submission Downloads Ready-to-upload single-band float32 GeoTIFF submissions for the DOE GEMS Geothermal Fa",
+        "n the 4-quadrant spatially blocked holdout and are not live-scored yet). Every file is strictly verified in [0.0, 1.0] across all 5,167,373 scored footprint pixels (eliminating the \"Predicted values must be in range [0, 1]\" error), satisfies all 4 independent physical lines of reasoning (Power-Law Fault Population Scaling, Backward Thermal/Geochemical Conduit Inversion, 1m/10m 3DEP DEM Topographic Openness & Local Relief Model, and Geopotential Strike Worms), discards single-"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE10",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE10/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "54eb012daedeae81a61eb8564d6a942794daedd9",
+      "text_sha256": "3ecc548a9d030ffc1d679051523c117da6bb52ea96e007ea34ed3049ad02a00d",
+      "excerpt": " GEMSDOE10 \u2014 submission hub Open the GEMSDOE10 evidence and submission hub \u2192 No competition upload is made by visiting this page. ",
+      "claim_excerpts": [],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "13GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/13GEMSDOE/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "672bf417101af4fd8665f0e43214794a3105968b",
+      "text_sha256": "b3be2848cc8f53360efb1e3f14aab7a39c38a22f55ebe1ebc648c081b36224ff",
+      "excerpt": " Submission download \u00b7 13GEMSDOE Skip to page content 13 GEMSDOE Fault mapping, with evidence. Official competition \u2197 DOE GEMS \u00b7 submission workspace Download the competition TIFF. One file. The official grid. Checked predictions in [0, 1] . \u2193 Download submission .tif 1.7 MB Download .zip 13gems_20261001_r13-lattice-s5_v2_nan-outside.tif 1 band \u00b7 float32 \u00b7 EPSG:32611 \u00b7 3730 \u00d7 3292 \u00b7 100 m \u2713 Local format checked Current local reference Stride-5 coverage lattice. Not a geological discovery or a pr",
+      "claim_excerpts": [
+        "Copy note File integrity, encoding & diagnostic alternative Primary SHA-256: b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2 Check delivered file The primary has finite predictions inside the official footprint and NaN / NoData=nan outside . LZW, one-row strips, no predictor; matches the measured template convention. A local check is not a platform receipt. Zero-filled diagnostic TIFF \u00b7 diagnostic ZIP . Same footprint predictions, zeros outside, no NoData. No",
+        " Submission download \u00b7 13GEMSDOE Skip to page content 13 GEMSDOE Fault mapping, with evidence. Official competition \u2197 DOE GEMS \u00b7 submission workspace Download the competition TIFF. One file. The official grid. Checked predictions in [0, 1] . \u2193 Download submission .tif 1.7 MB Download .zip 13gems_20261001_r13-lattice-s5_v2_nan-outside.tif 1 band \u00b7 float32 \u00b7 EPSG:32611 \u00b7 3730 \u00d7 3292 \u00b7 100 m \u2713 Local format checked Current local ref",
+        " | fault-blind every-5th-px grid, coverage baseline | local holdout 18/18 win, not a LB claim Copy note File integrity, encoding & diagnostic alternative Primary SHA-256: b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2 Check delivered file The primary has finite predictions inside the official footprint and NaN / NoData=nan outside . LZW, one-row strips, no predictor; matches the measured template convention. A local check is not a platform receipt. Zero-fill",
+        "tice. Not a geological discovery or a predicted leaderboard score. DrivenData acceptance is not confirmed . No new experiment is cleared for a weekly slot. Exact submission steps \u2192 Short note for the submission form r13 lattice-s5 v2 20261001 | fault-blind every-5th-px grid, coverage baseline | local holdout 18/18 win, not a LB claim Copy note File integrity, encoding & diagnostic alternative Primary SHA-256: b4570b406efec198eb2f4d142ad8d0d6184b14b66f2f52b5c4d697f0647dc9b2 Ch"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "16GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/16GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "851b2fc245c231408c3837df153577d174f11ce3",
+      "text_sha256": "266feab9f2b9cea2853f171329c7195a1e1ad66f8016e0f5c8741b657c2985ac",
+      "excerpt": " Download your GEMS submission \u00b7 16GEMSDOE Skip to content 16GEMSDOE Home Executive summary Results Research Knowledge Audit GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Competition Download a submission file. Check it. Upload it. Each file below is a single-band float32 GeoTIFF in the exact format DrivenData describes, re-read and verified, unique against all 21 files in the group registry (every GeoTIFF the group's pages offered), with ",
+      "claim_excerpts": [
+        " Download your GEMS submission \u00b7 16GEMSDOE Skip to content 16GEMSDOE Home Executive summary Results Research Knowledge Audit GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Competition Download a submission file. Check it. Upload it. Each file below is a single-band float32 GeoTIFF in the exact format DrivenData describes, re-read and verified, unique against all ",
+        "les (2026-09-30 scan): distinct, most similar Jaccard 0.09. Holdout proxy (known faults): dense 0.213 / sparse 0.094 gate passed Not live-scored. No leaderboard score is predicted. Caveat. Passed the pre-registered gate, but a plain fault-density prior gives almost the same lift (exploratory control), so the gain is best explained by fault clustering, not by a structural-setting mechanism. The proxy rewards clustering by construction. The holdout figure uses the quadrant-wise",
+        "ior, thin ridges 2.5%/quadrant | id c502dfab | not yet live-scored Copy note Scored pixels 122,120 (2.363 % of footprint) \u00b7 content id c502dfab SHA-256 92904a5bfd84c8bd1141683fc5d29817aa4de71574d8caff5b40f7ed0072a5b8 Format: all 9 hard requirements pass: single band, float32, EPSG:32611, 3292 \u00d7 3730, finite values in [0, 1] on all 5,167,373 footprint pixels, read back with three different range-check implementations. Official convention: NaN on all 7,111,787 outside pixels an"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE21",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE21/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "c1b7afd2f3605ed35200f10bcb286d4baf55659c",
+      "text_sha256": "c6e73f7de19ae79295889ec54914033588075ecf77e8ded6adcde6f1ec2728be",
+      "excerpt": " Download & evidence \u00b7 GEMSDOE21 Skip to content G 21 GEMSDOE21 FAULT DISCOVERY / RESEARCH RECORD Submission guide Research Readiness Sources & feed Code \u2197 LOCALLY FORMAT-VERIFIED \u00b7 HISTORICAL REFERENCE Download the audited fault map. A ready-to-download, single-band prediction for the GEMS prize. This is unchanged H19-4 \u2014 not a newly validated improvement. Download reference .tif 1.72 MB With JavaScript: SHA-256 checked before saving \u00b7 no sign-in required UNIQUE FILENAME gems21-h19-4-reference-",
+      "claim_excerpts": [
+        " Download & evidence \u00b7 GEMSDOE21 Skip to content G 21 GEMSDOE21 FAULT DISCOVERY / RESEARCH RECORD Submission guide Research Readiness Sources & feed Code \u2197 LOCALLY FORMAT-VERIFIED \u00b7 HISTORICAL REFERENCE Download the audited fault map. A ready-to-download, single-band prediction for the GEMS prize. This is unchanged H19-4 \u2014 not a newly validated improvement. Download reference .tif 1.72 MB With JavaScript: SHA-256 chec",
+        ": signed step topology Exact first-result JSON \u2197 Mean dense holdout DTI 0.19474 \u2192 0.19478 +0.00004166 observed \u00b7 +0.006 forecast missed Mean sparse-reference DTI 0.09660 \u2192 0.09639 -0.00021345 observed \u00b7 +0.002 forecast Submission promotion gate Blocked 2/4 dense fold wins \u00b7 adjusted p=1.0 \u00b7 8/8 fits converged Exploratory local 31/37-channel comparison on previously scored geography\u2014not H19 or a hidden score. Official vectors connect 3,199 raster pieces into 149 conservative g",
+        "your weekly slot. Do not re-upload this file if you already scored H19-4. Its bytes are identical; a new name cannot improve its score. FIELD RECORD / 001 100 m grid H19-4 predictions Known catalogue 123,779 predicted pixels 0.1894 \u2020 reported historical score \u2020 User-reported file association. The public account best agrees, but does not identify the file. This map is not geological validation. INPUT ONLY New mechanisms. No unvalidated field test. Four forecasts locked; offici"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "20GEMSDOE",
+      "url": "https://buffedlizard55-lab.github.io/20GEMSDOE/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "187b5d283f7e1a84fc7aec350e1f61dd18a74e78",
+      "text_sha256": "c750ffca72f2d3b2cb0e8277bacd27978e79837aa3b7c833ec3d632243f3060d",
+      "excerpt": " Research & GeoTIFF Download Hub \u00b7 20GEMSDOE Skip to content 20GEMSDOE Home & Download Hub Executive Summary & Upload Guide Hypotheses & Evidence Leaderboard & Forensics Knowledge Base Sources & Irregularities GitHub DOE GEMS Prize \u00b7 DrivenData #306 Website close Dec 3, 2026 23:59 UTC (PDF differs; safety target 22:00 UTC, F45 ) \u00b7 Limit: 3 uploads / rolling 7 days Manual snapshot 2026-10-01: leader 0.3168 \u00b7 group-linked best 0.1894 Competition 20GEMSDOE \u2014 DOE GEMS research and GeoTIFF download h",
+      "claim_excerpts": [
+        "N outside its finite footprint; use that convention for the primary artifact. nodata tag is nan advisory pass The local artifact's nodata tag is NaN, matching the supplied template. variant nan aware whole array hard local check pass np.nanmin/np.nanmax over the whole array variant masked read hard local check pass rasterio read(masked=True).compressed() variant strict whole array no nan allowed advisory not applicable Diagnostic only: a strict whole-array check rejects outsi",
+        " Research & GeoTIFF Download Hub \u00b7 20GEMSDOE Skip to content 20GEMSDOE Home & Download Hub Executive Summary & Upload Guide Hypotheses & Evidence Leaderboard & Forensics Knowledge Base Sources & Irregularities GitHub DOE GEMS Prize \u00b7 DrivenData #306 Website close Dec 3, 2026 23:59 UTC (PDF differs; safety target 22:00 UTC, F45 ) \u00b7 Limit: 3 uploads / rolling 7 days Manual snapshot 2026-10-01: leader 0.3168 \u00b7 group-linked best 0.1894 Comp",
+        "ifacts. No current candidate is recommended for upload. H20 holdout evidence is proxy-based and unreproduced; H20-5's stated calibration uses a synthetic target. These artifacts are not hidden-fault validation. Evidence correction: Earlier site copy overstated H20 calibration, pre-registration, vault and upload eligibility. The old \u201chidden-fault hit rate\u201d was computed against a synthetic target; the same stored vault was evaluated for two candidates. See F25\u2013F29 . No hidden-f",
+        "EMSDOE Home & Download Hub Executive Summary & Upload Guide Hypotheses & Evidence Leaderboard & Forensics Knowledge Base Sources & Irregularities GitHub DOE GEMS Prize \u00b7 DrivenData #306 Website close Dec 3, 2026 23:59 UTC (PDF differs; safety target 22:00 UTC, F45 ) \u00b7 Limit: 3 uploads / rolling 7 days Manual snapshot 2026-10-01: leader 0.3168 \u00b7 group-linked best 0.1894 Competition 20GEMSDOE \u2014 DOE GEMS research and GeoTIFF download hub Download single-band float32 .tif (resear",
+        "evaluated for two candidates. See F25\u2013F29 . No hidden-fault score or reliability claim is established. FORMAT-CHECKED RESEARCH ARTIFACTS \u00b7 NO SCORE RECOMMENDATION Download and pre-flight existing GeoTIFF artifacts This browser tool checks and can re-export files already in docs/downloads/ ; it does not train a model or create predictions. Local checks confirm the current file's structure and [0, 1] values inside the template footprint. Stored H20 holdout values are unreproduc"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE22",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE22/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "cfce060899ee88bdd716de5c145abb081657cb4f",
+      "text_sha256": "bf8eec8d49a86cdf8aee42a273e83ea4392ab15e370b3edc4faf72a7e2d99490",
+      "excerpt": " 19GEMSDOE Submission Hub & Executive Summary \u00b7 GEMSDOE22 Skip to content GEMSDOE22 Home & Downloads Executive Summary & Upload Guide Hypotheses & 4-Line Physics Leaderboard & Forensic Audit Knowledge Base Source Verification & Flags gems22 Value-Emit Hub GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Group Best: 0.1922 (19GEMSDOE h19-5) \u00b7 0.1894 (h19-4) \u00b7 0.1855 (16GEMSDOE) \u00b7 Leader: 0.3168 Competition 22GEMSDOE \u2014 Executive Summary & Valid",
+      "claim_excerpts": [
+        " the 4-quadrant spatially blocked holdout, H23-A raises the primary SGMC gate by +0.0598 but fails the secondary per-fold dense gate (max loss 0.0160) ; that violation is disclosed as POST_HOC , not buried. Every file is verified in [0.0, 1.0] across all 5,167,373 scored pixels and is DISTINCT ( J<0.80 ) from all 22 historic group submissions. All H23 files are not live-scored yet. Immediate Upload Path (2 minutes): Click Download submission (.tif) on Upload #1 (H23-A Primary",
+        "cutive Summary \u00b7 GEMSDOE22 Skip to content GEMSDOE22 Home & Downloads Executive Summary & Upload Guide Hypotheses & 4-Line Physics Leaderboard & Forensic Audit Knowledge Base Source Verification & Flags gems22 Value-Emit Hub GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Group Best: 0.1922 (19GEMSDOE h19-5) \u00b7 0.1894 (h19-4) \u00b7 0.1855 (16GEMSDOE) \u00b7 Leader: 0.3168 Competition 22GEMSDOE \u2014 Executive Summary & Validated GeoTIF",
+        "rtifact audit. Measured on the 4-quadrant spatially blocked holdout, H23-A raises the primary SGMC gate by +0.0598 but fails the secondary per-fold dense gate (max loss 0.0160) ; that violation is disclosed as POST_HOC , not buried. Every file is verified in [0.0, 1.0] across all 5,167,373 scored pixels and is DISTINCT ( J<0.80 ) from all 22 historic group submissions. All H23 files are not live-scored yet. Immediate Upload Path (2 minutes): Click Download submission (.tif) o",
+        "GEMSDOE22 Home & Downloads Executive Summary & Upload Guide Hypotheses & 4-Line Physics Leaderboard & Forensic Audit Knowledge Base Source Verification & Flags gems22 Value-Emit Hub GitHub DOE GEMS Prize \u00b7 DrivenData #306 Ends Dec 3, 2026 23:59 UTC \u00b7 Limit: 3 uploads / rolling 7 days Group Best: 0.1922 (19GEMSDOE h19-5) \u00b7 0.1894 (h19-4) \u00b7 0.1855 (16GEMSDOE) \u00b7 Leader: 0.3168 Competition 22GEMSDOE \u2014 Executive Summary & Validated GeoTIFF Submission Downloads Ready-to-upload sing",
+        ". Every file is verified in [0.0, 1.0] across all 5,167,373 scored pixels and is DISTINCT ( J<0.80 ) from all 22 historic group submissions. All H23 files are not live-scored yet. Immediate Upload Path (2 minutes): Click Download submission (.tif) on Upload #1 (H23-A Primary) below open the DrivenData Submissions Page select the downloaded .tif file paste the copyable DrivenData note click Submit. Full step-by-step instructions and the interactive browser pre-flight verifier "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE23",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE23/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "b7709ae2e15945f93e8c24d46d36af945153ea8a",
+      "text_sha256": "5ff3686702eafd893872a92ae790dac0e8aa1ad6d14545eb0923c92ed73ccdb1",
+      "excerpt": " GEMSDOE23 \u00b7 QA candidate and evidence Skip to content Submission GeoTIFF (.tif): \u2b07 Download primary .tif (1.69 MB \u00b7 NaN outside footprint) \u2b07 All-finite .tif (0.92 MB) \u2b07 Reference h19-5 .tif (0.1922) EPSG:32611 \u00b7 3292\u00d73730 float32 \u00b7 [0, 1] \u00b7 SHA-256 38539dc6\u2026 \u00b7 Gate: BLOCKED (QA only) G23 GEMSDOE23 / research log Overview How to submit Clustering audit New hypotheses Uncertainty Evidence Scores Sources Audit Top-of-page submission GeoTIFF (.tif) \u00b7 10/10 format & template checks passed \u00b7 release ",
+      "claim_excerpts": [
+        "dence Skip to content Submission GeoTIFF (.tif): \u2b07 Download primary .tif (1.69 MB \u00b7 NaN outside footprint) \u2b07 All-finite .tif (0.92 MB) \u2b07 Reference h19-5 .tif (0.1922) EPSG:32611 \u00b7 3292\u00d73730 float32 \u00b7 [0, 1] \u00b7 SHA-256 38539dc6\u2026 \u00b7 Gate: BLOCKED (QA only) G23 GEMSDOE23 / research log Overview How to submit Clustering audit New hypotheses Uncertainty Evidence Scores Sources Audit Top-of-page submission GeoTIFF (.tif) \u00b7 10/10 format & template checks passed \u00b7 release gate BLOCKED ",
+        "e and evidence Skip to content Submission GeoTIFF (.tif): \u2b07 Download primary .tif (1.69 MB \u00b7 NaN outside footprint) \u2b07 All-finite .tif (0.92 MB) \u2b07 Reference h19-5 .tif (0.1922) EPSG:32611 \u00b7 3292\u00d73730 float32 \u00b7 [0, 1] \u00b7 SHA-256 38539dc6\u2026 \u00b7 Gate: BLOCKED (QA only) G23 GEMSDOE23 / research log Overview How to submit Clustering audit New hypotheses Uncertainty Evidence Scores Sources Audit Top-of-page submission GeoTIFF (.tif) \u00b7 10/10 format & template checks passed \u00b7 release gate",
+        "n ). No reproducible independent uncatalogued-fault spatial holdout has approved placement yet, so the release gate remains BLOCKED ; conditional metric scenarios are sensitivity algebra, not a score forecast. Filename: gemsdoe23-h30-arrangement-matched-habitat-20261002-0d4e02e8-nan.tif 3292 \u00d7 3730 single-band float32 EPSG:32611 100 m pixels values in [0, 1] NaN outside the footprint 1.69 MB SHA-256 38539dc647d5ede0\u2026 emitted mass 91,533 px dispersion efficiency \u03b7 = 0.931 Hold",
+        ".2876 11 HardcoreTechGod 0.2854 12 op01 0.2792 13 extradr19 0.2778 14 smashi34 0.2708 15 smrtdoog5 0.2708 16 ad3002 0.2627 17 exposed 0.2624 18 wbg1 0.2600 19 SDCF9 0.2600 20 tchu 0.2511 21 moongrega 0.2474 22 BrandenKMurray 0.2469 23 jgaines 0.2433 24 kpomazi 0.2381 25 hiii12345 0.2326 The official public leaderboard displays participants and scores but does not expose a prediction-file SHA-256 or public submission identifier; score equality is not artifact, account, or team",
+        " / research log Overview How to submit Clustering audit New hypotheses Uncertainty Evidence Scores Sources Audit Top-of-page submission GeoTIFF (.tif) \u00b7 10/10 format & template checks passed \u00b7 release gate BLOCKED Downloadable Submission GeoTIFF ( .tif ) TIFF value/structure audit PASS \u00b7 template match re-run this session: PASS \u00b7 release BLOCKED H30 \u00b7 arrangement-matched habitat emission (H24 ranking, audit-constrained) \u00b7 QA candidate Current standalone TIFF audit: 3292\u00d73730,",
+        "submit Clustering audit New hypotheses Uncertainty Evidence Scores Sources Audit Top-of-page submission GeoTIFF (.tif) \u00b7 10/10 format & template checks passed \u00b7 release gate BLOCKED Downloadable Submission GeoTIFF ( .tif ) TIFF value/structure audit PASS \u00b7 template match re-run this session: PASS \u00b7 release BLOCKED H30 \u00b7 arrangement-matched habitat emission (H24 ranking, audit-constrained) \u00b7 QA candidate Current standalone TIFF audit: 3292\u00d73730, one float32 band, EPSG:32611, 1"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE24",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE24/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "ef45ef1ab9037bcd3ddd962f020a205992ef3298",
+      "text_sha256": "17cf136fb3f177280364e6dc5dbde298d3f28cea75f1ce952fbac02ce4f09610",
+      "excerpt": " Overview \u00b7 GEMS DOE 24 \u223f GEMS DOE 24 Geologic mapping \u00b7 evidence first Overview Submission guide Research Sources & audit DOE GEMS Prize \u00b7 submission file Download the file. Know exactly what it is. One click gets the recommended submission GeoTIFF. It is a new, unscored candidate: the best owner-reported prediction (H19-5, reported 0.1922) re-emitted as a label-free, dot-thinned subset \u2014 60,069 pixels, 50% of the original \u2014 because at the truth density the owner's own scores imply, false-posit",
+      "claim_excerpts": [
+        "-HOLDOUT DTI Not leaderboard scores H19-5 as emitted 0.0710 Primary (dot-thinned) 0.0962 Alternate (sparser) 0.1008 Same emitted-raster protocol for all three, 30 sparse-truth draws \u00d7 4 spatial folds. Sparse truth density (\u22480.24% of the footprint) matches the density calibrated from the owner's blind-lattice score. Paired gain of the primary over H19-5: +36% . Owner decision required before a weekly slot is spent. The file passes the frozen holdout gates and every format chec",
+        "e Research Sources & audit DOE GEMS Prize \u00b7 submission file Download the file. Know exactly what it is. One click gets the recommended submission GeoTIFF. It is a new, unscored candidate: the best owner-reported prediction (H19-5, reported 0.1922) re-emitted as a label-free, dot-thinned subset \u2014 60,069 pixels, 50% of the original \u2014 because at the truth density the owner's own scores imply, false-positive mass dominates the metric. \u2193 Download submission .tif (1.56 MiB) How to ",
+        "otted-h19-5-d1-5-20261002-989f59505db1-nan.tif LOCAL SPARSE-HOLDOUT DTI Not leaderboard scores H19-5 as emitted 0.0710 Primary (dot-thinned) 0.0962 Alternate (sparser) 0.1008 Same emitted-raster protocol for all three, 30 sparse-truth draws \u00d7 4 spatial folds. Sparse truth density (\u22480.24% of the footprint) matches the density calibrated from the owner's blind-lattice score. Paired gain of the primary over H19-5: +36% . Owner decision required before a weekly slot is spent. The",
+        "ick gets the recommended submission GeoTIFF. It is a new, unscored candidate: the best owner-reported prediction (H19-5, reported 0.1922) re-emitted as a label-free, dot-thinned subset \u2014 60,069 pixels, 50% of the original \u2014 because at the truth density the owner's own scores imply, false-positive mass dominates the metric. \u2193 Download submission .tif (1.56 MiB) How to submit, step by step \u2197 Candidate \u00b7 not yet scored float32 \u00b7 [0,1] \u00b7 NaN outside unique id 989f59505db1 gems24-"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE25",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE25/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "f936a6d9ceb03250200a2ad0a0c78be8f3a96e08",
+      "text_sha256": "2d51f48cf8e2a1f95b166bc03e1ccf3d3cddc732ab3902b30657a6c91b79c0de",
+      "excerpt": " Start here \u00b7 GEMSDOE25 GEMSDOE25 DOE GEMS Prize \u00b7 DrivenData #306 \u00b7 designed factorial experiments Start here How to submit Research Sources & audit Download the format-validated GeoTIFF. Know what it proves. One click gets a single-band float32 GeoTIFF with finite [0,1] predictions throughout the footprint , checked against the pinned template. This establishes file-format validity only\u2014not holdout promotion or a competition score. The current D2.8 file has not demonstrated a win over a compar",
+      "claim_excerpts": [
+        "r claims unverified; not a score) model expectation for the primary file \u2014 a model, not a score Local audit of the reported 0.2477 raster (score unverified) The mask is exactly dot_thin(H19-5, 1.5) \u2014 pixel-for-pixel a deterministic subset of the H19-5-labelled raster: 60,069 of 121,131 pixels kept (49.6 %), none on a catalogue pixel, zero NaN inside the footprint. This verifies the raster transformation, not the reported DTI. Metric arithmetic: DTI = TP w / (0.2\u00b7(TP w +FP w )",
+        "periments Start here How to submit Research Sources & audit Download the format-validated GeoTIFF. Know what it proves. One click gets a single-band float32 GeoTIFF with finite [0,1] predictions throughout the footprint , checked against the pinned template. This establishes file-format validity only\u2014not holdout promotion or a competition score. The current D2.8 file has not demonstrated a win over a comparable same-run spatial-holdout best and is not slot-approved . The earl",
+        "ed template. This establishes file-format validity only\u2014not holdout promotion or a competition score. The current D2.8 file has not demonstrated a win over a comparable same-run spatial-holdout best and is not slot-approved . The earlier range error was caused by NaNs inside the footprint (inferred from the file; the portal validator is not public); that defect is fixed. Research download: dotted H19-5, wider spacing (D2.8) Owner-mirrored H19-5 raster thinned by deterministic",
+        "r stage. A proxy pass is not a score or slot approval. Rank Hypothesis Planning \u0394DTI (not a prediction) Status 1 Paired visible-tip cross-strike bridge \u00d7 LiDAR scarp persistence +0.001 to +0.008 P+S mean DTI 0.148330; paired gain -0.001275; screen passed; fresh-draw confirmation failed; stop, no candidate file or slot 2 Visible-fault junction / accommodation-zone branch field 0 to +0.006 Registered only; not fitted 3 Scale-persistent terrain lineament 0 to +0.005 Registered o",
+        "format validity only\u2014not holdout promotion or a competition score. The current D2.8 file has not demonstrated a win over a comparable same-run spatial-holdout best and is not slot-approved . The earlier range error was caused by NaNs inside the footprint (inferred from the file; the portal validator is not public); that defect is fixed. Research download: dotted H19-5, wider spacing (D2.8) Owner-mirrored H19-5 raster thinned by deterministic Poisson-disk dotting to 44,090 pix"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE26",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE26/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "c4c91e9b0e9d4b665d8bcf2fdcdc0c898329e8bd",
+      "text_sha256": "b1e4e06c8c7d9b13b1c9b5a0b8273878c2110767ea8bca7d453a6e7fed7d8343",
+      "excerpt": " Download & evidence \u00b7 GEMS DOE 26 Skip to content GEMS DOE 26 Geological discovery lab Overview Research History Sources Submission guide \u2197 Northwestern Great Basin \u00b7 Research run 03 Learn the region. Test the discovery. H27-SRCOH failed; no TIFF. Below: the earlier H27-DILCOND OOF, still blocked. Earlier H27-DILCOND-v1 \u00b7 four-fold OOF \u2713 Format \u00b7 \u2715 performance gate BLOCKED_DO_NOT_SUBMIT \u2014 Do not submit. Research-only OOF mosaic, not full fit; +0.003198 sparse DTI vs raw is below the +0.005 gate",
+      "claim_excerpts": [
+        "ead 0.123590 0.070184 OOF research control H26-SSL + error (primary) 0.122164 0.069039 REJECT \u00b7 no submission Label-free error only 0.079130 0.044787 OOF research control Confirmation: 30 paired, 20%-component-thinned draws; averages of pooled DTI, not old fold means. These reuse known faults\u2014not independent novel-fault truth or live contest scores. H25 is compared as emitted, not a leakage-free retrained control. Earlier SSL run & gate \u2197 Earlier paired draws \u2197 Scientific int",
+        " Download & evidence \u00b7 GEMS DOE 26 Skip to content GEMS DOE 26 Geological discovery lab Overview Research History Sources Submission guide \u2197 Northwestern Great Basin \u00b7 Research run 03 Learn the region. Test the discovery. H27-SRCOH failed; no TIFF. Below: the earlier H27-DILCOND OOF, still blocked. Earlier H27-DILCOND-v1 \u00b7 four-fold OOF \u2713 Format \u00b7 \u2715 performance gate BLOCKED_DO_NOT_SUBMIT \u2014 Do not submit. Research-only",
+        "control. A third feature is not approved. The next recorded hypothesis is the emission/thinning operator that converts a score field into points, which H25 itself shows can move the metric substantially without any new geology. Ranked hypotheses & the H28 proposal \u2192 06 / An auditable starting point Keep the science reusable. Primary-source facts, local measurements, owner reports and untested ideas each carry a different evidence label. Sources, not promises Official competit",
+        "; no TIFF Strongest owner-reported file 0.2477 H25-1 \u00b7 file\u2013score receipt absent Leaderboard target 0.3195 DARD \u00b7 2026-10-02 snapshot Weekly slots spent 0 Four frozen screens failed \u00b7 no upload 01 / Latest tested candidate \u00b7 no TIFF H27-SRCOH failed the frozen spatial screen. H27-SRCOH scored 0.072414 sparse / 0.126771 dense, below the matched raw head (0.077166 / 0.136243), fixed XEDGE OOF and H25. All 15 preregistered rules failed. This latest screen exported no TIFF; the e"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE27",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE27/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "2ca9e3083ff955f3279b8d50b7927a6e991bd65f",
+      "text_sha256": "7162bdf36aaeccbc76f35cc806f6cde12b725b38acc1a64a47f180af7fb91fda",
+      "excerpt": " Submit \u00b7 27GEMSDOE 27GEMSDOE \u00b7 DOE GEMS Submit Executive summary Topology candidates Research Sources & feed Submit this file. 27GEMSDOE \u00b7 DrivenData #306 DOE GEMS. The owner's 0.2477 file plus one controlled change: 1,259 topology gap-closure dots on 345 links. UNSCORED \u2013 no score is claimed \u2b07 Download submission (.tif) .zip (same file) fallback: all-finite .tif gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif \u00b7 1.64 MB \u00b7 sha256 33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0",
+      "claim_excerpts": [
+        " / .zip / fallback) Pixels Model geo / hyb What it tests 1 (Primary A/B) gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif \u00b7 .zip \u00b7 allfinite 61,328 0.2506 / 0.2580 0.2477 base + 1,259 T-v2 dots, nothing removed . Changes exactly one thing, so slot 1 against the scored 0.2477 parent is a clean A/B. OOF \u0394DTI +0.0115 (4/4 folds). 2 (budget optimum) gems27-topo-gap-closure-t-v2-on-d2-8-20261002-3ebd51534bb1-nan.tif \u00b7 .zip \u00b7 allfinite 45,374 0.2585 / 0.2671 d2.8-",
+        "closure dots on 345 links. UNSCORED \u2013 no score is claimed \u2b07 Download submission (.tif) .zip (same file) fallback: all-finite .tif gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif \u00b7 1.64 MB \u00b7 sha256 33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d Note to paste into the form (optional field) 27GEMSDOE T-v2 A/B | 0.2477 base (dotted H19-5 d1.5) + 1259 dots on 345 aligned 1-4 km gap links; A/B vs 0.2477 | id 5512495c6bd1 | not yet live-scored Co",
+        "ngle band \u00b7 exact 0/1 \u00b7 NaN outside gates passed on blocked holdout (class level) real hidden set: untested Steps: download \u2192 open the competition (sign in) \u2192 Submit \u2192 upload the .tif (or the .zip) \u2192 paste the note \u2192 submit. Exact steps, the \"[0, 1]\" troubleshooting and the 4-slot plan are in the executive summary . 61,328 emitted pixels = 60,069 (the 0.2477 emission, nothing removed) + 1,259 345 aligned gap links (median 1.8 km), each with NBMG/USGS vector fault attribution ",
+        "led change: 1,259 topology gap-closure dots on 345 links. UNSCORED \u2013 no score is claimed \u2b07 Download submission (.tif) .zip (same file) fallback: all-finite .tif gems27-topo-gap-closure-t-v2-on-d1-5-20261002-5512495c6bd1-nan.tif \u00b7 1.64 MB \u00b7 sha256 33003374335d84bf885f2d8f5e9dd4c57044c8ec58fa6a0d7fa581e8bc41c11d Note to paste into the form (optional field) 27GEMSDOE T-v2 A/B | 0.2477 base (dotted H19-5 d1.5) + 1259 dots on 345 aligned 1-4 km gap links; A/B vs 0.2477 | id 551249"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE28",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE28/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "de1f9129472d608b958fdff0104f0d371ab5a1d1",
+      "text_sha256": "e724107eabbb91b12a76564f571747d73a3ff23a199ca1585ba2663f9be52265",
+      "excerpt": " Overview | GEMSDOE28 GEMSDOE28 DOE GEMS \u00b7 Auditable research Overview Executive summary Research Topology Sources GEMS DOE \u00b7 Great Basin \u00b7 2026 Evidence before emission. An auditable geoscience research workflow aimed at better fault mapping\u2014not a submission bot. Every idea must earn its way through a spatially blocked holdout, independent confirmation, and an exact-file audit before it can approach a weekly slot. Maximize P(Win) Own the Outcome NO GEMSDOE28 SCORE Current status (2026-10-03): t",
+      "claim_excerpts": [
+        "able axis remains removal . Review then found the one-click primary strictly dominated by the file in its own tertiary slot on every published statistic, so the arm that followed was an adjudication of the candidate ladder on fresh seeds . The adjudication ran on seeds 235\u2013239 with the frozen runner unmodified: the best variant is h27_4_blind_r1_d28 at 0.001761 (5/5 seeds, 4/4 folds), so the frozen promotion rule IS met and the primary below is the promoted file. The H36-1 re",
+        "ed with no confirmation and no weekly slot. Manual research download \u00b7 no upload made One-click GeoTIFF \u2014 H36-1: re-pack the H19-5 surface from packing rung 2.828 to rung 3.0 (a 41,333-px re-layout, not a thinning) and apply the H27-4 blind 1-px catalogue-flank prune UNSCORED \u00b7 RESEARCH ONLY \u00b7 NOT SLOT-APPROVED Download single-band GeoTIFF Download ZIP All-finite fallback GitHub Pages fallback: if the button above returns a stale page or an error, this direct file route from ",
+        "t. Every idea must earn its way through a spatially blocked holdout, independent confirmation, and an exact-file audit before it can approach a weekly slot. Maximize P(Win) Own the Outcome NO GEMSDOE28 SCORE Current status (2026-10-03): the prominent one-click file below is H36-1: re-pack the H19-5 surface from packing rung 2.828 to rung 3.0 (a 41,333-px re-layout, not a thinning) and apply the H27-4 blind 1-px catalogue-flank prune ( gems28-h36-1-rung30-blind-r1-20261003-b53",
+        "ut (unverified) \u00b7 mainline seed-use evidence \u00b7 pre-run five-hypothesis ranking \u00b7 full reconciliation . Manual-only boundary: no login, download, upload, scrape, poll, or monitoring of DrivenData occurs in this repository. Review the official competition page and official rules yourself before deciding whether to submit. A local audit does not guarantee portal acceptance. +0.00171 H36-1 LOSFO far-field \u0394DTI \u00b7 seeds 265\u2013269 Session 14 F1\u2013F4 ALL PASS: H36-1 ( b531dae0a36f , 37,6",
+        "a weekly slot. Maximize P(Win) Own the Outcome NO GEMSDOE28 SCORE Current status (2026-10-03): the prominent one-click file below is H36-1: re-pack the H19-5 surface from packing rung 2.828 to rung 3.0 (a 41,333-px re-layout, not a thinning) and apply the H27-4 blind 1-px catalogue-flank prune ( gems28-h36-1-rung30-blind-r1-20261003-b531dae0a36f-nan.tif , 37,660 px), and it was validated on a 4-fold spatially blocked holdout ( evidence/h36_1_holdout.json ): 0.002599 mean \u0394DTI"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE29",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE29/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "757fa55d335db3d04c84471d36d30794983e5df6",
+      "text_sha256": "bfc4cc18d4b31a646f15223c532e7921559892c93921a0257778690dcfc0172c",
+      "excerpt": " Overview | GEMSDOE29 Skip to content G GEMSDOE29 / research lab Overview Submission guide Research Status feed Sources Irregularities DOE GEMS Prize \u00b7 GeoDAWN \u00b7 evidence before entry Find faults worth believing. A transparent research workflow for predicting unmapped faults, built around spatial holdouts, exact-file validation, official sources and honest uncertainty. The download in the banner is one click and needs no login; its paste-ready submission note sits with it. Nothing here is a scor",
+      "claim_excerpts": [
+        "0-03: this card used to offer the NaN-outside raster as its primary download, which is exactly the variant the owner's submission form rejected with 'Predicted values must be in range [0, 1]' (IR-PORTAL-01). The emission is unchanged; only the outside-footprint fill differs. gems29-wormrank-d28-20261003-59dcaf6dd11d-zeros.tif sha256 7036b8dfcb76444e\u2026 \u00b7 41,338 emitted px \u00b7 format ok: True score claims kept in registry/score_claims.json local format only not slot-cleared \u00b7 do n",
+        "le validation, official sources and honest uncertainty. The download in the banner is one click and needs no login; its paste-ready submission note sits with it. Nothing here is a score claim. Download the .tif in one click Submission guide Explore research Formatted and waiting for a human decision Download the submission GeoTIFF Each file below is a 1-band float32 GeoTIFF locally checked against the hash-pinned owner-mirror template (EPSG:32611, 100 m; finite [0.0, 1.0] val",
+        "rkflow for predicting unmapped faults, built around spatial holdouts, exact-file validation, official sources and honest uncertainty. The download in the banner is one click and needs no login; its paste-ready submission note sits with it. Nothing here is a score claim. Download the .tif in one click Submission guide Explore research Formatted and waiting for a human decision Download the submission GeoTIFF Each file below is a 1-band float32 GeoTIFF locally checked against t",
+        " official score SGMC off-catalogue inventory (external-data hypothesis) 44,090 dots on an external state-geologic-map inventory separated from the supplied catalogue. The two local proxies disagree; this file fails the registered catalogue-hidden screen and is not slot-cleared. Format checks do not authenticate source or predict competition scoring. gemsdoe29-sgmc-off-catalogue-44k-20261003-c8dcd780e3fd-nan.tif sha256 9b83158bde01cd5d\u2026 \u00b7 44,090 emitted px \u00b7 format ok: True sc",
+        "paste-ready submission note sits with it. Nothing here is a score claim. Download the .tif in one click Submission guide Explore research Formatted and waiting for a human decision Download the submission GeoTIFF Each file below is a 1-band float32 GeoTIFF locally checked against the hash-pinned owner-mirror template (EPSG:32611, 100 m; finite [0.0, 1.0] values inside; NaN outside the template footprint in the owner-mirror variant, and zero outside in the recommended-upload v"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE30",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE30/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "22c5749f58ac55cfe5508a97d5bdfa37810c88f0",
+      "text_sha256": "10a2d8fc51c25d1fb025e58dc7d179c0042651e78f23864d4233ffa964a8f053",
+      "excerpt": " GEMSDOE30 \u00b7 Fault discovery, verified G30 GEMSDOE30 Submission guide Hypotheses Score analysis Sources Project brief DOE GEMS \u00b7 Northwestern Great Basin \u00b7 SUBMISSION-READY DOWNLOAD Download the file. Upload it. Done. One button below gives you a competition-ready single-band GeoTIFF. Every one of its 12,279,160 cells is a finite float32 in [0, 1] \u2014 there is not one NaN anywhere in the raster \u2014 so the portal's \u201cPredicted values must be in range [0, 1]\u201d rejection cannot fire. It sits on the exact",
+      "claim_excerpts": [
+        " the range-check risk the hardened twin removes). Receipts: primary sidecar , d1.5 sidecar , NaN-outside sidecar , EDGE hardened sidecar . What is and is not claimed. Format is locally verified against the SHA-256-pinned organizer template; local verification is not organizer acceptance. The prediction content is the owner's highest-reported artifact (0.2600, D2.8) re-encoded without changing a single in-footprint value \u2014 this is not a new model and no new score is claimed fo",
+        "rief DOE GEMS \u00b7 Northwestern Great Basin \u00b7 SUBMISSION-READY DOWNLOAD Download the file. Upload it. Done. One button below gives you a competition-ready single-band GeoTIFF. Every one of its 12,279,160 cells is a finite float32 in [0, 1] \u2014 there is not one NaN anywhere in the raster \u2014 so the portal's \u201cPredicted values must be in range [0, 1]\u201d rejection cannot fire. It sits on the exact organizer template grid (3730\u00d73292, EPSG:32611, 100 m, transform 243350 / 4508550). \u2b07 DOWNLO",
+        "exactly at that threshold. On the whole-catalogue component holdout (seed 31: 20,870 stand-in hidden pixels, 40,118 known pixels masked from every metric term; four spatial quadrant folds; leave-one-fold-out parameter choice per family), EDGE scored 0.18754 vs the best other family's 0.13848 on the proximity field ( +0.04906 , 4/4 folds), 0.15784 vs 0.14015 on external evidence ( +0.01768 , 3/4), and 0.18368 vs 0.14014 on the hybrid field ( +0.04354 , 3/4). Uniform thinning (",
+        " \u00b7 Fault discovery, verified G30 GEMSDOE30 Submission guide Hypotheses Score analysis Sources Project brief DOE GEMS \u00b7 Northwestern Great Basin \u00b7 SUBMISSION-READY DOWNLOAD Download the file. Upload it. Done. One button below gives you a competition-ready single-band GeoTIFF. Every one of its 12,279,160 cells is a finite float32 in [0, 1] \u2014 there is not one NaN anywhere in the raster \u2014 so the portal's \u201cPredicted values must be in range [0, 1]\u201d rejection cannot fire. It sits on",
+        "scovery, verified G30 GEMSDOE30 Submission guide Hypotheses Score analysis Sources Project brief DOE GEMS \u00b7 Northwestern Great Basin \u00b7 SUBMISSION-READY DOWNLOAD Download the file. Upload it. Done. One button below gives you a competition-ready single-band GeoTIFF. Every one of its 12,279,160 cells is a finite float32 in [0, 1] \u2014 there is not one NaN anywhere in the raster \u2014 so the portal's \u201cPredicted values must be in range [0, 1]\u201d rejection cannot fire. It sits on the exact "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE31",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE31/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "329989c5110f32a833b172b860e48221b563dafa",
+      "text_sha256": "53a5f62d37bfbd48fc8d76b6e7d02a9d1d4d044b56b9b63a0095a3ffcee07375",
+      "excerpt": " Overview \u00b7 GEMSDOE31 G31 GEMSDOE31 Overview Executive summary Research Validation Register Experiments Sources DOE GEMS Prize \u00b7 competition 306 \u00b7 auditable fault mapping Download the file. Submit it. A verified, format-checked submission raster built from the best-scoring geometry this project has measured, next to the measured evidence for why it scores \u2014 and what would have to change to beat the leaderboard. Download submission TIFF How to submit \u2014 5 steps Current file \u00b7 40,199 pixels Single-",
+      "claim_excerpts": [
+        " DOE GEMS Prize \u00b7 competition 306 \u00b7 auditable fault mapping Download the file. Submit it. A verified, format-checked submission raster built from the best-scoring geometry this project has measured, next to the measured evidence for why it scores \u2014 and what would have to change to beat the leaderboard. Download submission TIFF How to submit \u2014 5 steps Current file \u00b7 40,199 pixels Single-band float32 GeoTIFF on the exact competition grid; zero of its pixels sit on the public ca",
+        "on. Check Two off-catalogue truth proxies The catalogue-gap holdout and the SGMC off-catalogue population are kept separate and reported side by side, because a single proxy would have promoted the wrong arm. Detail Fail-closed promotion gates Nothing reaches a weekly slot without beating the same-run incumbent, fresh confirmation draws and an exact-file audit. The failed H31-A pilot is published as a stop, not tidied away. Experiment log Measured artifacts, honest limits. No",
+        "ject has measured, next to the measured evidence for why it scores \u2014 and what would have to change to beat the leaderboard. Download submission TIFF How to submit \u2014 5 steps Current file \u00b7 40,199 pixels Single-band float32 GeoTIFF on the exact competition grid; zero of its pixels sit on the public catalogue. Format validated in this repository ( receipt ). It is the incumbent geometry, deliberately not slot-approved: nothing here beat it by a margin worth a slot. Submission On"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE32",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE32/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "c9f36ad45f1571c36af3aa0e1aac027af252cfd5",
+      "text_sha256": "d690a921f5244cd97eadfb8a71e0897e875b21c2716c23a88849ed0679413dac",
+      "excerpt": " GEMSDOE32 - a fault-discovery system for the DOE GEMS Prize \u00b7 GEMSDOE32 GEMSDOE32 - a fault-discovery system for the DOE GEMS Prize Home Make a submission Research Hypotheses Leaderboard Sources Irregularities \u2b07 Download the submission GeoTIFF .zip Core Values. Maximize P(Win) \u2014 every weekly submission slot is an experiment, not a lottery ticket. Own the Outcome \u2014 every claim here carries an evidence class, and the defect in our own previously-shipped primary was measured, published and replace",
+      "claim_excerpts": [
+        "vidence class, and the defect in our own previously-shipped primary was measured, published and replaced rather than quietly dropped. \u2b07 ONE-CLICK SUBMISSION FILE Download gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif .zip (single GeoTIFF inside) Filename: gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif Unique submission name to use: GEMSDOE32-H33-2-B2 Note to paste into the submit form's Note (optional) field (177/200 characters): GEMSDOE32 H33-2-B2 | ",
+        "on Research Hypotheses Leaderboard Sources Irregularities \u2b07 Download the submission GeoTIFF .zip Core Values. Maximize P(Win) \u2014 every weekly submission slot is an experiment, not a lottery ticket. Own the Outcome \u2014 every claim here carries an evidence class, and the defect in our own previously-shipped primary was measured, published and replaced rather than quietly dropped. \u2b07 ONE-CLICK SUBMISSION FILE Download gemsdoe32-h33-h33-2-b2-20261004T220000Z-e5eb6e7e-zeros.tif .zip (",
+        " and its decision theory; a preregistered spatially-blocked holdout that scores emission rules under that metric; and a Bayesian-optimisation slot gate that decides when a scarce weekly submission is worth spending. Verified in this repository the published metric formula, the published worked example, and the identity DTI = T/(0.2(T+S\u2212M)+0.8|G|) (the suite runs in CI on every push: pytest tests -q ); the credit bar k > 0.2\u00b7DTI that every emitted pixel must clear; the byte id",
+        "stem for the DOE GEMS Prize Home Make a submission Research Hypotheses Leaderboard Sources Irregularities \u2b07 Download the submission GeoTIFF .zip Core Values. Maximize P(Win) \u2014 every weekly submission slot is an experiment, not a lottery ticket. Own the Outcome \u2014 every claim here carries an evidence class, and the defect in our own previously-shipped primary was measured, published and replaced rather than quietly dropped. \u2b07 ONE-CLICK SUBMISSION FILE Download gemsdoe32-h33-h33",
+        "ror +0.00487 in 4/4 folds, safety 2.08, projected 0.2747; UNSCORED single band \u00b7 float32 \u00b7 EPSG:32611 \u00b7 100 m \u00b7 3292\u00d73730 \u00b7 37,654 predicted pixels \u00b7 every cell finite \u00b7 every value in [0, 1] \u00b7 0 NaN anywhere \u00b7 no nodata tag \u00b7 sha256 c55bafc470054e82\u2026 \u00b7 format receipt (independent re-read) Already-scored fallback: 0.2708 anchor (already-scored base) Identification pack \u2014 the other two queries slot file sha256 what it gives SECONDARY (Tier 2) gemsdoe32-h32d-submodular-multipys"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE33",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE33/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "48a4c81ca99bf768f0b7a484514aa454a284e2da",
+      "text_sha256": "d022c92434a1e93ab487084b00ce4e4b496a11c6be2de40b49c0dc0a123de871",
+      "excerpt": " GEMSDOE33 Redirecting to the project site . ",
+      "claim_excerpts": [],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE34",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE34/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "af7aba88683e7a28fd9c86238445a2d39c919b8d",
+      "text_sha256": "3dd5c51e98260b5c097f66d5bcb30c26801715179c7cf3a822ef3fe29842a6e7",
+      "excerpt": " GEMSDOE34 \u2014 Fault Prediction System \u2014 GEMSDOE34 GEMSDOE34 Overview How to submit Method Validation Hypotheses History & collapse Sources Irregularities Limitations \u2b07 Download the submission (ready to upload) \u2b07 Download h34-scatter-q50-arr-matched-20261004T223317Z.tif (337,485 B) \ud83d\udce6 Download .zip How to submit (3 steps): Click the green button above to download h34-scatter-q50-arr-matched-20261004T223317Z.tif . Open the DrivenData submission portal \u2192 New submission \u2192 File to submit \u2192 select the f",
+      "claim_excerpts": [
+        "ses History & collapse Sources Irregularities Limitations \u2b07 Download the submission (ready to upload) \u2b07 Download h34-scatter-q50-arr-matched-20261004T223317Z.tif (337,485 B) \ud83d\udce6 Download .zip How to submit (3 steps): Click the green button above to download h34-scatter-q50-arr-matched-20261004T223317Z.tif . Open the DrivenData submission portal \u2192 New submission \u2192 File to submit \u2192 select the file. Paste the note string below into the Note field and submit. \ud83d\udccb DrivenData note stri",
+        "-to-catalogue profile and 10 km block spread matched to the 0.2778 artifact. Its pixels are new: the closest of 302 historical rasters shares 4.07 % of its payload (Dice), so it is not a re-upload. It is not predicted to beat 0.2778. Predicted 0.2346, which is also what the model predicts for the 0.2778 artifact itself (LOO 0.2345). This design reproduces a known-good family; it does not exceed it. Read Limitations before spending a weekly slot. deliberately zero pixels on th",
+        "EMSDOE34 GEMSDOE34 Overview How to submit Method Validation Hypotheses History & collapse Sources Irregularities Limitations \u2b07 Download the submission (ready to upload) \u2b07 Download h34-scatter-q50-arr-matched-20261004T223317Z.tif (337,485 B) \ud83d\udce6 Download .zip How to submit (3 steps): Click the green button above to download h34-scatter-q50-arr-matched-20261004T223317Z.tif . Open the DrivenData submission portal \u2192 New submission \u2192 File to submit \u2192 select the file. Paste the note ",
+        "akthroughs Mathematical & Empirical Diagnosis of the 0.1563 Score Collapse: GEMSDOE1, 5GEMSDOE, and 8GEMSDOE scored identically at 0.1563 because two files are byte-identical clones, and 8GEMSDOE added 54,533 pixels of which 100.00% sit on the known-fault catalogue mask . Under DrivenData's official masking rule (\"known USGS/INGENIOUS faults are excluded from penalty terms\"), additions on the mask are metrically inert. Because their non-mask payloads were 100% byte-identical "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE35",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE35/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "9dba984390e2d009719732c75c4b5bc31e7d49fe",
+      "text_sha256": "75c0fd00b5ad58f96c6250483750e2a7515be7e98f3bb63ad4e4df6e92e57085",
+      "excerpt": " GEMSDOE35 \u2014 GEMS Fault Discovery & Latin Hypercube Design Skip to content G GEMSDOE35 DOE GEMS \u00b7 306 Download TIF 0.2778 Analysis 5 Hypotheses Spatial CV Executive Summary Download Candidate TIFF \u2193 GEMS Prize Challenge \u00b7 GeoDAWN Region \u00b7 Basin & Range \u00b7 04 Oct 2026 Discovery of Concealed Geothermal Faults. Auditable, space-filling Latin hypercube experiments exploring multiscale geomorphology, potential fields, and geodetic strain. Driven by PhD-level structural geophysics, formal spatial holdo",
+      "claim_excerpts": [
+        "Hypercube Design Skip to content G GEMSDOE35 DOE GEMS \u00b7 306 Download TIF 0.2778 Analysis 5 Hypotheses Spatial CV Executive Summary Download Candidate TIFF \u2193 GEMS Prize Challenge \u00b7 GeoDAWN Region \u00b7 Basin & Range \u00b7 04 Oct 2026 Discovery of Concealed Geothermal Faults. Auditable, space-filling Latin hypercube experiments exploring multiscale geomorphology, potential fields, and geodetic strain. Driven by PhD-level structural geophysics, formal spatial holdout gates, and strict r",
+        ". Driven by PhD-level structural geophysics, formal spatial holdout gates, and strict raster format verification. \u2193 Download Unique H35-06 Candidate GeoTIFF Executive summary & submission guide \u2192 Latest Unique Candidate \u00b7 H35-06 Topographic Scarp Curvature Proxy Gate: PASSED (5/6 Folds) H35-06 beat both single-scale tmi_hg baseline (+0.0146 mean \u0394DTI) and the H35-01 incumbent (+0.0083 mean \u0394DTI) across 5/6 spatial tiles at matched emitted mass. \u2713 Submission Ready Format & Ran",
+        "ign Skip to content G GEMSDOE35 DOE GEMS \u00b7 306 Download TIF 0.2778 Analysis 5 Hypotheses Spatial CV Executive Summary Download Candidate TIFF \u2193 GEMS Prize Challenge \u00b7 GeoDAWN Region \u00b7 Basin & Range \u00b7 04 Oct 2026 Discovery of Concealed Geothermal Faults. Auditable, space-filling Latin hypercube experiments exploring multiscale geomorphology, potential fields, and geodetic strain. Driven by PhD-level structural geophysics, formal spatial holdout gates, and strict raster format ",
+        "t G GEMSDOE35 DOE GEMS \u00b7 306 Download TIF 0.2778 Analysis 5 Hypotheses Spatial CV Executive Summary Download Candidate TIFF \u2193 GEMS Prize Challenge \u00b7 GeoDAWN Region \u00b7 Basin & Range \u00b7 04 Oct 2026 Discovery of Concealed Geothermal Faults. Auditable, space-filling Latin hypercube experiments exploring multiscale geomorphology, potential fields, and geodetic strain. Driven by PhD-level structural geophysics, formal spatial holdout gates, and strict raster format verification. \u2193 Do",
+        "; proxy gate passed; owner mirror unverified; not organizer-scored. Dimensions 3730 rows \u00d7 3292 cols \u00b7 1 band Data Type float32 \u00b7 range [0.0, 1.0] CRS & Resolution EPSG:32611 \u00b7 100 m Outside Domain NaN nodata (7,111,787 px) Positive Cells 39,530 pixels (0.765%) GeoTIFF SHA-256 465935789e62\u202633c1bc464 Array SHA-256 56f4b1033d94\u202692c75c285 Range Check PASS \u00b7 [0.0, 1.0] finite PhD-Level Scientific Analysis Understanding the 0.2778 Score & Exceeding 0.3262 Official Public Leaderboa"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE36",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE36/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "1d05d2eb6ab533319f17306b9465e43b48ecfacb",
+      "text_sha256": "c9fb48a6a14f1580fb2e6814e558dd9f8a59268b6bcceff44f584f89495bfd25",
+      "excerpt": " GEMS DOE 36 \u2014 Anderson-PINN Multi-Physics Fault Discovery Skip to main content 36 GEMS DOE / 36 Executive Summary & Submit Guide Hypotheses Leaderboard Analysis Validation Ledger Official Leaderboard \u2197 DOE GEMS Prize Challenge \u00b7 Research & Submission Anderson PINN & Geothermal Conduits. A physics-informed multi-dataset framework predicting unmapped faults across the Great Basin GeoDAWN footprint. Combining Anderson's (1905) faulting kinematics, Raissi et al. (2019) structure-tensor loss, GDR 13",
+      "claim_excerpts": [
+        "_3276c04090_3c064db2.tif (off-catalogue H6). Anderson-PINN (primary): single-band float32 GeoTIFF, EPSG:32611, 100 m, 3730 \u00d7 3292 grid. SHA-256: e15891020b9c57056ac7fa874a5e506fbd6ed9314a4ea8e73af0753887a3708a . 38,854 dots, 0 on-catalogue, finite [0,1] across all 12,279,160 cells. Off-catalogue H6 (gate-passed 5/5): binary dot map, 24,881 dots, exact organizer grid, [0,1] in-bounds, NaN outside. Download PINN primary TIFF (311 KB) Download PINN ZIP (208 KB) Download PINN NaN",
+        "apping, and rigorous 4-quadrant spatial holdout validation. Download Submission TIFF (311 KB) \u2193 How to Submit on DrivenData \u2192 Two candidate lines \u00b7 2026-10-04 UTC GEMSDOE36 Lead Artifacts Ready Anderson-PINN : 38,854 positive dots \u00b7 0 on-catalogue \u00b7 100% cells finite in [0, 1] with nodata=None (fixing the portal range error). Holdout Mirror: 0.269908 (+0.001987 vs 0.2778 base). Projected live score: 0.2798 . Off-catalogue H6 prior : 24,881 dots on the exact organizer grid; be",
+        "othermal reservoir mapping, and rigorous 4-quadrant spatial holdout validation. Download Submission TIFF (311 KB) \u2193 How to Submit on DrivenData \u2192 Two candidate lines \u00b7 2026-10-04 UTC GEMSDOE36 Lead Artifacts Ready Anderson-PINN : 38,854 positive dots \u00b7 0 on-catalogue \u00b7 100% cells finite in [0, 1] with nodata=None (fixing the portal range error). Holdout Mirror: 0.269908 (+0.001987 vs 0.2778 base). Projected live score: 0.2798 . Off-catalogue H6 prior : 24,881 dots on the exac",
+        "portal range error). Holdout Mirror: 0.269908 (+0.001987 vs 0.2778 base). Projected live score: 0.2798 . Off-catalogue H6 prior : 24,881 dots on the exact organizer grid; beat the incumbent on all 5 spatially-blocked folds (mean 0.43 vs 0.10, ~4.4\u00d7 on the off-catalogue proxy). Both are unique, download-ready candidate TIFs; the owner selects the single final file to upload. View Full Validation Ledger \u2192 Two unique candidate TIFs \u2014 the owner selects the single final file: gems",
+        "n content 36 GEMS DOE / 36 Executive Summary & Submit Guide Hypotheses Leaderboard Analysis Validation Ledger Official Leaderboard \u2197 DOE GEMS Prize Challenge \u00b7 Research & Submission Anderson PINN & Geothermal Conduits. A physics-informed multi-dataset framework predicting unmapped faults across the Great Basin GeoDAWN footprint. Combining Anderson's (1905) faulting kinematics, Raissi et al. (2019) structure-tensor loss, GDR 1391 geothermal reservoir mapping, and rigorous 4-qu",
+        "Mirror: 0.269908 (+0.001987 vs 0.2778 base). Projected live score: 0.2798 . Off-catalogue H6 prior : 24,881 dots on the exact organizer grid; beat the incumbent on all 5 spatially-blocked folds (mean 0.43 vs 0.10, ~4.4\u00d7 on the off-catalogue proxy). Both are unique, download-ready candidate TIFs; the owner selects the single final file to upload. View Full Validation Ledger \u2192 Two unique candidate TIFs \u2014 the owner selects the single final file: gemsdoe36-anderson-geothermal-pin"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE37",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE37/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "2ecc73cb6a44afbc5b7eca3e42cb22994049170a",
+      "text_sha256": "10ff69ecab488dccb1a4479f293b37ee0db47c94be1a0e20eaa7801b0f81c3f3",
+      "excerpt": " GEMS Prospectivity Lab \u2014 GEMSDOE37 Opening the GEMS Prospectivity Lab site\u2026 ",
+      "claim_excerpts": [],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE38",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE38/docs/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "f6180143065a3590b427fadea4e7ddec26ef7ea4",
+      "text_sha256": "1d70ee53e48ec1f6fda685815812cd74227dacc2a6ad2055139b94450c0a1108",
+      "excerpt": " Measured-data research \u00b7 GEMSDOE38 Skip to content GEMS DOE38 Overview Submission guide Research & results Sources DOE GEMS Prize \u00b7 measured-data research A unique map. An honest gate. A distinct GeoTIFF derived from measured geophysics. It passes local file checks; no hidden-fault score or comparable current-best holdout is available. RESEARCH ONLY \u00b7 SLOT GATE CLOSED \u2193 Download unique research GeoTIFF ZIP Local format checks passed \u00b7 portal acceptance untested NaN-outside alternative \u00b7 Local f",
+      "claim_excerpts": [
+        "Preregistered test J did not add a reliable gain over D The primary asymmetric magnetic-flank hypothesis was selected before feature computation. In four spatial catalogue-proxy folds, 19+D+J vs 19+D was +0.000712 DTI , 2/4 folds positive; paired 20km-block 95% interval [-0.004698, +0.006037]. This fails the preregistered incremental gate. The proxy uses incomplete public labels, where zero is unlabelled. Spatial fold 19-band baseline 19 + D 19 + D + J J increment vs D Quadra",
+        "st holdout is available. RESEARCH ONLY \u00b7 SLOT GATE CLOSED \u2193 Download unique research GeoTIFF ZIP Local format checks passed \u00b7 portal acceptance untested NaN-outside alternative \u00b7 Local format/provenance receipt Do not submit this file from the current evidence. Leaderboard snapshot: 0.3262 on 2026-10-05; no score is claimed for this candidate. GeoDAWN / Nevada\u2013California 100m grid Candidate pixels over measured TMI Downsampled display; not confirmed faults or geothermal vents",
+        "le checks; no hidden-fault score or comparable current-best holdout is available. RESEARCH ONLY \u00b7 SLOT GATE CLOSED \u2193 Download unique research GeoTIFF ZIP Local format checks passed \u00b7 portal acceptance untested NaN-outside alternative \u00b7 Local format/provenance receipt Do not submit this file from the current evidence. Leaderboard snapshot: 0.3262 on 2026-10-05; no score is claimed for this candidate. GeoDAWN / Nevada\u2013California 100m grid Candidate pixels over measured TMI Down",
+        "oint is available for GEMSDOE38. The user-reported H33-2-B2 0.2778 mapping is not tied to an organizer-exposed file hash; GEMSDOE32's own holdout evidence has missing tracked inputs and conflicting logged/code fold settings. GEMSDOE32's live-mirror receipt reproduced only 2 of 6 logged historical orderings (3 of 6 after its own prevalence calibration), so its proxy is not a promotion-grade benchmark. The D raster's historical 19+D feature comparison used the incomplete public",
+        " reliable gain over D The primary asymmetric magnetic-flank hypothesis was selected before feature computation. In four spatial catalogue-proxy folds, 19+D+J vs 19+D was +0.000712 DTI , 2/4 folds positive; paired 20km-block 95% interval [-0.004698, +0.006037]. This fails the preregistered incremental gate. The proxy uses incomplete public labels, where zero is unlabelled. Spatial fold 19-band baseline 19 + D 19 + D + J J increment vs D Quadrant 1 0.10863 0.10890 0.10916 +0.00",
+        "ed geophysics. It passes local file checks; no hidden-fault score or comparable current-best holdout is available. RESEARCH ONLY \u00b7 SLOT GATE CLOSED \u2193 Download unique research GeoTIFF ZIP Local format checks passed \u00b7 portal acceptance untested NaN-outside alternative \u00b7 Local format/provenance receipt Do not submit this file from the current evidence. Leaderboard snapshot: 0.3262 on 2026-10-05; no score is claimed for this candidate. GeoDAWN / Nevada\u2013California 100m grid Candid"
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    },
+    {
+      "repo": "GEMSDOE39",
+      "url": "https://buffedlizard55-lab.github.io/GEMSDOE39/index.html",
+      "evidence_class": "secondary owner-authored site source, NOT organizer receipt",
+      "status": "source_reviewed",
+      "github_blob_sha": "51b9fb96935a2c6dcf22e292a5215a3636ec791f",
+      "text_sha256": "14a82a6f01c31dd3175d264418a2b33f8bff63be9fb0b1732f64c10f9b0d1588",
+      "excerpt": " GEMSDOE39 | Open the research site Opening the GEMSDOE39 research site. If you are not redirected, open the site and download page . ",
+      "claim_excerpts": [
+        "research site. If you are not redirected, open the site and download page . "
+      ],
+      "warning": "Snapshot of repository source; redirect targets and dynamic rendered contents not exhaustively reviewed."
+    }
+  ]
+}

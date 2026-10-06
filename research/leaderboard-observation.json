@@ -1,0 +1,26 @@
+{
+  "observed_date_utc": "2026-10-05",
+  "score": 0.3262,
+  "source_url": "https://www.drivendata.org/competitions/306/competition-doe-gems/leaderboard/",
+  "evidence_type": "dated historical public leaderboard snapshot; participant rows are not organizer filename-to-score receipts",
+  "provenance": "Previously captured by the predecessor automated public-page workflow (Actions run 37387883536) before this repository audited the current Terms of Use. The observation is retained for provenance only; the scraper and all DrivenData requests have since been removed. This session did not re-access the competition site.",
+  "observed_rows": [
+    {"rank": 1, "participant": "nchuzhoy", "score": 0.3262},
+    {"rank": 2, "participant": "kinghorton42", "score": 0.3222},
+    {"rank": 3, "participant": "alexoktaba", "score": 0.3220},
+    {"rank": 4, "participant": "DARD", "score": 0.3195},
+    {"rank": 5, "participant": "joeyfezster", "score": 0.3163},
+    {"rank": 6, "participant": "xiaofanhu", "score": 0.3060},
+    {"rank": 7, "participant": "Batik Shirt Brothers", "score": 0.2998},
+    {"rank": 8, "participant": "ndavis7", "score": 0.2888},
+    {"rank": 9, "participant": "mzoorob", "score": 0.2884},
+    {"rank": 10, "participant": "GrigorSargsyan", "score": 0.2876},
+    {"rank": 11, "participant": "HardcoreTechGod", "score": 0.2854},
+    {"rank": 12, "participant": "op01", "score": 0.2792},
+    {"rank": 13, "participant": "extradr19", "score": 0.2778},
+    {"rank": 14, "participant": "smashi34", "score": 0.2708},
+    {"rank": 15, "participant": "smrtdoog5", "score": 0.2708}
+  ],
+  "current_status": "historical only; current standings are unknown and this project does not monitor them",
+  "submission_artifact_mapping": "not established; in particular, the rank-13 score cannot be tied to the H33 TIFF without an organizer receipt"
+}
