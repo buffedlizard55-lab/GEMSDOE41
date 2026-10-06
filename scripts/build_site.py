@@ -38,11 +38,10 @@ HISTORICAL_TABLE = table(
 
 
 def source_feed_fallback():
-    total=len(FEED.get('sources',[]));ok=FEED.get('source_checks_ok',0);failed=FEED.get('source_checks_failed',total-ok)
     last=HISTORICAL.get('observed_date_utc','unknown');score=HISTORICAL.get('score')
     historic=(f" Last recorded public leaderboard observation: {score:.4f} on {E(last)} (historical only; not current)." if isinstance(score,(int,float)) else '')
-    return (f"Non-competition official-source snapshot: {E(str(FEED.get('checked_utc','not checked')))}; "
-            f"{ok}/{total} checks succeeded; {failed} probe errors (not proof a source is offline). DrivenData leaderboard monitoring is disabled by its Terms of Use; no current score is claimed."
+    return ("Daily permitted official-source health is loaded from this site's same-origin JSON snapshot. "
+            "DrivenData leaderboard monitoring is disabled by its Terms of Use; current standings are unknown."
             f"{historic} ")
 
 home=f'''<section class="hero"><div><span class="eyebrow">FIELD EXPERIMENT 41 / WALKER LANE</span><h1>Follow the transfer.<br>Test the hypothesis.</h1><p class="lead">A new fault-confidence map built from the space between two structural populations—not from an old submission.</p><span class="pill warn">Research candidate · submission gate closed</span>{download_block()}<p class="fine">Freshly generated artifact. Not organizer-scored. Do not spend a weekly slot on this version.</p></div><div class="map-card"><img src="structural-map.png" alt="Study-area map showing mapped faults in gray and new transfer-corridor confidence in color"><div class="caption">01 / Structural position, not catalogue density. <a href="structural-map.png">Open map ↗</a></div></div></section>
