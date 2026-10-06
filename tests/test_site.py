@@ -249,3 +249,30 @@ def test_reproduce_workflow_follows_the_declared_reproduction_target():
     assert (ROOT / "docs/downloads" / manifest["filename"]).exists()
     assert "reproduction_target" in workflow
     assert "expected-main.tif" in workflow
+
+
+def test_the_slot_eligible_download_is_above_every_archived_build():
+    """The acceptance criterion is that the submission file is obvious at the top of the site.
+
+    H41-I keeps a prominent panel, but it is a gate-closed predecessor: on every page it must come
+    after the live H42 content and carry the not-to-submit banner, otherwise the first thing a
+    visitor sees is an archived download button.
+    """
+    import json
+    manifest = json.loads((ROOT / "docs/downloads/manifest.json").read_text())
+    assert manifest["slot_eligible"] is True
+    # research.html summarises the surface rather than linking the TIF, so it is anchored on its
+    # own H42 heading; the two download pages are anchored on the published filename.
+    anchors = {"index.html": manifest["filename"],
+               "executive-summary.html": manifest["filename"],
+               "research.html": "Basin-margin packing"}
+    for name, anchor in anchors.items():
+        text = (ROOT / "docs" / name).read_text()
+        live = text.index(anchor)
+        archived = text.index("h41i-local-strike")
+        assert live < archived, f"{name}: the archived H41-I panel precedes the live download"
+        banner = text.index("Earlier build (H41-I) — not the file to submit.")
+        assert banner < archived
+        # the H42 gate statement is present before the archived banner on the landing page
+        if name == "index.html":
+            assert text.index("Blocked-holdout gate") < banner
