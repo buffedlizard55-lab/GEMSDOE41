@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-06T00:39:04Z",
+  "source": {
+    "github_actions_run": "https://github.com/buffedlizard55-lab/GEMSDOE41/actions/runs/37394931018",
+    "check_run_id": 112048517867,
+    "head_sha": "3109eabae4a1db0a79e90225c22f5070848ecfc6",
+    "evidence_type": "GitHub Actions check-run annotations and job status"
+  },
+  "comparison_policy": {
+    "tolerance_float32_epsilons": 64,
+    "absolute_tolerance": 0.00000762939453125,
+    "outside_footprint_values_must_match_exactly": true,
+    "grid_and_valid_mask_must_match_exactly": true,
+    "nonzero_support_is_reported_but_not_a_separate_gate": true
+  },
+  "raster_derived_h41_a_r": {
+    "expected_sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f",
+    "actual_sha256": "5e8e528d105cf060490511a033c692f72dd761d09259fa7ae40c53dfc136e05f",
+    "valid_cells_compared": 5167373,
+    "exact_pixels": true,
+    "different_pixels": 0,
+    "max_absolute_error": 0.0,
+    "mean_absolute_error": 0.0,
+    "sum_absolute_error": 0.0,
+    "nonzero_support_changed_pixels": 0,
+    "nonzero_support_exact": true,
+    "outside_values_exact": true,
+    "outside_expected_all_nan": true,
+    "outside_actual_all_nan": true,
+    "numerically_reproducible": true
+  },
+  "source_vector_h41_a": {
+    "expected_sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+    "actual_sha256": "8cd554d6caa94932879ecf7b73af5f9f9b24553eb5124f74dc1281940826a12c",
+    "valid_cells_compared": 5167373,
+    "exact_pixels": true,
+    "different_pixels": 0,
+    "max_absolute_error": 0.0,
+    "mean_absolute_error": 0.0,
+    "sum_absolute_error": 0.0,
+    "nonzero_support_changed_pixels": 0,
+    "nonzero_support_exact": true,
+    "outside_values_exact": true,
+    "outside_expected_all_nan": false,
+    "outside_actual_all_nan": false,
+    "numerically_reproducible": true
+  },
+  "workflow_result": {
+    "rebuild_steps": "passed",
+    "pre-rebuild_tests": "passed",
+    "field_comparisons": "passed",
+    "artifact_upload": "passed",
+    "overall_run_conclusion": "success"
+  }
+}
